@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GRAMy</string>
+
+    <!-- Main -->
+    <string name="tvTitle">GRAMy</string>
+    <string name="btnHome"></string>
+    <string name="btnNews"></string>
+    <string name="btnAccount"></string>
+    <string name="btnSetting"></string>
+
+</resources>
