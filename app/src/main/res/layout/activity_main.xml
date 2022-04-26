@@ -32,6 +32,7 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:backgroundTint="#00FFFFFF"
+            android:contentDescription="@string/btnAccount"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="@+id/btnNews"
             app:layout_constraintEnd_toStartOf="@+id/btnSetting"
