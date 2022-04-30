@@ -10,42 +10,61 @@
         android:id="@+id/view"
         android:layout_width="2dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#284E4E4E"
         android:rotation="180"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnFacebookLogin"
+        app:layout_constraintEnd_toStartOf="@+id/btnKakaoLogin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnFacebookLogin"
+        app:layout_constraintTop_toTopOf="@+id/btnFacebookLogin" />
 
     <Button
         android:id="@+id/btnFindId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="64dp"
         android:background="#00FFFFFF"
         android:text="@string/btnFindId"
         android:textColor="#303030"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="52dp"
-        tools:layout_editor_absoluteY="459dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnFacebookLogin"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/facebook"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginSub"
+        app:srcCompat="@drawable/facebook" />
 
     <Button
         android:id="@+id/btnGoJoin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:insetTop="1dp"
         android:insetBottom="1dp"
         android:text="@string/btnGoJoin"
-        app:cornerRadius="50dp"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="605dp" />
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGoJoin"
+        app:layout_constraintVertical_bias="0.357" />
 
     <EditText
         android:id="@+id/edtPw"
@@ -58,144 +77,199 @@
         android:hint="  please enter your pw"
         android:inputType="textPersonName"
         android:shadowColor="#FFFFFF"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="353dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edtId"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edtId"
+        app:layout_constraintTop_toBottomOf="@+id/edtId"
+        app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
         android:id="@+id/checkAutoLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
         android:text="@string/checkAutoLogin"
         android:textColor="#333333"
-        tools:layout_editor_absoluteX="251dp"
-        tools:layout_editor_absoluteY="459dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindPw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnFindPw"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/btnNaverLogin"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/naver"
-        tools:layout_editor_absoluteX="276dp"
-        tools:layout_editor_absoluteY="162dp" />
-
-    <TextView
-        android:id="@+id/tvPw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/tvPw"
-        android:textColor="#333333"
-        android:textSize="16dp"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="366dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/naver" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:insetTop="1dp"
         android:insetBottom="1dp"
         android:text="@string/btnLogin"
-        app:cornerRadius="50dp"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="411dp" />
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnFindPw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btnKakaoLogin"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/kakao"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/kakao" />
 
     <TextView
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/tvLogin"
         android:textColor="#333333"
         android:textSize="18dp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="275dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFacebookLogin" />
 
     <TextView
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/tvID"
         android:textColor="#333333"
         android:textSize="16dp"
-        tools:layout_editor_absoluteX="58dp"
-        tools:layout_editor_absoluteY="329dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tvPw"
+        app:layout_constraintEnd_toStartOf="@+id/edtId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/tvPw"
+        android:textColor="#333333"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/edtPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvId" />
 
     <Button
         android:id="@+id/btnFindPw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
         android:background="#00FFFFFF"
         android:text="@string/btnFindPw"
         android:textColor="#303030"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="459dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnFindId"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/loginSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/loginSub"
         android:textColor="#333333"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="98dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
 
     <TextView
         android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/loginTitle"
         android:textColor="#333333"
         android:textSize="28sp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="48dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvGoJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/tvGoJoin"
         android:textColor="#333333"
         android:textSize="18dp"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="520dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFindId" />
 
     <EditText
         android:id="@+id/edtId"
         android:layout_width="0dp"
         android:layout_height="40dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginEnd="64dp"
         android:background="@drawable/border"
         android:backgroundTint="#FFFFFF"
         android:ems="10"
         android:hint="  please enter your id"
         android:inputType="textImeMultiLine|textNoSuggestions"
         android:shadowColor="#FFFFFF"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="311dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view2"
         android:layout_width="2dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#284E4E4E"
-        tools:layout_editor_absoluteX="255dp"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/btnKakaoLogin"
+        app:layout_constraintEnd_toStartOf="@+id/btnNaverLogin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnKakaoLogin"
+        app:layout_constraintTop_toTopOf="@+id/btnKakaoLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
