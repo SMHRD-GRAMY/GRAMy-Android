@@ -8,4 +8,22 @@
     <string name="btnAccount"></string>
     <string name="btnSetting"></string>
 
+    <!-- login-->
+    <string name="edtId"></string>
+    <string name="edtPw"></string>
+    <string name="loginTitle">로그인</string>
+    <string name="loginSub">아이디와 비밀번호 입력하기 귀찮으시죠? \n소셜로그인으로 1초만에 로그인하세요.</string>
+    <string name="btnLogin">로그인</string>
+    <string name="btnFacebookLogin"></string>
+    <string name="btnKakaoLogin"></string>
+    <string name="btnNaverLogin"></string>
+    <string name="tvID">아이디</string>
+    <string name="tvPw">비밀번호</string>
+    <string name="tvLogin">기존회원이세요?</string>
+    <string name="checkAutoLogin">자동 로그인</string>
+    <string name="btnFindId">아이디 찾기</string>
+    <string name="btnFindPw">비밀번호 찾기</string>
+    <string name="btnGoJoin">회원가입</string>
+    <string name="tvGoJoin">아이디가 없으시다면?</string>
+
 </resources>
