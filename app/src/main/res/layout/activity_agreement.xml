@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AgreementActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08071136" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/joinTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/joinTitle"
+        android:textColor="#202020"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.551" />
+
+    <TextView
+        android:id="@+id/agreementTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="140dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/agreeMentTitle"
+        android:textColor="#202020"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="@+id/guideline9" />
+
+    <CheckBox
+        android:id="@+id/ckAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="276dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/ckAll"
+        android:textColor="#595959"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toBottomOf="@+id/joinTitle" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="1dp"
+        android:layout_height="370dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="184dp"
+        android:background="#25000000"
+        android:backgroundTint="@null"
+        android:rotation="90"
+        android:rotationX="0"
+        android:rotationY="0"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="28dp"
+        android:fontFamily="sans-serif-black"
+        android:insetTop="1dp"
+        android:insetBottom="1dp"
+        android:stateListAnimator="@null"
+        android:text="@string/btnNext"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/ckAgeNo"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioButton
+        android:id="@+id/ckGramy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="224dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/ckGramy"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioButton
+        android:id="@+id/ckPersonalChoose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/ckPersonalChoose"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/ckMarketing"
+        app:layout_constraintEnd_toEndOf="@+id/ckPersonal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/ckPersonal" />
+
+    <RadioButton
+        android:id="@+id/ckMarketing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/ckMarketing"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/ckPersonalChoose"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/ckPersonalChoose" />
+
+    <RadioButton
+        android:id="@+id/ckPersonal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/ckPersonal"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/ckPersonalChoose"
+        app:layout_constraintEnd_toEndOf="@+id/ckGramy"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/ckGramy" />
+
+    <CheckBox
+        android:id="@+id/ckAgeYes"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:background="#143F72AF"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/ckAgeYes"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/ckMarketing" />
+
+    <CheckBox
+        android:id="@+id/ckAgeNo"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="7dp"
+        android:background="#143F72AF"
+        android:backgroundTint="@null"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/ckAgeNo"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/ckAgeYes"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/ckAgeYes"
+        app:layout_constraintTop_toBottomOf="@+id/ckAgeYes" />
+
+    <TextView
+        android:id="@+id/tvAgeNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="85dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvAgeNo"
+        android:textColor="#D5595959"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ckAgeNo"
+        app:layout_constraintEnd_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/ckAgeNo"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <Button
+        android:id="@+id/btnShowAgreement"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:stateListAnimator="@null"
+        android:text="@string/btnShowAgreement"
+        android:textColor="#66595959"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ckGramy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ckGramy"
+        app:layout_constraintTop_toTopOf="@+id/ckGramy"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnShowAgreement2"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:stateListAnimator="@null"
+        android:text="@string/btnShowAgreement"
+        android:textColor="#66595959"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ckPersonal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ckPersonal"
+        app:layout_constraintTop_toBottomOf="@+id/ckGramy"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnShowAgreement4"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:stateListAnimator="@null"
+        android:text="@string/btnShowAgreement"
+        android:textColor="#66595959"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ckMarketing"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ckMarketing"
+        app:layout_constraintTop_toBottomOf="@+id/ckPersonalChoose"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnShowAgreement3"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:stateListAnimator="@null"
+        android:text="@string/btnShowAgreement"
+        android:textColor="#66595959"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ckPersonalChoose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/ckPersonalChoose"
+        app:layout_constraintTop_toTopOf="@+id/ckPersonalChoose"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

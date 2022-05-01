@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy">
         <activity
-            android:name=".JoinActivity"
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AgreementActivity"
             android:exported="false" />
         <activity
             android:name=".LoadingActivity"
@@ -19,7 +22,7 @@
             android:name=".TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".JoinActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

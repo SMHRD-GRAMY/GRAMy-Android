@@ -4,6 +4,280 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".JoinActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08071136" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/joinTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/joinTitle"
+        android:textColor="#202020"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.551" />
+
+    <TextView
+        android:id="@+id/tvJoinId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinId"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <TextView
+        android:id="@+id/tvJoinPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinPw"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtJoinId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinId" />
+
+    <TextView
+        android:id="@+id/tvJoinPwCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinPwCheck"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtJoinPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinPw" />
+
+    <TextView
+        android:id="@+id/tvJoinPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinPhone"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtJoinName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinName" />
+
+    <TextView
+        android:id="@+id/tvJoinAddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinAddr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtJoinPhone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinPhone" />
+
+    <TextView
+        android:id="@+id/tvJoinName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtJoinPwCheck"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinPwCheck" />
+
+    <EditText
+        android:id="@+id/edtJoinId"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:hint="  예 : GRAMy@shmrd.or.kr"
+        android:ems="15"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvJoinPw"
+        app:layout_constraintEnd_toEndOf="@+id/tvJoinId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvJoinId"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinId" />
+
+    <EditText
+        android:id="@+id/edtJoinPwCheck"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:hint="  비밀번호를 한번 더 입력해주세요"
+        android:ems="15"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvJoinName"
+        app:layout_constraintEnd_toEndOf="@+id/tvJoinPwCheck"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinPwCheck" />
+
+    <EditText
+        android:id="@+id/edtJoinName"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:hint="  이름을 입력해주세요"
+        android:ems="15"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvJoinPhone"
+        app:layout_constraintEnd_toEndOf="@+id/tvJoinName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinName" />
+
+    <EditText
+        android:id="@+id/edtJoinAddr"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:hint="  GRAMy에서 관리할 매장 주소를 입력해주세요"
+        android:ems="15"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvJoinAddr"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinAddr"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtJoinPw"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:hint="  비밀번호를 입력해주세요"
+        android:ems="15"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvJoinPwCheck"
+        app:layout_constraintEnd_toEndOf="@+id/tvJoinPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinPw" />
+
+    <EditText
+        android:id="@+id/edtJoinPhone"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:hint="  숫자만 입력해주세요"
+        android:ems="15"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvJoinAddr"
+        app:layout_constraintEnd_toEndOf="@+id/tvJoinPhone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvJoinPhone" />
+
+    <TextView
+        android:id="@+id/tvAddrSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/tvAddrSub"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinAddr" />
+
+    <Button
+        android:id="@+id/btnIdCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginRight="1dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/btnIdCheck"
+        android:stateListAnimator="@null"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edtJoinId"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toEndOf="@+id/edtJoinId"
+        app:layout_constraintTop_toTopOf="@+id/edtJoinId"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <Button
+        android:id="@+id/btnJoin"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:fontFamily="@font/secular_one"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:stateListAnimator="@null"
+        android:text="@string/btnJoin"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddrSub" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
