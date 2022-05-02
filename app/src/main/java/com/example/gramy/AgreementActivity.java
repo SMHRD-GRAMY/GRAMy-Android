@@ -84,7 +84,8 @@ public class AgreementActivity extends AppCompatActivity {
                     Intent intent = new Intent(AgreementActivity.this, JoinActivity.class);
                     startActivity(intent);
                 }else{
-                    Toast.makeText(AgreementActivity.this, "필수 선택사항을 확인해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AgreementActivity.this, "필수 이용약관에 동의해주세요.", Toast.LENGTH_SHORT).show();
+                    // 나이 체크 안했을 때 Toast 추가 진행하기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 }
             }
         });

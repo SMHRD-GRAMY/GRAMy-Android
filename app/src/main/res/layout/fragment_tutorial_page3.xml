@@ -23,7 +23,7 @@
         android:id="@+id/tvTutorial3Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/tvTutorial3Small"
         android:textColor="#595959"
