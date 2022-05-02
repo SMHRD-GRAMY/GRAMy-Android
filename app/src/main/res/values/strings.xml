@@ -57,4 +57,27 @@
     <string name="btnJoin">가입하기</string>
     <string name="btnIdCheck">중복확인</string>
 
+    <!-- activity_tutorial.xml -->
+    <string name="btnTutorialEnd">시작하기</string>
+
+    <!-- fragment_tutorial1.xml-->
+    <string name="tvTutorial1Big">튜토리얼 첫번째 화면 \n 큰 텍스트입니다.</string>
+    <string name="tvTutorial1Small">튜토리얼 첫번째 화면 \n 작은 테스트입니다.</string>
+
+    <!-- fragment_tutorial2.xml-->
+    <string name="tvTutorial2Big">튜토리얼 두번째 화면 \n 큰 텍스트입니다.</string>
+    <string name="tvTutorial2Small">튜토리얼 두번째 화면 \n 작은 테스트입니다.</string>
+
+    <!-- fragment_tutorial3.xml-->
+    <string name="tvTutorial3Big">튜토리얼 세번째 화면 \n 큰 텍스트입니다.</string>
+    <string name="tvTutorial3Small">튜토리얼 세번째 화면 \n 작은 테스트입니다.</string>
+
+    <!-- fragment_tutorial4.xml-->
+    <string name="tvTutorial4Big">튜토리얼 네번째 화면 \n 큰 텍스트입니다.</string>
+    <string name="tvTutorial4Small">튜토리얼 네번째 화면 \n 작은 테스트입니다.</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

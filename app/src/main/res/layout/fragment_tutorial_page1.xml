@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TutorialFragment.TutorialFragmentPage1">
+
+    <ImageView
+        android:id="@+id/imgTutorial1"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvTutoria1Big"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/tvTutorial1Big"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/imgTutorial1"
+        app:layout_constraintStart_toStartOf="@+id/imgTutorial1"
+        app:layout_constraintTop_toBottomOf="@+id/imgTutorial1" />
+
+    <TextView
+        android:id="@+id/tvTutorial1Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/tvTutorial1Small"
+        app:layout_constraintEnd_toEndOf="@+id/tvTutoria1Big"
+        app:layout_constraintStart_toStartOf="@+id/tvTutoria1Big"
+        app:layout_constraintTop_toBottomOf="@+id/tvTutoria1Big" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
