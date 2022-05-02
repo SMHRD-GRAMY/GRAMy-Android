@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/black_radius.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_tutorial.xml" value="0.25" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_tutorial_page1.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_tutorial_page2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_tutorial_page3.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_tutorial_page4.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/drawable/border.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/drawable/border2.xml" value="0.1" />
