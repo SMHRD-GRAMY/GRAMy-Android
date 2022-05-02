@@ -83,6 +83,8 @@ public class AgreementActivity extends AppCompatActivity {
                 if (ckGramy.isChecked()==true && ckPersonal.isChecked()==true && ckAgeYes.isChecked()==true) {
                     Intent intent = new Intent(AgreementActivity.this, JoinActivity.class);
                     startActivity(intent);
+                }else{
+                    Toast.makeText(AgreementActivity.this, "필수 선택사항을 확인해주세요", Toast.LENGTH_SHORT).show();
                 }
             }
         });

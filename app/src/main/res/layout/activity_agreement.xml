@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".AgreementActivity">
 
     <androidx.constraintlayout.widget.Guideline
@@ -31,7 +32,7 @@
         android:id="@+id/joinTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/joinTitle"
         android:textColor="#202020"
         android:textSize="20sp"
@@ -45,23 +46,21 @@
         android:id="@+id/agreementTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="140dp"
-        android:fontFamily="sans-serif-black"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/agreeMentTitle"
         android:textColor="#202020"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toTopOf="@+id/guideline9" />
 
     <CheckBox
         android:id="@+id/ckAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:layout_marginEnd="276dp"
+        android:layout_marginTop="104dp"
         android:buttonTint="#C13F72AF"
         android:fontFamily="@font/secular_one"
         android:text="@string/ckAll"
@@ -69,14 +68,15 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline6"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
         app:layout_constraintTop_toBottomOf="@+id/joinTitle" />
 
     <View
         android:id="@+id/view3"
         android:layout_width="1dp"
         android:layout_height="370dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="184dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="184dp"
         android:background="#25000000"
         android:backgroundTint="@null"
@@ -93,11 +93,12 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginBottom="28dp"
-        android:fontFamily="sans-serif-black"
+        android:fontFamily="sans-serif-condensed-medium"
         android:insetTop="1dp"
         android:insetBottom="1dp"
         android:stateListAnimator="@null"
         android:text="@string/btnNext"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -143,19 +144,18 @@
 
     <TextView
         android:id="@+id/tvAgeNo"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="85dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/tvAgeNo"
         android:textColor="#D5595959"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/ckAgeNo"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/ckAgeNo"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintVertical_bias="0.809" />
 
     <Button
         android:id="@+id/btnShowAgreement"
@@ -226,9 +226,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:buttonTint="#C13F72AF"
+        android:fontFamily="@font/secular_one"
         android:text="@string/ckGramy"
+        android:textColor="#595959"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -240,7 +242,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:buttonTint="#C13F72AF"
+        android:fontFamily="@font/secular_one"
         android:text="@string/ckPersonal"
+        android:textColor="#595959"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -252,7 +256,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:buttonTint="#C13F72AF"
+        android:fontFamily="@font/secular_one"
         android:text="@string/ckPersonalChoose"
+        android:textColor="#595959"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
@@ -267,10 +273,19 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="1dp"
         android:buttonTint="#C13F72AF"
+        android:fontFamily="@font/secular_one"
         android:text="@string/ckPersonalChoose"
+        android:textColor="#595959"
         app:layout_constraintEnd_toStartOf="@+id/guideline10"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ckPersonal" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="53dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
