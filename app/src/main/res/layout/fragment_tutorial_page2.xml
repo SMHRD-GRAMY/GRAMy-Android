@@ -6,35 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".TutorialFragment.TutorialFragmentPage2">
 
-    <ImageView
-        android:id="@+id/imgTutorial2"
-        android:layout_width="350dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/tvTutoria2Big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="400dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/tvTutorial2Big"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/imgTutorial2"
-        app:layout_constraintStart_toStartOf="@+id/imgTutorial2"
-        app:layout_constraintTop_toBottomOf="@+id/imgTutorial2" />
+        android:textColor="#595959"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTutorial2Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/tvTutorial2Small"
+        android:textColor="#595959"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/tvTutoria2Big"
         app:layout_constraintStart_toStartOf="@+id/tvTutoria2Big"
         app:layout_constraintTop_toBottomOf="@+id/tvTutoria2Big" />
+
+    <ImageView
+        android:id="@+id/imgTutorial2"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:src="@drawable/tuto_two"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.123" />
+
+    <TextView
+        android:id="@+id/tvTutorial2Small2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/tvTutorial2Small2"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTutorial2Small" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

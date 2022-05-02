@@ -4,37 +4,60 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".TutorialFragment.TutorialFragmentPage1">
-
-    <ImageView
-        android:id="@+id/imgTutorial1"
-        android:layout_width="350dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvTutoria1Big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="400dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/tvTutorial1Big"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/imgTutorial1"
-        app:layout_constraintStart_toStartOf="@+id/imgTutorial1"
-        app:layout_constraintTop_toBottomOf="@+id/imgTutorial1" />
+        android:textColor="#595959"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTutorial1Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/tvTutorial1Small"
+        android:textColor="#595959"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/tvTutoria1Big"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/tvTutoria1Big"
         app:layout_constraintTop_toBottomOf="@+id/tvTutoria1Big" />
+
+    <TextView
+        android:id="@+id/tvTutorial1Small2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/tvTutorial1Small2"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTutorial1Small" />
+
+    <ImageView
+        android:id="@+id/imgTutorial1"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:src="@drawable/tuto_one"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.114" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

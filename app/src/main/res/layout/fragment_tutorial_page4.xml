@@ -6,46 +6,86 @@
     android:layout_height="match_parent"
     tools:context=".TutorialFragment.TutorialFragmentPage4">
 
-    <ImageView
-        android:id="@+id/imgTutorial4"
-        android:layout_width="350dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/tvTutoria4Big"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="360dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/tvTutorial4Big"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/imgTutorial4"
-        app:layout_constraintStart_toStartOf="@+id/imgTutorial4"
-        app:layout_constraintTop_toBottomOf="@+id/imgTutorial4" />
+        android:textColor="#595959"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTutorial4Small2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/tvTutorial4Small2"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTutorial4_Small" />
+
+    <TextView
+        android:id="@+id/tvTutorial4Small3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/tvTutorial4Small3"
+        android:textColor="#595959"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTutorial4Small2" />
 
     <TextView
         android:id="@+id/tvTutorial4_Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/tvTutorial4Small"
+        android:textColor="#595959"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/tvTutoria4Big"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/tvTutoria4Big"
         app:layout_constraintTop_toBottomOf="@+id/tvTutoria4Big" />
 
     <Button
         android:id="@+id/btnTutorialEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:stateListAnimator="@null"
         android:text="@string/btnTutorialEnd"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.993"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.848" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:src="@drawable/tuto_four"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
