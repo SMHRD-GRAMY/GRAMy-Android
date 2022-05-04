@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.gramy.LoginActivity;
 import com.example.gramy.R;
 import com.example.gramy.TutorialActivity;
 
@@ -25,7 +26,7 @@ public class TutorialFragmentPage4 extends Fragment {
         btnTutorialEnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), TutorialActivity.class);
+                Intent intent = new Intent(getContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });

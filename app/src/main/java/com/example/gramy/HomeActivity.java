@@ -20,7 +20,6 @@ public class HomeActivity extends AppCompatActivity {
     fragNewsmain fragNewsmain;
     fragSettingmain fragSettingmain;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.container, fragHomemain).commit();
 
         bottomNavi.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 

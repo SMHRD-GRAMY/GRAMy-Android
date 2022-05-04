@@ -4,14 +4,91 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="홈 메인화면"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <Button
+        android:id="@+id/btnFoMgShelf"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shadow"
+        android:fontFamily="@font/secular_one"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/btnGoBoard"
+        android:textSize="28sp"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoMgShelf"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoReport"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnGoReport"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoReport" />
+
+    <Button
+        android:id="@+id/btnGoReport"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shadow"
+        android:fontFamily="@font/secular_one"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/btnGoReport"
+        android:textSize="28sp"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnFoMgShelf"
+        app:layout_constraintEnd_toEndOf="@+id/btnGoPdCheck"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/btnGoPdCheck"
+        app:layout_constraintTop_toBottomOf="@+id/btnGoPdCheck" />
+
+    <Button
+        android:id="@+id/btnGoPdCheck"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/shadow"
+        android:fontFamily="@font/secular_one"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/btnGoPdCheck"
+        android:textSize="28sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnGoReport"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnGoMgShelf"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/shadow"
+        android:fontFamily="@font/secular_one"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/btnGoMgShelf"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnFoMgShelf"
+        app:layout_constraintTop_toBottomOf="@+id/btnFoMgShelf" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
