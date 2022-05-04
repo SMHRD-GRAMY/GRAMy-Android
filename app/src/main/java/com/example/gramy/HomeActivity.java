@@ -31,6 +31,8 @@ public class HomeActivity extends AppCompatActivity {
         fragNewsmain = new fragNewsmain();
         fragSettingmain = new fragSettingmain();
 
+        getSupportFragmentManager().beginTransaction().add(R.id.container, fragHomemain).commit();
+
         bottomNavi.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
