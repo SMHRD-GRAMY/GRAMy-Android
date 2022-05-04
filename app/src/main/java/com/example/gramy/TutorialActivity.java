@@ -17,6 +17,8 @@ import java.util.ArrayList;
 
 public class TutorialActivity extends AppCompatActivity {
 
+    // 튜토리얼 끝나고 시작하기 버튼 누르면 로그인화면에서 홈화면으로 변경했습니다.
+
     private ViewPager2 vpTutorial;
     private TutorialPagerAdapter pagerAdapter;
     ArrayList<Fragment> fragList = new ArrayList<Fragment>();

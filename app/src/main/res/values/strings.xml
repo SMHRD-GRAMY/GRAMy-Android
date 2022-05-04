@@ -81,13 +81,17 @@
     <string name="tvTutorial4Small2">GRAMy는 사용자에게 다양한 기능을 제공하고자</string>
     <string name="tvTutorial4Small3">열심히 노력하고 있습니다. 감사합니다!</string>
 
-    <!-- Home--> <!-- Pd:production / Mg:manage-->
+    <!-- HomeMain--> <!-- Pd:production / Mg:manage-->
     <string name="btnGoPdCheck">실시간 재고 확인</string>
     <string name="btnGoReport">통계 리포트</string>
     <string name="btnGoBoard">게시판</string>
     <string name="btnGoMgShelf">선반 관리</string>
+
+    <!-- Home-->
     <string name="tvTitleGramy">GRAMy</string>
 
+    <!-- ProgressBar-->
+    <string name="progressBar"></string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
