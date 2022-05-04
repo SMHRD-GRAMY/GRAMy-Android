@@ -1,15 +1,31 @@
 package com.example.gramy;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ProgressBar;
 
 public class LoadingActivity extends AppCompatActivity {
 
-    // 로딩화면입니다. 로고만 일단 ImageView로 배치해놨습니다.
+    private ProgressBar progressBar;
+    Handler handler = new Handler();
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
+
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setIndeterminate(true);
+
+        handler.postDelayed(new Runnable(){
+            @Override
+            public void run(){
+                Intent intent = new Intent(LoadingActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        }, 800);
+
     }
 }
