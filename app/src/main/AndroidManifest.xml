@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy" >
         <activity
-            android:name=".TutorialActivity"
+            android:name=".AgreementActivity"
             android:exported="false" />
         <activity
-            android:name=".AgreementActivity"
+            android:name=".TutorialActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
