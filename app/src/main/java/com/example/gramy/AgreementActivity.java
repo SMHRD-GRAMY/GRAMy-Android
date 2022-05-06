@@ -19,7 +19,6 @@ public class AgreementActivity extends AppCompatActivity {
     // 라디오 버튼 옆에 해당 이용약관 전문 볼 수 있는 용도의 버튼은 만들어놨는데 이 부분은 추후에 기능 구현 진행하겠습니다.
     CheckBox ckAll, ckAgeNo, ckAgeYes, ckGramy, ckPersonalChoose, ckMarketing, ckPersonal;
     Button btnNext;
-    boolean isChecked = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

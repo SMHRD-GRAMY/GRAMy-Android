@@ -1,12 +1,12 @@
 package com.example.gramy.home;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +20,12 @@ import com.example.gramy.GoReportActivity;
 import com.example.gramy.R;
 
 
-public class fragHomemain extends Fragment {
+public class fragHomemain extends Fragment implements View.OnClickListener{
+
 
     // 화면 설계 후 버튼 누르면 화면이동!
     Button btnGoPdCheck, btnGoReport, btnGoBoard, btnGoMgShelf;
+    Intent intent = new Intent();
 
 
     @Override

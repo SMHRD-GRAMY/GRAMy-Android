@@ -32,6 +32,18 @@
             android:name=".GoReportActivity"
             android:exported="false" />
         <activity
+            android:name=".GoMgShelfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GoBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GoReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GoPdCheck"
+            android:exported="false" />
+        <activity
             android:name=".AgreementActivity"
             android:exported="false" />
         <activity
