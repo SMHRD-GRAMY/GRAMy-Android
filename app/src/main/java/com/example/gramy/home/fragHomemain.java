@@ -27,7 +27,6 @@ public class fragHomemain extends Fragment implements View.OnClickListener{
     Button btnGoPdCheck, btnGoReport, btnGoBoard, btnGoMgShelf;
     Intent intent = new Intent();
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
