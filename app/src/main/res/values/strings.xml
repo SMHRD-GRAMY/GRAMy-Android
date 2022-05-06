@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">GRAMy</string>
 
+    <!-- Toolbar_text -->
+    <string name="homeToolbar">GRAMy</string>
+    <string name="newsToolbar">News</string>
+    <string name="settingToolbar">Setting</string>
+
     <!-- Main -->
     <string name="tvTitle">GRAMy</string>
     <string name="btnHome"></string>
