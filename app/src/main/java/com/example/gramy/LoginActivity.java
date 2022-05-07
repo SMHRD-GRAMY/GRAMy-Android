@@ -28,13 +28,26 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import com.kakao.sdk.auth.model.OAuthToken;
+import com.kakao.sdk.user.UserApiClient;
+import com.kakao.sdk.user.model.User;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+
 public class LoginActivity extends AppCompatActivity {
 
     EditText edtId, edtPw;
-    Button btnLogin, btnGoJoin;
 
     RequestQueue queue;
     StringRequest request;
+
+    private static final String TAG = "LoginActivity";
+
+    private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
+    private ImageButton btnFacebookLogin, btnKakaoLogin, btnNaverLogin;
+    private EditText edtId, edtPw;
 
 
     @Override
@@ -48,6 +61,13 @@ public class LoginActivity extends AppCompatActivity {
         btnGoJoin = findViewById(R.id.btnGoJoin);
 
         queue = Volley.newRequestQueue(LoginActivity.this);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = edtId.getText().toString();
+                String pw = edtPw.getText().toString();
+            }
+        });
 
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +161,49 @@ public class LoginActivity extends AppCompatActivity {
                 queue.add(request);
             }
         });
+        // 카카오로그인
+        Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
+            @Override
+            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
+                if (oAuthToken != null) {
+                    Toast.makeText(LoginActivity.this, "oAuthToekn != null", Toast.LENGTH_SHORT).show();
+                } else{
+                    Toast.makeText(LoginActivity.this, "oAuthToekn = null", Toast.LENGTH_SHORT).show();
+                }
+                if (throwable != null) {
+                    Toast.makeText(LoginActivity.this, "throwable != null", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(LoginActivity.this, "throwable = null", Toast.LENGTH_SHORT).show();
+                }
+                updateKakaoLoginUi();
+                return null;
+            }
 
+            private void updateKakaoLoginUi() {
+                UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(User user, Throwable throwable) {
+                        if (user != null) {
+                            Log.d(TAG, "invoke : id " + user.getId());
+                        } else {
+
+                        }
+
+                        return null;
+                    }
+                });
+
+            }
+        };
+        btnKakaoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)) {
+                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
+                } else {
+                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
+                }
+            }
+        });
     }
 }
