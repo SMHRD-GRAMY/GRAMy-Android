@@ -33,6 +33,8 @@ import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
 
+import java.io.IOException;
+
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
@@ -166,19 +168,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if (oAuthToken != null) {
-                    Toast.makeText(LoginActivity.this, "oAuthToekn != null", Toast.LENGTH_SHORT).show();
-                } else{
-                    Toast.makeText(LoginActivity.this, "oAuthToekn = null", Toast.LENGTH_SHORT).show();
+                    Log.d("로그인 성공", "로그인 성공");
+                    UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
+                        @Override
+                        public Unit invoke(User user, Throwable throwable) {
+                            if (user != null){
+                                Log.d(TAG, "로그인 정보 : "+user);
                 }
-                if (throwable != null) {
-                    Toast.makeText(LoginActivity.this, "throwable != null", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(LoginActivity.this, "throwable = null", Toast.LENGTH_SHORT).show();
+                if (throwable != null){
+                    Log.d("error", throwable.getLocalizedMessage());
                 }
-                updateKakaoLoginUi();
                 return null;
-            }
-
+                }
+            });
+        }
+        updateKakaoLoginUi();
+        return null;
+    }
             private void updateKakaoLoginUi() {
                 UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
                     @Override
@@ -186,13 +192,12 @@ public class LoginActivity extends AppCompatActivity {
                         if (user != null) {
                             Log.d(TAG, "invoke : id " + user.getId());
                         } else {
-
+                            Log.d(TAG, "null");
                         }
 
                         return null;
                     }
                 });
-
             }
         };
         btnKakaoLogin.setOnClickListener(new View.OnClickListener() {
@@ -205,5 +210,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
     }
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
 
     private Context context;
     private ArrayList<SettingData> Setting_Data = new ArrayList<>();
+    private LinearLayout settingList;
 
     public SettingAdapter(Context context, ArrayList<SettingData> Setting_Data){
         this.context = context;
@@ -61,4 +63,5 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
             imgSettingItem.setImageResource(data.getImgId());
         }
     }
+
 }
