@@ -98,6 +98,12 @@
     <!-- ProgressBar-->
     <string name="progressBar"></string>
 
+    <!--go_ck_pd-->
+    <string name="btnChange">등록 및 위치 변경</string>
+    <string name="tvLocation">위치</string>
+    <string name="tvShelf">비품 선반</string>
+    <string name="tvStock">미등록</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

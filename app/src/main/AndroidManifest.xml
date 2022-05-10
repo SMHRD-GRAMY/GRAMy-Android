@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gramy" >
+    package="com.example.gramy">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GRAMy" >
+        android:theme="@style/Theme.GRAMy">
+        <activity
+            android:name=".stock.stockActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GoPdCheck"
+            android:exported="false" />
+        <activity
+            android:name=".GoBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GoMgShelfActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GoReportActivity"
+            android:exported="false" />
         <activity
             android:name=".AgreementActivity"
             android:exported="false" />
@@ -16,7 +31,7 @@
             android:name=".TutorialActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoadingActivity"
             android:exported="false" />
         <activity
             android:name=".JoinActivity"
@@ -25,8 +40,8 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".LoadingActivity"
-            android:exported="true" >
+            android:name=".HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
