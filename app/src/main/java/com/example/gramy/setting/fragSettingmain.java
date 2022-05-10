@@ -23,7 +23,6 @@ import java.util.List;
 
 public class fragSettingmain extends Fragment {
 
-    private LinearLayout settingList;
     private RecyclerView rcSettingItem;
     private SettingAdapter adapter;
     private ArrayList<SettingData> list = new ArrayList<>();
@@ -46,6 +45,7 @@ public class fragSettingmain extends Fragment {
         getData(rootView);
         j = 1;
         return rootView;
+
     }
 
     private void getData(ViewGroup rootView) {
@@ -74,18 +74,4 @@ public class fragSettingmain extends Fragment {
         }
         adapter.notifyDataSetChanged();
     }
-    public class ViewHolder extends RecyclerView.ViewHolder{
-        ViewHolder(View itemView){
-            super(itemView);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int pos = getAdapterPosition();
-                    if (pos != RecyclerView.NO_POSITION){
-                    }
-                }
-            });
-        }
-    }
-
 }
