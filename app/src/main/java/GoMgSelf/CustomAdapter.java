@@ -2,10 +2,12 @@ package GoMgSelf;
 
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.util.TypedValue;
 import android.view.ContextMenu;
 import android.view.Gravity;
@@ -18,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.gramy.GoPdCheck;
 import com.example.gramy.R;
 
 import java.util.ArrayList;
@@ -141,6 +144,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
         // viewHolder.id.setText(mList.get(position).getId());
         viewHolder.name.setText(mList.get(position).getName());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            Intent intent = new Intent(viewHolder.itemView.getContext(), GoPdCheck.class);
+                ContextCompat.startActivity(viewHolder.itemView.getContext(), intent, null);
+            }
+        });
 
     }
 

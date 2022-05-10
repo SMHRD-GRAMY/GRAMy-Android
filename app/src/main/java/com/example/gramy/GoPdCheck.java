@@ -16,7 +16,7 @@ public class GoPdCheck extends AppCompatActivity {
     Button btnChange;
     ImageButton imgScale1, imgScale2, imgScale3, imgScale4;
     TextView tvThing1;
-    String unkown = "미등록";
+    String unknown = "미등록";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
