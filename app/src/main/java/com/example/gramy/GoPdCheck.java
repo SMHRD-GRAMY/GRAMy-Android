@@ -39,7 +39,7 @@ public class GoPdCheck extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (v.getId() == R.id.imgScale1) {
-                    if (v.getId() == R.id.tvThing1) {
+
                         Intent intent = new Intent(GoPdCheck.this, stockActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
@@ -51,7 +51,7 @@ public class GoPdCheck extends AppCompatActivity {
 
                     }
 
-                }
+
             }
 
         });
