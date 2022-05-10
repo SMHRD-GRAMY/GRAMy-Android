@@ -11,12 +11,14 @@
 
         <TextView
             android:id="@+id/titleTV"
-            android:layout_alignParentLeft="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
             android:paddingLeft="10dp"
-            android:textSize="10pt"
-            android:text="뉴스 제목"/>
+            android:text="뉴스 제목"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/dateTV"
@@ -42,7 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="3dp"
         android:layout_gravity="center"
-        android:background="#cad8e6"/>
+        android:background="#cad8e6" />
 
 </LinearLayout>
 

@@ -43,7 +43,7 @@ public class NewsView extends LinearLayout {
 
         //descTV 세팅
         if(data.getDescription()!=null && data.getDescription().trim().length()>0)
-            descTV.setText(data.getDescription());
+            descTV.setText(data.getDescription().substring(0, 23) +".....");
         else
             descTV.setText("");
     }
