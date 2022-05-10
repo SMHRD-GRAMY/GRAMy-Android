@@ -2,17 +2,16 @@ package GoMgSelf;
 
 public class Dictionary {
 
-    private String list;
+    // private String id;
     private String name;
-    private String count;
 
-    public String getList() {
-        return list;
-    }
-
-    public void setList(String list) {
-        this.list = list;
-    }
+//    public String getId() {
+//        return id;
+//    }
+//
+//    public void setId(String list) {
+//        this.id = id;
+//    }
 
     public String getName() {
         return name;
@@ -22,18 +21,10 @@ public class Dictionary {
         this.name = name;
     }
 
-    public String getCount() {
-        return count;
-    }
-
-    public void setCount(String count) {
-        this.count = count;
-    }
-
-    public Dictionary(String list, String name, String count) {
-        this.list = list;
+    // 매개변수로 id 나중에 추가ㄴ
+    public Dictionary(String name) {
+        // this.id = id;
         this.name = name;
-        this.count = count;
     }
 }
 

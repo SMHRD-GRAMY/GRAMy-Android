@@ -1,13 +1,11 @@
 package com.example.gramy;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,9 +66,8 @@ public class GoMgShelfActivity extends AppCompatActivity {
 
                     final Button ButtonSubmitcancle = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);
                     final Button ButtonSubmit = (Button) view.findViewById(R.id.shelf_button_dialog_submit);
-                    final EditText editTextID = (EditText) view.findViewById(R.id.shelf_edittext_dialog_id);
-                    final EditText editTextEnglish = (EditText) view.findViewById(R.id.shelf_edittext_dialog_endlish);
-                    final EditText editTextKorean = (EditText) view.findViewById(R.id.shelf_edittext_dialog_korean);
+                    final EditText editTextName = (EditText) view.findViewById(R.id.shelf_edittext_dialog_name);
+
 
                     ButtonSubmit.setText("등록");
 
@@ -80,11 +77,10 @@ public class GoMgShelfActivity extends AppCompatActivity {
                     ButtonSubmit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            String strID =  editTextID.getText().toString();
-                            String strEnglish = editTextEnglish.getText().toString();
-                            String strKorean = editTextKorean.getText().toString();
+                            // String strID =  editTextID.getText().toString();
+                            String strName = editTextName.getText().toString();
 
-                            Dictionary dict = new Dictionary(strID, strEnglish, strKorean );
+                            Dictionary dict = new Dictionary(strName);
                             mArrayList.add(0, dict);
 
                             mAdapter.notifyItemInserted(0);
@@ -112,4 +108,4 @@ public class GoMgShelfActivity extends AppCompatActivity {
                 }
             });
         }
-        }
+}

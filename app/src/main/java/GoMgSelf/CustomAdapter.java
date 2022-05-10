@@ -30,16 +30,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
 
     public class CustomViewHolder extends RecyclerView.ViewHolder  implements View.OnCreateContextMenuListener{
-        protected TextView list;
+        // protected TextView id;
         protected TextView name;
-        protected TextView count;
-
 
         public CustomViewHolder(View view) {
             super(view);
-            this.list = (TextView) view.findViewById(R.id.list_listitem);
+            // this.id = (TextView) view.findViewById(R.id.list_listitem);
             this.name = (TextView) view.findViewById(R.id.name_listitem);
-            this.count = (TextView) view.findViewById(R.id.count_listitem);
 
             view.setOnCreateContextMenuListener(this);
         }
@@ -50,7 +47,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             MenuItem Delete = menu.add(Menu.NONE, 1002, 2, "삭제");
             Edit.setOnMenuItemClickListener(onEditMenu);
             Delete.setOnMenuItemClickListener(onEditMenu);
+
         }
+
 
         private final MenuItem.OnMenuItemClickListener onEditMenu = new MenuItem.OnMenuItemClickListener() {
 
@@ -64,24 +63,25 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                                 .inflate(R.layout.shelf_editbox, null, false);
                         builder.setView(view);
                         final Button ButtonSubmit = (Button) view.findViewById(R.id.shelf_button_dialog_submit);
-                        final EditText editTextID = (EditText) view.findViewById(R.id.shelf_edittext_dialog_id);
-                        final EditText editTextEnglish = (EditText) view.findViewById(R.id.shelf_edittext_dialog_endlish);
-                        final EditText editTextKorean = (EditText) view.findViewById(R.id.shelf_edittext_dialog_korean);
+                        final Button ButtonCancel = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);
+                        //    DB에서 받아오는 값으로 교체
+                        //    final EditText editTextID = (EditText) view.findViewById(R.id.shelf_edittext_dialog_id);
+                        final EditText editTextName = (EditText) view.findViewById(R.id.shelf_edittext_dialog_name);
 
 
-                        editTextID.setText(mList.get(getAdapterPosition()).getList());
-                        editTextEnglish.setText(mList.get(getAdapterPosition()).getName());
-                        editTextKorean.setText(mList.get(getAdapterPosition()).getCount());
+                        // editTextID.setText(mList.get(getAdapterPosition()).getList());
+                        editTextName.setText(mList.get(getAdapterPosition()).getName());
+
+
 
                         final AlertDialog dialog = builder.create();
                         ButtonSubmit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String strID = editTextID.getText().toString();
-                                String strEnglish = editTextEnglish.getText().toString();
-                                String strKorean = editTextKorean.getText().toString();
+                                // String strID = editTextID.getText().toString();
+                                String strName = editTextName.getText().toString();
 
-                                Dictionary dict = new Dictionary(strID, strEnglish, strKorean );
+                                Dictionary dict = new Dictionary(strName);
 
                                 mList.set(getAdapterPosition(), dict);
 
@@ -90,6 +90,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                                 dialog.dismiss();
                             }
                         });
+
+                        ButtonCancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                dialog.dismiss();
+                            }
+                        });
+
                         dialog.show();
                         break;
 
@@ -103,6 +111,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 }
                 return true;
             }
+
+
         };
     }
 
@@ -123,17 +133,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewHolder, int position) {
-        viewHolder.list.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        // viewHolder.id.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
         viewHolder.name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
-        viewHolder.count.setTextSize(TypedValue.COMPLEX_UNIT_SP , 25);
 
-        viewHolder.list.setGravity(Gravity.CENTER);
+        // viewHolder.id.setGravity(Gravity.CENTER);
         viewHolder.name.setGravity(Gravity.CENTER);
-        viewHolder.count.setGravity(Gravity.CENTER);
 
-        viewHolder.list.setText(mList.get(position).getList());
+        // viewHolder.id.setText(mList.get(position).getId());
         viewHolder.name.setText(mList.get(position).getName());
-        viewHolder.count.setText(mList.get(position).getCount());
+
     }
 
     @Override
