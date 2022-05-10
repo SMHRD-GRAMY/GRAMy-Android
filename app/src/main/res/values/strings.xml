@@ -53,6 +53,7 @@
     <string name="tvJoinPhone">휴대폰</string>
     <string name="tvJoinAddr">주소</string>
     <string name="tvAddrSub">여러개의 매장을 관리하고 싶다면, \n회원가입 후 마이페이지에서 추가할 수 있습니다.</string>
+    <string name="tvJoinGender">성별</string>
     <string name="edtJoinId"></string>
     <string name="edtJoinPw"></string>
     <string name="edtJoinPwCheck"></string>
@@ -61,6 +62,9 @@
     <string name="edtJoinPhone"></string>
     <string name="btnJoin">가입하기</string>
     <string name="btnIdCheck">중복확인</string>
+    <string name="radioMan">남성</string>
+    <string name="radioWoman">여성</string>
+    <string name="radioNoting">상관없음</string>
 
     <!-- activity_tutorial.xml -->
     <string name="btnTutorialEnd">시작하기</string>
