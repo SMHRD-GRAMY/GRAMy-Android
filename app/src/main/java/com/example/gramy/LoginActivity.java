@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,13 +29,27 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+
+import com.kakao.sdk.auth.model.OAuthToken;
+import com.kakao.sdk.user.UserApiClient;
+import com.kakao.sdk.user.model.User;
+
+import java.io.IOException;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+
 public class LoginActivity extends AppCompatActivity {
 
-    EditText edtId, edtPw;
-    Button btnLogin, btnGoJoin;
 
     RequestQueue queue;
     StringRequest request;
+
+    private static final String TAG = "LoginActivity";
+
+    private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
+    private ImageButton btnFacebookLogin, btnKakaoLogin, btnNaverLogin;
+    private EditText edtId, edtPw;
 
 
     @Override
@@ -46,8 +61,18 @@ public class LoginActivity extends AppCompatActivity {
         edtPw = findViewById(R.id.edtPw);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoJoin = findViewById(R.id.btnGoJoin);
+        btnKakaoLogin = findViewById(R.id.btnKakaoLogin);
+        btnNaverLogin = findViewById(R.id.btnNaverLogin);
+        btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
 
         queue = Volley.newRequestQueue(LoginActivity.this);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = edtId.getText().toString();
+                String pw = edtPw.getText().toString();
+            }
+        });
 
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,6 +166,55 @@ public class LoginActivity extends AppCompatActivity {
                 queue.add(request);
             }
         });
+        // 카카오로그인
+        Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
+            @Override
+            public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
+                if (oAuthToken != null) {
+                    Log.d("로그인 성공", "로그인 성공");
+                    UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
+                        @Override
+                        public Unit invoke(User user, Throwable throwable) {
+                            if (user != null){
+                                Log.d(TAG, "로그인 정보 : "+user);
+                }
+                if (throwable != null){
+                    Log.d("error", throwable.getLocalizedMessage());
+                }
+                return null;
+                }
+            });
+        }
+        updateKakaoLoginUi();
+        return null;
+    }
+            private void updateKakaoLoginUi() {
+                UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
+                    @Override
+                    public Unit invoke(User user, Throwable throwable) {
+                        if (user != null) {
+                            Log.d(TAG, "invoke : id " + user.getId());
+                        } else {
+                            Log.d(TAG, "null");
+                        }
+
+                        return null;
+                    }
+                });
+            }
+        };
+        btnKakaoLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (UserApiClient.getInstance().isKakaoTalkLoginAvailable(LoginActivity.this)) {
+                    UserApiClient.getInstance().loginWithKakaoTalk(LoginActivity.this, callback);
+                } else {
+                    UserApiClient.getInstance().loginWithKakaoAccount(LoginActivity.this, callback);
+                }
+            }
+        });
+
+
 
     }
 }
