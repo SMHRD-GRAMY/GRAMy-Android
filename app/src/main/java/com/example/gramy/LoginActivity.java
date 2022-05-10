@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -40,7 +41,6 @@ import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText edtId, edtPw;
 
     RequestQueue queue;
     StringRequest request;
@@ -61,6 +61,9 @@ public class LoginActivity extends AppCompatActivity {
         edtPw = findViewById(R.id.edtPw);
         btnLogin = findViewById(R.id.btnLogin);
         btnGoJoin = findViewById(R.id.btnGoJoin);
+        btnKakaoLogin = findViewById(R.id.btnKakaoLogin);
+        btnNaverLogin = findViewById(R.id.btnNaverLogin);
+        btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
 
         queue = Volley.newRequestQueue(LoginActivity.this);
         btnLogin.setOnClickListener(new View.OnClickListener() {

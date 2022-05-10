@@ -20,8 +20,7 @@ import com.example.gramy.GoReportActivity;
 import com.example.gramy.R;
 
 
-public class fragHomemain extends Fragment implements View.OnClickListener{
-
+public class fragHomemain extends Fragment {
 
     // 화면 설계 후 버튼 누르면 화면이동!
     Button btnGoPdCheck, btnGoReport, btnGoBoard, btnGoMgShelf;

@@ -17,33 +17,33 @@
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true"
         >
-        <activity
-            android:name=".stock.stockActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GoPdCheck"
-            android:exported="false" />
-        <activity
-            android:name=".GoBoardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GoMgShelfActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GoReportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GoMgShelfActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GoBoardActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GoReportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".GoPdCheck"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".stock.stockActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoPdCheck"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoBoardActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoMgShelfActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoReportActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoMgShelfActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoBoardActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoReportActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoPdCheck"-->
+<!--            android:exported="false" />-->
 <!--        <meta-data-->
 <!--            android:name="com.kakao.sdk.Appkey"-->
 <!--            android:value="@string/kakao_app_key" />-->
@@ -64,7 +64,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
         <activity
             android:name=".GoMgShelfActivity"
@@ -91,7 +91,7 @@
             android:name=".JoinActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
