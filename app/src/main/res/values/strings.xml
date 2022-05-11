@@ -110,6 +110,9 @@
     <string name="tvShelf">비품 선반</string>
     <string name="tvStock">미등록</string>
 
+    <!-- setting_item-->
+    <string name="switchBtn"></string>
+    <string name="tvVersion">6.0.7</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

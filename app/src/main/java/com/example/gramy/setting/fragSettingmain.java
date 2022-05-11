@@ -49,12 +49,11 @@ public class fragSettingmain extends Fragment {
     }
 
     private void getData(ViewGroup rootView) {
-        List<String> menu = Arrays.asList("공지사항","버전정보", "GRAMy소식", "알림","개인정보수정","가게추가", "알림수신동의", "실험실", "로그아웃", "고객센터");
+        List<String> menu = Arrays.asList("공지사항","버전정보", "GRAMy소식","개인정보수정","가게추가", "알림수신동의", "실험실", "로그아웃", "고객센터");
         List<Integer> imgId = Arrays.asList(
                 R.drawable.set_info,
                 R.drawable.set_version,
                 R.drawable.set_gramy,
-                R.drawable.set_alarm,
                 R.drawable.set_modify,
                 R.drawable.set_insert,
                 R.drawable.set_agree,
