@@ -61,8 +61,6 @@
         android:text="@string/switchBtn"
         android:textColor="#595959"
         android:textColorHighlight="#FFFFFF"
-        android:textColorHint="@null"
-        android:textColorLink="@null"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.917"

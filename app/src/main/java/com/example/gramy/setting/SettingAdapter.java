@@ -28,7 +28,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
 
     List<String> alertTitle = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
     List<String> alertMessage = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
-    List<String> alertBtnCheck = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
+//    List<String> alertBtnCheck = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
 
     OnListClickListener listener;
 
@@ -93,7 +93,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                 for (int j = 0; j<7; j++) {
                     alter.setTitle(alertTitle.get(j));
                     alter.setMessage(alertMessage.get(j));
-                    alter.setNegativeButton(alertBtnCheck.get(j), (dialogInterface, i) -> Log.d("click", "check"));
+                    alter.setNegativeButton("확인", (dialogInterface, i) -> Log.d("click", "check"));
 
                     if (pos == j){
                         alter.create().show();
