@@ -2,29 +2,34 @@ package com.example.gramy.setting;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.gramy.R;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemViewHolder> implements OnListClickListener{
 
     private Context context;
+    private TextView tvSettingItem, tvVersion;
+    private ImageView imgSettingItem;
+    private Switch switchBtn;
     private ArrayList<SettingData> Setting_Data;
+
+    List<String> alertTitle = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
+    List<String> alertMessage = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
+    List<String> alertBtnCheck = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
+
     OnListClickListener listener;
 
     public SettingAdapter(Context context, ArrayList<SettingData> Setting_Data){
@@ -32,9 +37,6 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         this.Setting_Data = Setting_Data;
     }
 
-    // 뷰를 데이터가 연결하는 프로세스를 바인딩이라고 함.
-    // viewHolder를 새로 만들어야 할 때마다 메서드 호출. viewHolder와 그에 연결된 view를 생성, 초기화.
-    // 뷰의 콘텐츠를 채우지는 않음. 아직 특정 데이터에 바인딩된 상태가 아니기 때문.
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
@@ -54,40 +56,56 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         }
     }
 
-    // recyclerView는 viewHolder와 데이터를 연결할 때 메서드 호출.
     @Override
-    public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position){
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, final int position) {
         holder.onBind(Setting_Data.get(position));
+        if (position != 1) {
+            tvVersion.setVisibility(View.GONE);
+        }
+        if (position != 4) {
+            switchBtn.setVisibility(View.GONE);
+        }
     }
-
     @Override
     public int getItemCount() {
         return Setting_Data.size();
     }
 
-    void addItem(SettingData data){
+    void addItem(SettingData data) {
         Setting_Data.add(data);
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
-        private TextView tvSettingItem;
-        private ImageView imgSettingItem;
-
         ItemViewHolder(View itemView, final OnListClickListener listener) {
             super(itemView);
 
             tvSettingItem = itemView.findViewById(R.id.tvSettingItem);
             imgSettingItem = itemView.findViewById(R.id.imgSettingItem);
+            tvVersion = itemView.findViewById(R.id.tvVersion);
+            switchBtn = itemView.findViewById(R.id.switchBtn);
 
-            tvSettingItem.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int pos = getAdapterPosition();
+            tvSettingItem.setOnClickListener(view -> {
+                AlertDialog.Builder alter = new AlertDialog.Builder(context);
+                int pos = getAdapterPosition();
+                if (listener != null) {
+                    listener.onItemClick(ItemViewHolder.this, view, pos);
+                }
+                for (int j = 0; j<7; j++) {
+                    alter.setTitle(alertTitle.get(j));
+                    alter.setMessage(alertMessage.get(j));
+                    alter.setNegativeButton(alertBtnCheck.get(j), (dialogInterface, i) -> Log.d("click", "check"));
 
-                    if(listener != null) {
-                        listener.onItemClick(ItemViewHolder.this, view, pos);
-                        Log.d("click", "click");
+                    if (pos == j){
+                        alter.create().show();
                     }
+                }
+                if (pos == 7){
+                    //로그아웃 로직
+                    Log.d("click", "로그아웃 로직 들어갈 곳");
+                }
+                if(pos == 8){
+                    // 개인정보 수정 로직
+                    Log.d("click", "개인정보 수정 로직 들어갈 곳");
                 }
             });
         }
@@ -97,11 +115,9 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
             imgSettingItem.setImageResource(data.getImgId());
         }
 
-        public void setItem(SettingData item){
+        public void setItem(SettingData item) {
             imgSettingItem.setImageResource(item.getImgId());
             tvSettingItem.setText(item.getMenu());
         }
-
     }
-
 }
