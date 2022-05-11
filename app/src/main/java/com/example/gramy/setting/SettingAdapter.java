@@ -1,5 +1,6 @@
 package com.example.gramy.setting;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,10 +21,11 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemViewHolder>{
+public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemViewHolder> implements OnListClickListener{
 
     private Context context;
     private ArrayList<SettingData> Setting_Data;
+    OnListClickListener listener;
 
     public SettingAdapter(Context context, ArrayList<SettingData> Setting_Data){
         this.context = context;
@@ -36,9 +38,20 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
-        View view = LayoutInflater.from(parent.getContext()).
+        View itemView = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.settinglist_item,parent,false);
-        return new ItemViewHolder(view);
+        return new ItemViewHolder(itemView, this);
+    }
+
+    public void setOnItemClickListener(OnListClickListener listener){
+        this.listener = listener;
+    }
+
+    @Override
+    public void onItemClick(ItemViewHolder holder, View view, int position) {
+        if (listener != null){
+            listener.onItemClick(holder, view, position);
+        }
     }
 
     // recyclerView는 viewHolder와 데이터를 연결할 때 메서드 호출.
@@ -60,7 +73,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         private TextView tvSettingItem;
         private ImageView imgSettingItem;
 
-        ItemViewHolder(View itemView) {
+        ItemViewHolder(View itemView, final OnListClickListener listener) {
             super(itemView);
 
             tvSettingItem = itemView.findViewById(R.id.tvSettingItem);
@@ -69,7 +82,12 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
             tvSettingItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("click", "click");
+                    int pos = getAdapterPosition();
+
+                    if(listener != null) {
+                        listener.onItemClick(ItemViewHolder.this, view, pos);
+                        Log.d("click", "click");
+                    }
                 }
             });
         }
