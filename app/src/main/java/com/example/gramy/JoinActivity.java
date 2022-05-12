@@ -3,6 +3,7 @@ package com.example.gramy;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -75,7 +76,7 @@ public class JoinActivity extends AppCompatActivity {
                 Log.v("성별", "값 : "+chbResult);
 
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8081/gramy/Join";
+                String server_url = "http://119.200.31.65:8082/androidjoin.do";
 
                 request = new StringRequest(
                         method,
@@ -86,6 +87,10 @@ public class JoinActivity extends AppCompatActivity {
                                 Toast.makeText(JoinActivity.this,
                                         "요청성공!",
                                         Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         },
                         new Response.ErrorListener() {
