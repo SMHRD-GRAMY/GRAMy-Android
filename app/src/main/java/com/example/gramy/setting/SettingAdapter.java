@@ -27,8 +27,9 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
     private ArrayList<SettingData> Setting_Data;
 
     List<String> alertTitle = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
-    List<String> alertMessage = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
-//    List<String> alertBtnCheck = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
+    List<String> alertMessage = Arrays.asList("문의 사항이 있다면 언제든지 고객센터로 연락 주세요. 빠르게 도와드리겠습니다.","6.0.7",
+            "GRAMy는 김다빈, 김민석, 김정준, 박종재, 조영혜가 모여 개발한 재고관리 서비스입니다. ","가게추가", "알림수신동의", "실험실",
+            "1588-0607로 전화 또는 홈페이지의 문의게시판을 이용해주세요.");
 
     OnListClickListener listener;
 
@@ -95,7 +96,15 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                     alter.setMessage(alertMessage.get(j));
                     alter.setNegativeButton("확인", (dialogInterface, i) -> Log.d("click", "check"));
 
-                    if (pos == j){
+                    if (pos == 1){
+                        Log.d("click", "alertDialog 안뜨게");
+                    } else if(pos == 3){
+                        Log.d("click", "alertDialog 안뜨게");
+                    } else if(pos == 4){
+                        Log.d("click", "alertDialog 안뜨게");
+                    } else if(pos == 5){
+                        Log.d("click", "alertDialog 안뜨게");
+                    }else if(pos == j){
                         alter.create().show();
                     }
                 }
