@@ -2,14 +2,18 @@ package com.example.gramy.setting;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.gramy.R;
 
@@ -41,16 +45,22 @@ public class fragSettingmain extends Fragment {
         getData(rootView);
         j = 1;
         return rootView;
+
     }
 
     private void getData(ViewGroup rootView) {
-        List<String> menu = Arrays.asList("테스트1","테스트2","테스트3","테스트4","테스트5");
+        List<String> menu = Arrays.asList("공지사항","버전정보", "GRAMy소식","개인정보수정","가게추가", "알림수신동의", "실험실", "로그아웃", "고객센터");
         List<Integer> imgId = Arrays.asList(
-                R.drawable.ic_home,
-                R.drawable.ic_setting,
-                R.drawable.ic_news,
-                R.drawable.ic_user,
-                R.drawable.ic_search);
+                R.drawable.set_info,
+                R.drawable.set_version,
+                R.drawable.set_gramy,
+                R.drawable.set_modify,
+                R.drawable.set_insert,
+                R.drawable.set_agree,
+                R.drawable.set_test,
+                R.drawable.set_logout,
+                R.drawable.set_contact
+        );
 
         for (int i=0; i<menu.size(); i++){
             SettingData data = new SettingData();

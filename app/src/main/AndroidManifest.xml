@@ -3,36 +3,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gramy" >
 
+    <!-- 인터넷 권한 설정   -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 인터넷 연결 확인-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:networkSecurityConfig="@xml/network_security_config"
-        android:usesCleartextTraffic="true"
+        android:name=".kakao.GlobalApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy"
-        tools:targetApi="n">
+        android:usesCleartextTraffic="true"
+        >
+<!--        <activity-->
+<!--            android:name=".stock.stockActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoPdCheck"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoBoardActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoMgShelfActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoReportActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoMgShelfActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoBoardActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoReportActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".GoPdCheck"-->
+<!--            android:exported="false" />-->
+<!--        <meta-data-->
+<!--            android:name="com.kakao.sdk.Appkey"-->
+<!--            android:value="@string/kakao_app_key" />-->
+
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakaoa59f72913ae202bcb0582ed3dc8e1c54" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".GoMgShelfActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".GoBoardActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".GoReportActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".GoPdCheck"
+            android:screenOrientation="portrait"
+            android:exported="false" />
         <activity
             android:name=".AgreementActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".TutorialActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".JoinActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".LoadingActivity"
-            android:exported="true" >
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".JoinActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

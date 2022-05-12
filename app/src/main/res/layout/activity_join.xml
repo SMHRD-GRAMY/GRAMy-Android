@@ -7,6 +7,19 @@
     android:background="#FFFFFF"
     tools:context=".JoinActivity">
 
+    <TextView
+        android:id="@+id/tvJoinGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinGender"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtJoinAddr"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinAddr" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
@@ -239,12 +252,13 @@
         android:id="@+id/tvAddrSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/tvAddrSub"
+        app:layout_constraintBottom_toTopOf="@+id/btnJoin"
+        app:layout_constraintEnd_toEndOf="@+id/rgGender"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/edtJoinAddr" />
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="@+id/rgGender" />
 
     <Button
         android:id="@+id/btnIdCheck"
@@ -269,6 +283,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginBottom="4dp"
         android:fontFamily="@font/secular_one"
         android:insetTop="0dp"
         android:insetBottom="0dp"
@@ -277,7 +292,43 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toBottomOf="@+id/tvAddrSub" />
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintStart_toStartOf="@+id/guideline4" />
+
+    <RadioGroup
+        android:id="@+id/rgGender"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/tvAddrSub"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toEndOf="@+id/tvJoinGender"
+        app:layout_constraintTop_toBottomOf="@+id/edtJoinAddr">
+
+        <RadioButton
+            android:id="@+id/radioMan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radioMan" />
+
+        <RadioButton
+            android:id="@+id/radioWoman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radioWoman"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="615dp" />
+
+        <RadioButton
+            android:id="@+id/radioNotting"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radioNoting" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
