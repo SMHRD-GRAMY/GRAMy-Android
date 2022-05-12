@@ -114,6 +114,9 @@
     <string name="switchBtn"></string>
     <string name="tvVersion">6.0.7</string>
 
+    <!-- activity_modify -->
+    <string name="tvModify">개인정보수정</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
