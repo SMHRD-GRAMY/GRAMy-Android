@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.gramy.R;
@@ -26,6 +25,7 @@ public class fragSettingmain extends Fragment {
     private RecyclerView rcSettingItem;
     private SettingAdapter adapter;
     private ArrayList<SettingData> list = new ArrayList<>();
+
     int j = 0;
 
     @Override
@@ -49,7 +49,7 @@ public class fragSettingmain extends Fragment {
     }
 
     private void getData(ViewGroup rootView) {
-        List<String> menu = Arrays.asList("공지사항","버전정보", "GRAMy소식","개인정보수정","가게추가", "알림수신동의", "실험실", "로그아웃", "고객센터");
+        List<String> menu = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터", "로그아웃","개인정보수정");
         List<Integer> imgId = Arrays.asList(
                 R.drawable.set_info,
                 R.drawable.set_version,
