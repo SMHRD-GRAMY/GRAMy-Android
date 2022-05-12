@@ -6,28 +6,18 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/black_radius.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/border2.xml" value="0.241" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/ic_home.xml" value="0.241" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.342" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.342" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/ic_news.xml" value="0.241" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/ic_setting.xml" value="0.241" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/ic_user.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/menu_selector_color.xml" value="0.241" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/drawable/shadow.xml" value="0.342" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/font/alata.xml" value="0.3963541666666667" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/font/allerta.xml" value="0.3963541666666667" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_agreement.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_go_board.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_go_ck_pd.xml" value="0.33" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_go_mg_shelf.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_go_ck_pd.xml" value="0.2824074074074074" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_go_mg_shelf.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_go_report.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_home.xml" value="0.25" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_join.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_loading.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_join.xml" value="0.2824074074074074" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_register.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_stock.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/activity_tutorial.xml" value="0.25" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_frag_homemain.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_frag_homemain.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_frag_newsmain.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_frag_settingmain.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_home_main_page.xml" value="0.2328125" />
@@ -38,10 +28,8 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_tutorial_page2.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_tutorial_page3.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/fragment_tutorial_page4.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/list_item.xml" value="0.3229166666666667" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/settinglist_item.xml" value="0.33" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/shelf_editbox.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/menu/item_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/list_item.xml" value="0.2911458333333333" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/layout/settinglist_item.xml" value="0.25" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/menu/item_menu.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy-Android/app/src/main/res/menu/setting_menu.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
@@ -51,10 +39,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/font/secular_one.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_Loading.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_agreement.xml" value="0.22" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_ck_pd.xml" value="0.33" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_go_mg_shelf.xml" value="0.2078125" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_home.xml" value="0.5" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_agreement.xml" value="0.5" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_join.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_loading.xml" value="0.4245169082125604" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_login.xml" value="0.33" />
@@ -63,11 +48,6 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_tutorial.xml" value="0.25" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/header_footer.xml" value="0.20652173913043478" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
-        <entry key="..\:/Users/smhrd/Documents/GitHub/GRAMy-Android/app/src/main/res/layout/activity_home.xml" value="0.3061594202898551" />
-        <entry key="..\:/Users/smhrd/Documents/GitHub/GRAMy-Android/app/src/main/res/layout/fragment_frag_homemain.xml" value="0.17300724637681159" />
-        <entry key="..\:/Users/smhrd/Documents/GitHub/GRAMy-Android/app/src/main/res/layout/fragment_frag_newsmain.xml" value="0.18" />
-        <entry key="..\:/Users/smhrd/Documents/GitHub/GRAMy-Android/app/src/main/res/layout/fragment_frag_settingmain.xml" value="0.17300724637681159" />
-        <entry key="..\:/Users/smhrd/Documents/GitHub/GRAMy-Android/app/src/main/res/layout/fragment_fram_newsmain_custom.xml" value="0.33" />
       </map>
     </option>
   </component>
