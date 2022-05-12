@@ -3,6 +3,7 @@ package com.example.gramy.setting;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -114,6 +115,8 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                 }
                 if(pos == 8){
                     // 개인정보 수정 로직
+                    Intent intent = new Intent(context, ModifyActivity.class);
+                    context.startActivity(intent);
                     Log.d("click", "개인정보 수정 로직 들어갈 곳");
                 }
             });
