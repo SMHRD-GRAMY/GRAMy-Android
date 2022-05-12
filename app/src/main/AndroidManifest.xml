@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gramy">
-
-    <!-- 인터넷 권한 설정   -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 인터넷 연결 확인-->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 인터넷 권한 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".kakao.GlobalApplication"
@@ -15,38 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy"
-        android:usesCleartextTraffic="true"
-        >
-<!--        <activity-->
-<!--            android:name=".stock.stockActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoPdCheck"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoBoardActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoMgShelfActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoReportActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoMgShelfActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoBoardActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoReportActivity"-->
-<!--            android:exported="false" />-->
-<!--        <activity-->
-<!--            android:name=".GoPdCheck"-->
-<!--            android:exported="false" />-->
-<!--        <meta-data-->
-<!--            android:name="com.kakao.sdk.Appkey"-->
-<!--            android:value="@string/kakao_app_key" />-->
+        android:usesCleartextTraffic="true">
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
@@ -92,6 +60,15 @@
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BetaServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddStoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityss"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
