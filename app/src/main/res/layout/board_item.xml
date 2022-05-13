@@ -23,7 +23,7 @@
         android:id="@+id/boardWriter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
         android:hint="작성자"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,4 +40,14 @@
         android:hint="작성일자"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/boardWriter"
+        app:layout_constraintEnd_toStartOf="@+id/boardWriter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/boardWriter"
+        app:srcCompat="@drawable/baseline_account_circle_black_18" />
 </androidx.constraintlayout.widget.ConstraintLayout>

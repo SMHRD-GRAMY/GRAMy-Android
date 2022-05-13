@@ -1,6 +1,8 @@
 package com.example.gramy;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +11,8 @@ import android.widget.LinearLayout;
 
 import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.Vo_Info.BoardVO;
+
+import java.util.ArrayList;
 
 public class GoBoardActivity extends AppCompatActivity {
 
@@ -19,7 +23,6 @@ public class GoBoardActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.boardRecyclerView);
 
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         BoardAdapter adapter = new BoardAdapter();
@@ -29,5 +32,27 @@ public class GoBoardActivity extends AppCompatActivity {
         adapter.addItem(new BoardVO("이순신", "이순신의 게시글", "2022-05-13"));
 
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어답터 올려주기!
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
+
+    // ItemTouchHelper
+    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+        ArrayList<BoardVO> items = new ArrayList<BoardVO>();
+        BoardAdapter adapter = new BoardAdapter();
+
+        @Override
+        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+            items.remove(viewHolder.getLayoutPosition());
+            adapter.notifyItemRemoved(viewHolder.getLayoutPosition());
+        }
+    };
+    // End of ItemTouchHelper
+
+
 }

@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gramy.R;
@@ -36,6 +37,8 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder>{
             boardDate.setText(item.getTb_a_date());
         }
     } // 뷰 홀더 end
+
+
 
     // 어댑터에서 구현되어야 할 메서드
     @NonNull
