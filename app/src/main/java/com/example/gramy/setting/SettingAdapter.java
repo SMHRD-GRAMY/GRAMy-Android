@@ -2,13 +2,10 @@ package com.example.gramy.setting;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -28,7 +25,6 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
     private Context context;
     private TextView tvSettingItem, tvVersion;
     private ImageView imgSettingItem;
-    private Switch switchBtn;
     private ArrayList<SettingData> Setting_Data;
     fragModify fragModify;
 
@@ -69,10 +65,8 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         if (position != 1) {
             tvVersion.setVisibility(View.GONE);
         }
-        if (position != 4) {
-            switchBtn.setVisibility(View.GONE);
-        }
     }
+
     @Override
     public int getItemCount() {
         return Setting_Data.size();
@@ -89,40 +83,39 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
             tvSettingItem = itemView.findViewById(R.id.tvSettingItem);
             imgSettingItem = itemView.findViewById(R.id.imgSettingItem);
             tvVersion = itemView.findViewById(R.id.tvVersion);
-            switchBtn = itemView.findViewById(R.id.switchBtn);
             fragModify = new fragModify();
 
             tvSettingItem.setOnClickListener(view -> {
+                int j = 0;
                 AlertDialog.Builder alter = new AlertDialog.Builder(context);
                 int pos = getAdapterPosition();
                 if (listener != null) {
                     listener.onItemClick(ItemViewHolder.this, view, pos);
                 }
-                for (int j = 0; j<7; j++) {
+                if (pos == 0 || pos == 1 || pos == 2 || pos == 6) {
                     alter.setTitle(alertTitle.get(j));
                     alter.setMessage(alertMessage.get(j));
                     alter.setNegativeButton("확인", (dialogInterface, i) -> Log.d("click", "check"));
-
-                    if (pos == 1){
-                        Log.d("click", "alertDialog 안뜨게");
-                    } else if(pos == 3){
-                        Log.d("click", "alertDialog 안뜨게");
-                    } else if(pos == 4){
-                        Log.d("click", "alertDialog 안뜨게");
-                    } else if(pos == 5){
-                        Log.d("click", "alertDialog 안뜨게");
-                    }else if(pos == j){
-                        alter.create().show();
-                    }
+                    alter.create().show();
                 }
-                if (pos == 7){
+                else if(pos == 3){
+                    // 가게 추가 화면으로 이동
+                    GoAddStore();
+                }
+                else if (pos == 4){
+                    // 알림수신동의
+                    GoPushAgreement();
+                }
+                else if(pos == 5){
+                    // 실험실
+                    GoBetaService();
+                }
+                else if (pos == 7){
                     //로그아웃 로직
-                    Log.d("click", "로그아웃 로직 들어갈 곳");
                 }
-                if(pos == 8){
-                    openModify();
+                else if(pos == 8){
                     // 개인정보 수정 로직
-
+                    openModify();
                 }
             });
         }
@@ -135,6 +128,33 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         public void setItem(SettingData item) {
             imgSettingItem.setImageResource(item.getImgId());
             tvSettingItem.setText(item.getMenu());
+        }
+
+        public void GoAddStore() {
+            FragmentManager fragmentManager = ((HomeActivity) context).getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction;
+            AddStoreFragment addStoreFragment = new AddStoreFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, addStoreFragment);
+            fragmentTransaction.commit();
+        }
+
+        public void GoPushAgreement() {
+            FragmentManager fragmentManager = ((HomeActivity) context).getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction;
+            PushAgreementFragment pushAgreementFragment = new PushAgreementFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, pushAgreementFragment);
+            fragmentTransaction.commit();
+        }
+
+        public void GoBetaService(){
+            FragmentManager fragmentManager = ((HomeActivity) context).getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction;
+            BetaServiceFragment betaServiceFragment = new BetaServiceFragment();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, betaServiceFragment);
+            fragmentTransaction.commit();
         }
 
         public void openModify(){

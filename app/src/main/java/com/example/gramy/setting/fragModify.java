@@ -88,9 +88,7 @@ public class fragModify extends Fragment {
                                     public void onClick(DialogInterface dialogInterface, int i) {
 
                                     }
-                                })
-
-
+                                });
                             }
                         },
                         new Response.ErrorListener() {

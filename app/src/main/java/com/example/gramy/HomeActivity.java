@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gramy.home.fragHomemain;
@@ -20,15 +22,23 @@ public class HomeActivity extends AppCompatActivity {
 
     private long backpressedTime = 0;
     BottomNavigationView bottomNavi;
+    TextView tvTitleGramy, tvAddStore, tvAlarm, tvBetaService;
+    ImageButton btnBack;
+
     fragHomemain fragHomemain;
     fragNewsmain fragNewsmain;
     fragSettingmain fragSettingmain;
-    Button btnGoPdCheck, btnGoReport, btnGoBoard, btnGoMgShelf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        tvTitleGramy = findViewById(R.id.tvTitleGramy);
+        tvAddStore = findViewById(R.id.tvAddStore);
+        tvAlarm = findViewById(R.id.tvAlarm);
+        tvBetaService = findViewById(R.id.tvBetaService);
+        btnBack = findViewById(R.id.btnBack);
 
         bottomNavi = findViewById(R.id.bottomNavi);
         fragHomemain = new fragHomemain();

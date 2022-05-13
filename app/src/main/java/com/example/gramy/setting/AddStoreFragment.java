@@ -2,6 +2,7 @@ package com.example.gramy.setting;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,7 +23,7 @@ public class AddStoreFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_add_store, container, false);
 
-        Button btnBack = rootView.findViewById(R.id.btnBack);
+        AppCompatImageButton btnBack = rootView.findViewById(R.id.btnBack);
         Button btnModifyStore = rootView.findViewById(R.id.btnModifyStore);
         Button btnEnrollStore = rootView.findViewById(R.id.btnEnrollStore);
 

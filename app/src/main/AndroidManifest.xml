@@ -58,16 +58,13 @@
             android:name=".LoadingActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
-            android:screenOrientation="portrait"
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivityss"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
+            android:name=".HomeActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
