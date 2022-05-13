@@ -8,19 +8,20 @@
     <View
         android:id="@+id/view8"
         android:layout_width="2dp"
-        android:layout_height="330dp"
+        android:layout_height="369dp"
+        android:layout_marginStart="7dp"
         android:background="#26000000"
         android:rotation="90"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar6"
-        android:layout_width="409dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
@@ -62,14 +63,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <TextView
         android:id="@+id/tvAlarmTitle"
@@ -101,77 +102,38 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline23"
         app:layout_constraintTop_toBottomOf="@+id/toolbar6"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/tvCommercial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/secular_one"
-        android:text="TextView"
+        android:text="@string/tvCommercial"
         android:textColor="#595959"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/tvAlarmAll"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvAlarmAll"
         app:layout_constraintTop_toBottomOf="@+id/tvAlarmAll" />
 
     <TextView
-        android:id="@+id/textView14"
+        android:id="@+id/tvNight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="70dp"
         android:fontFamily="@font/secular_one"
-        android:text="TextView"
+        android:text="@string/tvNight"
         android:textColor="#595959"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView13"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:fontFamily="@font/secular_one"
-        android:text="TextView"
-        android:textColor="#595959"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:fontFamily="@font/secular_one"
-        android:text="TextView"
-        android:textColor="#595959"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView15"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:fontFamily="@font/secular_one"
-        android:text="TextView"
-        android:textColor="#595959"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCommercial"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvCommercial"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommercial" />
 
     <Switch
-        android:id="@+id/switch4"
+        android:id="@+id/swAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/tvAlarmAll"
@@ -180,48 +142,62 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Switch
-        android:id="@+id/switch9"
+        android:id="@+id/swComm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCommercial"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="@+id/tvCommercial"
         app:layout_constraintVertical_bias="0.0" />
 
     <Switch
-        android:id="@+id/switch7"
+        android:id="@+id/swNight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNight"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/tvNight"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Switch
-        android:id="@+id/switch10"
+    <TextView
+        android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        android:layout_marginBottom="88dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvMessage"
+        android:textColor="#595959"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/textView15"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/guideline23" />
 
-    <Switch
-        android:id="@+id/switch6"
+    <TextView
+        android:id="@+id/tvCommSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView16"
-        app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/textView16"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvCommSub"
+        android:textColor="#595959"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvCommercial"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvCommercial"
+        app:layout_constraintTop_toBottomOf="@+id/tvCommercial" />
 
-    <Switch
-        android:id="@+id/switch8"
+    <TextView
+        android:id="@+id/tvNigSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
-        app:layout_constraintEnd_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/textView13"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvNigSub"
+        android:textColor="#595959"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvNight"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvNight"
+        app:layout_constraintTop_toBottomOf="@+id/tvNight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -59,21 +58,17 @@
             android:name=".JoinActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".AddStoreActivity"
+            android:name=".MainActivityss"
             android:exported="false" />
         <activity
-            android:name=".MainActivityss"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 

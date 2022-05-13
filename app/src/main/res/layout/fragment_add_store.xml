@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/constraint"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddStoreActivity">
+    tools:context=".setting.addStore.AddStoreActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar5"
@@ -19,14 +21,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.05" />
 
     <TextView
         android:id="@+id/tvBetaService"
@@ -57,11 +59,12 @@
 
     <Button
         android:id="@+id/btnModifyStore"
-        android:layout_width="140dp"
+        android:layout_width="160dp"
         android:layout_height="40dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="200dp"
         android:fontFamily="@font/secular_one"
+        android:stateListAnimator="@null"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:text="@string/btnModifyStore"
@@ -70,18 +73,22 @@
         app:layout_constraintTop_toTopOf="@+id/view7" />
 
     <Button
-        android:id="@+id/btnSubmitStore"
-        android:layout_width="140dp"
+        android:id="@+id/btnEnrollStore"
+        android:layout_width="160dp"
         android:layout_height="40dp"
+        android:layout_marginEnd="15dp"
         android:fontFamily="@font/secular_one"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:text="@string/btnSubmitStore"
+        android:stateListAnimator="@null"
+        android:text="@string/btnEnrollStore"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnModifyStore"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnModifyStore"
-        app:layout_constraintTop_toTopOf="@+id/btnModifyStore" />
+        app:layout_constraintTop_toTopOf="@+id/btnModifyStore"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/tvAddStoreSub"
@@ -102,7 +109,7 @@
     <View
         android:id="@+id/view6"
         android:layout_width="2dp"
-        android:layout_height="330dp"
+        android:layout_height="370dp"
         android:background="#26000000"
         android:rotation="90"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -115,7 +122,7 @@
     <View
         android:id="@+id/view7"
         android:layout_width="2dp"
-        android:layout_height="330dp"
+        android:layout_height="370dp"
         android:background="#26000000"
         android:rotation="90"
         app:layout_constraintBottom_toBottomOf="parent"
