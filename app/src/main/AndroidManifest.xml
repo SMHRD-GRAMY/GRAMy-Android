@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.gramy" >
+    package="com.example.gramy">
 
     <!-- 인터넷 권한 설정   -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -73,6 +72,14 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
+        <activity
+            android:name=".BetaServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddStoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivityss"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
