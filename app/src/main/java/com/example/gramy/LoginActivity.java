@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.Vo_Info.GramyUserVO;
-import com.example.gramy.Vo_Info.UserInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
 
     RequestQueue queue;
     StringRequest request;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +78,8 @@ public class LoginActivity extends AppCompatActivity {
                                         String user_name = jsonObject.getString("user_name");
                                         String user_gender = jsonObject.getString("user_gender");
 
-                                        GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
 
-                                        Log.v("확인 : ", vo.toString());
-                                        UserInfo.info = vo;
+
 
                                         Intent intent2 = new Intent(LoginActivity.this, HomeActivity.class);
                                         intent2.putExtra("response", response);
