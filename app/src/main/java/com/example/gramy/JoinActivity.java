@@ -3,6 +3,7 @@ package com.example.gramy;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -40,26 +41,26 @@ public class JoinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join);
 
         edtJoinId = findViewById(R.id.edtJoinId);
-        edtJoinPw = findViewById(R.id.edtJoinPw);
-        edtJoinPwCheck = findViewById(R.id.edtJoinPwCheck);
-        edtJoinName = findViewById(R.id.edtJoinName);
-        edtJoinPhone = findViewById(R.id.edtJoinPhone);
-        edtJoinAddr = findViewById(R.id.edtJoinAddr);
-        btnIdCheck = findViewById(R.id.btnIdCheck);
-        btnJoin = findViewById(R.id.btnJoin);
-        rgGender = findViewById(R.id.rgGender);
-        radioMan = findViewById(R.id.radioMan);
-        radioWoman = findViewById(R.id.radioWoman);
-        radioNotting = findViewById(R.id.radioNotting);
+        edtJoinPw = findViewById(R.id.edtModifyPw);
+        edtJoinPwCheck = findViewById(R.id.edtModifyPwCheck);
+        edtJoinName = findViewById(R.id.edtModifyName);
+        edtJoinPhone = findViewById(R.id.edtModifyPhone);
+        edtJoinAddr = findViewById(R.id.edtModifyAddr);
+        btnIdCheck = findViewById(R.id.btnModifyIdCheck);
+        btnJoin = findViewById(R.id.btnModify);
+        rgGender = findViewById(R.id.rgModifyGender);
+        radioMan = findViewById(R.id.ModifyradioMan);
+        radioWoman = findViewById(R.id.ModifyradioWoman);
+        radioNotting = findViewById(R.id.ModifyradioNotting);
 
         rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.radioMan){
+                if(i==R.id.ModifyradioMan){
                     chbResult = "man";
-                } else if(i==R.id.radioWoman){
+                } else if(i==R.id.ModifyradioWoman){
                     chbResult = "woman";
-                } else if(i==R.id.radioNotting){
+                } else if(i==R.id.ModifyradioNotting){
                     chbResult = "notting";
                 }
             }
@@ -75,7 +76,7 @@ public class JoinActivity extends AppCompatActivity {
                 Log.v("성별", "값 : "+chbResult);
 
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8081/gramy/Join";
+                String server_url = "http://119.200.31.65:8082/androidjoin.do";
 
                 request = new StringRequest(
                         method,
@@ -86,6 +87,10 @@ public class JoinActivity extends AppCompatActivity {
                                 Toast.makeText(JoinActivity.this,
                                         "요청성공!",
                                         Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         },
                         new Response.ErrorListener() {

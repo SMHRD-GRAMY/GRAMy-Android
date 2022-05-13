@@ -3,6 +3,7 @@ package com.example.gramy.setting;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,11 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +30,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
     private ImageView imgSettingItem;
     private Switch switchBtn;
     private ArrayList<SettingData> Setting_Data;
+    fragModify fragModify;
 
     List<String> alertTitle = Arrays.asList("공지사항","버전정보", "GRAMy소식","가게추가", "알림수신동의", "실험실", "고객센터");
     List<String> alertMessage = Arrays.asList("문의 사항이 있다면 언제든지 고객센터로 연락 주세요. 빠르게 도와드리겠습니다.","6.0.7",
@@ -84,6 +90,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
             imgSettingItem = itemView.findViewById(R.id.imgSettingItem);
             tvVersion = itemView.findViewById(R.id.tvVersion);
             switchBtn = itemView.findViewById(R.id.switchBtn);
+            fragModify = new fragModify();
 
             tvSettingItem.setOnClickListener(view -> {
                 AlertDialog.Builder alter = new AlertDialog.Builder(context);
@@ -113,8 +120,9 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                     Log.d("click", "로그아웃 로직 들어갈 곳");
                 }
                 if(pos == 8){
+                    openModify();
                     // 개인정보 수정 로직
-                    Log.d("click", "개인정보 수정 로직 들어갈 곳");
+
                 }
             });
         }
@@ -127,6 +135,15 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         public void setItem(SettingData item) {
             imgSettingItem.setImageResource(item.getImgId());
             tvSettingItem.setText(item.getMenu());
+        }
+
+        public void openModify(){
+            FragmentManager fm = ((HomeActivity)context).getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction;
+            fragModify fragModify = new fragModify();
+            fragmentTransaction = fm.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragModify);
+            fragmentTransaction.commit();
         }
     }
 }

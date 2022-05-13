@@ -115,12 +115,12 @@
         android:layout_height="86dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
+        app:layout_constraintBottom_toBottomOf="@+id/tvThing3"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintHorizontal_bias="0.178"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
-        app:layout_constraintVertical_bias="0.418"
+        app:layout_constraintTop_toBottomOf="@+id/tvEqshelf"
+        app:layout_constraintVertical_bias="0.516"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
 
@@ -132,9 +132,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/imgScale1"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toEndOf="@+id/imgScale1"
-        app:layout_constraintTop_toBottomOf="@+id/tvThing1"
+        app:layout_constraintTop_toTopOf="@+id/tvThing1"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
@@ -147,10 +147,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/imgScale4"
         app:layout_constraintEnd_toStartOf="@+id/imgScale4"
-        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="@+id/imgShelf"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="@+id/imgScale4"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
 
@@ -158,14 +158,13 @@
         android:id="@+id/imgScale4"
         android:layout_width="94dp"
         android:layout_height="86dp"
+        android:layout_marginTop="56dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imgScale2"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
-        app:layout_constraintVertical_bias="0.662"
+        app:layout_constraintTop_toBottomOf="@+id/imgScale2"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
 
@@ -177,10 +176,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
-        app:layout_constraintVertical_bias="0.362" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <TextView
         android:id="@+id/tvThing2"
@@ -246,5 +245,12 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="335dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

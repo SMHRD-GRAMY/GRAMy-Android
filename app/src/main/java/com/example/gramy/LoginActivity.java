@@ -86,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8081/gramy/Login";
+                String server_url = "http://119.200.31.65:8082/androidlogin.do";
 
                 request = new StringRequest(
                         method,
@@ -107,6 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                                         String user_gender = jsonObject.getString("user_gender");
 
                                         GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
+
 
                                         Log.v("확인 : ", vo.toString());
                                         UserInfo.info = vo;
