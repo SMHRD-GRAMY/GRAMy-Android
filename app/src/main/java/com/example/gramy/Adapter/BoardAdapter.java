@@ -1,0 +1,82 @@
+package com.example.gramy.Adapter;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.gramy.R;
+import com.example.gramy.Vo_Info.BoardVO;
+
+import java.util.ArrayList;
+
+public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder>{
+    ArrayList<BoardVO> items = new ArrayList<BoardVO>();
+
+    // 뷰 홀더
+    static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView boardTitle;
+        TextView boardWriter;
+        TextView boardDate;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            boardTitle = itemView.findViewById(R.id.boardTitle);
+            boardWriter = itemView.findViewById(R.id.boardWriter);
+            boardDate = itemView.findViewById(R.id.boardDate);
+        }
+
+        public void setItem(BoardVO item) {
+            boardTitle.setText(item.getTb_a_title());
+            boardWriter.setText(item.getUser_id());
+            boardDate.setText(item.getTb_a_date());
+        }
+    } // 뷰 홀더 end
+
+    // 어댑터에서 구현되어야 할 메서드
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        // 뷰 홀더 객체가 만들어질 때 자동으로 호출
+        // 아이템을 위해 정의한 XML 레이아웃을 이용해 뷰 객체를 생성해야함
+        LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+        View itemView = inflater.inflate(R.layout.board_item, viewGroup, false); // 인플레이션을 통해 뷰 객체 만들기
+        // board_item.xml 파일을 가지고 view 객체로 생성해줌
+
+        return new ViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // 뷰 홀더 객체가 재사용 될 때 자동으로 호출
+        // 뷰 객체는 기존 것을 그대로 사용하고 데이터만 바꿔줌
+        BoardVO item = items.get(position); // position ==> 인덱스랑 비슷한 개념으로 이해
+        holder.setItem(item); // 뷰 홀더에 셋팅
+    }
+
+    @Override
+    public int getItemCount() {
+        return items.size();
+    }
+
+    public void addItem(BoardVO item) {
+        items.add(item); // 리스트에 아이템 추가
+    }
+
+    public void setItems(ArrayList<BoardVO> items) {
+        this.items = items; // 리스트 셋팅
+    }
+
+    public BoardVO getItem(int position) {
+        return items.get(position); // 아이템 꺼내오기ㄴ
+    }
+
+    public void setItem(int position, BoardVO item) {
+        items.set(position, item); // 리스트에 아이템 셋팅 (포지션 정해서)
+    }
+
+}
