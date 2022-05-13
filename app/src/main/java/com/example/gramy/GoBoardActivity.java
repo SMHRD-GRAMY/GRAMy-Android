@@ -7,32 +7,47 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.Vo_Info.BoardVO;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class GoBoardActivity extends AppCompatActivity {
+
+    RequestQueue queue;
+    BoardAdapter adapter = new BoardAdapter();
+    ArrayList<BoardVO> items = new ArrayList<BoardVO>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go_board); // 게시판 액티비티
 
+        queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성
+
+        getBoardDate();
+
         RecyclerView recyclerView = findViewById(R.id.boardRecyclerView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        BoardAdapter adapter = new BoardAdapter();
-
-        adapter.addItem(new BoardVO("홍길동", "홍길동의 게시글", "2022-05-13"));
-        adapter.addItem(new BoardVO("김유신", "김유신의 게시글", "2022-05-13"));
-        adapter.addItem(new BoardVO("이순신", "이순신의 게시글", "2022-05-13"));
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback); // ItemTouchHelper
         itemTouchHelper.attachToRecyclerView(recyclerView); // ItemTouchHelper
@@ -52,8 +67,6 @@ public class GoBoardActivity extends AppCompatActivity {
 
     // ItemTouchHelper
     ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-        ArrayList<BoardVO> items = new ArrayList<BoardVO>();
-        BoardAdapter adapter = new BoardAdapter();
 
         @Override
         public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -68,5 +81,40 @@ public class GoBoardActivity extends AppCompatActivity {
     };
     // End of ItemTouchHelper
 
+    // 게시글 가져오는 메서드
+    private void getBoardDate() {
+        int method = Request.Method.GET;
+        String server_url = "http://211.48.228.51:8082/app/list";
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response);
+                    for(int i = 0; i < jsonArray.length(); i++) {
+                        JSONObject listItem = jsonArray.getJSONObject(i);
+                        int tb_a_seq = listItem.getInt("tb_a_seq");
+                        String tb_a_title = listItem.getString("tb_a_title");
+                        String tb_a_content = listItem.getString("tb_a_content");
+                        String tb_a_date = listItem.getString("tb_a_date");
+                        String user_id = listItem.getString("user_id");
+                        String user_name = listItem.getString("user_name");
+                        BoardVO item = new BoardVO(tb_a_seq, tb_a_title, tb_a_content, tb_a_date, user_id, user_name);
+                        items.add(item);
+                    }
+                    System.out.println(items);
+                    adapter.setItems(items);
+                    adapter.notifyDataSetChanged();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
+            }
+        });
+
+        queue.add(request);
+    }
 }

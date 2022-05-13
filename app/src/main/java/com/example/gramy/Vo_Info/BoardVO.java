@@ -2,21 +2,38 @@ package com.example.gramy.Vo_Info;
 
 public class BoardVO {
     private int tb_a_seq; // 게시글 번호
-    private String user_id; // 작성자
     private String tb_a_title; // 게시글 이름
-    private String tb_a_date;
+    private String tb_a_content; // 게시글 내용
+    private String tb_a_date; // 게시글 작성일
+    private String user_id; // 작성자 아이디
+    private String user_name; // 작성자 이름
 
-    public BoardVO(int tb_a_seq, String user_id, String tb_a_title, String tb_a_date) {
+    public BoardVO(){}
+
+
+    public BoardVO(int tb_a_seq, String tb_a_title, String tb_a_content, String tb_a_date, String user_id, String user_name) {
         this.tb_a_seq = tb_a_seq;
-        this.user_id = user_id;
         this.tb_a_title = tb_a_title;
+        this.tb_a_content = tb_a_content;
         this.tb_a_date = tb_a_date;
+        this.user_id = user_id;
+        this.user_name = user_name;
     }
 
-    public BoardVO(String user_id, String tb_a_title, String tb_a_date) {
-        this.user_id = user_id;
-        this.tb_a_title = tb_a_title;
-        this.tb_a_date = tb_a_date;
+    public String getTb_a_content() {
+        return tb_a_content;
+    }
+
+    public void setTb_a_content(String tb_a_content) {
+        this.tb_a_content = tb_a_content;
+    }
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
     }
 
     public String getTb_a_date() {

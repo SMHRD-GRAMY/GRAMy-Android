@@ -1,5 +1,6 @@
 package com.example.gramy.Adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,6 @@ import java.util.ArrayList;
 public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> implements OnBoardItemClickListener{
     ArrayList<BoardVO> items = new ArrayList<BoardVO>();
     OnBoardItemClickListener listener;
-
 
     // 뷰 홀더
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -45,14 +45,14 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
                     }
                 }
             });
-        }
 
+
+        }
         public void setItem(BoardVO item) { // setItem Method
             boardTitle.setText(item.getTb_a_title());
             boardWriter.setText(item.getUser_id());
             boardDate.setText(item.getTb_a_date());
         }
-
 
     } // 뷰 홀더 end
 
@@ -76,6 +76,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
         // 뷰 홀더 객체가 재사용 될 때 자동으로 호출
         // 뷰 객체는 기존 것을 그대로 사용하고 데이터만 바꿔줌
         BoardVO item = items.get(position); // position ==> 인덱스랑 비슷한 개념으로 이해
+
         holder.setItem(item); // 뷰 홀더에 셋팅
     }
 
@@ -100,7 +101,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     }
 
     public void addItem(BoardVO item) {
-        items.add(item); // 리스트에 아이템 추가
+        items.add(item); // 리스트에 아이템 추가 (게시물 작성 로직 할 때 사용하자! )
     }
 
     public void setItems(ArrayList<BoardVO> items) {
@@ -108,7 +109,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     }
 
     public BoardVO getItem(int position) {
-        return items.get(position); // 아이템 꺼내오기ㄴ
+        return items.get(position); // 아이템 꺼내오기
     }
 
     public void setItem(int position, BoardVO item) {
