@@ -7,9 +7,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.gramy.Adapter.BoardAdapter;
+import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.Vo_Info.BoardVO;
 
 import java.util.ArrayList;
@@ -31,9 +34,20 @@ public class GoBoardActivity extends AppCompatActivity {
         adapter.addItem(new BoardVO("김유신", "김유신의 게시글", "2022-05-13"));
         adapter.addItem(new BoardVO("이순신", "이순신의 게시글", "2022-05-13"));
 
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback); // ItemTouchHelper
+        itemTouchHelper.attachToRecyclerView(recyclerView); // ItemTouchHelper
+
+        // setOn"Item"ClickListener
+        adapter.setOnItemClickListener(new OnBoardItemClickListener() {
+            // 게시판 아이템 클릭했을 때의 로직 설정하기
+            @Override
+            public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {
+                BoardVO item = adapter.getItem(position);
+                Toast.makeText(GoBoardActivity.this, item.getUser_id(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어답터 올려주기!
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     // ItemTouchHelper

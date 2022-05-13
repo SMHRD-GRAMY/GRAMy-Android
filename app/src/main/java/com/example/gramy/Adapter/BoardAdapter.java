@@ -9,33 +9,51 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.R;
 import com.example.gramy.Vo_Info.BoardVO;
 
 import java.util.ArrayList;
 
-public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder>{
+public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> implements OnBoardItemClickListener{
     ArrayList<BoardVO> items = new ArrayList<BoardVO>();
+    OnBoardItemClickListener listener;
+
 
     // 뷰 홀더
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        // 메소드는 뷰 홀더 안에서 만들자!
         TextView boardTitle;
         TextView boardWriter;
         TextView boardDate;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, OnBoardItemClickListener listener) {
+            // 뷰 홀더 생성자
             super(itemView);
 
             boardTitle = itemView.findViewById(R.id.boardTitle);
             boardWriter = itemView.findViewById(R.id.boardWriter);
             boardDate = itemView.findViewById(R.id.boardDate);
+
+            itemView.setOnClickListener(new View.OnClickListener() { // 아이템뷰에 클릭이벤트 달아주기
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+
+                    if(listener != null) {
+                        listener.onItemClick(ViewHolder.this, view, position); // 아이템 뷰 클릭시 미리 정의한 다른 리스너의 메서드 호출
+                    }
+                }
+            });
         }
 
-        public void setItem(BoardVO item) {
+        public void setItem(BoardVO item) { // setItem Method
             boardTitle.setText(item.getTb_a_title());
             boardWriter.setText(item.getUser_id());
             boardDate.setText(item.getTb_a_date());
         }
+
+
     } // 뷰 홀더 end
 
 
@@ -50,7 +68,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder>{
         View itemView = inflater.inflate(R.layout.board_item, viewGroup, false); // 인플레이션을 통해 뷰 객체 만들기
         // board_item.xml 파일을 가지고 view 객체로 생성해줌
 
-        return new ViewHolder(itemView);
+        return new ViewHolder(itemView, this); // 해당 뷰 홀더에 리스너를 달아주는거
     }
 
     @Override
@@ -64,6 +82,21 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder>{
     @Override
     public int getItemCount() {
         return items.size();
+    }
+
+    //
+
+    public void setOnItemClickListener(OnBoardItemClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onItemClick(ViewHolder holder, View view, int position) {
+        // 외부에서 로직을 재정의하여 사용한다.
+        // 이녀석의 용도는 뭐냐? Adapter상의 holder, view, position을 외부에서 쓰게끔 해주는고임
+        if(listener != null) {
+            listener.onItemClick(holder, view, position);
+        }
     }
 
     public void addItem(BoardVO item) {
