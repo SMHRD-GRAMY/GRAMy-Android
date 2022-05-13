@@ -19,6 +19,7 @@ public class GoBoardActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.boardRecyclerView);
 
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         BoardAdapter adapter = new BoardAdapter();
