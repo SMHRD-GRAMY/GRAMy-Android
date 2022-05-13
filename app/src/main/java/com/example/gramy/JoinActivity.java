@@ -27,7 +27,7 @@ import java.util.Map;
 public class JoinActivity extends AppCompatActivity {
 
     EditText edtJoinId, edtJoinPw, edtJoinPwCheck, edtJoinName, edtJoinPhone, edtJoinAddr;
-    Button btnIdCheck, btnJoin;
+    Button btnJoinIdCheck, btnJoin;
     RadioGroup rgGender;
     RadioButton radioMan, radioWoman, radioNotting;
 
@@ -41,26 +41,26 @@ public class JoinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join);
 
         edtJoinId = findViewById(R.id.edtJoinId);
-        edtJoinPw = findViewById(R.id.edtModifyPw);
-        edtJoinPwCheck = findViewById(R.id.edtModifyPwCheck);
-        edtJoinName = findViewById(R.id.edtModifyName);
-        edtJoinPhone = findViewById(R.id.edtModifyPhone);
-        edtJoinAddr = findViewById(R.id.edtModifyAddr);
-        btnIdCheck = findViewById(R.id.btnModifyIdCheck);
-        btnJoin = findViewById(R.id.btnModify);
-        rgGender = findViewById(R.id.rgModifyGender);
-        radioMan = findViewById(R.id.ModifyradioMan);
-        radioWoman = findViewById(R.id.ModifyradioWoman);
-        radioNotting = findViewById(R.id.ModifyradioNotting);
+        edtJoinPw = findViewById(R.id.edtJoinPw);
+        edtJoinPwCheck = findViewById(R.id.edtJoinPwCheck);
+        edtJoinName = findViewById(R.id.edtJoinName);
+        edtJoinPhone = findViewById(R.id.edtJoinPhone);
+        edtJoinAddr = findViewById(R.id.edtJoinAddr);
+        btnJoinIdCheck = findViewById(R.id.btnJoinIdCheck);
+        btnJoin = findViewById(R.id.btnJoin);
+        rgGender = findViewById(R.id.rgGender);
+        radioMan = findViewById(R.id.radioMan);
+        radioWoman = findViewById(R.id.radioWoman);
+        radioNotting = findViewById(R.id.radioNotting);
 
         rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.ModifyradioMan){
+                if(i==R.id.radioMan){
                     chbResult = "man";
-                } else if(i==R.id.ModifyradioWoman){
+                } else if(i==R.id.radioWoman){
                     chbResult = "woman";
-                } else if(i==R.id.ModifyradioNotting){
+                } else if(i==R.id.radioNotting){
                     chbResult = "notting";
                 }
             }
