@@ -108,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                         GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
 
+
                                         Log.v("확인 : ", vo.toString());
                                         UserInfo.info = vo;
 

@@ -33,6 +33,10 @@
     <string name="btnGoJoin">회원가입</string>
     <string name="tvGoJoin">혹시, GRAMy가 처음이신가요?</string>
 
+    <!--modify -->
+    <string name="btnModify">수정하기</string>
+    <string name="btnCancel">취소하기</string>
+
     <!-- Agreement-->
     <string name="joinTitle">회원가입</string>
     <string name="agreeMentTitle">반갑습니다. \n약관동의가 필요합니다.</string>
