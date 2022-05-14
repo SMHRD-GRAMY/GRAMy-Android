@@ -23,6 +23,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.Vo_Info.BoardVO;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +38,7 @@ public class GoBoardActivity extends AppCompatActivity {
     BoardAdapter adapter = new BoardAdapter();
     ArrayList<BoardVO> items = new ArrayList<BoardVO>();
     TextView boardBack;
+    FloatingActionButton boardFloatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class GoBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_go_board); // 게시판 액티비티
 
         boardBack = findViewById(R.id.boardBack); // 뒤로가기
+        boardFloatBtn.findViewById(R.id.boardFloatBtn);
 
         queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성
 
