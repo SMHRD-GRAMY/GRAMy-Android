@@ -42,9 +42,12 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/settinglist_item.xml" value="0.9" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/shelf_editbox.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/shadow.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/shape.xml" value="0.173" />
-        <entry key="app/src/main/res/layout/activity_go_board.xml" value="0.2565603637695313" />
-        <entry key="app/src/main/res/layout/board_item.xml" value="0.5681076049804689" />
+        <entry key="app/src/main/res/layout/activity_go_board.xml" value="0.4132965301300263" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.15670289855072464" />
+        <entry key="app/src/main/res/layout/board_item.xml" value="1.1975585937499997" />
+        <entry key="app/src/main/res/layout/fragment_frag_homemain.xml" value="0.15670289855072464" />
       </map>
     </option>
   </component>

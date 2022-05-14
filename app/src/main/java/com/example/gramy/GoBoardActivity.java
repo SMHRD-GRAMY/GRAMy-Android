@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -26,6 +27,7 @@ import com.example.gramy.Vo_Info.BoardVO;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -34,11 +36,14 @@ public class GoBoardActivity extends AppCompatActivity {
     RequestQueue queue;
     BoardAdapter adapter = new BoardAdapter();
     ArrayList<BoardVO> items = new ArrayList<BoardVO>();
+    TextView boardBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go_board); // 게시판 액티비티
+
+        boardBack = findViewById(R.id.boardBack); // 뒤로가기
 
         queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성
 
@@ -59,6 +64,14 @@ public class GoBoardActivity extends AppCompatActivity {
             public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {
                 BoardVO item = adapter.getItem(position);
                 Toast.makeText(GoBoardActivity.this, item.getUser_id(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        boardBack.setOnClickListener(new View.OnClickListener() {
+            // "뒤로" 텍스트 눌렀을 때
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 
