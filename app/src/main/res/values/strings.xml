@@ -119,6 +119,8 @@
 
     <!-- activity_go_board.xml -->
     <string name="fab_content_desc">글 쓰기</string>
+    <string name="tvBoardTitle">자유 게시판</string>
+    <string name="tvBoardBack">뒤로</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

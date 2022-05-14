@@ -1,13 +1,11 @@
 package com.example.gramy.Adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gramy.Listener.OnBoardItemClickListener;
@@ -23,17 +21,17 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     // 뷰 홀더
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // 메소드는 뷰 홀더 안에서 만들자!
-        TextView boardTitle;
-        TextView boardWriter;
-        TextView boardDate;
+        TextView postTitle;
+        TextView postWriter;
+        TextView postDate;
 
         public ViewHolder(@NonNull View itemView, OnBoardItemClickListener listener) {
             // 뷰 홀더 생성자
             super(itemView);
 
-            boardTitle = itemView.findViewById(R.id.boardTitle);
-            boardWriter = itemView.findViewById(R.id.boardWriter);
-            boardDate = itemView.findViewById(R.id.boardDate);
+            postTitle = itemView.findViewById(R.id.postTitle);
+            postWriter = itemView.findViewById(R.id.postWriter);
+            postDate = itemView.findViewById(R.id.postDate);
 
             itemView.setOnClickListener(new View.OnClickListener() { // 아이템뷰에 클릭이벤트 달아주기
                 @Override
@@ -49,9 +47,9 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
 
         }
         public void setItem(BoardVO item) { // setItem Method
-            boardTitle.setText(item.getTb_a_title());
-            boardWriter.setText(item.getUser_id());
-            boardDate.setText(item.getTb_a_date());
+            postTitle.setText(item.getTb_a_title());
+            postWriter.setText(item.getUser_id());
+            postDate.setText(item.getTb_a_date());
         }
 
     } // 뷰 홀더 end
