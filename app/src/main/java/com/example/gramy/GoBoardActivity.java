@@ -50,7 +50,7 @@ public class GoBoardActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성
 
-        getBoardDate(); // 게시글 목록 불러오기
+        getBoardData(); // 게시글 목록 불러오기
 
         RecyclerView recyclerView = findViewById(R.id.boardRecyclerView);
 
@@ -63,10 +63,12 @@ public class GoBoardActivity extends AppCompatActivity {
             @Override
             public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {
                 BoardVO item = adapter.getItem(position); // 각각의 게시글
-                String user_id = item.getUser_id(); // 유저 아이디로 조회하기
+                int BoardSeq = item.getTb_a_seq(); // 게시글 번호로 조회하기
+                System.out.println(BoardSeq);
 
                 // 액티비티 이동
                 Intent intent = new Intent(getApplicationContext(), BoardDetailActivity.class);
+                intent.putExtra("tb_a_seq", BoardSeq);
                 startActivity(intent);
                 finish();
                 //
@@ -94,7 +96,7 @@ public class GoBoardActivity extends AppCompatActivity {
     }
 
     // 게시글 가져오는 메서드
-    private void getBoardDate() {
+    private void getBoardData() {
         int method = Request.Method.GET;
         String server_url = "http://211.48.228.51:8082/app/list";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
@@ -113,7 +115,6 @@ public class GoBoardActivity extends AppCompatActivity {
                         BoardVO item = new BoardVO(tb_a_seq, tb_a_title, tb_a_content, tb_a_date, user_id, user_name);
                         items.add(item);
                     }
-                    System.out.println(items);
                     adapter.setItems(items);
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
