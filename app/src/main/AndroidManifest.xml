@@ -65,7 +65,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoadingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -73,16 +73,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivityss"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".AddStoreActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoadingActivity"
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
