@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -125,8 +127,14 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                     setTitleBetaService();
                     btnBackVis();
                 }
-                else if (pos == 7){
+                else if (pos == 7) {
                     //로그아웃 로직
+                    /*if(카카오 로그인 상태일때) {
+                        KakaoLogout();
+                    }else{}
+                    // if (카카오||일반 로그인 상태 아닐 때){
+                        Toast.makeText(context,"로그인 후 로그아웃이 가능합니다.", Toast.LENGTH_SHORT).show();
+                }*/
                     setTitleLogout();
                     btnBackVis();
                 }
