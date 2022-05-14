@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int method = Request.Method.POST;
-                String server_url = "http://211.48.228.51:8082/androidlogin.do";
+                String server_url = "http://119.200.31.65:8082/androidlogin.do";
 
                 request = new StringRequest(
                         method,
@@ -196,7 +196,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if (oAuthToken != null) {
-                    Log.d("로그인 성공", "로그인 성공");
+                    Toast.makeText(LoginActivity.this, "로그인 성공!", Toast.LENGTH_SHORT).show();
                     UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
                         @Override
                         public Unit invoke(User user, Throwable throwable) {
@@ -222,7 +222,6 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Log.d(TAG, "null");
                         }
-
                         return null;
                     }
                 });

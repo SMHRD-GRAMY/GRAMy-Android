@@ -1,24 +1,18 @@
 package com.example.gramy;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.BoardAdapter;
@@ -29,7 +23,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -45,12 +38,12 @@ public class GoBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go_board); // 게시판 액티비티
 
-        boardBack = findViewById(R.id.boardBack); // 뒤로가기
+        boardBack = findViewById(R.id.tvBoardBack); // 뒤로가기
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab); // 플러팅 버튼
 
         queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성
 
-        getBoardDate(); // 게시글 목록 불러오기
+        getBoardData(); // 게시글 목록 불러오기
 
         RecyclerView recyclerView = findViewById(R.id.boardRecyclerView);
 
@@ -63,10 +56,12 @@ public class GoBoardActivity extends AppCompatActivity {
             @Override
             public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {
                 BoardVO item = adapter.getItem(position); // 각각의 게시글
-                String user_id = item.getUser_id(); // 유저 아이디로 조회하기
+                int BoardSeq = item.getTb_a_seq(); // 게시글 번호로 조회하기
+                System.out.println(BoardSeq);
 
                 // 액티비티 이동
                 Intent intent = new Intent(getApplicationContext(), BoardDetailActivity.class);
+                intent.putExtra("tb_a_seq", BoardSeq);
                 startActivity(intent);
                 finish();
                 //
@@ -94,7 +89,7 @@ public class GoBoardActivity extends AppCompatActivity {
     }
 
     // 게시글 가져오는 메서드
-    private void getBoardDate() {
+    private void getBoardData() {
         int method = Request.Method.GET;
         String server_url = "http://211.48.228.51:8082/app/list";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
@@ -113,7 +108,6 @@ public class GoBoardActivity extends AppCompatActivity {
                         BoardVO item = new BoardVO(tb_a_seq, tb_a_title, tb_a_content, tb_a_date, user_id, user_name);
                         items.add(item);
                     }
-                    System.out.println(items);
                     adapter.setItems(items);
                     adapter.notifyDataSetChanged();
                 } catch (JSONException e) {

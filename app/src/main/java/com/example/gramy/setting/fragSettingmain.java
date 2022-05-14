@@ -1,7 +1,6 @@
 package com.example.gramy.setting;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -28,6 +27,7 @@ public class fragSettingmain extends Fragment {
     private RecyclerView rcSettingItem;
     private SettingAdapter adapter;
     private ArrayList<SettingData> list = new ArrayList<>();
+    RecyclerView.Adapter SettingAdapter;
 
     int j = 0;
 
@@ -35,8 +35,6 @@ public class fragSettingmain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_frag_settingmain, container, false);
-
-        Log.v("로그인", "저장 : "+getLoginInfo());
 
         rcSettingItem = rootView.findViewById(R.id.rcSettingItem);
         rcSettingItem.setHasFixedSize(true);
@@ -77,14 +75,5 @@ public class fragSettingmain extends Fragment {
 
         }
         adapter.notifyDataSetChanged();
-    }
-
-    private String getLoginInfo(){
-
-        SharedPreferences sf_login = getActivity().getSharedPreferences("sf_login", Context.MODE_PRIVATE);
-        boolean isLoginChecked = sf_login.getBoolean("check_login", false); //로그인 체크박스의 상태, default : false
-        String user_id = sf_login.getString("user_id","");
-
-        return user_id;
     }
 }

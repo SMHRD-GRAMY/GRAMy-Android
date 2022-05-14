@@ -123,7 +123,7 @@
     <string name="btnBack"></string>
     <string name="tvAddStoreSub">현재 어플에 등록된 가게 외에 추가로 \n가게를 등록해보세요.</string>
     <string name="btnModifyStore">수정</string>
-    <string name="btnSubmitStore">등록</string>
+    <string name="btnEnrollStore">등록</string>
     <string name="tvStore">현재 등록된 가게입니다.</string>
     <string name="tvCurrentStore">동명동 \'행복한 담벼락\'</string>
 
@@ -139,6 +139,16 @@
     <string name="tvAlarm">알람설정</string>
     <string name="tvAlarmTitle">꼭 필요한 알람만 듣고 싶으신가요? \n이 곳에서 설정 할 수 있습니다.</string>
     <string name="tvAlarmAll">전체 PUSH 알림 허용</string>
+    <string name="tvMessage">재고 부족 알람 등 필수 알람은 위 설정 여부와 무관하게 받을 수 있습니다.\n기기의 알림 설정은 휴대폰 설정>알림>GRMAy에서 변경할 수 있습니다.</string>
+    <string name="tvCommercial">광고성 정보 수신 동의</string>
+    <string name="tvCommSub">쿠폰 지급 등 혜택에 관한 알림을 받을 수 있습니다.</string>
+    <string name="tvNight">야간 수신 동의</string>
+    <string name="tvNigSub">야간(21:00~08:00)에 정보성 푸시알림을 받을 수 있습니다.</string>
+    <string name="swAll"></string>
+    <string name="swComm"></string>
+    <string name="swNight"></string>
+
+    <!-- <string name="tvNoAlarm">새로운 소식이 없어요.\n오늘의 소식이 생기면 알려드릴게요!</string> -->
 
     <!-- activity_modify -->
     <string name="tvModify">개인정보수정</string>
@@ -158,14 +168,5 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_board_detail">BoardDetailActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>
