@@ -72,7 +72,7 @@ public class BoardDetailActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     tvBoardDetailTitle.setText(jsonObject.getString("tb_a_title"));
-                    tvBoardDetailWriter.setText(jsonObject.getString("user_name"));
+                    tvBoardDetailWriter.setText("작성자 : " + jsonObject.getString("user_name"));
                     tvBoardDetailDate.setText(jsonObject.getString("tb_a_date").substring(0, 11));
                     tvBoardDetailContent.setText(jsonObject.getString("tb_a_content"));
                 } catch (Exception e) {
