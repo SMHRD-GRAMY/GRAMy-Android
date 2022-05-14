@@ -18,7 +18,7 @@ public class BoardWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_write);
 
-        boardWriteBack = findViewById(R.id.boardWriteBack);
+        boardWriteBack = findViewById(R.id.tvboardWriteBack);
 
         // 게시글 목록으로 이동
         boardWriteBack.setOnClickListener(new View.OnClickListener() {
