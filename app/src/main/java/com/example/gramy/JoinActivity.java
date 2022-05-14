@@ -27,7 +27,7 @@ import java.util.Map;
 public class JoinActivity extends AppCompatActivity {
 
     EditText edtJoinId, edtJoinPw, edtJoinPwCheck, edtJoinName, edtJoinPhone, edtJoinAddr;
-    Button btnIdCheck, btnJoin;
+    Button btnJoinIdCheck, btnJoin;
     RadioGroup rgGender;
     RadioButton radioMan, radioWoman, radioNotting;
 
@@ -46,7 +46,7 @@ public class JoinActivity extends AppCompatActivity {
         edtJoinName = findViewById(R.id.edtJoinName);
         edtJoinPhone = findViewById(R.id.edtJoinPhone);
         edtJoinAddr = findViewById(R.id.edtJoinAddr);
-        btnIdCheck = findViewById(R.id.btnIdCheck);
+        btnJoinIdCheck = findViewById(R.id.btnJoinIdCheck);
         btnJoin = findViewById(R.id.btnJoin);
         rgGender = findViewById(R.id.rgGender);
         radioMan = findViewById(R.id.radioMan);

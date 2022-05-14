@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -108,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                         GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
 
+
                                         Log.v("확인 : ", vo.toString());
                                         UserInfo.info = vo;
 
@@ -164,6 +166,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
 
                 queue.add(request);
+                setLoginInfo();
             }
         });
         // 카카오로그인
@@ -216,5 +219,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public void setLoginInfo(){
+        SharedPreferences sf_login = getSharedPreferences("sf_login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sf_login.edit();
+        editor.putBoolean("check_login", true);
+        editor.putString("user_id", edtId.getText().toString());
+        editor.putString("user_pw", edtPw.getText().toString());
+        editor.apply();
     }
 }
