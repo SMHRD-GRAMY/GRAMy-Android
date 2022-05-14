@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.gramy.GoReportActivity;
 import com.example.gramy.HomeActivity;
+import com.example.gramy.LoginActivity;
 import com.example.gramy.R;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -118,10 +121,20 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                 if (pos == 7){
                     //로그아웃 로직
                     Log.d("click", "로그아웃 로직 들어갈 곳");
+                    SharedPreferences sf_login = view.getContext().getSharedPreferences("sf_login", view.getContext().MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sf_login.edit();
+                    editor.clear();
+                    editor.commit();
+                    Intent intent = new Intent(view.getContext(), LoginActivity.class);
+                    view.getContext().startActivity(intent);
+
                 }
                 if(pos == 8){
+
+                    //openActivity();
                     openModify();
                     // 개인정보 수정 로직
+
 
                 }
             });
@@ -145,5 +158,11 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
             fragmentTransaction.replace(R.id.container, fragModify);
             fragmentTransaction.commit();
         }
+
+/*        public void openActivity(){
+            if
+            ((HomeActivity)HomeActivity.context_home).tvTitleGramy.setText("개인정보수정");
+            else
+        }*/
     }
 }

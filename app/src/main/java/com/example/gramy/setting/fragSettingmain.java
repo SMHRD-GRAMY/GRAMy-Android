@@ -1,5 +1,7 @@
 package com.example.gramy.setting;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gramy.R;
@@ -32,6 +35,8 @@ public class fragSettingmain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_frag_settingmain, container, false);
+
+        Log.v("로그인", "저장 : "+getLoginInfo());
 
         rcSettingItem = rootView.findViewById(R.id.rcSettingItem);
         rcSettingItem.setHasFixedSize(true);
@@ -72,5 +77,14 @@ public class fragSettingmain extends Fragment {
 
         }
         adapter.notifyDataSetChanged();
+    }
+
+    private String getLoginInfo(){
+
+        SharedPreferences sf_login = getActivity().getSharedPreferences("sf_login", Context.MODE_PRIVATE);
+        boolean isLoginChecked = sf_login.getBoolean("check_login", false); //로그인 체크박스의 상태, default : false
+        String user_id = sf_login.getString("user_id","");
+
+        return user_id;
     }
 }
