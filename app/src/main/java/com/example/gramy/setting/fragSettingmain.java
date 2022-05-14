@@ -1,5 +1,6 @@
 package com.example.gramy.setting;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -26,6 +27,7 @@ public class fragSettingmain extends Fragment {
     private RecyclerView rcSettingItem;
     private SettingAdapter adapter;
     private ArrayList<SettingData> list = new ArrayList<>();
+    RecyclerView.Adapter SettingAdapter;
 
     int j = 0;
 
@@ -33,8 +35,6 @@ public class fragSettingmain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_frag_settingmain, container, false);
-
-        View view = inflater.inflate(R.layout.fragment_push_agreement, null);
 
         rcSettingItem = rootView.findViewById(R.id.rcSettingItem);
         rcSettingItem.setHasFixedSize(true);

@@ -2,6 +2,7 @@ package com.example.gramy.setting;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,16 +15,23 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.gramy.HomeActivity;
+import com.example.gramy.LoginActivity;
 import com.example.gramy.R;
+import com.kakao.auth.Session;
+import com.kakao.sdk.user.UserApiClient;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import kotlin.Unit;
+
 public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemViewHolder> implements OnListClickListener{
 
     private Context context;
-    private TextView tvSettingItem, tvVersion, tvTitleGRAMy;
-    private ImageButton btnBack;
+    private TextView tvSettingItem, tvVersion;
     private ImageView imgSettingItem;
     private ArrayList<SettingData> Setting_Data;
 
@@ -46,8 +54,6 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType){
         View itemView = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.settinglist_item,parent,false);
-
-        btnBack = itemView.findViewById(R.id.btnBack);
         return new ItemViewHolder(itemView, this);
     }
 
@@ -79,7 +85,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         Setting_Data.add(data);
     }
 
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    public class ItemViewHolder extends RecyclerView.ViewHolder {
         ItemViewHolder(View itemView, final OnListClickListener listener) {
             super(itemView);
 
@@ -196,9 +202,12 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         }
         public void btnBackVis(){
             ((HomeActivity) HomeActivity.btnBackVis).btnBack.setVisibility(View.VISIBLE);
-//            if (){
-//                ((HomeActivity) HomeActivity.btnBackVis).btnBack.setVisibility(View.GONE);
-//            }
+        }
+
+        // 카카오 로그아웃 로직
+        public void KakaoLogout(){
+            // 자동으로 로그인 호출되는 코드
+            Session.getCurrentSession().checkAndImplicitOpen();
         }
     }
 }

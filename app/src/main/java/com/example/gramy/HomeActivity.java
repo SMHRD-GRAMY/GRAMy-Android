@@ -8,12 +8,15 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.gramy.home.fragHomemain;
@@ -21,6 +24,10 @@ import com.example.gramy.news.fragNewsmain;
 import com.example.gramy.setting.fragSettingmain;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.kakao.auth.Session;
+import com.kakao.sdk.user.UserApiClient;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -66,6 +73,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 replace(fragSettingmain);
+                btnBack.setVisibility(View.GONE);
+                tvTitleGramy.setText("GRAMy");
             }
         });
 
@@ -80,12 +89,15 @@ public class HomeActivity extends AppCompatActivity {
                 if (itemId == R.id.home) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragHomemain).addToBackStack(null).commit();
                     tvTitleGramy.setText("GRAMy");
+                    btnBack.setVisibility(View.GONE);
                 } else if (itemId == R.id.news) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragNewsmain).addToBackStack(null).commit();
                     tvTitleGramy.setText("GRAMy");
+                    btnBack.setVisibility(View.GONE);
                 } else if (itemId == R.id.setting) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragSettingmain).addToBackStack(null).commit();
                     tvTitleGramy.setText("GRAMy");
+                    btnBack.setVisibility(View.GONE);
                 }
                 return true;
             }

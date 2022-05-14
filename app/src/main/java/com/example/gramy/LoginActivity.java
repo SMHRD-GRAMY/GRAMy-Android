@@ -51,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
     private ImageButton btnFacebookLogin, btnKakaoLogin, btnNaverLogin;
     private EditText edtId, edtPw;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,7 +171,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public Unit invoke(OAuthToken oAuthToken, Throwable throwable) {
                 if (oAuthToken != null) {
-                    Log.d("로그인 성공", "로그인 성공");
+                    Toast.makeText(LoginActivity.this, "로그인 성공!", Toast.LENGTH_SHORT).show();
                     UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
                         @Override
                         public Unit invoke(User user, Throwable throwable) {
@@ -198,7 +197,6 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Log.d(TAG, "null");
                         }
-
                         return null;
                     }
                 });
@@ -214,8 +212,5 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
 }
