@@ -36,6 +36,7 @@ import java.util.Map;
 
 public class fragModify extends Fragment {
 
+    public Context context_modify;
     EditText edtModifyId, edtModifyPw, edtModifyPwCheck, edtModifyName, edtModifyPhone, edtModifyAddr;
     Button btnModify, btnModifyCancel;
     RadioGroup rgModifyGender;
@@ -48,6 +49,11 @@ public class fragModify extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        Log.v("로그인", "저장 : "+getLoginInfo());
+
+        context_modify = getActivity();
+
         View view = inflater.inflate(R.layout.fragment_modify, container, false);
 
         edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
