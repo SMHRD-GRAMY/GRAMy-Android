@@ -146,6 +146,11 @@
     <!-- activity_go_board.xml -->
     <string name="fab_content_desc">글 쓰기</string>
     <string name="tvBoardTitle">자유 게시판</string>
+
+    <!-- activity_board_write.xml -->
+    <string name="tvBoardWriteTitle">게시글 작성</string>
+
+    <!-- 게시판 액티비티 공용 string -->
     <string name="tvBoardBack">뒤로</string>
 
     <!-- TODO: Remove or change this placeholder text -->

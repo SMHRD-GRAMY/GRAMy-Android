@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +39,6 @@ public class GoBoardActivity extends AppCompatActivity {
     BoardAdapter adapter = new BoardAdapter();
     ArrayList<BoardVO> items = new ArrayList<BoardVO>();
     TextView boardBack;
-    FloatingActionButton boardFloatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class GoBoardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_go_board); // 게시판 액티비티
 
         boardBack = findViewById(R.id.boardBack); // 뒤로가기
-        boardFloatBtn.findViewById(R.id.boardFloatBtn);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab); // 플러팅 버튼
 
         queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성
 
@@ -75,6 +75,15 @@ public class GoBoardActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 onBackPressed();
+            }
+        });
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BoardWriteActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
