@@ -19,17 +19,6 @@ public class PushAgreementFragment extends Fragment {
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_push_agreement, container, false);
 
-        AppCompatImageButton btnBack = rootView.findViewById(R.id.btnBack);
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragSettingmain fragSettingmain = new fragSettingmain();
-                transaction.replace(R.id.constraint, fragSettingmain);
-                transaction.commit();
-            }
-        });
         return rootView;
     }
 }

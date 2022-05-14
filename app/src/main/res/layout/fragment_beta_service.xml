@@ -21,20 +21,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.1" />
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="4dp"
-        android:backgroundTint="#A30909"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar5"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar5"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar5"
-        app:srcCompat="@drawable/back_w" />
-
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="250dp"

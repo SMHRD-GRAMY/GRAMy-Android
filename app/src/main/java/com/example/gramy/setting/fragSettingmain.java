@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gramy.R;
@@ -32,6 +33,8 @@ public class fragSettingmain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_frag_settingmain, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_push_agreement, null);
 
         rcSettingItem = rootView.findViewById(R.id.rcSettingItem);
         rcSettingItem.setHasFixedSize(true);

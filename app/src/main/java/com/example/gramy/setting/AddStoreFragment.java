@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.gramy.R;
@@ -23,19 +24,6 @@ public class AddStoreFragment extends Fragment {
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_add_store, container, false);
 
-        AppCompatImageButton btnBack = rootView.findViewById(R.id.btnBack);
-        Button btnModifyStore = rootView.findViewById(R.id.btnModifyStore);
-        Button btnEnrollStore = rootView.findViewById(R.id.btnEnrollStore);
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragSettingmain fragSettingmain = new fragSettingmain();
-                transaction.replace(R.id.constraint, fragSettingmain);
-                transaction.commit();
-            }
-        });
         return rootView;
     }
 }
