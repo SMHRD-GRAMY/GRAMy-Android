@@ -19,17 +19,6 @@ public class BoardWriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_board_write);
 
         boardWriteBack = findViewById(R.id.boardWriteBack);
-        btnWrtieCancel = findViewById(R.id.btnWriteCancel);
-
-        // 게시글 작성 취소
-        btnWrtieCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         // 게시글 목록으로 이동
         boardWriteBack.setOnClickListener(new View.OnClickListener() {

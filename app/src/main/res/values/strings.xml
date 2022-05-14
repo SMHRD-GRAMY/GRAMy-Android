@@ -151,8 +151,7 @@
     <string name="tvBoardWriteTitle">게시글 작성</string>
     <string name="edtWriteTitleHint">제목</string>
     <string name="edtWriteContentHint">내용</string>
-    <string name="btnWrite">작성</string>
-    <string name="btnWriteCancel">취소</string>
+    <string name="tvWriteBoard">작성</string>
 
     <!-- 게시판 액티비티 공용 string -->
     <string name="tvBoardBack">뒤로</string>
