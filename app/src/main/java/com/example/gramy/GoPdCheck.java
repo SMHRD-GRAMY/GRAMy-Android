@@ -34,13 +34,13 @@ public class GoPdCheck extends AppCompatActivity {
             }
         });
         //  선반이미지 클릭시
-        ImageButton imgScale1 = (ImageButton) findViewById(R.id.imgScale1);
+        ImageButton imgScale1 = findViewById(R.id.imgScale1);
         imgScale1.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
 
                 if (v.getId() == R.id.imgScale1) {
 
-                        Intent intent = new Intent(GoPdCheck.this, StockActivity.class);
+                        Intent intent = new Intent(GoPdCheck.this,StockActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
 

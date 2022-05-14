@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.gramy.R;
 
@@ -17,6 +18,7 @@ public class StockCheckActivity extends AppCompatActivity {
     private Button button;
     private ProgressBar progressBar;
     private EditText editText;
+    private TextView edtpercent;
     private int value;
 
     @Override
@@ -24,9 +26,21 @@ public class StockCheckActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_check);
 
-        progressBar = (ProgressBar)findViewById(R.id.progressBar2);
-        editText = (EditText)findViewById(R.id.test1);
+        progressBar = (ProgressBar)findViewById(R.id.progressBar2); // 프로그래스바
+        editText = (EditText)findViewById(R.id.test11);// 현재 무게
+        edtpercent = (TextView) findViewById(R.id.edtpercent); //퍼센트
         button = (Button)findViewById(R.id.btnenroll1);
+
+        String currentWeight=editText.getText().toString();
+        edtpercent.setText(currentWeight);
+
+        value = Integer.parseInt(editText.getText().toString());
+        if(value<=10){
+            progressBar.setProgressTintList(ColorStateList.valueOf(Color.RED));
+        } else {
+            progressBar.setProgressTintList(ColorStateList.valueOf(Color.GREEN));
+        }
+        progressBar.setProgress(value);
     }
 
     public  void onClick(View v) {

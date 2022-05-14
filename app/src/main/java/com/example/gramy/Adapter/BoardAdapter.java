@@ -6,12 +6,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.R;
 import com.example.gramy.Vo_Info.BoardVO;
+
 
 import java.util.ArrayList;
 

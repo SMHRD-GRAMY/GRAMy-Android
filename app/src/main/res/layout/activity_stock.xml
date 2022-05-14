@@ -111,7 +111,7 @@
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/border_layout"
             android:ems="10"
             android:hapticFeedbackEnabled="false"
@@ -134,7 +134,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvstockName" />
 
         <EditText
-            android:id="@+id/test1"
+            android:id="@+id/tvstockweight"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
@@ -148,7 +148,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvstockName" />
 
         <EditText
-            android:id="@+id/tvhw_Uid"
+            android:id="@+id/tvhwuid"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
@@ -156,12 +156,12 @@
             android:ems="10"
             android:hint="입력하세요"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/test1"
-            app:layout_constraintStart_toStartOf="@+id/test1"
-            app:layout_constraintTop_toBottomOf="@+id/test1" />
+            app:layout_constraintEnd_toEndOf="@+id/tvstockweight"
+            app:layout_constraintStart_toStartOf="@+id/tvstockweight"
+            app:layout_constraintTop_toBottomOf="@+id/tvstockweight" />
 
         <EditText
-            android:id="@+id/tvstoch_Order"
+            android:id="@+id/tvstochOrder"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
@@ -169,10 +169,10 @@
             android:ems="10"
             android:hint="입력하세요"
             android:inputType="textPersonName"
-            app:layout_constraintEnd_toEndOf="@+id/tvstock_shelflife"
+            app:layout_constraintEnd_toEndOf="@+id/tvstockshelflife"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvstock_shelflife"
-            app:layout_constraintTop_toBottomOf="@+id/tvstock_shelflife" />
+            app:layout_constraintStart_toStartOf="@+id/tvstockshelflife"
+            app:layout_constraintTop_toBottomOf="@+id/tvstockshelflife" />
 
         <TextView
             android:id="@+id/textView4"
@@ -182,10 +182,10 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/test1"
+            app:layout_constraintBottom_toBottomOf="@+id/tvstockweight"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/test1" />
+            app:layout_constraintTop_toTopOf="@+id/tvstockweight" />
 
         <TextView
             android:id="@+id/textView5"
@@ -195,10 +195,10 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvhw_Uid"
+            app:layout_constraintBottom_toBottomOf="@+id/tvhwuid"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/tvhw_Uid" />
+            app:layout_constraintTop_toTopOf="@+id/tvhwuid" />
 
         <TextView
             android:id="@+id/textView6"
@@ -208,10 +208,10 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstock_Date"
+            app:layout_constraintBottom_toBottomOf="@+id/tvstockDate"
             app:layout_constraintEnd_toEndOf="@+id/textView5"
             app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/tvstock_Date" />
+            app:layout_constraintTop_toTopOf="@+id/tvstockDate" />
 
         <TextView
             android:id="@+id/textView7"
@@ -222,11 +222,11 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstock_shelflife"
+            app:layout_constraintBottom_toBottomOf="@+id/tvstockshelflife"
             app:layout_constraintEnd_toEndOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/tvstock_shelflife"
+            app:layout_constraintTop_toTopOf="@+id/tvstockshelflife"
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
@@ -237,11 +237,11 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstoch_Order"
+            app:layout_constraintBottom_toBottomOf="@+id/tvstochOrder"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="@+id/tvstoch_Order" />
+            app:layout_constraintTop_toTopOf="@+id/tvstochOrder" />
 
         <Button
             android:id="@+id/btnenroll1"
@@ -258,7 +258,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/tvstock_Date"
+            android:id="@+id/tvstockDate"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
@@ -266,41 +266,41 @@
             android:text="입력하세요"
             android:textColor="#787878"
             android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="@+id/tvhw_Uid"
+            app:layout_constraintEnd_toEndOf="@+id/tvhwuid"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvhw_Uid"
-            app:layout_constraintTop_toBottomOf="@+id/tvhw_Uid" />
+            app:layout_constraintStart_toStartOf="@+id/tvhwuid"
+            app:layout_constraintTop_toBottomOf="@+id/tvhwuid" />
 
         <TextView
-            android:id="@+id/tvstock_shelflife"
+            android:id="@+id/tvstockshelflife"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/border_layout"
             android:text="입력하세요"
             android:textSize="18dp"
-            app:layout_constraintEnd_toEndOf="@+id/tvstock_Date"
+            app:layout_constraintEnd_toEndOf="@+id/tvstockDate"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvstock_Date"
-            app:layout_constraintTop_toBottomOf="@+id/tvstock_Date" />
+            app:layout_constraintStart_toStartOf="@+id/tvstockDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvstockDate" />
 
         <Button
             android:id="@+id/ddPickDate"
             android:layout_width="65dp"
             android:layout_height="40dp"
             android:text="설정"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstock_shelflife"
-            app:layout_constraintEnd_toEndOf="@+id/tvstock_shelflife"
-            app:layout_constraintTop_toTopOf="@+id/tvstock_shelflife" />
+            app:layout_constraintBottom_toBottomOf="@+id/tvstockshelflife"
+            app:layout_constraintEnd_toEndOf="@+id/tvstockshelflife"
+            app:layout_constraintTop_toTopOf="@+id/tvstockshelflife" />
 
         <Button
             android:id="@+id/dPickDate"
             android:layout_width="65dp"
             android:layout_height="40dp"
             android:text="설정"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstock_Date"
-            app:layout_constraintEnd_toEndOf="@+id/tvstock_Date"
-            app:layout_constraintTop_toBottomOf="@+id/tvhw_Uid"
+            app:layout_constraintBottom_toBottomOf="@+id/tvstockDate"
+            app:layout_constraintEnd_toEndOf="@+id/tvstockDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvhwuid"
             app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

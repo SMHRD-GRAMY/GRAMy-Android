@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,9 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
 
-    private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
     private ImageButton btnFacebookLogin, btnKakaoLogin, btnNaverLogin;
-    private EditText edtId, edtPw;
 
 
     @Override
@@ -178,17 +177,17 @@ public class LoginActivity extends AppCompatActivity {
                         public Unit invoke(User user, Throwable throwable) {
                             if (user != null){
                                 Log.d(TAG, "로그인 정보 : "+user);
+                            }
+                            if (throwable != null){
+                                Log.d("error", throwable.getLocalizedMessage());
+                            }
+                            return null;
+                        }
+                    });
                 }
-                if (throwable != null){
-                    Log.d("error", throwable.getLocalizedMessage());
-                }
+                updateKakaoLoginUi();
                 return null;
-                }
-            });
-        }
-        updateKakaoLoginUi();
-        return null;
-    }
+            }
             private void updateKakaoLoginUi() {
                 UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
                     @Override

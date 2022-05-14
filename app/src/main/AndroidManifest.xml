@@ -38,6 +38,10 @@
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
+            android:name=".stock.StockCheckActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
             android:name=".GoMgShelfActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
@@ -63,6 +67,10 @@
             android:exported="false" />
         <activity
             android:name=".LoadingActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
+            android:name=".stock.StockActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity

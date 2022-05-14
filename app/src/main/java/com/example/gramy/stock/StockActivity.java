@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -20,11 +21,15 @@ import com.example.gramy.R;
 
 public class StockActivity<sPickDate> extends Activity {
 
+    EditText tvstockName, tvstockweight, tvhwuid, tvstockDate, tvstockshelflife, tvstochOrder;
+    Button btnenroll1;
+
+
     //View
     private TextView sText;
     private Button sPickDate;
     private TextView mText;
-    private Button mPickDate, btnChange11;
+    private Button mPickDate;
 
 
     //년,월,일,시,분
@@ -52,21 +57,25 @@ public class StockActivity<sPickDate> extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock);
 
-        btnChange11 = findViewById(R.id.btnenroll1);
+        btnenroll1 = findViewById(R.id.btnenroll1);
 
         //등록 및 위치 변경 버튼
-        btnChange11.setOnClickListener(new View.OnClickListener() {
+        btnenroll1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //
+
+
+                //
                 Intent intent = new Intent(StockActivity.this, StockCheckActivity.class);
                 startActivity(intent);
             }
         });
 
         //View 참조
-        mText = (TextView)findViewById(R.id.tvstock_Date);
+        mText = (TextView)findViewById(R.id.tvstockDate);
         mPickDate = (Button)findViewById(R.id.dPickDate);
-        sText = (TextView)findViewById(R.id.tvstock_shelflife);
+        sText = (TextView)findViewById(R.id.tvstockshelflife);
         sPickDate = (Button)findViewById(R.id.ddPickDate);
         //날짜설정 이벤트
         mPickDate.setOnClickListener(new OnClickListener() {
@@ -101,16 +110,11 @@ public class StockActivity<sPickDate> extends Activity {
     }
 
 
-
-
-
-
     //텍스트뷰 갱신
     private void updateDisplay(){
         mText.setText(String.format("%d년 %d월 %d일", mYear, mMonth+1, mDay));
         sText.setText(String.format("%d년 %d월 %d일", mYear1, mMonth1+1, mDay1));
     }
-
 
     //DatePicker 리스너
     private DatePickerDialog.OnDateSetListener mDateSetListener =
@@ -135,9 +139,6 @@ public class StockActivity<sPickDate> extends Activity {
                 }
             };
 
-
-
-
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -149,6 +150,7 @@ public class StockActivity<sPickDate> extends Activity {
 
         return null;
     }
+
 
 }
 
