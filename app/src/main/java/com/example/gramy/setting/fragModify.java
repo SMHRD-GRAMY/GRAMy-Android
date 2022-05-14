@@ -84,6 +84,13 @@ public class fragModify extends Fragment {
             }
         });
 
+        btnModifyCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                beforePage();
+            }
+        });
+
 
         btnModify.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,10 +119,7 @@ public class fragModify extends Fragment {
                                     alter.setPositiveButton("확인", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                                            fragSettingmain fragSettingmain = new fragSettingmain();
-                                            transaction.replace(R.id.container, fragSettingmain);
-                                            transaction.commit();
+                                            beforePage();
                                         }
                                     });
                                     alter.show();
@@ -165,5 +169,12 @@ public class fragModify extends Fragment {
         String user_id = sf_login.getString("user_id","");
 
         return user_id;
+    }
+
+    public void beforePage(){
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragSettingmain fragSettingmain = new fragSettingmain();
+        transaction.replace(R.id.container, fragSettingmain);
+        transaction.commit();
     }
 }
