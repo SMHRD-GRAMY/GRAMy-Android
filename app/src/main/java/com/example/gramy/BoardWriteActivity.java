@@ -34,7 +34,7 @@ public class BoardWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_write);
 
-        boardWriteBack = findViewById(R.id.boardWriteBack); // "뒤로"
+        boardWriteBack = findViewById(R.id.tvBoardWriteBack); // "뒤로"
         tvWriteBoard = findViewById(R.id.tvWriteBoard); // "게시물 작성"
         edtWriteTitle = findViewById(R.id.edtWriteTitle); // 게시글 제목 입력
         edtWriteContent = findViewById(R.id.edtWriteContent); // 게시글 본문 입력
@@ -58,7 +58,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                 finish();
             }
         });
-        boardWriteBack = findViewById(R.id.tvboardWriteBack);
+        boardWriteBack = findViewById(R.id.tvBoardWriteBack);
         // 게시글 목록으로 이동
         boardWriteBack.setOnClickListener(new View.OnClickListener() {
             @Override
