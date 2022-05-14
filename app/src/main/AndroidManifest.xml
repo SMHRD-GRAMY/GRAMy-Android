@@ -15,6 +15,9 @@
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".BoardDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".BoardWriteActivity"
             android:exported="false" />
         <activity

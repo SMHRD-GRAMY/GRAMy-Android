@@ -59,11 +59,17 @@ public class GoBoardActivity extends AppCompatActivity {
 
         // setOn"Item"ClickListener
         adapter.setOnItemClickListener(new OnBoardItemClickListener() {
-            // 게시판 아이템 클릭했을 때의 로직 설정하기
+            // TODO: 게시글 상세보기 구현
             @Override
             public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {
-                BoardVO item = adapter.getItem(position);
-                Toast.makeText(GoBoardActivity.this, item.getUser_id(), Toast.LENGTH_SHORT).show();
+                BoardVO item = adapter.getItem(position); // 각각의 게시글
+                String user_id = item.getUser_id(); // 유저 아이디로 조회하기
+
+                // 액티비티 이동
+                Intent intent = new Intent(getApplicationContext(), BoardDetailActivity.class);
+                startActivity(intent);
+                finish();
+                //
             }
         });
 
