@@ -21,20 +21,6 @@
         app:layout_constraintStart_toEndOf="@+id/btnFacebookLogin"
         app:layout_constraintTop_toTopOf="@+id/btnFacebookLogin" />
 
-    <Button
-        android:id="@+id/btnFindId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/btnFindId"
-        android:textColor="#303030"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
-
     <ImageButton
         android:id="@+id/btnFacebookLogin"
         android:layout_width="60dp"
@@ -71,29 +57,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tvGoJoin"
         app:layout_constraintVertical_bias="0.216" />
 
-    <EditText
-        android:id="@+id/edtPw"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:background="@drawable/border2"
-        android:backgroundTint="@null"
-        android:ems="10"
-        android:fontFamily="@font/secular_one"
-        android:hint="  비밀번호"
-        android:inputType="textImeMultiLine|textNoSuggestions"
-        android:shadowColor="@null"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/edtId"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/edtId"
-        app:layout_constraintTop_toBottomOf="@+id/edtId"
-        app:layout_constraintVertical_bias="0.0" />
-
     <CheckBox
         android:id="@+id/checkAutoLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
         android:layout_marginEnd="52dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/checkAutoLogin"
@@ -101,7 +69,38 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnFindPw"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/btnFindPw"
         app:layout_constraintTop_toTopOf="@+id/btnFindPw"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnFindId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="10dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/btnFindId"
+        android:textColor="#303030"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <Button
+        android:id="@+id/btnFindPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/btnFindPw"
+        android:textColor="#303030"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindId"
+        app:layout_constraintStart_toEndOf="@+id/btnFindId"
+        app:layout_constraintTop_toTopOf="@+id/btnFindId"
         app:layout_constraintVertical_bias="0.0" />
 
     <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
@@ -123,8 +122,9 @@
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="50dp"
         android:fontFamily="sans-serif-black"
         android:insetTop="1dp"
         android:insetBottom="1dp"
@@ -132,12 +132,10 @@
         android:text="@string/btnLogin"
         android:textSize="18sp"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnFindPw"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPw"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
 
     <ImageButton
         android:id="@+id/btnKakaoLogin"
@@ -168,21 +166,6 @@
         app:layout_constraintHorizontal_bias="0.152"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFacebookLogin" />
-
-    <Button
-        android:id="@+id/btnFindPw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/btnFindPw"
-        android:textColor="#303030"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnFindId"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnFindId"
-        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/loginSub"
@@ -223,7 +206,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.234"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFindId" />
+        app:layout_constraintTop_toBottomOf="@+id/checkAutoLogin" />
 
     <EditText
         android:id="@+id/edtId"
@@ -292,19 +275,5 @@
         app:layout_constraintStart_toEndOf="@+id/btnFacebookLogin"
         app:layout_constraintTop_toTopOf="@+id/btnFacebookLogin"
         app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnFindId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/btnFindId"
-        android:textColor="#303030"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

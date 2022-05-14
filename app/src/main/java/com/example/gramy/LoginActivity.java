@@ -89,14 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         initData();
 
         queue = Volley.newRequestQueue(LoginActivity.this);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String id = edtId.getText().toString();
-                String pw = edtPw.getText().toString();
-            }
-        });
-
+        
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8082/androidlogin.do";
+                String server_url = "http://211.48.228.51:8082/androidlogin.do";
 
                 request = new StringRequest(
                         method,
@@ -130,7 +123,6 @@ public class LoginActivity extends AppCompatActivity {
                                         user_gender = jsonObject.getString("user_gender");
 
                                         GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
-
 
                                         Log.v("확인 : ", vo.toString());
                                         UserInfo.info = vo;
@@ -237,9 +229,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
     }
 
     public void setLoginInfo(){
@@ -247,12 +236,12 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sf_login.edit();
         editor.putBoolean("check_login", true);
         editor.putString("user_id", user_id);
-        editor.putString("user_name", user_phone);
-        editor.putString("user_name", user_addr);
-        editor.putString("user_name", user_role);
-        editor.putString("user_name", user_joindate);
+        editor.putString("user_phone", user_phone);
+        editor.putString("user_addr", user_addr);
+        editor.putString("user_role", user_role);
+        editor.putString("user_joindate", user_joindate);
         editor.putString("user_name", user_name);
-        editor.putString("user_name", user_gender);
+        editor.putString("user_gender", user_gender);
         editor.apply();
     }
 
