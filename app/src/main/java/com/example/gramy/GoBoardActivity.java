@@ -50,15 +50,12 @@ public class GoBoardActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성
 
-        getBoardDate();
+        getBoardDate(); // 게시글 목록 불러오기
 
         RecyclerView recyclerView = findViewById(R.id.boardRecyclerView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback); // ItemTouchHelper
-        itemTouchHelper.attachToRecyclerView(recyclerView); // ItemTouchHelper
 
         // setOn"Item"ClickListener
         adapter.setOnItemClickListener(new OnBoardItemClickListener() {
@@ -89,22 +86,6 @@ public class GoBoardActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter); // 리사이클러뷰에 어답터 올려주기!
     }
-
-    // ItemTouchHelper
-    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
-
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-            items.remove(viewHolder.getLayoutPosition());
-            adapter.notifyItemRemoved(viewHolder.getLayoutPosition());
-        }
-    };
-    // End of ItemTouchHelper
 
     // 게시글 가져오는 메서드
     private void getBoardDate() {

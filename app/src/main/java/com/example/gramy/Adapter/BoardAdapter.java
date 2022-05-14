@@ -99,7 +99,12 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     }
 
     public void addItem(BoardVO item) {
-        items.add(item); // 리스트에 아이템 추가 (게시물 작성 로직 할 때 사용하자! )
+        // TODO: 게시글 추가 로직 구현하기
+        items.add(item);
+    }
+
+    public void removeItem(BoardVO item) {
+        // TODO: 게시물 삭제 로직 구현하기
     }
 
     public void setItems(ArrayList<BoardVO> items) {
