@@ -83,13 +83,13 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
         return items.size();
     }
 
-    //
+    ////////////
 
     public void setOnItemClickListener(OnBoardItemClickListener listener) {
         this.listener = listener;
     }
 
-    @Override
+    @Override // 얘도 오버라이드 하는 이유, BoardAdapter는 OnBoardItemClickListener를 implements 한다.
     public void onItemClick(ViewHolder holder, View view, int position) {
         // 외부에서 로직을 재정의하여 사용한다.
         // 이녀석의 용도는 뭐냐? Adapter상의 holder, view, position을 외부에서 쓰게끔 해주는고임

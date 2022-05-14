@@ -51,7 +51,7 @@ public class GoBoardActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // setOn"Item"ClickListener
-        adapter.setOnItemClickListener(new OnBoardItemClickListener() {
+        adapter.setOnItemClickListener(new OnBoardItemClickListener() { // 인터페이스
             // TODO: 게시글 상세보기 구현
             @Override
             public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {

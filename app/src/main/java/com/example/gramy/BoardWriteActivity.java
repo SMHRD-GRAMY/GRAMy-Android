@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.Adapter.BoardAdapter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +28,7 @@ public class BoardWriteActivity extends AppCompatActivity {
     RequestQueue queue;
     TextView boardWriteBack, tvWriteBoard;
     EditText edtWriteTitle, edtWriteContent;
-    Button btnWrtieCancel;
+    BoardAdapter adapter = new BoardAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +42,20 @@ public class BoardWriteActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(BoardWriteActivity.this);
 
-        String inputTitle = edtWriteTitle.getText().toString();
-        String inputContent = edtWriteTitle.getText().toString();
-
         // 현재 로그인 한 유저 정보 가져오기
         SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
+        String writerName = sharedPreferences.getString("user_name", "");
+        String writerId = sharedPreferences.getString("user_id","");
 
 
         tvWriteBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO: 게시글 등록 로직 쓰기
-                WriteBoard();
+                String inputTitle = edtWriteTitle.getText().toString();
+                String inputContent = edtWriteContent.getText().toString();
+                writeBoard(writerId, writerName, inputTitle, inputContent);
+                adapter.notifyDataSetChanged();
                 Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
                 startActivity(intent);
                 finish();
@@ -71,7 +74,7 @@ public class BoardWriteActivity extends AppCompatActivity {
 
     }
 
-    public void WriteBoard () {
+    public void writeBoard (String writerId, String writerName, String inputTitle, String inputContent) {
         int method = Request.Method.POST;
         String server_url = "http://211.48.228.51:8082/app/insert";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
@@ -91,9 +94,13 @@ public class BoardWriteActivity extends AppCompatActivity {
                 // 보낼 데이터
                 // 1. title, content, user_id, user_name
                 Map<String, String> param = new HashMap<>();
-                // param.put();
-                return super.getParams();
+                param.put("tb_a_title", inputTitle);
+                param.put("tb_a_content", inputContent);
+                param.put("user_id", writerId);
+                param.put("user_name", writerName);
+                return param;
             }
         };
+        queue.add(request);
     }
 }
