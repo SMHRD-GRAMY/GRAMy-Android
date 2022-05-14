@@ -3,6 +3,9 @@ package com.example.gramy;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,30 +14,42 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.example.gramy.home.fragHomemain;
 import com.example.gramy.news.fragNewsmain;
-import com.example.gramy.setting.fragModify;
 import com.example.gramy.setting.fragSettingmain;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.kakao.auth.Session;
+import com.kakao.sdk.user.UserApiClient;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 
 
 public class HomeActivity extends AppCompatActivity {
 
     public static Context context_home;
+    public static HomeActivity btnBackVis;
     private long backpressedTime = 0;
-
     BottomNavigationView bottomNavi;
+    public TextView tvTitleGramy;
+
+    public ImageButton btnBack;
+
     fragHomemain fragHomemain;
     fragNewsmain fragNewsmain;
     fragSettingmain fragSettingmain;
-    fragModify fragModify;
 
-    Button btnGoPdCheck, btnGoReport, btnGoBoard, btnGoMgShelf;
-    public TextView tvTitleGramy;
+    public void replace(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,27 +57,28 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         context_home = this;
+        btnBackVis = this;
+
+        tvTitleGramy = findViewById(R.id.tvTitleGramy);
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setVisibility(View.GONE);
 
         bottomNavi = findViewById(R.id.bottomNavi);
         fragHomemain = new fragHomemain();
         fragNewsmain = new fragNewsmain();
         fragSettingmain = new fragSettingmain();
-        tvTitleGramy = findViewById(R.id.tvTitleGramy);
-        fragModify = new fragModify();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replace(fragSettingmain);
+                btnBack.setVisibility(View.GONE);
+                tvTitleGramy.setText("GRAMy");
+            }
+        });
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, fragHomemain).addToBackStack(null).commit();
-
-
-
-
-        /*if(fragModify.getContext().equals("context_modify")){
-            Log.v("프래그먼트 값 : ", ">>"+ getSupportFragmentManager().beginTransaction().replace(R.id.container, fragHomemain).addToBackStack(null));
-        }*/
-        /*if(액티비티가 modify액티비티 일때만 ){
-            tvTitleGramy.setText("개인정보수정");
-        }else{
-            tvTitleGramy.setText("Gramy");
-        }*/
 
         bottomNavi.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -72,10 +88,16 @@ public class HomeActivity extends AppCompatActivity {
 
                 if (itemId == R.id.home) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragHomemain).addToBackStack(null).commit();
+                    tvTitleGramy.setText("GRAMy");
+                    btnBack.setVisibility(View.GONE);
                 } else if (itemId == R.id.news) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragNewsmain).addToBackStack(null).commit();
+                    tvTitleGramy.setText("GRAMy");
+                    btnBack.setVisibility(View.GONE);
                 } else if (itemId == R.id.setting) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragSettingmain).addToBackStack(null).commit();
+                    tvTitleGramy.setText("GRAMy");
+                    btnBack.setVisibility(View.GONE);
                 }
                 return true;
             }

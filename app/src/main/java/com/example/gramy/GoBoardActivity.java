@@ -1,24 +1,18 @@
 package com.example.gramy;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.BoardAdapter;
@@ -29,7 +23,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -45,7 +38,7 @@ public class GoBoardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go_board); // 게시판 액티비티
 
-        boardBack = findViewById(R.id.boardBack); // 뒤로가기
+        boardBack = findViewById(R.id.tvBoardBack); // 뒤로가기
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab); // 플러팅 버튼
 
         queue = Volley.newRequestQueue(GoBoardActivity.this); // GoBoardActivity에 Queue 생성

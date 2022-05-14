@@ -58,7 +58,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        boardWriteBack = findViewById(R.id.tvboardWriteBack);
         // 게시글 목록으로 이동
         boardWriteBack.setOnClickListener(new View.OnClickListener() {
             @Override

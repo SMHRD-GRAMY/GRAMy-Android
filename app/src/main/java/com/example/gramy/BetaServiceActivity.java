@@ -18,7 +18,7 @@ public class BetaServiceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.setting_beta_service);
+        setContentView(R.layout.fragment_beta_service);
 
         btnBack = findViewById(R.id.btnBack);
 

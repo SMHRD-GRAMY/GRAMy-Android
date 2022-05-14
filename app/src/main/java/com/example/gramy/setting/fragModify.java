@@ -1,15 +1,10 @@
 package com.example.gramy.setting;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,24 +16,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class fragModify extends Fragment {
 
-    public Context context_modify;
     EditText edtModifyId, edtModifyPw, edtModifyPwCheck, edtModifyName, edtModifyPhone, edtModifyAddr;
-    Button btnModify, btnModifyCancel;
+    Button btnModifyIdCheck, btnModify, btnModifyCancel;
     RadioGroup rgModifyGender;
     RadioButton ModifyradioMan, ModifyradioWoman, ModifyradioNotting;
 
@@ -49,11 +38,6 @@ public class fragModify extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        Log.v("로그인", "저장 : "+getLoginInfo());
-
-        context_modify = getActivity();
-
         View view = inflater.inflate(R.layout.fragment_modify, container, false);
 
         edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
@@ -63,6 +47,7 @@ public class fragModify extends Fragment {
         edtModifyPhone = (EditText) view.findViewById(R.id.edtModifyPhone);
         edtModifyAddr = (EditText) view.findViewById(R.id.edtModifyAddr);
 
+        btnModifyIdCheck = (Button) view.findViewById(R.id.btnModifyIdCheck);
         btnModify = (Button) view.findViewById(R.id.btnModify);
         btnModifyCancel = (Button) view.findViewById(R.id.btnModifyCancel);
 
@@ -77,34 +62,13 @@ public class fragModify extends Fragment {
 
         queue = Volley.newRequestQueue(getActivity());
 
-        rgModifyGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.ModifyradioMan){
-                    chbModifyResult = "man";
-                } else if(i==R.id.ModifyradioWoman){
-                    chbModifyResult = "woman";
-                } else if(i==R.id.ModifyradioNotting){
-                    chbModifyResult = "notting";
-                }
-            }
-        });
-
-        btnModifyCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                beforePage();
-            }
-        });
-
-
         btnModify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.v("성별", "값 : "+chbModifyResult);
 
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8082/androidupdate.do";
+                String server_url = "http://119.200.31.65:8082/androidmodify.do";
 
                 request = new StringRequest(
                         method,
@@ -112,30 +76,20 @@ public class fragModify extends Fragment {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-
-                                if(response.equals("success")){
-                                    Toast.makeText(getActivity(),
-                                            "요청성공!",
-                                            Toast.LENGTH_SHORT).show();
-
-                                    AlertDialog.Builder alter = new AlertDialog.Builder(getContext());
-                                    alter.setTitle("개인정보수정");
-                                    alter.setMessage("수정이 완료되었습니다.");
-
-                                    alter.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                                        @Override
-                                        public void onClick(DialogInterface dialogInterface, int i) {
-                                            beforePage();
-                                        }
-                                    });
-                                    alter.show();
-
-                                }else{
                                 Toast.makeText(getActivity(),
-                                        "수정실패!",
+                                        "요청성공!",
                                         Toast.LENGTH_SHORT).show();
-                                }
-                                }
+
+                                AlertDialog.Builder alter = new AlertDialog.Builder(getActivity());
+                                alter.setTitle("개인정보수정");
+                                alter.setMessage("수정이 완료되었습니다.");
+                                alter.setPositiveButton("수정완료", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                                    }
+                                });
+                            }
                         },
                         new Response.ErrorListener() {
                             @Override
@@ -145,42 +99,12 @@ public class fragModify extends Fragment {
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
-                ){
-                    @Nullable
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
-
-                        Map<String, String> param = new HashMap<>();
-                        param.put("user_id", getLoginInfo());
-                        param.put("user_pw", edtModifyPw.getText().toString());
-                        Log.v("비밀번호","값: "+ edtModifyPw.getText().toString());
-                        param.put("user_name", edtModifyName.getText().toString());
-                        param.put("user_phone", edtModifyPhone.getText().toString());
-                        param.put("user_addr", edtModifyAddr.getText().toString());
-                        param.put("user_gender", chbModifyResult);
-
-                        return param;
-                    }
-                };
-                queue.add(request);
+                );
             }
         });
+
+
+
         return  view;
-    }
-
-    private String getLoginInfo(){
-
-        SharedPreferences sf_login = getActivity().getSharedPreferences("sf_login", Context.MODE_PRIVATE);
-        boolean isLoginChecked = sf_login.getBoolean("check_login", false); //로그인 체크박스의 상태, default : false
-        String user_id = sf_login.getString("user_id","");
-
-        return user_id;
-    }
-
-    public void beforePage(){
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        fragSettingmain fragSettingmain = new fragSettingmain();
-        transaction.replace(R.id.container, fragSettingmain);
-        transaction.commit();
     }
 }

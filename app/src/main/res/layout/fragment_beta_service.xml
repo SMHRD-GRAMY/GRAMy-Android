@@ -2,17 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BetaServiceActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+    tools:context=".HomeActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline17"
@@ -21,20 +14,6 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
-    <TextView
-        android:id="@+id/tvBetaService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/tvBetaService"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar5"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline18"
         android:layout_width="wrap_content"
@@ -42,23 +21,11 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.1" />
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:backgroundTint="#00FFFFFF"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar5"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar5"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar5"
-        app:srcCompat="@drawable/back_w" />
-
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="250dp"
         android:layout_height="250dp"
+        android:layout_marginBottom="252dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
         app:layout_constraintHorizontal_bias="0.493"
@@ -82,7 +49,7 @@
         android:id="@+id/tvBetaMessage2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="sans-serif"
         android:text="@string/tvBetaMessage2"
         android:textColor="#595959"
@@ -96,7 +63,7 @@
         android:id="@+id/tvBetaMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="sans-serif"
         android:text="@string/tvBetaMessage"
         android:textColor="#595959"
@@ -110,12 +77,14 @@
         android:id="@+id/tvBetaTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="204dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/tvBetaTitle"
         android:textColor="#595959"
         android:textSize="19.8sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toBottomOf="@+id/toolbar5"
         app:layout_constraintVertical_bias="0.568" />
@@ -133,13 +102,13 @@
         app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toBottomOf="@+id/tvBetaTitle"
-        app:layout_constraintVertical_bias="0.029" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <TextView
         android:id="@+id/tvBetaMessage3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="sans-serif"
         android:text="@string/tvBetaMessage3"
         android:textColor="#595959"
@@ -174,28 +143,15 @@
         app:layout_constraintVertical_bias="0.4" />
 
     <View
-        android:id="@+id/view5"
-        android:layout_width="3dp"
-        android:layout_height="330dp"
-        android:background="#1A000000"
-        android:rotation="90"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline17"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/guideline18"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar5"
-        app:layout_constraintVertical_bias="0.979" />
-
-    <View
         android:id="@+id/view4"
-        android:layout_width="3dp"
+        android:layout_width="2dp"
         android:layout_height="330dp"
+        android:layout_marginTop="228dp"
         android:background="#1A000000"
         android:rotation="90"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline17"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar5"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
