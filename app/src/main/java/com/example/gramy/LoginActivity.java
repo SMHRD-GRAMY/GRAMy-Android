@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
         initData();
 
         queue = Volley.newRequestQueue(LoginActivity.this);
-        
+
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,10 +123,9 @@ public class LoginActivity extends AppCompatActivity {
                                         user_gender = jsonObject.getString("user_gender");
 
                                         GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
-
+                                        setLoginInfo(user_id, user_phone, user_addr, user_role, user_joindate, user_name, user_gender);
                                         Log.v("확인 : ", vo.toString());
                                         UserInfo.info = vo;
-
                                         Intent intent2 = new Intent(LoginActivity.this, HomeActivity.class);
                                         intent2.putExtra("response", response);
                                         startActivity(intent2);
@@ -178,9 +177,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
-
                 queue.add(request);
-                setLoginInfo();
             }
         });
         // 카카오로그인
@@ -231,7 +228,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void setLoginInfo(){
+    public void setLoginInfo(String user_id, String user_phone, String user_addr, String user_role, String user_joindate, String user_name, String user_gender){
         SharedPreferences sf_login = getSharedPreferences("sf_login", MODE_PRIVATE);
         SharedPreferences.Editor editor = sf_login.edit();
         editor.putBoolean("check_login", true);
