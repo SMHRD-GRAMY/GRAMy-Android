@@ -43,6 +43,15 @@ import kotlin.jvm.functions.Function2;
 public class LoginActivity extends AppCompatActivity {
 
 
+    private String user_id = "";
+    private String user_pw = "";
+    private String user_phone = "";
+    private String user_addr = "";
+    private String user_role = "";
+    private String user_joindate = "";
+    private String user_name = "";
+    private String user_gender = "";
+
     RequestQueue queue;
     StringRequest request;
 
@@ -98,14 +107,14 @@ public class LoginActivity extends AppCompatActivity {
                                 if (response.length() > 1) {
                                     try {
                                         JSONObject jsonObject = new JSONObject(response);
-                                        String user_id = jsonObject.getString("user_id");
-                                        String user_pw = jsonObject.getString("user_pw");
-                                        String user_phone = jsonObject.getString("user_phone");
-                                        String user_addr = jsonObject.getString("user_addr");
-                                        String user_role = jsonObject.getString("user_role");
-                                        String user_joindate = jsonObject.getString("user_joindate");
-                                        String user_name = jsonObject.getString("user_name");
-                                        String user_gender = jsonObject.getString("user_gender");
+                                        user_id = jsonObject.getString("user_id");
+                                        user_pw = jsonObject.getString("user_pw");
+                                        user_phone = jsonObject.getString("user_phone");
+                                        user_addr = jsonObject.getString("user_addr");
+                                        user_role = jsonObject.getString("user_role");
+                                        user_joindate = jsonObject.getString("user_joindate");
+                                        user_name = jsonObject.getString("user_name");
+                                        user_gender = jsonObject.getString("user_gender");
 
                                         GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
 
@@ -225,8 +234,14 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sf_login = getSharedPreferences("sf_login", MODE_PRIVATE);
         SharedPreferences.Editor editor = sf_login.edit();
         editor.putBoolean("check_login", true);
-        editor.putString("user_id", edtId.getText().toString());
-        editor.putString("user_pw", edtPw.getText().toString());
+        editor.putString("user_id", user_id);
+        editor.putString("user_name", user_phone);
+        editor.putString("user_name", user_addr);
+        editor.putString("user_name", user_role);
+        editor.putString("user_name", user_joindate);
+        editor.putString("user_name", user_name);
+        editor.putString("user_name", user_gender);
+
         editor.apply();
     }
 }
