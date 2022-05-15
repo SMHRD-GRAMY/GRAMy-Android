@@ -48,7 +48,7 @@ public class BoardDetailActivity extends AppCompatActivity {
         tvBoardDetailModify = findViewById(R.id.tvBoardDetailModify); // "게시글 수정"
         tvBoardDetailDelete = findViewById(R.id.tvBoardDetailDelete); // "게시글 삭제"
 
-        queue = Volley.newRequestQueue(BoardDetailActivity.this); //
+        queue = Volley.newRequestQueue(BoardDetailActivity.this);
         Intent intent = getIntent();
 
         board_seq = intent.getIntExtra("tb_a_seq", 0);
@@ -74,6 +74,18 @@ public class BoardDetailActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        // 게시글 수정 페이지로 이동
+        tvBoardDetailModify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), BoardUpdateActivity.class);
+                intent.putExtra("tb_a_seq", board_seq); // 수정할 게시글의 번호
+                intent.putExtra("tb_a_title", tvBoardDetailTitle.getText().toString());
+                intent.putExtra("tb_a_content", tvBoardDetailContent.getText().toString());
+                startActivity(intent);
             }
         });
     }

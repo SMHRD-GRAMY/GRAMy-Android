@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".BoardUpdateActivity"
+            android:exported="false" />
         <activity
             android:name=".BoardDetailActivity"
             android:exported="false" />
@@ -84,11 +86,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity" android:exported="true"/>
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 </manifest>

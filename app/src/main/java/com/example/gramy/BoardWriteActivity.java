@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -35,10 +34,10 @@ public class BoardWriteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_write);
 
-        boardWriteBack = findViewById(R.id.tvBoardWriteBack); // "뒤로"
-        tvWriteBoard = findViewById(R.id.tvWriteBoard); // "게시물 작성"
-        edtWriteTitle = findViewById(R.id.edtWriteTitle); // 게시글 제목 입력
-        edtWriteContent = findViewById(R.id.edtWriteContent); // 게시글 본문 입력
+        boardWriteBack = findViewById(R.id.tvBoardUpdateBack); // "뒤로"
+        tvWriteBoard = findViewById(R.id.tvUpdateBoard); // "게시물 작성"
+        edtWriteTitle = findViewById(R.id.edtUpdateTitle); // 게시글 제목 입력
+        edtWriteContent = findViewById(R.id.edtUpdateContent); // 게시글 본문 입력
 
         queue = Volley.newRequestQueue(BoardWriteActivity.this);
 
@@ -61,7 +60,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                 finish();
             }
         });
-        boardWriteBack = findViewById(R.id.tvBoardWriteBack);
+        boardWriteBack = findViewById(R.id.tvBoardUpdateBack);
         // 게시글 목록으로 이동
         boardWriteBack.setOnClickListener(new View.OnClickListener() {
             @Override
