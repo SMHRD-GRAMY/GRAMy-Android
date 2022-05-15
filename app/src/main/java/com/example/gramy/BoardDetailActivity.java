@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.Vo_Info.BoardVO;
 
 import org.json.JSONArray;
@@ -30,6 +32,7 @@ public class BoardDetailActivity extends AppCompatActivity {
     RequestQueue queue;
     int board_seq;
     TextView tvBoardDetailBack, tvBoardDetailTitle, tvBoardDetailWriter, tvBoardDetailDate, tvBoardDetailModify, tvBoardDetailDelete, tvBoardDetailContent;
+    BoardAdapter adapter = new BoardAdapter();
     Button btnViewComment;
 
     @Override
@@ -52,9 +55,22 @@ public class BoardDetailActivity extends AppCompatActivity {
         getData(board_seq);
 
 
+        // 뒤로가기
         tvBoardDetailBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        // 게시글 삭제
+        tvBoardDetailDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteBoard(board_seq);
+                adapter.notifyDataSetChanged();
                 Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
                 startActivity(intent);
                 finish();
@@ -75,6 +91,37 @@ public class BoardDetailActivity extends AppCompatActivity {
                     tvBoardDetailWriter.setText("작성자 : " + jsonObject.getString("user_name"));
                     tvBoardDetailDate.setText(jsonObject.getString("tb_a_date").substring(0, 11));
                     tvBoardDetailContent.setText(jsonObject.getString("tb_a_content"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tb_a_seq", String.valueOf(board_seq));
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void deleteBoard (int board_seq) {
+        int method = Request.Method.POST;
+        String server_url = "http://211.48.228.51:8082/app/delete";
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    if(response.equals("success")) {
+                        Toast.makeText(getApplicationContext(), "게시글이 성공적으로 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
