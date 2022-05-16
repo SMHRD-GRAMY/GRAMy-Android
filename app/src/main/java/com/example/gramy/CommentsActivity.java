@@ -85,6 +85,11 @@ public class CommentsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String comment = edtComment.getText().toString();
                 writeComment(tb_a_seq, comment, writerId, writerName);
+                finish();
+                overridePendingTransition(0, 0);
+                Intent intent = getIntent();
+                startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         });
 
@@ -145,6 +150,7 @@ public class CommentsActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(CommentsActivity.this, "댓글 작성 중 오류 발생!", Toast.LENGTH_SHORT).show();
                 }
+
                 commentsAdapter.notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {
