@@ -70,7 +70,6 @@ public class BoardDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteBoard(board_seq);
-                adapter.notifyDataSetChanged();
                 Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
                 startActivity(intent);
                 finish();
@@ -133,6 +132,7 @@ public class BoardDetailActivity extends AppCompatActivity {
                 try {
                     if(response.equals("success")) {
                         Toast.makeText(getApplicationContext(), "게시글이 성공적으로 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        adapter.notifyDataSetChanged();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
