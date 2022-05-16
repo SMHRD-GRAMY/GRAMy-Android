@@ -69,6 +69,7 @@ public class JoinActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(JoinActivity.this);
 
         btnJoin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
