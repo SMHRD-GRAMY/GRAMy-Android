@@ -6,15 +6,19 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="30dp">
 
         <TextView
             android:id="@+id/titleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:fontFamily="@font/secular_one"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="sans-serif"
             android:paddingLeft="10dp"
             android:text="뉴스 제목"
             android:textColor="#000000"
@@ -25,10 +29,12 @@
             android:id="@+id/dateTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/titleTV"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
             android:fontFamily="@font/secular_one"
-            android:paddingRight="10dp"
+            android:paddingRight="15dp"
             android:text="뉴스 날짜"
             android:textColor="#595959"
             android:textSize="14sp" />
@@ -39,8 +45,8 @@
     <TextView
         android:id="@+id/descTV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/secular_one"
+        android:layout_height="30dp"
+        android:fontFamily="sans-serif"
         android:paddingLeft="25dp"
         android:text="뉴스 간략 설명"
         android:textColor="#595959"
@@ -48,7 +54,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:layout_gravity="center"
         android:background="#cad8e6" />
 

@@ -135,7 +135,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                     // if (카카오||일반 로그인 상태 아닐 때){
                         Toast.makeText(context,"로그인 후 로그아웃이 가능합니다.", Toast.LENGTH_SHORT).show();
                 }*/
-                    setTitleLogout();
+
                     btnBackVis();
                 }
                 else if(pos == 8){

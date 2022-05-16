@@ -2,7 +2,6 @@ package com.example.gramy;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +11,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,9 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 public class JoinActivity extends AppCompatActivity {
@@ -35,7 +31,7 @@ public class JoinActivity extends AppCompatActivity {
     RequestQueue queue;
     StringRequest request;
 
-    String chbResult="";
+    String chbResult = "";
     boolean radio_group_your_choice = true;
     boolean button = true;
 
@@ -72,13 +68,33 @@ public class JoinActivity extends AppCompatActivity {
             });
         }
 
-        queue = Volley.newRequestQueue(JoinActivity.this);
+        String id = edtJoinId.getText().toString();
+        String pw = edtJoinId.getText().toString();
+        String pwCheck = edtJoinId.getText().toString();
+        String name = edtJoinId.getText().toString();
+        String phone = edtJoinId.getText().toString();
+        String addr = edtJoinId.getText().toString();
+        String gender = edtJoinId.getText().toString();
 
-        if(button != true) {
+        btnJoinIdCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (id.isEmpty()) {
+                    Log.d("click", "isEmpty");
+                    Toast.makeText(JoinActivity.this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Log.d("click", "아이디 입력한 상태");
+                    Toast.makeText(JoinActivity.this, "사용할 수 있는 아이디입니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+            queue = Volley.newRequestQueue(JoinActivity.this);
+
+        if (button != true) {
             btnJoin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     Log.v("성별", "값 : " + chbResult);
 
                     int method = Request.Method.POST;
@@ -123,11 +139,9 @@ public class JoinActivity extends AppCompatActivity {
                         }
                     };
                     queue.add(request);
-                }
-            });
-
+                    }
+                });
+            } else{
         }
-
+        }
     }
-
-}

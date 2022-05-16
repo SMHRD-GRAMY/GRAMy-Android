@@ -70,14 +70,14 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".LoadingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".LoadingActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
