@@ -59,6 +59,8 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/activity_tutorial.xml" value="0.25" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/header_footer.xml" value="0.20652173913043478" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_board_detail.xml" value="0.26944444444444443" />
+        <entry key="app/src/main/res/layout/comments_item.xml" value="0.26944444444444443" />
       </map>
     </option>
   </component>
