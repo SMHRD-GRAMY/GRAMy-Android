@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08071136" />
+        app:layout_constraintGuide_begin="59dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -215,11 +215,10 @@
         android:layout_width="365dp"
         android:layout_height="40dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
         android:background="@drawable/border"
         android:backgroundTint="@null"
-        android:hint="  비밀번호를 입력해주세요"
         android:ems="15"
+        android:hint="  비밀번호를 입력해주세요"
         android:inputType="textImeMultiLine|textNoSuggestions"
         android:shadowColor="@null"
         android:textSize="14sp"
@@ -258,10 +257,11 @@
         app:layout_constraintEnd_toEndOf="@+id/rgGender"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
         app:layout_constraintHorizontal_bias="0.203"
-        app:layout_constraintStart_toStartOf="@+id/rgGender" />
+        app:layout_constraintStart_toStartOf="@+id/rgGender"
+        app:layout_constraintTop_toBottomOf="@+id/rgGender" />
 
     <Button
-        android:id="@+id/btnIdCheck"
+        android:id="@+id/btnJoinIdCheck"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginRight="1dp"

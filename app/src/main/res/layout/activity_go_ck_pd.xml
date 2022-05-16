@@ -7,23 +7,6 @@
     android:backgroundTint="#00FFFFFF"
     tools:context=".GoPdCheck">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavi"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#FFFFFF"
-        app:itemIconTint="@drawable/menu_selector_color"
-        app:itemTextColor="@drawable/menu_selector_color"
-        app:labelVisibilityMode="auto"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline14"
-        app:menu="@menu/item_menu">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"
         android:layout_width="0dp"
@@ -83,31 +66,66 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.9233926" />
 
-    <Button
-        android:id="@+id/btnChange"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="@string/btnChange"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
-        app:layout_constraintVertical_bias="0.91" />
-
     <ImageView
-        android:id="@+id/imgShelf"
+        android:id="@+id/imageView5"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/btnChange"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/shlef_img" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="12dp"
+        android:text="비품선반"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <Button
+        android:id="@+id/btnChange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="등록 및 위치 변경"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView10"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ImageView
+        android:id="@+id/imgScale11"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvThing1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/tvThing1"
+        app:layout_constraintTop_toBottomOf="@+id/tvThing1"
+        app:srcCompat="@drawable/weight" />
+
+    <ImageView
+        android:id="@+id/imgScale2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvThing2"
+        app:layout_constraintStart_toStartOf="@+id/tvThing2"
+        app:layout_constraintTop_toBottomOf="@+id/tvThing2"
+        app:srcCompat="@drawable/weight" /><![CDATA[
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/shlef_img" />
+
+    ]]>
 
     <ImageButton
         android:id="@+id/imgScale1"
@@ -115,12 +133,12 @@
         android:layout_height="86dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
+        app:layout_constraintBottom_toBottomOf="@+id/tvThing3"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
-        app:layout_constraintVertical_bias="0.418"
+        app:layout_constraintTop_toBottomOf="@+id/tvEqshelf"
+        app:layout_constraintVertical_bias="0.516"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
 
@@ -132,9 +150,9 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/imgScale1"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toEndOf="@+id/imgScale1"
-        app:layout_constraintTop_toBottomOf="@+id/tvThing1"
+        app:layout_constraintTop_toTopOf="@+id/tvThing1"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
@@ -147,10 +165,10 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/imgScale4"
         app:layout_constraintEnd_toStartOf="@+id/imgScale4"
-        app:layout_constraintHorizontal_bias="0.434"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="@+id/imgShelf"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="@+id/imgScale4"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
 
@@ -158,14 +176,13 @@
         android:id="@+id/imgScale4"
         android:layout_width="94dp"
         android:layout_height="86dp"
+        android:layout_marginTop="56dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imgScale2"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
-        app:layout_constraintVertical_bias="0.662"
+        app:layout_constraintTop_toBottomOf="@+id/imgScale2"
         app:srcCompat="@drawable/weight"
         tools:ignore="MissingConstraints" />
 
@@ -173,24 +190,33 @@
         android:id="@+id/tvThing1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="128dp"
+        android:text="미등록"
+        android:textSize="28sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/btnChange" />
+
+    <TextView
         android:text="@string/tvStock"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.214"
+        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
-        app:layout_constraintVertical_bias="0.362" />
+        app:layout_constraintVertical_bias="0.347" />
 
     <TextView
         android:id="@+id/tvThing2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tvStock"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvThing1"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.572"
+        android:layout_marginStart="76dp"
+        android:text="미등록"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/imgScale11"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toEndOf="@+id/tvThing1"
         app:layout_constraintTop_toTopOf="@+id/tvThing1"
         app:layout_constraintVertical_bias="0.0" />
@@ -199,52 +225,68 @@
         android:id="@+id/tvThing3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tvStock"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.193"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/tvThing1"
-        app:layout_constraintVertical_bias="0.284" />
+        android:layout_marginEnd="168dp"
+        android:text="미등록"
+        android:textColor="#000000"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvThing4"
+        app:layout_constraintEnd_toStartOf="@+id/tvThing4"
+        app:layout_constraintTop_toTopOf="@+id/tvThing4"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imgScale3"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="292dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvThing3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvThing3"
+        app:layout_constraintTop_toBottomOf="@+id/tvThing3"
+        app:srcCompat="@drawable/weight" />
 
     <TextView
         android:id="@+id/tvThing4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tvStock"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toEndOf="@+id/tvThing3"
-        app:layout_constraintTop_toBottomOf="@+id/tvThing2"
-        app:layout_constraintVertical_bias="0.284" />
-
-    <TextView
-        android:id="@+id/tvEqshelf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tvShelf"
+        android:layout_marginTop="24dp"
+        android:text="미등록"
         android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toEndOf="@+id/tvLocation"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="@+id/tvLocation"
-        app:layout_constraintTop_toBottomOf="@+id/tvLocation"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvThing2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvThing2"
+        app:layout_constraintTop_toBottomOf="@+id/imgScale2" />
 
-    <TextView
-        android:id="@+id/tvLocation"
+    <ImageView
+        android:id="@+id/imgScale4"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvThing4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvThing4"
+        app:layout_constraintTop_toBottomOf="@+id/tvThing4"
+        app:layout_constraintVertical_bias="0.668"
+        app:srcCompat="@drawable/weight" />
+
+    <ImageButton
+        android:id="@+id/imgScale1"
+        android:layout_width="54dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView10"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/weight" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/tvLocation"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="335dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

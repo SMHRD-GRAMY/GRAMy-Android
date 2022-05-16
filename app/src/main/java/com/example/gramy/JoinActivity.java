@@ -3,6 +3,7 @@ package com.example.gramy;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,7 +46,7 @@ public class JoinActivity extends AppCompatActivity {
         edtJoinName = findViewById(R.id.edtJoinName);
         edtJoinPhone = findViewById(R.id.edtJoinPhone);
         edtJoinAddr = findViewById(R.id.edtJoinAddr);
-        btnIdCheck = findViewById(R.id.btnIdCheck);
+        btnIdCheck = findViewById(R.id.btnJoinIdCheck);
         btnJoin = findViewById(R.id.btnJoin);
         rgGender = findViewById(R.id.rgGender);
         radioMan = findViewById(R.id.radioMan);
@@ -64,19 +65,17 @@ public class JoinActivity extends AppCompatActivity {
                 }
             }
         });
-
+        //////////
         queue = Volley.newRequestQueue(JoinActivity.this);
 
         btnJoin.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
 
                 Log.v("성별", "값 : "+chbResult);
 
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8081/gramy/Join";
-
+                String server_url = "http://211.48.228.51:8082/androidjoin.do";
                 request = new StringRequest(
                         method,
                         server_url,
@@ -86,6 +85,10 @@ public class JoinActivity extends AppCompatActivity {
                                 Toast.makeText(JoinActivity.this,
                                         "요청성공!",
                                         Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
+                                startActivity(intent);
+                                finish();
                             }
                         },
                         new Response.ErrorListener() {

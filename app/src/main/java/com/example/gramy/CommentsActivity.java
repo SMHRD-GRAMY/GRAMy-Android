@@ -1,17 +1,14 @@
-package com.example.gramy.stock;
+package com.example.gramy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.gramy.R;
-
-public class stockActivity extends AppCompatActivity {
+public class CommentsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stock);
+        setContentView(R.layout.activity_comments);
     }
-    ///
 }

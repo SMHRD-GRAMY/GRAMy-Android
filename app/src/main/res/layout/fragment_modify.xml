@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.fragModify">
+
+    <TextView
+        android:id="@+id/tvModifyGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinGender"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtModifyAddr"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtModifyAddr" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <TextView
+        android:id="@+id/tvModifyId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinId"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvModifyPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinPw"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtModifyId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtModifyId" />
+
+    <TextView
+        android:id="@+id/tvModifyPwCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinPwCheck"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtModifyPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtModifyPw" />
+
+    <TextView
+        android:id="@+id/tvModifyPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinPhone"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtModifyName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtModifyName" />
+
+    <TextView
+        android:id="@+id/tvModifyAddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinAddr"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtModifyPhone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtModifyPhone" />
+
+    <TextView
+        android:id="@+id/tvModifyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvJoinName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edtModifyPwCheck"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/edtModifyPwCheck" />
+
+    <EditText
+        android:id="@+id/edtModifyId"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:ems="15"
+        android:hint="  예 : GRAMy@shmrd.or.kr"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvModifyPw"
+        app:layout_constraintEnd_toEndOf="@+id/tvModifyId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvModifyId"
+        app:layout_constraintTop_toBottomOf="@+id/tvModifyId" />
+
+    <EditText
+        android:id="@+id/edtModifyPwCheck"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:ems="15"
+        android:hint="  비밀번호를 한번 더 입력해주세요"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvModifyName"
+        app:layout_constraintEnd_toEndOf="@+id/tvModifyPwCheck"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvModifyPwCheck" />
+
+    <EditText
+        android:id="@+id/edtModifyName"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:ems="15"
+        android:hint="  이름을 입력해주세요"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvModifyPhone"
+        app:layout_constraintEnd_toEndOf="@+id/tvModifyName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvModifyName" />
+
+    <EditText
+        android:id="@+id/edtModifyAddr"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:ems="15"
+        android:hint="  GRAMy에서 관리할 매장 주소를 입력해주세요"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvModifyAddr"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvModifyAddr"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edtModifyPw"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:ems="15"
+        android:hint="  비밀번호를 입력해주세요"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvModifyPwCheck"
+        app:layout_constraintEnd_toEndOf="@+id/tvModifyPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvModifyPw"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="126dp" />
+
+    <EditText
+        android:id="@+id/edtModifyPhone"
+        android:layout_width="365dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:backgroundTint="@null"
+        android:ems="15"
+        android:hint="  숫자만 입력해주세요"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvModifyAddr"
+        app:layout_constraintEnd_toEndOf="@+id/tvModifyPhone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvModifyPhone"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="248dp" />
+
+    <Button
+        android:id="@+id/btnModifyIdCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginRight="1dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:stateListAnimator="@null"
+        android:text="@string/btnIdCheck"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edtModifyId"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toEndOf="@+id/edtModifyId"
+        app:layout_constraintTop_toTopOf="@+id/edtModifyId"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <Button
+        android:id="@+id/btnModify"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="64dp"
+        android:fontFamily="@font/secular_one"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:stateListAnimator="@null"
+        android:text="@string/btnModify"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/rgModifyGender"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <RadioGroup
+        android:id="@+id/rgModifyGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:orientation="horizontal"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnModifyCancel"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toBottomOf="@+id/tvModifyGender">
+
+        <RadioButton
+            android:id="@+id/ModifyradioMan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radioMan" />
+
+        <RadioButton
+            android:id="@+id/ModifyradioWoman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radioWoman"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="615dp" />
+
+        <RadioButton
+            android:id="@+id/ModifyradioNotting"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/radioNoting" />
+
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <Button
+        android:id="@+id/btnModifyCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/btnCancel"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnModify"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toEndOf="@+id/btnModify"
+        app:layout_constraintTop_toTopOf="@+id/btnModify" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

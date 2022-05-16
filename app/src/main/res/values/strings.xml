@@ -33,6 +33,10 @@
     <string name="btnGoJoin">회원가입</string>
     <string name="tvGoJoin">혹시, GRAMy가 처음이신가요?</string>
 
+    <!--modify -->
+    <string name="btnModify">수정하기</string>
+    <string name="btnCancel">취소하기</string>
+
     <!-- Agreement-->
     <string name="joinTitle">회원가입</string>
     <string name="agreeMentTitle">반갑습니다. \n약관동의가 필요합니다.</string>
@@ -114,8 +118,58 @@
     <string name="switchBtn"></string>
     <string name="tvVersion">6.0.7</string>
 
+    <!-- add_store-->
+    <string name="tvAddStore">가게 추가</string>
+    <string name="btnBack"></string>
+    <string name="tvAddStoreSub">현재 어플에 등록된 가게 외에 추가로 \n가게를 등록해보세요.</string>
+    <string name="btnModifyStore">수정</string>
+    <string name="btnEnrollStore">등록</string>
+    <string name="tvStore">현재 등록된 가게입니다.</string>
+    <string name="tvCurrentStore">동명동 \'행복한 담벼락\'</string>
+
+    <!-- beta_service-->
+    <string name="tvBetaService">실험실</string>
+    <string name="tvBetaTitle">GRAMy 실험실에 오신 것을 환영합니다.</string>
+    <string name="tvBetaSub">서비스 향상을 위해 GRAMy는 항상 노력하고 있습니다. \n이 곳에서 개발 예정인 기술들을 확인해보세요.</string>
+    <string name="tvBetaMessage">내 상권 안에 새로 생긴 가게 구경하기</string>
+    <string name="tvBetaMessage2">발주 아이템 최저가 찾기</string>
+    <string name="tvBetaMessage3">지금까지의 모든 통계그래프 확인하기</string>
+
+    <!-- alarm-->
+    <string name="tvAlarm">알람설정</string>
+    <string name="tvAlarmTitle">꼭 필요한 알람만 듣고 싶으신가요? \n이 곳에서 설정 할 수 있습니다.</string>
+    <string name="tvAlarmAll">전체 PUSH 알림 허용</string>
+    <string name="tvMessage">재고 부족 알람 등 필수 알람은 위 설정 여부와 무관하게 받을 수 있습니다.\n기기의 알림 설정은 휴대폰 설정>알림>GRMAy에서 변경할 수 있습니다.</string>
+    <string name="tvCommercial">광고성 정보 수신 동의</string>
+    <string name="tvCommSub">쿠폰 지급 등 혜택에 관한 알림을 받을 수 있습니다.</string>
+    <string name="tvNight">야간 수신 동의</string>
+    <string name="tvNigSub">야간(21:00~08:00)에 정보성 푸시알림을 받을 수 있습니다.</string>
+    <string name="swAll"></string>
+    <string name="swComm"></string>
+    <string name="swNight"></string>
+
+    <!-- <string name="tvNoAlarm">새로운 소식이 없어요.\n오늘의 소식이 생기면 알려드릴게요!</string> -->
+
     <!-- activity_modify -->
     <string name="tvModify">개인정보수정</string>
+
+    <!-- activity_go_board.xml -->
+    <string name="fab_content_desc">글 쓰기</string>
+    <string name="tvBoardTitle">자유 게시판</string>
+
+    <!-- activity_board_write.xml -->
+    <string name="tvBoardWriteTitle">게시글 작성</string>
+    <string name="edtWriteTitleHint">제목</string>
+    <string name="edtWriteContentHint">내용</string>
+    <string name="tvWriteBoard">작성</string>
+
+    <!-- activity_board_update.xml -->
+    <string name="tvUpdateBoard">수정</string>
+    <string name="tvBoardUpdateTitle">게시글 수정</string>
+    <string name="tvBoardUpdateBack">취소</string>
+
+    <!-- 게시판 액티비티 공용 string -->
+    <string name="tvBoardBack">뒤로</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
