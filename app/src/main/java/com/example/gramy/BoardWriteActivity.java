@@ -55,10 +55,6 @@ public class BoardWriteActivity extends AppCompatActivity {
                 String inputTitle = edtWriteTitle.getText().toString();
                 String inputContent = edtWriteContent.getText().toString();
                 writeBoard(writerId, writerName, inputTitle, inputContent);
-                adapter.notifyDataSetChanged();
-                Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
         boardWriteBack = findViewById(R.id.tvCommentsBack);
@@ -82,6 +78,10 @@ public class BoardWriteActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if (response.equals("success")) {
                     Toast.makeText(getApplicationContext(), "게시물이 성공적으로 작성되었습니다!", Toast.LENGTH_SHORT).show();
+                    adapter.notifyDataSetChanged();
+                    Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         }, new Response.ErrorListener() {

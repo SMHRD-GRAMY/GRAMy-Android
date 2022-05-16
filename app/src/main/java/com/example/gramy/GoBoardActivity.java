@@ -3,6 +3,7 @@ package com.example.gramy;
 
 
 
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -66,11 +67,13 @@ public class GoBoardActivity extends AppCompatActivity {
             public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {
                 BoardVO item = adapter.getItem(position); // 각각의 게시글
                 int BoardSeq = item.getTb_a_seq(); // 게시글 번호로 조회하기
+                String writerId = item.getUser_id();
                 System.out.println(BoardSeq);
 
                 // 액티비티 이동
                 Intent intent = new Intent(getApplicationContext(), BoardDetailActivity.class);
                 intent.putExtra("tb_a_seq", BoardSeq);
+                intent.putExtra("user_id", writerId);
                 startActivity(intent);
                 finish();
                 //

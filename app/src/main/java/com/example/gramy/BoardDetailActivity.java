@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,7 @@ public class BoardDetailActivity extends AppCompatActivity {
 
     RequestQueue queue;
     int board_seq;
+    String writerId;
     TextView tvBoardDetailBack, tvBoardDetailTitle, tvBoardDetailWriter, tvBoardDetailDate, tvBoardDetailModify, tvBoardDetailDelete, tvBoardDetailContent;
     BoardAdapter adapter = new BoardAdapter();
     Button btnViewComment;
@@ -53,8 +55,25 @@ public class BoardDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         board_seq = intent.getIntExtra("tb_a_seq", 0);
+        writerId = intent.getStringExtra("user_id");
+
         getData(board_seq);
 
+        // 현재 로그인 한 유저 정보 가져오기
+        SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
+        String loginName = sharedPreferences.getString("user_name", "");
+        String loginId = sharedPreferences.getString("user_id","");
+
+        System.out.println("로그인 아이디 : " + loginId);
+        System.out.println("게시글 작성자 아이디 : " + writerId);
+
+        if(writerId.equals(loginId)) {
+            tvBoardDetailModify.setVisibility(View.VISIBLE);
+            tvBoardDetailDelete.setVisibility(View.VISIBLE);
+        } else {
+            tvBoardDetailModify.setVisibility(View.INVISIBLE);
+            tvBoardDetailDelete.setVisibility(View.INVISIBLE);
+        }
 
         // 뒤로가기
         tvBoardDetailBack.setOnClickListener(new View.OnClickListener() {
@@ -71,9 +90,6 @@ public class BoardDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 deleteBoard(board_seq);
-                Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
 
@@ -145,6 +161,9 @@ public class BoardDetailActivity extends AppCompatActivity {
                     if(response.equals("success")) {
                         Toast.makeText(getApplicationContext(), "게시글이 성공적으로 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                         adapter.notifyDataSetChanged();
+                        Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
