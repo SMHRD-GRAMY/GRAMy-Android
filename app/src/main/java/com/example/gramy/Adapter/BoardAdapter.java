@@ -44,8 +44,6 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
                     }
                 }
             });
-
-
         }
         public void setItem(BoardVO item) { // setItem Method
             postTitle.setText(item.getTb_a_title());

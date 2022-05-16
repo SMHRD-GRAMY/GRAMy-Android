@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gramy">
-
     <!-- 인터넷 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -15,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".CommentsActivity"
+            android:exported="false" />
         <activity
             android:name=".BoardUpdateActivity"
             android:exported="false" />
@@ -40,24 +42,20 @@
             </intent-filter>
         </activity>
         <activity
-
             android:name=".BoardDetailActivity"
             android:exported="false" />
         <activity
             android:name=".stock.StockCheckActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
-
             android:name=".BoardWriteActivity"
             android:exported="false" />
         <activity
-
             android:name=".JoinActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-
             android:name=".GoMgShelfActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -93,22 +91,21 @@
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-          android:name=".LoadingActivity"
-
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:name=".LoadingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".stock.StockActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LoginActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

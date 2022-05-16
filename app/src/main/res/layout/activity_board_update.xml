@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/tvBoardUpdateTitle"
+            android:id="@+id/tvCommentsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tvBoardUpdateTitle"
@@ -32,7 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvBoardUpdateBack"
+            android:id="@+id/tvCommentsBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

@@ -36,7 +36,7 @@ public class BoardUpdateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_board_update);
 
         tvUpdateBoard = findViewById(R.id.tvUpdateBoard); // 게시글 수정하기
-        tvBoardUpdateBack = findViewById(R.id.tvBoardUpdateBack); // 뒤로가기
+        tvBoardUpdateBack = findViewById(R.id.tvCommentsBack); // 뒤로가기
         edtUpdateTitle = findViewById(R.id.edtUpdateTitle);
         edtUpdateContent = findViewById(R.id.edtUpdateContent);
 
