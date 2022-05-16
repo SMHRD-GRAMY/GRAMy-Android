@@ -11,7 +11,7 @@
         android:id="@+id/tvJoinGender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/tvJoinGender"
         android:textSize="18sp"
@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="59dp" />
+        app:layout_constraintGuide_begin="45dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.551" />
+        app:layout_constraintVertical_bias="0.888" />
 
     <TextView
         android:id="@+id/tvJoinId"
@@ -254,10 +254,8 @@
         android:layout_marginBottom="16dp"
         android:text="@string/tvAddrSub"
         app:layout_constraintBottom_toTopOf="@+id/btnJoin"
-        app:layout_constraintEnd_toEndOf="@+id/rgGender"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintHorizontal_bias="0.203"
-        app:layout_constraintStart_toStartOf="@+id/rgGender"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/rgGender" />
 
     <Button
@@ -283,7 +281,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="20dp"
         android:fontFamily="@font/secular_one"
         android:insetTop="0dp"
         android:insetBottom="0dp"
@@ -292,13 +290,14 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
     <RadioGroup
         android:id="@+id/rgGender"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="15dp"
         android:orientation="horizontal"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/tvAddrSub"
@@ -311,14 +310,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/radioMan" />
+            android:fontFamily="@font/secular_one"
+            android:text="@string/radioMan"
+            android:textColor="#595959" />
 
         <RadioButton
             android:id="@+id/radioWoman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/secular_one"
             android:text="@string/radioWoman"
+            android:textColor="#595959"
             tools:layout_editor_absoluteX="3dp"
             tools:layout_editor_absoluteY="615dp" />
 
@@ -327,7 +330,9 @@
             android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/radioNoting" />
+            android:fontFamily="@font/secular_one"
+            android:text="@string/radioNoting"
+            android:textColor="#595959" />
 
     </RadioGroup>
 

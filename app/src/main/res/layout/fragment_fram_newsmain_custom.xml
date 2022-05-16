@@ -6,43 +6,55 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="30dp">
 
         <TextView
             android:id="@+id/titleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="sans-serif"
             android:paddingLeft="10dp"
             android:text="뉴스 제목"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/dateTV"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/titleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="10dp"
-            android:textSize="6pt"
-            android:text="뉴스 날짜"/>
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="@font/secular_one"
+            android:paddingRight="15dp"
+            android:text="뉴스 날짜"
+            android:textColor="#595959"
+            android:textSize="14sp" />
 
 
     </RelativeLayout>
+
     <TextView
         android:id="@+id/descTV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:fontFamily="sans-serif"
         android:paddingLeft="25dp"
-        android:textSize="8pt"
-        android:text="뉴스 간략 설명"/>
+        android:text="뉴스 간략 설명"
+        android:textColor="#595959"
+        android:textSize="14sp" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:layout_gravity="center"
         android:background="#cad8e6" />
 
