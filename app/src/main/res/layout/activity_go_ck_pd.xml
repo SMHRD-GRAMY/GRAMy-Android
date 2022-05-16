@@ -120,10 +120,12 @@
         app:layout_constraintEnd_toEndOf="@+id/tvThing2"
         app:layout_constraintStart_toStartOf="@+id/tvThing2"
         app:layout_constraintTop_toBottomOf="@+id/tvThing2"
-        app:srcCompat="@drawable/weight" />
+        app:srcCompat="@drawable/weight" /><![CDATA[
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/shlef_img" />
+
+    ]]>
 
     <ImageButton
         android:id="@+id/imgScale1"
@@ -133,7 +135,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/tvThing3"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline11"
         app:layout_constraintTop_toBottomOf="@+id/tvEqshelf"
         app:layout_constraintVertical_bias="0.516"
@@ -188,8 +190,8 @@
         android:id="@+id/tvThing1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="128dp"
         android:text="미등록"
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
@@ -223,20 +225,20 @@
         android:id="@+id/tvThing3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="168dp"
         android:text="미등록"
         android:textColor="#000000"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvThing4"
         app:layout_constraintEnd_toStartOf="@+id/tvThing4"
         app:layout_constraintTop_toTopOf="@+id/tvThing4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imgScale3"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="292dp"
         app:layout_constraintEnd_toEndOf="@+id/tvThing3"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvThing3"
@@ -247,7 +249,7 @@
         android:id="@+id/tvThing4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="미등록"
         android:textColor="#000000"
         android:textSize="28dp"
@@ -265,7 +267,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvThing4"
         app:layout_constraintTop_toBottomOf="@+id/tvThing4"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.668"
         app:srcCompat="@drawable/weight" />
 
     <ImageButton

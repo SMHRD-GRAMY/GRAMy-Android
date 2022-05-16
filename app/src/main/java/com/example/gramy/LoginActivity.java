@@ -72,10 +72,9 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
 
-    private ImageButton btnFacebookLogin, btnKakaoLogin, btnNaverLogin;
-    private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
     private ImageButton btnFacebookLogin, btnKakaoLogin;
-    private EditText edtId, edtPw;
+    private Button  btnFindId, btnFindPw;
+
 
 
     @Override
@@ -233,7 +232,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-}
+
 
 
     public void setLoginInfo(String user_id, String user_phone, String user_addr, String user_role, String user_joindate, String user_name, String user_gender){
