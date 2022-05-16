@@ -37,7 +37,6 @@ public class CommentsActivity extends AppCompatActivity {
 
     RequestQueue queue;
     CommentsAdapter commentsAdapter = new CommentsAdapter();
-    BoardAdapter boardAdapter = new BoardAdapter();
     ArrayList<CommentVO> items = new ArrayList<CommentVO>();
     TextView tvCommentsBack, tvCommentsTitle;
     EditText edtComment;
@@ -113,6 +112,7 @@ public class CommentsActivity extends AppCompatActivity {
                         String user_name = listItem.getString("user_name");
                         String ar_date = listItem.getString("ar_date").substring(0, 11);
                         CommentVO item = new CommentVO(ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date);
+
                         items.add(item);
                     }
                 } catch (JSONException e) {
