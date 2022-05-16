@@ -3,7 +3,9 @@ package com.example.gramy;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,6 +35,9 @@ import java.util.Map;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
+import com.nhn.android.naverlogin.OAuthLogin;
+import com.nhn.android.naverlogin.OAuthLoginHandler;
+import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
 import java.io.IOException;
 
@@ -44,12 +49,34 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtId, edtPw;
     Button btnLogin, btnGoJoin;
 
+    private String user_id = "";
+    private String user_pw = "";
+    private String user_phone = "";
+    private String user_addr = "";
+    private String user_role = "";
+    private String user_joindate = "";
+    private String user_name = "";
+    private String user_gender = "";
+
     RequestQueue queue;
     StringRequest request;
 
+    // 네이버로그인
+    private static String OAUTH_CLIENT_ID = "ww2RvyEq7Kl37_O2ZoMo";
+    private static String OAUTH_CLIENT_SECRET = "NB7Iv8B37s";
+    private static String OAUTH_CLIENT_NAME = "Gramy";
+    private static OAuthLogin mOAuthLoginInstance;
+    private static Context mContext;
+    private static OAuthLoginButton btnNaverLogin;
+
     private static final String TAG = "LoginActivity";
 
+
     private ImageButton btnFacebookLogin, btnKakaoLogin, btnNaverLogin;
+    private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
+    private ImageButton btnFacebookLogin, btnKakaoLogin;
+    private EditText edtId, edtPw;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,17 +88,12 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnGoJoin = findViewById(R.id.btnGoJoin);
         btnKakaoLogin = findViewById(R.id.btnKakaoLogin);
-        btnNaverLogin = findViewById(R.id.btnNaverLogin);
         btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
 
+        mContext = this;
+        initData();
+
         queue = Volley.newRequestQueue(LoginActivity.this);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String id = edtId.getText().toString();
-                String pw = edtPw.getText().toString();
-            }
-        });
 
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8082/androidlogin.do";
+                String server_url = "http://211.48.228.51:8082/androidlogin.do";
 
                 request = new StringRequest(
                         method,
@@ -96,21 +118,19 @@ public class LoginActivity extends AppCompatActivity {
                                 if (response.length() > 1) {
                                     try {
                                         JSONObject jsonObject = new JSONObject(response);
-                                        String user_id = jsonObject.getString("user_id");
-                                        String user_pw = jsonObject.getString("user_pw");
-                                        String user_phone = jsonObject.getString("user_phone");
-                                        String user_addr = jsonObject.getString("user_addr");
-                                        String user_role = jsonObject.getString("user_role");
-                                        String user_joindate = jsonObject.getString("user_joindate");
-                                        String user_name = jsonObject.getString("user_name");
-                                        String user_gender = jsonObject.getString("user_gender");
+                                        user_id = jsonObject.getString("user_id");
+                                        user_pw = jsonObject.getString("user_pw");
+                                        user_phone = jsonObject.getString("user_phone");
+                                        user_addr = jsonObject.getString("user_addr");
+                                        user_role = jsonObject.getString("user_role");
+                                        user_joindate = jsonObject.getString("user_joindate");
+                                        user_name = jsonObject.getString("user_name");
+                                        user_gender = jsonObject.getString("user_gender");
 
                                         GramyUserVO vo = new GramyUserVO(user_id, user_pw, user_name, user_phone, user_addr, user_role, user_joindate, user_gender);
-
-
+                                        setLoginInfo(user_id, user_phone, user_addr, user_role, user_joindate, user_name, user_gender);
                                         Log.v("확인 : ", vo.toString());
                                         UserInfo.info = vo;
-
                                         Intent intent2 = new Intent(LoginActivity.this, HomeActivity.class);
                                         intent2.putExtra("response", response);
                                         startActivity(intent2);
@@ -162,7 +182,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
-
                 queue.add(request);
             }
         });
@@ -213,4 +232,50 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 }
+
+
+    public void setLoginInfo(String user_id, String user_phone, String user_addr, String user_role, String user_joindate, String user_name, String user_gender){
+        SharedPreferences sf_login = getSharedPreferences("sf_login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sf_login.edit();
+        editor.putBoolean("check_login", true);
+        editor.putString("user_id", user_id);
+        editor.putString("user_phone", user_phone);
+        editor.putString("user_addr", user_addr);
+        editor.putString("user_role", user_role);
+        editor.putString("user_joindate", user_joindate);
+        editor.putString("user_name", user_name);
+        editor.putString("user_gender", user_gender);
+        editor.apply();
+    }
+
+    private void initData() {
+        mOAuthLoginInstance = OAuthLogin.getInstance();
+        mOAuthLoginInstance.init(mContext, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
+        btnNaverLogin = findViewById(R.id.btnNaverLogin);
+        btnNaverLogin.setOAuthLoginHandler(mOAuthLoginHandler);
+    }
+
+    private OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
+        @Override
+        public void run(boolean success) {
+            if(success){
+                String accessToken = mOAuthLoginInstance.getAccessToken(mContext);
+                String refreshToken = mOAuthLoginInstance.getRefreshToken(mContext);
+                long expiresAt = mOAuthLoginInstance.getExpiresAt(mContext);
+                String tokenType = mOAuthLoginInstance.getTokenType(mContext);
+                Toast.makeText(mContext, "success:"+accessToken,Toast.LENGTH_SHORT).show();
+
+            }else{
+
+            }
+        }
+    };
+    protected void redirectSignupActivity(){
+        final Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}
+

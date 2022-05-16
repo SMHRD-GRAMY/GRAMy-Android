@@ -3,8 +3,7 @@
     package="com.example.gramy">
 
     <!-- 인터넷 권한 설정 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 인터넷 연결 확인 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -16,7 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".BoardUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BoardDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BoardWriteActivity"
+            android:exported="false" />
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -33,6 +40,7 @@
             </intent-filter>
         </activity>
         <activity
+
             android:name=".BoardDetailActivity"
             android:exported="false" />
         <activity
@@ -44,6 +52,7 @@
             android:name=".BoardWriteActivity"
             android:exported="false" />
         <activity
+
             android:name=".JoinActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
@@ -73,7 +82,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoadingActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -84,7 +93,7 @@
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".LoadingActivity"
+          android:name=".LoadingActivity"
 
             android:screenOrientation="portrait"
             android:exported="false" />
@@ -99,7 +108,6 @@
         <activity
             android:name=".LoginActivity"
             android:screenOrientation="portrait"
-
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -107,9 +115,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 </manifest>

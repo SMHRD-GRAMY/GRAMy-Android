@@ -163,6 +163,11 @@
     <string name="edtWriteContentHint">내용</string>
     <string name="tvWriteBoard">작성</string>
 
+    <!-- activity_board_update.xml -->
+    <string name="tvUpdateBoard">수정</string>
+    <string name="tvBoardUpdateTitle">게시글 수정</string>
+    <string name="tvBoardUpdateBack">취소</string>
+
     <!-- 게시판 액티비티 공용 string -->
     <string name="tvBoardBack">뒤로</string>
 

@@ -41,26 +41,26 @@ public class JoinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join);
 
         edtJoinId = findViewById(R.id.edtJoinId);
-        edtJoinPw = findViewById(R.id.edtModifyPw);
-        edtJoinPwCheck = findViewById(R.id.edtModifyPwCheck);
-        edtJoinName = findViewById(R.id.edtModifyName);
-        edtJoinPhone = findViewById(R.id.edtModifyPhone);
-        edtJoinAddr = findViewById(R.id.edtModifyAddr);
-        btnIdCheck = findViewById(R.id.btnModifyIdCheck);
-        btnJoin = findViewById(R.id.btnModify);
-        rgGender = findViewById(R.id.rgModifyGender);
-        radioMan = findViewById(R.id.ModifyradioMan);
-        radioWoman = findViewById(R.id.ModifyradioWoman);
-        radioNotting = findViewById(R.id.ModifyradioNotting);
+        edtJoinPw = findViewById(R.id.edtJoinPw);
+        edtJoinPwCheck = findViewById(R.id.edtJoinPwCheck);
+        edtJoinName = findViewById(R.id.edtJoinName);
+        edtJoinPhone = findViewById(R.id.edtJoinPhone);
+        edtJoinAddr = findViewById(R.id.edtJoinAddr);
+        btnIdCheck = findViewById(R.id.btnJoinIdCheck);
+        btnJoin = findViewById(R.id.btnJoin);
+        rgGender = findViewById(R.id.rgGender);
+        radioMan = findViewById(R.id.radioMan);
+        radioWoman = findViewById(R.id.radioWoman);
+        radioNotting = findViewById(R.id.radioNotting);
 
         rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.ModifyradioMan){
+                if(i==R.id.radioMan){
                     chbResult = "man";
-                } else if(i==R.id.ModifyradioWoman){
+                } else if(i==R.id.radioWoman){
                     chbResult = "woman";
-                } else if(i==R.id.ModifyradioNotting){
+                } else if(i==R.id.radioNotting){
                     chbResult = "notting";
                 }
             }
@@ -69,15 +69,13 @@ public class JoinActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(JoinActivity.this);
 
         btnJoin.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
 
                 Log.v("성별", "값 : "+chbResult);
 
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8082/androidjoin.do";
-
+                String server_url = "http://211.48.228.51:8082/androidjoin.do";
                 request = new StringRequest(
                         method,
                         server_url,
