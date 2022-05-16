@@ -186,13 +186,13 @@
         android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/loginTitle"
         android:textColor="#333333"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -200,15 +200,15 @@
         android:id="@+id/tvGoJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/tvGoJoin"
         android:textColor="#333333"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="@+id/checkAutoLogin"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="@+id/btnFindId"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnFindPw" />
 
     <EditText
         android:id="@+id/edtId"
@@ -241,23 +241,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnKakaoLogin"
         app:layout_constraintTop_toTopOf="@+id/btnKakaoLogin" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="317dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-black"
-        android:insetTop="1dp"
-        android:insetBottom="1dp"
-        android:stateListAnimator="@null"
-        android:text="@string/btnLogin"
-        android:textSize="18sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/edtPw"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/edtPw"
-        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
 
     <Button
         android:id="@+id/btnFindId"

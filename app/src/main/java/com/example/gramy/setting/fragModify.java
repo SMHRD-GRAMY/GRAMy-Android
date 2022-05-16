@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
 
 public class fragModify extends Fragment {
@@ -86,7 +89,10 @@ public class fragModify extends Fragment {
                                 alter.setPositiveButton("수정완료", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                        fragSettingmain fragSettingmain = new fragSettingmain();
+                                        transaction.replace(R.id.container, fragSettingmain);
+                                        transaction.commit();
                                     }
                                 });
                             }
