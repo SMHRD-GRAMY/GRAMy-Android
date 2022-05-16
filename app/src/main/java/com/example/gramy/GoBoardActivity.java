@@ -54,7 +54,6 @@ public class GoBoardActivity extends AppCompatActivity {
 
         getBoardData(); // 게시글 목록 불러오기
 
-
         RecyclerView recyclerView = findViewById(R.id.boardRecyclerView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

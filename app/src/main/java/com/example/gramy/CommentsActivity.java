@@ -23,6 +23,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.Adapter.CommentsAdapter;
+import com.example.gramy.Listener.OnCommentsDeleteListener;
 import com.example.gramy.Vo_Info.CommentVO;
 
 import org.json.JSONArray;
@@ -92,6 +93,19 @@ public class CommentsActivity extends AppCompatActivity {
             }
         });
 
+        // 댓글 삭제하기
+        commentsAdapter.OnCommentsDeleteListener(new OnCommentsDeleteListener() {
+            @Override
+            public void onItemDelete(CommentsAdapter.ViewHolder holder, View view, int position) {
+                int ar_seq = items.get(position).getAr_seq();
+                deleteComment(ar_seq);
+                overridePendingTransition(0, 0);
+                Intent intent = getIntent();
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+            }
+        });
+
         recyclerView.setAdapter(commentsAdapter);
     }
 
@@ -111,8 +125,7 @@ public class CommentsActivity extends AppCompatActivity {
                         String user_id = listItem.getString("user_id");
                         String user_name = listItem.getString("user_name");
                         String ar_date = listItem.getString("ar_date").substring(0, 11);
-                        CommentVO item = new CommentVO(ar_seq, tb_a_seq, ar_content, user_id, user_name, ar_date);
-
+                        CommentVO item = new CommentVO(tb_a_seq, ar_seq, ar_content, user_id, user_name, ar_date);
                         items.add(item);
                     }
                 } catch (JSONException e) {
@@ -167,6 +180,35 @@ public class CommentsActivity extends AppCompatActivity {
                 params.put("ar_content", String.valueOf(comment));
                 params.put("user_id", String.valueOf(user_id));
                 params.put("user_name", String.valueOf(user_name));
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void deleteComment (int ar_seq) {
+        int method = Request.Method.POST;
+        String server_url = "http://211.48.228.51:8082/app/replydelete";
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.equals("success")) {
+                    Toast.makeText(CommentsActivity.this, "댓글이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CommentsActivity.this, "댓글 삭제중 문제가 발생했습니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("ar_seq", String.valueOf(ar_seq));
                 return params;
             }
         };
