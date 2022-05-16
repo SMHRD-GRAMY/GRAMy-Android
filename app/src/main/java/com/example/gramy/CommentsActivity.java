@@ -6,9 +6,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -17,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.Adapter.CommentsAdapter;
 import com.example.gramy.Vo_Info.CommentVO;
 
@@ -31,19 +36,28 @@ import java.util.Map;
 public class CommentsActivity extends AppCompatActivity {
 
     RequestQueue queue;
-    CommentsAdapter adapter = new CommentsAdapter();
+    CommentsAdapter commentsAdapter = new CommentsAdapter();
+    BoardAdapter boardAdapter = new BoardAdapter();
     ArrayList<CommentVO> items = new ArrayList<CommentVO>();
     TextView tvCommentsBack, tvCommentsTitle;
+    EditText edtComment;
+    Button btnWriteComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
+        String writerName = sharedPreferences.getString("user_name", "");
+        String writerId = sharedPreferences.getString("user_id","");
+
         queue = Volley.newRequestQueue(CommentsActivity.this);
 
         tvCommentsBack = findViewById(R.id.tvCommentsBack);
         tvCommentsTitle = findViewById(R.id.tvCommentsTitle);
+        edtComment = findViewById(R.id.edtComment);
+        btnWriteComment = findViewById(R.id.btnWriteComment);
 
         RecyclerView recyclerView = findViewById(R.id.commentsRecyclerView);
 
@@ -57,6 +71,7 @@ public class CommentsActivity extends AppCompatActivity {
 
         getCommentData(tb_a_seq);
 
+        // 뒤로가기
         tvCommentsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,7 +79,16 @@ public class CommentsActivity extends AppCompatActivity {
             }
         });
 
-        recyclerView.setAdapter(adapter);
+        // 댓글 작성하기
+        btnWriteComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String comment = edtComment.getText().toString();
+                writeComment(tb_a_seq, comment, writerId, writerName);
+            }
+        });
+
+        recyclerView.setAdapter(commentsAdapter);
     }
 
     public void getCommentData (int tb_a_seq) {
@@ -89,8 +113,8 @@ public class CommentsActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                adapter.setItems(items);
-                adapter.notifyDataSetChanged();
+                commentsAdapter.setItems(items);
+                commentsAdapter.notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -103,6 +127,40 @@ public class CommentsActivity extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("tb_a_seq", String.valueOf(tb_a_seq));
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+
+    public void writeComment (int tb_a_seq, String comment, String user_id, String user_name) {
+        int method = Request.Method.POST;
+        String server_url = "http://211.48.228.51:8082/app/replyinsert";
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                if(response.equals("success")) {
+                    Toast.makeText(CommentsActivity.this, "댓글이 작성되었습니다!", Toast.LENGTH_SHORT).show();
+                    edtComment.setText("");
+                } else {
+                    Toast.makeText(CommentsActivity.this, "댓글 작성 중 오류 발생!", Toast.LENGTH_SHORT).show();
+                }
+                commentsAdapter.notifyDataSetChanged();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tb_a_seq", String.valueOf(tb_a_seq));
+                params.put("ar_content", String.valueOf(comment));
+                params.put("user_id", String.valueOf(user_id));
+                params.put("user_name", String.valueOf(user_name));
                 return params;
             }
         };

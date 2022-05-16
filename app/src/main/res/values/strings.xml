@@ -171,6 +171,10 @@
     <!-- 게시판 액티비티 공용 string -->
     <string name="tvBoardBack">뒤로</string>
 
+    <!-- activity_comments.xml -->
+    <string name="btnWriteComment">작성</string>
+    <string name="edtComment">댓글을 입력하세요</string>
+
     <!-- comments_item.xml -->
     <string name="tvEditComment">수정</string>
     <string name="tvDeleteComment">삭제</string>
