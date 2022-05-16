@@ -43,6 +43,7 @@ public class StockCheckActivity extends AppCompatActivity {
         progressBar.setProgress(value);
     }
 
+    //재고 퍼센트
     public  void onClick(View v) {
         value = Integer.parseInt(editText.getText().toString());
         if(value<=10){

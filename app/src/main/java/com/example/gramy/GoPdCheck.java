@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -40,17 +41,27 @@ public class GoPdCheck extends AppCompatActivity {
 
     RequestQueue queue;
     ArrayList<ShelfStockVO> items = new ArrayList<ShelfStockVO>();
-    TextView boardBack;
+    Button stockbtn1,stockbtn2,stockbtn3,stockbtn4;
+    TextView shelfTv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_go_board); // 게시판 액티비티
 
-        boardBack = findViewById(R.id.tvBoardBack); // 뒤로가기
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab); // 플러팅 버튼
+        setContentView(R.layout.activity_go_ck_pd);
+
+
+        shelfTv=findViewById(R.id.shelfTv);
+        stockbtn1=findViewById(R.id.stockbtn1);
+        stockbtn2=findViewById(R.id.stockbtn2);
+        stockbtn3=findViewById(R.id.stockbtn3);
+        stockbtn4=findViewById(R.id.stockbtn4);
+
+
 
         queue = Volley.newRequestQueue(GoPdCheck.this); // GoBoardActivity에 Queue 생성
+
 
         // 현재 로그인 한 유저 정보 가져오기
         SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
@@ -58,17 +69,24 @@ public class GoPdCheck extends AppCompatActivity {
         String writerId = sharedPreferences.getString("user_id","");
 
 
-        getStockList(writerId); // 게시글 목록 불러오기
-
-
-
-
+        getStockList(writerId); //  목록 불러오기
+        Log.d("v",items.toString());
+        try {
+            if (items != null) {
+                String shelfName = items.get(0).getShelf_name();
+                shelfTv.setText(shelfName);
+            } else {
+                shelfTv.setText("선반이 존재하지 않습니다");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    // 게시글 가져오는 메서드
+    // 목록 가져오는 메서드
     private void getStockList(String writerId) {
-        int method = Request.Method.GET;
-        String server_url = "http://211.48.228.51:8082/product/stocklist";
+        int method = Request.Method.POST;
+        String server_url = "http://119.200.31.80:8082/product/stocklist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
