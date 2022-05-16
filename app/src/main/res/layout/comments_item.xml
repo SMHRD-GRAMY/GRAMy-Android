@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="80dp"
+    android:background="@drawable/border2">
 
     <TextView
         android:id="@+id/tvCommentWriter"
@@ -43,8 +44,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="12dp"
-        android:text="@string/tvEditComment"
         android:clickable="true"
+        android:text="@string/tvEditComment"
         app:layout_constraintBottom_toBottomOf="@+id/tvDeleteComment"
         app:layout_constraintEnd_toStartOf="@+id/tvDeleteComment"
         app:layout_constraintTop_toTopOf="@+id/tvDeleteComment" />

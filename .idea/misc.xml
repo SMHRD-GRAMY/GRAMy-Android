@@ -82,6 +82,8 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/settinglist_item.xml" value="0.25" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/layout/shelf_editbox.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/GRAMy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/border.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/border2.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_board_detail.xml" value="0.325" />
         <entry key="app/src/main/res/layout/activity_board_update.xml" value="0.29259259259259257" />
         <entry key="app/src/main/res/layout/activity_board_write.xml" value="0.4002494529441551" />
