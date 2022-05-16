@@ -1,7 +1,6 @@
 package com.example.gramy;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,7 +32,7 @@ public class GoMgShelfActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_go_mg_shelf);
 
-            RecyclerView recyclerView =findViewById(R.id.shelf_mg_recyclerView);
+            RecyclerView recyclerView =findViewById(R.id.report_recyclerView);
 
             LinearLayoutManager LayoutManager =
                         new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);

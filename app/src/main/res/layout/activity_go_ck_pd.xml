@@ -70,12 +70,12 @@
         android:id="@+id/shelfTv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
         android:layout_marginTop="12dp"
-        android:text="비품선반"
+        android:text="텍스트"
         android:textColor="#000000"
         android:textSize="34sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
@@ -85,9 +85,8 @@
         android:layout_height="wrap_content"
         android:text="등록 및 위치 변경"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/shelfTv"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="@+id/shelfTv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shelfTv" />
 
 

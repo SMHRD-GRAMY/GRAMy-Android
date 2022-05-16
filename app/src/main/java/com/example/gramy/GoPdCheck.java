@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -71,16 +72,18 @@ public class GoPdCheck extends AppCompatActivity {
 
         getStockList(writerId); //  목록 불러오기
         Log.d("v",items.toString());
-        try {
-            if (items != null) {
-                String shelfName = items.get(0).getShelf_name();
-                shelfTv.setText(shelfName);
-            } else {
-                shelfTv.setText("선반이 존재하지 않습니다");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            if (items != null) {
+//                String shelfName = items.get(0).getShelf_name();
+//                Toast.makeText(this, "sdjf", Toast.LENGTH_SHORT).show();
+//                shelfTv.setText(shelfName);
+//            } else {
+//                shelfTv.setText("선반이 존재하지 않습니다");
+//                Toast.makeText(this, "null", Toast.LENGTH_SHORT).show();
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     // 목록 가져오는 메서드
@@ -101,6 +104,20 @@ public class GoPdCheck extends AppCompatActivity {
                         String stock_name = listItem.getString("stock_name");
                         ShelfStockVO item = new ShelfStockVO(shelf_seq, shelf_name, user_id, stock_seq, stock_name);
                         items.add(item);
+                    }
+                    ArrayList<String> nameList=new ArrayList<String>();
+                    if (items.size() > 0) {
+                        String shelfName = items.get(0).getShelf_name();
+                        for(int i=0;i>items.size();i++){
+                            nameList.add(items.get(i).getStock_name());
+                        };
+
+
+                        Toast.makeText(getApplicationContext(), "sdjf", Toast.LENGTH_SHORT).show();
+                        shelfTv.setText(shelfName);
+                    } else {
+                        shelfTv.setText("선반이 존재하지 않습니다");
+                        Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
