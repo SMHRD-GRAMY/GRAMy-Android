@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="80dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="7dp"
     android:background="@drawable/shape"
     android:backgroundTint="#FFFFFF"
     android:elevation="10dp">
 
     <TextView
-        android:id="@+id/boardTitle"
+        android:id="@+id/postTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -20,19 +20,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/boardWriter"
+        android:id="@+id/postWriter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
         android:hint="작성자"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/boardTitle"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintTop_toBottomOf="@+id/postTitle"
+        app:layout_constraintVertical_bias="0.18" />
 
     <TextView
-        android:id="@+id/boardDate"
+        android:id="@+id/postDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
@@ -43,21 +44,22 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/boardWriter"
-        app:layout_constraintEnd_toStartOf="@+id/boardWriter"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/postWriter"
+        app:layout_constraintEnd_toStartOf="@+id/postWriter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/boardWriter"
+        app:layout_constraintTop_toTopOf="@+id/postWriter"
         app:srcCompat="@drawable/baseline_account_circle_black_18" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintBottom_toBottomOf="@+id/boardDate"
-        app:layout_constraintEnd_toStartOf="@+id/boardDate"
-        app:layout_constraintTop_toTopOf="@+id/boardDate"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintBottom_toBottomOf="@+id/postDate"
+        app:layout_constraintEnd_toStartOf="@+id/postDate"
+        app:layout_constraintTop_toTopOf="@+id/postDate"
         app:srcCompat="@drawable/baseline_calendar_month_black_18" />
 </androidx.constraintlayout.widget.ConstraintLayout>

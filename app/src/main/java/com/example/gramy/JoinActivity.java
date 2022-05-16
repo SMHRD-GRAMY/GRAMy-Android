@@ -41,26 +41,26 @@ public class JoinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join);
 
         edtJoinId = findViewById(R.id.edtJoinId);
-        edtJoinPw = findViewById(R.id.edtJoinPw);
-        edtJoinPwCheck = findViewById(R.id.edtJoinPwCheck);
-        edtJoinName = findViewById(R.id.edtJoinName);
-        edtJoinPhone = findViewById(R.id.edtJoinPhone);
-        edtJoinAddr = findViewById(R.id.edtJoinAddr);
-        btnIdCheck = findViewById(R.id.btnIdCheck);
-        btnJoin = findViewById(R.id.btnJoin);
-        rgGender = findViewById(R.id.rgGender);
-        radioMan = findViewById(R.id.radioMan);
-        radioWoman = findViewById(R.id.radioWoman);
-        radioNotting = findViewById(R.id.radioNotting);
+        edtJoinPw = findViewById(R.id.edtModifyPw);
+        edtJoinPwCheck = findViewById(R.id.edtModifyPwCheck);
+        edtJoinName = findViewById(R.id.edtModifyName);
+        edtJoinPhone = findViewById(R.id.edtModifyPhone);
+        edtJoinAddr = findViewById(R.id.edtModifyAddr);
+        btnIdCheck = findViewById(R.id.btnModifyIdCheck);
+        btnJoin = findViewById(R.id.btnModify);
+        rgGender = findViewById(R.id.rgModifyGender);
+        radioMan = findViewById(R.id.ModifyradioMan);
+        radioWoman = findViewById(R.id.ModifyradioWoman);
+        radioNotting = findViewById(R.id.ModifyradioNotting);
 
         rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.radioMan){
+                if(i==R.id.ModifyradioMan){
                     chbResult = "man";
-                } else if(i==R.id.radioWoman){
+                } else if(i==R.id.ModifyradioWoman){
                     chbResult = "woman";
-                } else if(i==R.id.radioNotting){
+                } else if(i==R.id.ModifyradioNotting){
                     chbResult = "notting";
                 }
             }

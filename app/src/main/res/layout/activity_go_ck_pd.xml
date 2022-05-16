@@ -121,6 +121,68 @@
         app:layout_constraintStart_toStartOf="@+id/tvThing2"
         app:layout_constraintTop_toBottomOf="@+id/tvThing2"
         app:srcCompat="@drawable/weight" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/shlef_img" />
+
+    <ImageButton
+        android:id="@+id/imgScale1"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/tvThing3"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/tvEqshelf"
+        app:layout_constraintVertical_bias="0.516"
+        app:srcCompat="@drawable/weight"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imgScale2"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/imgScale1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toEndOf="@+id/imgScale1"
+        app:layout_constraintTop_toTopOf="@+id/tvThing1"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/weight"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imgScale3"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/imgScale4"
+        app:layout_constraintEnd_toStartOf="@+id/imgScale4"
+        app:layout_constraintHorizontal_bias="0.451"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toTopOf="@+id/imgScale4"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/weight"
+        tools:ignore="MissingConstraints" />
+
+    <ImageButton
+        android:id="@+id/imgScale4"
+        android:layout_width="94dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imgScale2"
+        app:layout_constraintTop_toBottomOf="@+id/imgScale2"
+        app:srcCompat="@drawable/weight"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvThing1"
@@ -132,6 +194,16 @@
         android:textSize="28sp"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
         app:layout_constraintTop_toBottomOf="@+id/btnChange" />
+
+    <TextView
+        android:text="@string/tvStock"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintStart_toStartOf="@+id/guideline11"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleGramy3"
+        app:layout_constraintVertical_bias="0.347" />
 
     <TextView
         android:id="@+id/tvThing2"
@@ -207,5 +279,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/weight" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="335dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

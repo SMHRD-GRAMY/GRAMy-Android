@@ -1,5 +1,6 @@
 package com.example.gramy.setting;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gramy.R;
@@ -25,6 +27,7 @@ public class fragSettingmain extends Fragment {
     private RecyclerView rcSettingItem;
     private SettingAdapter adapter;
     private ArrayList<SettingData> list = new ArrayList<>();
+    RecyclerView.Adapter SettingAdapter;
 
     int j = 0;
 

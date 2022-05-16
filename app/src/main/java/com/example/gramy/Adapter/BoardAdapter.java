@@ -19,21 +19,20 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     ArrayList<BoardVO> items = new ArrayList<BoardVO>();
     OnBoardItemClickListener listener;
 
-
     // 뷰 홀더
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // 메소드는 뷰 홀더 안에서 만들자!
-        TextView boardTitle;
-        TextView boardWriter;
-        TextView boardDate;
+        TextView postTitle;
+        TextView postWriter;
+        TextView postDate;
 
         public ViewHolder(@NonNull View itemView, OnBoardItemClickListener listener) {
             // 뷰 홀더 생성자
             super(itemView);
 
-            boardTitle = itemView.findViewById(R.id.boardTitle);
-            boardWriter = itemView.findViewById(R.id.boardWriter);
-            boardDate = itemView.findViewById(R.id.boardDate);
+            postTitle = itemView.findViewById(R.id.postTitle);
+            postWriter = itemView.findViewById(R.id.postWriter);
+            postDate = itemView.findViewById(R.id.postDate);
 
             itemView.setOnClickListener(new View.OnClickListener() { // 아이템뷰에 클릭이벤트 달아주기
                 @Override
@@ -45,14 +44,14 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
                     }
                 }
             });
-        }
 
+
+        }
         public void setItem(BoardVO item) { // setItem Method
-            boardTitle.setText(item.getTb_a_title());
-            boardWriter.setText(item.getUser_id());
-            boardDate.setText(item.getTb_a_date());
+            postTitle.setText(item.getTb_a_title());
+            postWriter.setText(item.getUser_id());
+            postDate.setText(item.getTb_a_date());
         }
-
 
     } // 뷰 홀더 end
 
@@ -76,6 +75,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
         // 뷰 홀더 객체가 재사용 될 때 자동으로 호출
         // 뷰 객체는 기존 것을 그대로 사용하고 데이터만 바꿔줌
         BoardVO item = items.get(position); // position ==> 인덱스랑 비슷한 개념으로 이해
+
         holder.setItem(item); // 뷰 홀더에 셋팅
     }
 
@@ -100,7 +100,12 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     }
 
     public void addItem(BoardVO item) {
-        items.add(item); // 리스트에 아이템 추가
+        // TODO: 게시글 추가 로직 구현하기
+        items.add(item);
+    }
+
+    public void removeItem(BoardVO item) {
+        // TODO: 게시물 삭제 로직 구현하기
     }
 
     public void setItems(ArrayList<BoardVO> items) {
@@ -108,7 +113,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.ViewHolder> 
     }
 
     public BoardVO getItem(int position) {
-        return items.get(position); // 아이템 꺼내오기ㄴ
+        return items.get(position); // 아이템 꺼내오기
     }
 
     public void setItem(int position, BoardVO item) {
