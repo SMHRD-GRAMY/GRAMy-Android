@@ -31,7 +31,7 @@ public class NewsView extends LinearLayout {
     public void setNews(NewsVO data) {
         //titleTV 세팅
         if(data.getTitle()!=null && data.getTitle().trim().length()>0)
-            titleTV.setText(data.getTitle());
+            titleTV.setText(data.getTitle().substring(0,25) + "  ...");
         else
             titleTV.setText("");
 
@@ -43,7 +43,7 @@ public class NewsView extends LinearLayout {
 
         //descTV 세팅
         if(data.getDescription()!=null && data.getDescription().trim().length()>0)
-            descTV.setText(data.getDescription().substring(0, 23) +".....");
+            descTV.setText(data.getDescription().substring(0, 31) +"  ...");
         else
             descTV.setText("");
     }
