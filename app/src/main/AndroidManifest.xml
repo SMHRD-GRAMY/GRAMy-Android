@@ -14,6 +14,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
+
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges=
+                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".CommentsActivity"
             android:exported="false" />
@@ -41,16 +57,6 @@
                     android:scheme="kakaoa59f72913ae202bcb0582ed3dc8e1c54" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".BoardDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".stock.StockCheckActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".BoardWriteActivity"
-            android:exported="false" />
         <activity
             android:name=".JoinActivity"
             android:exported="false"
@@ -80,7 +86,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LoadingActivity"
+            android:name=".LoginActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -92,20 +98,7 @@
             android:exported="false" />
         <activity
             android:name=".LoadingActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".stock.StockActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -118,7 +111,11 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-    </application>
+            android:resource="@array/preloaded_fonts"
+            />
+        <!-- 페이스북 메타데이터 -->
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
 
+    </application>
 </manifest>

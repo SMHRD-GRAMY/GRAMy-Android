@@ -44,7 +44,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             });
         }
         public void setItem(CommentVO item) { // setItem Method
-            tvCommentWriter.setText(item.getUser_name());
+            tvCommentWriter.setText("작성자 : "+item.getUser_name());
             tvComment.setText(item.getAr_content());
             tvCommentDate.setText(item.getAr_date());
         }

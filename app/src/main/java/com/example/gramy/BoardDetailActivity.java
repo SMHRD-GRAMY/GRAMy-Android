@@ -93,7 +93,10 @@ public class BoardDetailActivity extends AppCompatActivity {
         btnViewComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            Intent intent = new Intent(getApplicationContext(), CommentsActivity.class);
+            intent.putExtra("tb_a_seq", board_seq);
+            intent.putExtra("tb_a_title", tvBoardDetailTitle.getText().toString());
+            startActivity(intent);
             }
         });
     }

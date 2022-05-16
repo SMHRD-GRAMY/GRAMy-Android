@@ -60,6 +60,7 @@
         app:layout_constraintGuide_end="50dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/commentsRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
@@ -67,5 +68,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline29"
         app:layout_constraintVertical_bias="0.51" />
+
+    <Button
+        android:id="@+id/btnWriteComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/btnWriteComment"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline30" />
+
+    <EditText
+        android:id="@+id/edtComment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/border2"
+        android:ems="10"
+        android:hint="@string/edtComment"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnWriteComment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline30" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
