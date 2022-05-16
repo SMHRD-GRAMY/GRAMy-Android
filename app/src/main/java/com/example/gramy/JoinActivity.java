@@ -22,18 +22,22 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class JoinActivity extends AppCompatActivity {
 
     EditText edtJoinId, edtJoinPw, edtJoinPwCheck, edtJoinName, edtJoinPhone, edtJoinAddr;
-    Button btnIdCheck, btnJoin;
+    Button btnJoinIdCheck, btnJoin;
     RadioGroup rgGender;
     RadioButton radioMan, radioWoman, radioNotting;
 
     RequestQueue queue;
     StringRequest request;
-    String chbResult = "";
+
+    String chbResult="";
+    boolean radio_group_your_choice = true;
+    boolean button = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,83 +45,89 @@ public class JoinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join);
 
         edtJoinId = findViewById(R.id.edtJoinId);
-        edtJoinPw = findViewById(R.id.edtModifyPw);
-        edtJoinPwCheck = findViewById(R.id.edtModifyPwCheck);
-        edtJoinName = findViewById(R.id.edtModifyName);
-        edtJoinPhone = findViewById(R.id.edtModifyPhone);
-        edtJoinAddr = findViewById(R.id.edtModifyAddr);
-        btnIdCheck = findViewById(R.id.btnModifyIdCheck);
-        btnJoin = findViewById(R.id.btnModify);
-        rgGender = findViewById(R.id.rgModifyGender);
-        radioMan = findViewById(R.id.ModifyradioMan);
-        radioWoman = findViewById(R.id.ModifyradioWoman);
-        radioNotting = findViewById(R.id.ModifyradioNotting);
+        edtJoinPw = findViewById(R.id.edtJoinPw);
+        edtJoinPwCheck = findViewById(R.id.edtJoinPwCheck);
+        edtJoinName = findViewById(R.id.edtJoinName);
+        edtJoinPhone = findViewById(R.id.edtJoinPhone);
+        edtJoinAddr = findViewById(R.id.edtJoinAddr);
+        btnJoinIdCheck = findViewById(R.id.btnJoinIdCheck);
+        btnJoin = findViewById(R.id.btnJoin);
+        rgGender = findViewById(R.id.rgGender);
+        radioMan = findViewById(R.id.radioMan);
+        radioWoman = findViewById(R.id.radioWoman);
+        radioNotting = findViewById(R.id.radioNotting);
 
-        rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(i==R.id.ModifyradioMan){
-                    chbResult = "man";
-                } else if(i==R.id.ModifyradioWoman){
-                    chbResult = "woman";
-                } else if(i==R.id.ModifyradioNotting){
-                    chbResult = "notting";
+        if (radio_group_your_choice != true) {
+            rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                    if (i == R.id.ModifyradioMan) {
+                        chbResult = "man";
+                    } else if (i == R.id.ModifyradioWoman) {
+                        chbResult = "woman";
+                    } else if (i == R.id.ModifyradioNotting) {
+                        chbResult = "notting";
+                    }
                 }
-            }
-        });
+            });
+        }
 
         queue = Volley.newRequestQueue(JoinActivity.this);
 
-        btnJoin.setOnClickListener(new View.OnClickListener() {
+        if(button != true) {
+            btnJoin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            @Override
-            public void onClick(View view) {
+                    Log.v("성별", "값 : " + chbResult);
 
-                Log.v("성별", "값 : "+chbResult);
+                    int method = Request.Method.POST;
+                    String server_url = "http://119.200.31.65:8082/androidjoin.do";
 
-                int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8082/androidjoin.do";
+                    request = new StringRequest(
+                            method,
+                            server_url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Toast.makeText(JoinActivity.this,
+                                            "요청성공!",
+                                            Toast.LENGTH_SHORT).show();
 
-                request = new StringRequest(
-                        method,
-                        server_url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                Toast.makeText(JoinActivity.this,
-                                        "요청성공!",
-                                        Toast.LENGTH_SHORT).show();
-
-                                Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                finish();
+                                    Intent intent = new Intent(JoinActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(JoinActivity.this,
+                                            "요청실패>>" + error.toString(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
                             }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(JoinActivity.this,
-                                        "요청실패>>"+error.toString(),
-                                        Toast.LENGTH_SHORT).show();
-                            }
+                    ) {
+                        @Nullable
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+
+                            Map<String, String> param = new HashMap<>();
+                            param.put("user_id", edtJoinId.getText().toString());
+                            param.put("user_pw", edtJoinPw.getText().toString());
+                            param.put("user_name", edtJoinName.getText().toString());
+                            param.put("user_phone", edtJoinPhone.getText().toString());
+                            param.put("user_addr", edtJoinAddr.getText().toString());
+                            param.put("user_gender", chbResult);
+                            return param;
                         }
-                ){
-                    @Nullable
-                    @Override
-                    protected Map<String, String> getParams() throws AuthFailureError {
+                    };
+                    queue.add(request);
+                }
+            });
 
-                        Map<String, String> param = new HashMap<>();
-                        param.put("user_id", edtJoinId.getText().toString());
-                        param.put("user_pw", edtJoinPw.getText().toString());
-                        param.put("user_name", edtJoinName.getText().toString());
-                        param.put("user_phone", edtJoinPhone.getText().toString());
-                        param.put("user_addr", edtJoinAddr.getText().toString());
-                        param.put("user_gender", chbResult);
-                        return param;
-                    }
-                };
-                queue.add(request);
-            }
-        });
+        }
+
     }
+
 }

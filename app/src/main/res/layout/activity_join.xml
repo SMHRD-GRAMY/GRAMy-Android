@@ -287,12 +287,10 @@
         android:fontFamily="@font/secular_one"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:stateListAnimator="@null"
         android:text="@string/btnJoin"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline7"
-        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="@+id/guideline4" />
 
     <RadioGroup
@@ -311,7 +309,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/radioMan" />
+            android:text="@string/radioMan"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radioWoman"
@@ -320,15 +319,16 @@
             android:layout_weight="1"
             android:text="@string/radioWoman"
             tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="615dp" />
+            tools:layout_editor_absoluteY="615dp"
+            android:checked="false"/>
 
         <RadioButton
             android:id="@+id/radioNotting"
             android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/radioNoting" />
-
+            android:text="@string/radioNoting"
+            />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

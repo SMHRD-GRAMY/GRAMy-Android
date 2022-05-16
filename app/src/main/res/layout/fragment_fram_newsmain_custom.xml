@@ -14,31 +14,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:fontFamily="@font/secular_one"
             android:paddingLeft="10dp"
             android:text="뉴스 제목"
             android:textColor="#000000"
-            android:textSize="20sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/dateTV"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/titleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/titleTV"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/secular_one"
             android:paddingRight="10dp"
-            android:textSize="6pt"
-            android:text="뉴스 날짜"/>
+            android:text="뉴스 날짜"
+            android:textColor="#595959"
+            android:textSize="14sp" />
 
 
     </RelativeLayout>
+
     <TextView
         android:id="@+id/descTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/secular_one"
         android:paddingLeft="25dp"
-        android:textSize="8pt"
-        android:text="뉴스 간략 설명"/>
+        android:text="뉴스 간략 설명"
+        android:textColor="#595959"
+        android:textSize="14sp" />
 
     <View
         android:layout_width="match_parent"
