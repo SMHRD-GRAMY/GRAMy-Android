@@ -21,27 +21,12 @@
         app:layout_constraintStart_toEndOf="@+id/btnFacebookLogin"
         app:layout_constraintTop_toTopOf="@+id/btnFacebookLogin" />
 
-    <Button
-        android:id="@+id/btnFindId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/btnFindId"
-        android:textColor="#303030"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
-
-    <ImageButton
+    <com.facebook.login.widget.LoginButton
         android:id="@+id/btnFacebookLogin"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toStartOf="@+id/view"
@@ -106,20 +91,20 @@
         app:layout_constraintTop_toTopOf="@+id/btnFindPw"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageButton
+    <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
         android:id="@+id/btnNaverLogin"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
+        android:src="@drawable/naver"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:srcCompat="@drawable/naver" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -161,13 +146,13 @@
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/tvLogin"
         android:textColor="#333333"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFacebookLogin" />
 
@@ -190,12 +175,12 @@
         android:id="@+id/loginSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/loginSub"
         android:textColor="#333333"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.258"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
 
@@ -203,13 +188,13 @@
         android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="sans-serif-black"
         android:text="@string/loginTitle"
         android:textColor="#333333"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -217,22 +202,22 @@
         android:id="@+id/tvGoJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/secular_one"
         android:text="@string/tvGoJoin"
         android:textColor="#333333"
         android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFindId" />
+        app:layout_constraintEnd_toEndOf="@+id/checkAutoLogin"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/btnFindId"
+        app:layout_constraintTop_toBottomOf="@+id/btnFindPw" />
 
     <EditText
         android:id="@+id/edtId"
         android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="312dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="50dp"
         android:background="@drawable/border2"
         android:backgroundTint="@null"
@@ -243,20 +228,34 @@
         android:shadowColor="@null"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
 
     <View
         android:id="@+id/view2"
         android:layout_width="2dp"
         android:layout_height="60dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
         android:background="#284E4E4E"
         app:layout_constraintBottom_toBottomOf="@+id/btnKakaoLogin"
         app:layout_constraintEnd_toStartOf="@+id/btnNaverLogin"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnKakaoLogin"
         app:layout_constraintTop_toTopOf="@+id/btnKakaoLogin" />
+
+    <Button
+        android:id="@+id/btnFindId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/btnFindId"
+        android:textColor="#303030"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

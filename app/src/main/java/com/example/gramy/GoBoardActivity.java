@@ -1,8 +1,16 @@
 package com.example.gramy;
 
+
+
+
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +23,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.Vo_Info.BoardVO;
@@ -51,7 +60,7 @@ public class GoBoardActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // setOn"Item"ClickListener
-        adapter.setOnItemClickListener(new OnBoardItemClickListener() {
+        adapter.setOnItemClickListener(new OnBoardItemClickListener() { // 인터페이스
             // TODO: 게시글 상세보기 구현
             @Override
             public void onItemClick(BoardAdapter.ViewHolder holder, View view, int position) {

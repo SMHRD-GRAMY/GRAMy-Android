@@ -86,6 +86,17 @@ public class JoinActivity extends AppCompatActivity {
                 else {
                     Log.d("click", "아이디 입력한 상태");
                     Toast.makeText(JoinActivity.this, "사용할 수 있는 아이디입니다.", Toast.LENGTH_SHORT).show();
+
+        rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(i==R.id.radioMan){
+                    chbResult = "man";
+                } else if(i==R.id.radioWoman){
+                    chbResult = "woman";
+                } else if(i==R.id.radioNotting){
+                    chbResult = "notting";
+
                 }
             }
         });

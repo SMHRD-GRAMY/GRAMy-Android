@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
 
 public class fragModify extends Fragment {
@@ -40,7 +43,7 @@ public class fragModify extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_modify, container, false);
 
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
         edtModifyPw = (EditText) view.findViewById(R.id.edtModifyPw);
         edtModifyPwCheck = (EditText) view.findViewById(R.id.edtModifyPwCheck);
         edtModifyName = (EditText) view.findViewById(R.id.edtModifyName);
@@ -51,9 +54,9 @@ public class fragModify extends Fragment {
         btnModify = (Button) view.findViewById(R.id.btnModify);
         btnModifyCancel = (Button) view.findViewById(R.id.btnModifyCancel);
 
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
 
         rgModifyGender = (RadioGroup) view.findViewById(R.id.rgModifyGender);
         ModifyradioMan = (RadioButton) view.findViewById(R.id.ModifyradioMan);
@@ -86,7 +89,10 @@ public class fragModify extends Fragment {
                                 alter.setPositiveButton("수정완료", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                        fragSettingmain fragSettingmain = new fragSettingmain();
+                                        transaction.replace(R.id.container, fragSettingmain);
+                                        transaction.commit();
                                     }
                                 });
                             }

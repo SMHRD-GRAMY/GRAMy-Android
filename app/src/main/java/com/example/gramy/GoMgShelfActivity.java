@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.gramy.Adapter.GomyshelfAdapter;
+import com.example.gramy.Vo_Info.GomyshelfVO;
 import com.example.gramy.home.fragHomemain;
 
 import java.util.ArrayList;
@@ -31,25 +33,16 @@ public class GoMgShelfActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_go_mg_shelf);
 
-            fragHomemain = new fragHomemain();
+            RecyclerView recyclerView =findViewById(R.id.shelf_mg_recyclerView);
 
+            LinearLayoutManager LayoutManager =
+                        new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+            recyclerView.setLayoutManager(LayoutManager);
+            GomyshelfAdapter adapter = new GomyshelfAdapter();
 
+            adapter.addItem(new GomyshelfVO("1선반"));
 
-            RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.shelf_mg_recyclerView);
-            LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
-            mRecyclerView.setLayoutManager(mLinearLayoutManager);
-
-
-            mArrayList = new ArrayList<>();
-
-            mAdapter = new CustomAdapter(this, mArrayList);
-            mRecyclerView.setAdapter(mAdapter);
-
-            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-                    mLinearLayoutManager.getOrientation());
-            mRecyclerView.addItemDecoration(dividerItemDecoration);
-
-
+            recyclerView.setAdapter(adapter);
 
 
             Button buttonInsert = (Button) findViewById(R.id.btnshelf_enroll);
