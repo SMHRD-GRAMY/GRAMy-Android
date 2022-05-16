@@ -1,12 +1,18 @@
 package com.example.gramy;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,10 +34,21 @@ import com.example.gramy.Vo_Info.UserInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.login.Login;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
@@ -39,15 +56,14 @@ import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
-import java.io.IOException;
-
 import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText edtId, edtPw;
-    Button btnLogin, btnGoJoin;
+
+    RequestQueue queue;
+    StringRequest request;
 
     private String user_id = "";
     private String user_pw = "";
@@ -57,9 +73,6 @@ public class LoginActivity extends AppCompatActivity {
     private String user_joindate = "";
     private String user_name = "";
     private String user_gender = "";
-
-    RequestQueue queue;
-    StringRequest request;
 
     // 네이버로그인
     private static String OAUTH_CLIENT_ID = "ww2RvyEq7Kl37_O2ZoMo";
@@ -71,16 +84,24 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity";
 
+    private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
+    private ImageButton btnKakaoLogin;
+    private EditText edtId, edtPw;
 
-    private ImageButton btnFacebookLogin, btnKakaoLogin;
-    private Button  btnFindId, btnFindPw;
-
-
+    // 페이스북
+    private static LoginButton btnFacebookLogin;
+    private CallbackManager callbackManager;
+    private static final String EMAIL = "email";
+    private static final String USER_POSTS = "user_posts";
+    private static final String AUTH_TYPE = "rerequest";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        callbackManager = CallbackManager.Factory.create();
 
         edtId = findViewById(R.id.edtId);
         edtPw = findViewById(R.id.edtPw);
@@ -93,6 +114,13 @@ public class LoginActivity extends AppCompatActivity {
         initData();
 
         queue = Volley.newRequestQueue(LoginActivity.this);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = edtId.getText().toString();
+                String pw = edtPw.getText().toString();
+            }
+        });
 
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int method = Request.Method.POST;
-                String server_url = "http://211.48.228.51:8082/androidlogin.do";
+                String server_url = "http://119.200.31.65:8082/androidlogin.do";
 
                 request = new StringRequest(
                         method,
@@ -184,6 +212,30 @@ public class LoginActivity extends AppCompatActivity {
                 queue.add(request);
             }
         });
+
+        // 페이스북로그인
+        btnFacebookLogin.setPermissions(Arrays.asList(EMAIL,USER_POSTS));
+        btnFacebookLogin.setAuthType(AUTH_TYPE);
+
+        btnFacebookLogin.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                setResult(RESULT_OK);
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+
+            @Override
+            public void onCancel() {
+                setResult(RESULT_CANCELED);
+            }
+
+            @Override
+            public void onError(@NonNull FacebookException e) {
+            }
+        });
+
         // 카카오로그인
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>() {
             @Override
@@ -195,17 +247,17 @@ public class LoginActivity extends AppCompatActivity {
                         public Unit invoke(User user, Throwable throwable) {
                             if (user != null){
                                 Log.d(TAG, "로그인 정보 : "+user);
-                            }
-                            if (throwable != null){
-                                Log.d("error", throwable.getLocalizedMessage());
-                            }
-                            return null;
-                        }
-                    });
                 }
-                updateKakaoLoginUi();
+                if (throwable != null){
+                    Log.d("error", throwable.getLocalizedMessage());
+                }
                 return null;
-            }
+                }
+            });
+        }
+        updateKakaoLoginUi();
+        return null;
+    }
             private void updateKakaoLoginUi() {
                 UserApiClient.getInstance().me(new Function2<User, Throwable, Unit>() {
                     @Override
@@ -230,10 +282,10 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
+
+
     }
-
-
-
 
     public void setLoginInfo(String user_id, String user_phone, String user_addr, String user_role, String user_joindate, String user_name, String user_gender){
         SharedPreferences sf_login = getSharedPreferences("sf_login", MODE_PRIVATE);
@@ -256,6 +308,7 @@ public class LoginActivity extends AppCompatActivity {
         btnNaverLogin.setOAuthLoginHandler(mOAuthLoginHandler);
     }
 
+    // 네이버 로그인
     private OAuthLoginHandler mOAuthLoginHandler = new OAuthLoginHandler() {
         @Override
         public void run(boolean success) {
@@ -276,5 +329,33 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-}
 
+    // 페이스북 해쉬키 가져오기
+    private void getHashKey(){
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (packageInfo == null)
+            Log.e("KeyHash", "KeyHash:null");
+
+        for (Signature signature : packageInfo.signatures) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            } catch (NoSuchAlgorithmException e) {
+                Log.e("KeyHash", "Unable to get MessageDigest. signature=" + signature, e);
+            }
+        }
+    }
+
+    // 페이스북
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+}

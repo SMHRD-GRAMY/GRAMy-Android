@@ -40,7 +40,7 @@ public class fragModify extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_modify, container, false);
 
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
         edtModifyPw = (EditText) view.findViewById(R.id.edtModifyPw);
         edtModifyPwCheck = (EditText) view.findViewById(R.id.edtModifyPwCheck);
         edtModifyName = (EditText) view.findViewById(R.id.edtModifyName);
@@ -51,9 +51,9 @@ public class fragModify extends Fragment {
         btnModify = (Button) view.findViewById(R.id.btnModify);
         btnModifyCancel = (Button) view.findViewById(R.id.btnModifyCancel);
 
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
-        edtModifyId = (EditText) view.findViewById(R.id.edtJoinId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
+        edtModifyId = (EditText) view.findViewById(R.id.edtModifyId);
 
         rgModifyGender = (RadioGroup) view.findViewById(R.id.rgModifyGender);
         ModifyradioMan = (RadioButton) view.findViewById(R.id.ModifyradioMan);

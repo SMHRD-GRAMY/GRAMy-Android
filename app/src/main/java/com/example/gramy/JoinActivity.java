@@ -27,7 +27,7 @@ import java.util.Map;
 public class JoinActivity extends AppCompatActivity {
 
     EditText edtJoinId, edtJoinPw, edtJoinPwCheck, edtJoinName, edtJoinPhone, edtJoinAddr;
-    Button btnIdCheck, btnJoin;
+    Button btnJoinIdCheck, btnJoin;
     RadioGroup rgGender;
     RadioButton radioMan, radioWoman, radioNotting;
 
@@ -46,7 +46,7 @@ public class JoinActivity extends AppCompatActivity {
         edtJoinName = findViewById(R.id.edtJoinName);
         edtJoinPhone = findViewById(R.id.edtJoinPhone);
         edtJoinAddr = findViewById(R.id.edtJoinAddr);
-        btnIdCheck = findViewById(R.id.btnJoinIdCheck);
+        btnJoinIdCheck = findViewById(R.id.btnJoinIdCheck);
         btnJoin = findViewById(R.id.btnJoin);
         rgGender = findViewById(R.id.rgGender);
         radioMan = findViewById(R.id.radioMan);
@@ -65,7 +65,7 @@ public class JoinActivity extends AppCompatActivity {
                 }
             }
         });
-        //////////
+
         queue = Volley.newRequestQueue(JoinActivity.this);
 
         btnJoin.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +75,8 @@ public class JoinActivity extends AppCompatActivity {
                 Log.v("성별", "값 : "+chbResult);
 
                 int method = Request.Method.POST;
-                String server_url = "http://211.48.228.51:8082/androidjoin.do";
+                String server_url = "http://119.200.31.65:8082/androidjoin.do";
+
                 request = new StringRequest(
                         method,
                         server_url,
