@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -30,6 +31,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
+import com.example.gramy.TutorialActivity;
 import com.example.gramy.Vo_Info.GramyUserVO;
 import com.example.gramy.Vo_Info.UserInfo;
 
@@ -86,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
     private ImageButton btnKakaoLogin;
     private EditText edtId, edtPw;
+    TextView tvGoJoin;
 
     // 페이스북
     private static LoginButton btnFacebookLogin;
@@ -110,6 +113,15 @@ public class LoginActivity extends AppCompatActivity {
         btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
         btnFindId = findViewById(R.id.btnFindId);
         btnFindPw = findViewById(R.id.btnFindPw);
+        tvGoJoin = findViewById(R.id.tvGoJoin);
+
+        tvGoJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, TutorialActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mContext = this;
         initData();
