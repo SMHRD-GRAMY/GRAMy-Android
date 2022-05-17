@@ -42,7 +42,7 @@ public class StockCheckActivity extends AppCompatActivity {
     RequestQueue queue;
     Button button;
     ProgressBar progressBar;
-    EditText checkWeightTv,checkNameTv,checkRegisterTv,checkShelfLifeTv,checkOrderTv;
+    TextView checkWeightTv,checkNameTv,checkRegisterTv,checkShelfLifeTv,checkOrderTv;
     TextView checkPercentTv;
     int firstWeight,secondWeight;
     int stock_seq;
@@ -53,14 +53,14 @@ public class StockCheckActivity extends AppCompatActivity {
         setContentView(R.layout.activity_stock_check);
 
         //초기화
-        progressBar = (ProgressBar)findViewById(R.id.progressBar2); // 프로그래스바
-        checkWeightTv = (EditText)findViewById(R.id.checkWeightTv);// 현재 무게
-        checkNameTv=findViewById(R.id.checkNameTv);
-        checkRegisterTv=findViewById(R.id.checkRegisterTv);
-        checkShelfLifeTv=findViewById(R.id.checkSelfLifeTv);
-        checkOrderTv=findViewById(R.id.checkOrderTv);
-        checkPercentTv = (TextView) findViewById(R.id.checkPercentTv); //퍼센트뷰
-        button = (Button)findViewById(R.id.checkModifyBtn);
+        progressBar = findViewById(R.id.progressBar2); // 프로그래스바
+        checkWeightTv = findViewById(R.id.checkWeightTv);// 현재 무게
+        checkNameTv= findViewById(R.id.checkNameTv);
+        checkRegisterTv= findViewById(R.id.checkRegisterTv);
+        checkShelfLifeTv= findViewById(R.id.checkSelfLifeTv);
+        checkOrderTv= findViewById(R.id.checkOrderTv);
+        checkPercentTv =  findViewById(R.id.checkPercentTv); //퍼센트뷰
+        button = findViewById(R.id.checkModifyBtn);
 
 
         //큐초기화
@@ -96,11 +96,15 @@ public class StockCheckActivity extends AppCompatActivity {
                         StockDetailVO item = new StockDetailVO(stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,shelf_seq,stock_order,weight_value,weight_date);
                         items.add(item);
 
-                        checkNameTv.setText(items.get(0).getStock_name());
-                        checkWeightTv.setText(items.get(0).getWeight_value()+"/"+items.get(0).getStock_weight());
-                        checkRegisterTv.setText(items.get(0).getStock_date());
-                        checkShelfLifeTv.setText(items.get(0).getStock_shelfLife());
-                        checkOrderTv.setText(items.get(0).getStock_order());
+
+                        String [] strArr = items.get(0).getStock_date().substring(0,11).split("-");
+                        String parsedStr = strArr[0]+"년 " + strArr[1].substring(1,2)+"월 " + strArr[2].substring(0,2)+"일";
+
+                        checkNameTv.setText(items.get(0).getStock_name()); // 재고명
+                        checkWeightTv.setText(items.get(0).getWeight_value()+"/"+items.get(0).getStock_weight()); // 무게
+                        checkRegisterTv.setText(parsedStr); // 등록날짜
+                        checkShelfLifeTv.setText(items.get(0).getStock_shelfLife()); // 유통기한
+                        checkOrderTv.setText(items.get(0).getStock_order()); // 주문방법
 
 
                         String str=checkWeightTv.getText().toString();
