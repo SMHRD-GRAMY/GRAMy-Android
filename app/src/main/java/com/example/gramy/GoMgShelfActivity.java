@@ -42,7 +42,7 @@ public class GoMgShelfActivity extends AppCompatActivity {
         Button buttonInsert,buttonCancel;
         ArrayList<ShelfVO> items = new ArrayList<ShelfVO>();
         ArrayList<Dictionary> mArrayList;
-        CustomAdapter mAdapter=new CustomAdapter();
+//        CustomAdapter mAdapter=new CustomAdapter();
         int count = -1;
         fragHomemain fragHomemain;
 
@@ -105,7 +105,7 @@ public class GoMgShelfActivity extends AppCompatActivity {
                             Dictionary dict = new Dictionary(strName);
                             mArrayList.add(0, dict);
 
-                            mAdapter.notifyItemInserted(0);
+//                            mAdapter.notifyItemInserted(0);
 
                             dialog.dismiss();
                         }
@@ -148,8 +148,8 @@ public class GoMgShelfActivity extends AppCompatActivity {
                         ShelfVO item = new ShelfVO(shelf_seq,shelf_name, user_id);
                         items.add(item);
                     }
-                    adapter.setItems(items);
-                    adapter.notifyDataSetChanged();
+//                    adapter.setItems(items);
+//                    adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

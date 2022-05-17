@@ -7,10 +7,8 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,13 +20,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gramy.Join_Login.LoginActivity;
-import com.example.gramy.Vo_Info.GramyUserVO;
-import com.example.gramy.Vo_Info.ShelfStockVO;
 import com.example.gramy.Vo_Info.StockDetailVO;
-import com.example.gramy.Vo_Info.UserInfo;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -36,11 +29,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import GoMgSelf.Dictionary;
+
 public class StockCheckActivity extends AppCompatActivity {
 
     ArrayList<StockDetailVO> items = new ArrayList<StockDetailVO>();
     RequestQueue queue;
-    Button button;
+    Button updateCheckBtn,updateCancelBtn;
     ProgressBar progressBar;
     TextView checkWeightTv,checkNameTv,checkRegisterTv,checkShelfLifeTv,checkOrderTv;
     TextView checkPercentTv;
@@ -60,7 +55,8 @@ public class StockCheckActivity extends AppCompatActivity {
         checkShelfLifeTv= findViewById(R.id.checkSelfLifeTv);
         checkOrderTv= findViewById(R.id.checkOrderTv);
         checkPercentTv =  findViewById(R.id.checkPercentTv); //퍼센트뷰
-        button = findViewById(R.id.checkModifyBtn);
+        updateCheckBtn = findViewById(R.id.updateCheckBtn);
+        updateCancelBtn=findViewById(R.id.updateCancelBtn);
 
 
         //큐초기화
@@ -69,6 +65,27 @@ public class StockCheckActivity extends AppCompatActivity {
         Intent intent=getIntent();
         stock_seq=intent.getIntExtra("stock_seq",0);
         getDetail(stock_seq);
+
+        updateCheckBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), StockModifyActivity.class);
+                startActivity(intent);
+                StockDetailVO StockDetailVO=items.get(0);
+                System.out.println(StockDetailVO);
+                intent.putExtra("StockDetailVO",StockDetailVO.class);
+
+
+            }
+        });
+        updateCancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GoPdCheck.class);
+                startActivity(intent);
+
+            }
+        });
 
     }
 
