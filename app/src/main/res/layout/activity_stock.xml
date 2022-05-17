@@ -112,11 +112,12 @@
             android:layout_height="30dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:background="@drawable/border_layout"
+            android:background="@drawable/border2"
             android:ems="10"
             android:hapticFeedbackEnabled="false"
             android:hint="입력하세요"
             android:inputType="textPersonName"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -138,10 +139,11 @@
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/border_layout"
+            android:background="@drawable/border2"
             android:ems="10"
             android:hint="입력하세요"
             android:inputType="textPersonName"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tvstockName"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvstockName"
@@ -152,10 +154,11 @@
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/border_layout"
+            android:background="@drawable/border2"
             android:ems="10"
             android:hint="입력하세요"
             android:inputType="textPersonName"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tvstockweight"
             app:layout_constraintStart_toStartOf="@+id/tvstockweight"
             app:layout_constraintTop_toBottomOf="@+id/tvstockweight" />
@@ -165,10 +168,11 @@
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/border_layout"
+            android:background="@drawable/border2"
             android:ems="10"
             android:hint="입력하세요"
             android:inputType="textPersonName"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tvstockshelflife"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvstockshelflife"
@@ -257,15 +261,38 @@
             app:layout_constraintHorizontal_bias="0.521"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <ImageButton
+            android:id="@+id/ddPickDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/baseline_edit_calendar_black_18"
+            app:layout_constraintBottom_toBottomOf="@+id/tvstockshelflife"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvstockshelflife" />
+
+        <ImageButton
+            android:id="@+id/dPickDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="220dp"
+            android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/baseline_edit_calendar_black_18"
+            app:layout_constraintBottom_toBottomOf="@+id/tvstockDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvstockDate" />
+
         <TextView
             android:id="@+id/tvstockDate"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/border_layout"
+            android:background="@drawable/border2"
+            android:gravity="center_vertical"
             android:text="입력하세요"
             android:textColor="#787878"
-            android:textSize="18dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tvhwuid"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvhwuid"
@@ -276,32 +303,14 @@
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/border_layout"
+            android:background="@drawable/border2"
+            android:gravity="center_vertical"
             android:text="입력하세요"
-            android:textSize="18dp"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tvstockDate"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tvstockDate"
             app:layout_constraintTop_toBottomOf="@+id/tvstockDate" />
-
-        <Button
-            android:id="@+id/ddPickDate"
-            android:layout_width="65dp"
-            android:layout_height="40dp"
-            android:text="설정"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockshelflife"
-            app:layout_constraintEnd_toEndOf="@+id/tvstockshelflife"
-            app:layout_constraintTop_toTopOf="@+id/tvstockshelflife" />
-
-        <Button
-            android:id="@+id/dPickDate"
-            android:layout_width="65dp"
-            android:layout_height="40dp"
-            android:text="설정"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockDate"
-            app:layout_constraintEnd_toEndOf="@+id/tvstockDate"
-            app:layout_constraintTop_toBottomOf="@+id/tvhwuid"
-            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

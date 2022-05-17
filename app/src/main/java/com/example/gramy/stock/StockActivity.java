@@ -7,12 +7,14 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
@@ -27,9 +29,9 @@ public class StockActivity<sPickDate> extends Activity {
 
     //View
     private TextView sText;
-    private Button sPickDate;
+    private ImageButton ddPickDate; // dd : s
     private TextView mText;
-    private Button mPickDate;
+    private ImageButton dPickDate; // d : m
 
 
     //년,월,일,시,분
@@ -59,6 +61,9 @@ public class StockActivity<sPickDate> extends Activity {
 
         btnenroll1 = findViewById(R.id.btnenroll1);
 
+        ddPickDate.bringToFront();
+        dPickDate.bringToFront();
+
         //등록 및 위치 변경 버튼
         btnenroll1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +79,11 @@ public class StockActivity<sPickDate> extends Activity {
 
         //View 참조
         mText = (TextView)findViewById(R.id.tvstockDate);
-        mPickDate = (Button)findViewById(R.id.dPickDate);
+        dPickDate = (ImageButton)findViewById(R.id.dPickDate);
         sText = (TextView)findViewById(R.id.tvstockshelflife);
-        sPickDate = (Button)findViewById(R.id.ddPickDate);
+        ddPickDate = (ImageButton)findViewById(R.id.ddPickDate);
         //날짜설정 이벤트
-        mPickDate.setOnClickListener(new OnClickListener() {
+        dPickDate.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialog(DATE_DIALOG_ID);
@@ -86,7 +91,7 @@ public class StockActivity<sPickDate> extends Activity {
         });
 
         //시간설정 이벤트
-        sPickDate.setOnClickListener(new OnClickListener() {
+        ddPickDate.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog(DATE_DIALOG_ID1);
