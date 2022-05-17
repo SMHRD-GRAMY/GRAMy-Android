@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C6BFBF"
-    tools:context=".stock.StockCheckActivity">
+    tools:context=".StockCheckActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
@@ -271,7 +271,7 @@
             android:id="@+id/btnenroll1"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/tvstockweight"
+            android:layout_below="@+id/stockWeightEdt"
             android:layout_centerHorizontal="true"
             android:layout_gravity='center'
             android:layout_marginStart="24dp"

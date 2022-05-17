@@ -2,8 +2,6 @@ package com.example.gramy;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,7 +9,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,19 +19,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gramy.Adapter.BoardAdapter;
-import com.example.gramy.Listener.OnBoardItemClickListener;
-import com.example.gramy.Vo_Info.BoardVO;
 import com.example.gramy.Vo_Info.ShelfStockVO;
-import com.example.gramy.stock.StockActivity;
-import com.example.gramy.stock.StockCheckActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,7 +34,6 @@ public class GoPdCheck extends AppCompatActivity {
     RequestQueue queue;
     ArrayList<ShelfStockVO> items = new ArrayList<ShelfStockVO>();
     Button[] stockbtn=new Button[4];
-//    Button stockbtn1,stockbtn2,stockbtn3,stockbtn4;
     TextView shelfTv;
 
 
@@ -139,7 +128,6 @@ public class GoPdCheck extends AppCompatActivity {
                                 }
                             }) ;
                         }
-                        Toast.makeText(getApplicationContext(), "sdjf", Toast.LENGTH_SHORT).show();
                         shelfTv.setText(shelfName);
                     } else {
                         shelfTv.setText("선반이 존재하지 않습니다");

@@ -1,4 +1,4 @@
-package com.example.gramy.stock;
+package com.example.gramy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
