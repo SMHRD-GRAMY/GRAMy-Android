@@ -30,7 +30,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         TextView tvCommentWriter;
         TextView tvComment;
         TextView tvCommentDate;
-        TextView tvEditComment;
         TextView tvDeleteComment;
         TextView tvCommentWriterId;
 
@@ -41,7 +40,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             tvCommentWriter = itemView.findViewById(R.id.tvCommentWriter);
             tvComment = itemView.findViewById(R.id.tvComment);
             tvCommentDate = itemView.findViewById(R.id.tvCommentDate);
-            tvEditComment = itemView.findViewById(R.id.tvEditComment);
             tvDeleteComment = itemView.findViewById(R.id.tvDeleteComment);
 
             tvDeleteComment.setOnClickListener(new View.OnClickListener() {
@@ -59,10 +57,8 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
             SharedPreferences sharedPreferences = context.getSharedPreferences("sf_login", Context.MODE_PRIVATE);
             String writerId = sharedPreferences.getString("user_id",""); // 현재 로그인 된 유저 정보
             if(writerId.equals(item.getUser_id())) {
-                    tvEditComment.setVisibility(View.VISIBLE);
                     tvDeleteComment.setVisibility(View.VISIBLE);
                 } else {
-                    tvEditComment.setVisibility(View.INVISIBLE);
                     tvDeleteComment.setVisibility(View.INVISIBLE);
                 }
             tvCommentWriterId.setText(item.getUser_id());
