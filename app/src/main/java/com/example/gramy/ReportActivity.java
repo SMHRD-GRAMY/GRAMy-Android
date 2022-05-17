@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import GoMgSelf.CustomAdapter;
 import GoMgSelf.Dictionary;
 
-public class reportActivity extends AppCompatActivity {
+public class ReportActivity extends AppCompatActivity {
 
     private ArrayList<Dictionary> mArrayList;
     private CustomAdapter mAdapter;

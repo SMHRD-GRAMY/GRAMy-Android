@@ -15,7 +15,7 @@ import com.example.gramy.GoBoardActivity;
 import com.example.gramy.GoMgShelfActivity;
 import com.example.gramy.GoPdCheck;
 import com.example.gramy.R;
-import com.example.gramy.reportActivity;
+import com.example.gramy.ReportActivity;
 
 
 public class fragHomemain extends Fragment {
@@ -45,7 +45,7 @@ public class fragHomemain extends Fragment {
         btnGoReport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), reportActivity.class);
+                Intent intent = new Intent(getActivity(), ReportActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
