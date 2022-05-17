@@ -59,7 +59,6 @@ public class CommentsActivity extends AppCompatActivity {
         edtComment = findViewById(R.id.edtComment);
         btnWriteComment = findViewById(R.id.btnWriteComment);
         tvDeleteComment = findViewById(R.id.tvDeleteComment);
-        tvEditComment = findViewById(R.id.tvEditComment);
 
 
         RecyclerView recyclerView = findViewById(R.id.commentsRecyclerView);

@@ -61,8 +61,6 @@ public class StockActivity<sPickDate> extends Activity {
 
         btnenroll1 = findViewById(R.id.btnenroll1);
 
-        ddPickDate.bringToFront();
-        dPickDate.bringToFront();
 
         //등록 및 위치 변경 버튼
         btnenroll1.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +80,9 @@ public class StockActivity<sPickDate> extends Activity {
         dPickDate = (ImageButton)findViewById(R.id.dPickDate);
         sText = (TextView)findViewById(R.id.tvstockshelflife);
         ddPickDate = (ImageButton)findViewById(R.id.ddPickDate);
+        ddPickDate.bringToFront();
+        dPickDate.bringToFront();
+        
         //날짜설정 이벤트
         dPickDate.setOnClickListener(new OnClickListener() {
             @Override
