@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ProgressBar;
 
+import com.example.gramy.Join_Login.LoginActivity;
+
 public class LoadingActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;

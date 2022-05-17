@@ -77,11 +77,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".GoBoardActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GoBoardActivity"
+            android:name=".GoReportActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -101,6 +101,10 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
@@ -112,7 +116,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
             android:exported="true" />

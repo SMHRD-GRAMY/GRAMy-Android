@@ -11,9 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.gramy.HomeActivity;
-import com.example.gramy.LoginActivity;
 import com.example.gramy.R;
-import com.example.gramy.TutorialActivity;
 
 public class TutorialFragmentPage4 extends Fragment {
 

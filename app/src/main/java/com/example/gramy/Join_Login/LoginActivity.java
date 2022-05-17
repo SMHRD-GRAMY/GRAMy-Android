@@ -1,4 +1,4 @@
-package com.example.gramy;
+package com.example.gramy.Join_Login;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,6 +28,8 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.HomeActivity;
+import com.example.gramy.R;
 import com.example.gramy.Vo_Info.GramyUserVO;
 import com.example.gramy.Vo_Info.UserInfo;
 
@@ -40,13 +42,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.login.Login;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.kakao.sdk.auth.model.OAuthToken;
@@ -109,6 +108,8 @@ public class LoginActivity extends AppCompatActivity {
         btnGoJoin = findViewById(R.id.btnGoJoin);
         btnKakaoLogin = findViewById(R.id.btnKakaoLogin);
         btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
+        btnFindId = findViewById(R.id.btnFindId);
+        btnFindPw = findViewById(R.id.btnFindPw);
 
         mContext = this;
         initData();
@@ -129,7 +130,25 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // 아이디 찾기 버튼
+        btnFindId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, FindIdActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        // 비밀번호 찾기 버튼
+        btnFindPw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, FindPwActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 로그인 버튼
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
