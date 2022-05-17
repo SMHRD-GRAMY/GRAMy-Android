@@ -51,44 +51,7 @@ public class reportActivity extends AppCompatActivity {
         buttonInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                count++;
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(reportActivity.this);
-                View view = LayoutInflater.from(reportActivity.this).inflate(R.layout.shelf_editbox, null, false);
-                builder.setView(view);
-
-                final Button ButtonSubmitcancle = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);
-                final Button ButtonSubmit = (Button) view.findViewById(R.id.shelf_button_dialog_submit);
-                final EditText editTextName = (EditText) view.findViewById(R.id.shelf_edittext_dialog_name);
-
-
-                ButtonSubmit.setText("등록");
-
-                final AlertDialog dialog = builder.create();
-
-
-                ButtonSubmit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // String strID =  editTextID.getText().toString();
-                        String strName = editTextName.getText().toString();
-
-                        Dictionary dict = new Dictionary(strName);
-                        mArrayList.add(0, dict);
-
-                        mAdapter.notifyItemInserted(0);
-
-                        dialog.dismiss();
-                    }
-                });
-
-                ButtonSubmitcancle.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-                dialog.show();
 
             }
 
