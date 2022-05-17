@@ -99,7 +99,7 @@ public class GoPdCheck extends AppCompatActivity {
                         for(int i=0; i<items.size(); i++) {
                             String buttonID = "stockbtn" + (i+1);
                             int resID=getResources().getIdentifier(buttonID,"id",getPackageName());
-
+                            int stock_seq=items.get(i).getStock_seq();
                             stockbtn[i]=findViewById(resID);
                             stockbtn[i].setText(nameList.get(i));
                             //버튼클릭시 이벤트
@@ -108,6 +108,7 @@ public class GoPdCheck extends AppCompatActivity {
                                 public void onClick(View view) {
                                     Intent intent=new Intent(GoPdCheck.this, StockCheckActivity.class);
                                     intent.putExtra("shelf_seq",shelf_seq);
+                                    intent.putExtra("stock_seq",stock_seq);
                                     startActivity(intent);
                                     finish();
                                 }

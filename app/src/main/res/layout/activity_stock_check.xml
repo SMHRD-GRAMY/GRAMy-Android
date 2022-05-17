@@ -28,7 +28,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="32dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/btnenroll1"
+            app:layout_constraintBottom_toTopOf="@+id/checkModifyBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView3">
@@ -45,22 +45,21 @@
                     android:layout_width="115dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="재고명"
+                    android:text="@string/tvStockName"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/checkNameTv"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
-                    android:hint="오이"
                     android:inputType="textPersonName"
-                    android:text="오이"
+                    android:text="제품명"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
@@ -80,56 +79,21 @@
                     android:layout_width="115dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="현재무게"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/test11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="5"
-                    android:textAlignment="center"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/border_layout"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="115dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="기기위치"
+                    android:text="@string/tvCurrentWeight"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName3"
+                    android:id="@+id/checkWeightTv"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
-                    android:hint="오이"
                     android:inputType="textPersonName"
-                    android:text="2번 디바이스"
+                    android:text="제품무게"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
@@ -149,26 +113,25 @@
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="통계기간"
+                    android:text="@string/tvRegisterName"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName4"
+                    android:id="@+id/checkRegisterTv"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
-                    android:hint="오이"
                     android:inputType="textPersonName"
-                    android:text="2020-04-20"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="등록날" />
 
             </LinearLayout>
 
@@ -184,22 +147,22 @@
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="유통기한"
+                    android:text="@string/tvShelfLifeName"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName5"
+                    android:id="@+id/checkSelfLifeTv"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
                     android:hint="오이"
                     android:inputType="textPersonName"
-                    android:text="식자재마트 '마트킹'"
+                    android:text="유통기한"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
@@ -219,22 +182,22 @@
                     android:layout_width="115dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="주문방법"
+                    android:text="@string/tvOrderName"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName6"
+                    android:id="@+id/checkOrderTv"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
                     android:hint="오이"
                     android:inputType="textPersonName"
-                    android:text="2020-04-20~04-29"
+                    android:text="주문방법"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
@@ -249,7 +212,7 @@
             android:layout_height="50dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="30dp"
-            android:text="확인"
+            android:text="@string/checkCancelBtnName"
             android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -268,7 +231,7 @@
             app:srcCompat="@drawable/alarm_white" />
 
         <Button
-            android:id="@+id/btnenroll1"
+            android:id="@+id/checkModifyBtn"
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:layout_below="@+id/stockWeightEdt"
@@ -277,7 +240,8 @@
             android:layout_marginStart="24dp"
             android:layout_marginBottom="28dp"
             android:onClick="onClick"
-            android:text="전송"
+            android:text="@string/checkModifyBtnName"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_abspluteX="0dp"
@@ -297,7 +261,7 @@
             app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
         <TextView
-            android:id="@+id/edtpercent"
+            android:id="@+id/checkPercentTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

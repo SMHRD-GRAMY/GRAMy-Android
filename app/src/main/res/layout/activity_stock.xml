@@ -207,7 +207,7 @@
             app:layout_constraintTop_toTopOf="@+id/stockOrderEdt" />
 
         <Button
-            android:id="@+id/btnenroll1"
+            android:id="@+id/checkModifyBtn"
             android:layout_width="230dp"
             android:layout_height="45dp"
             android:layout_marginStart="16dp"

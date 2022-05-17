@@ -219,6 +219,11 @@
     <string name="tvWeightName">현재무게</string>
     <string name="tvOrderName">주문방법</string>
     <string name="edtStockHint">입력하세요</string>
+    <!--StockCheckActivity-->
+    <string name="tvRegisterName">등록날짜</string>
+    <string name="tvCurrentWeight">무게</string>
+    <string name="checkModifyBtnName">수정</string>
+    <string name="checkCancelBtnName">취소</string>
 
 
 </resources>
