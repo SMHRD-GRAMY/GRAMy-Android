@@ -85,33 +85,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="70dp"
         android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
-        app:layout_constraintEnd_toStartOf="@+id/guideline22"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar4"
         app:layout_constraintVertical_bias="1.0">
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/purple_500"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/alarm_white" />
 
         <EditText
             android:id="@+id/stockNameEdt"
             android:layout_width="190dp"
             android:layout_height="30dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="72dp"
             android:background="@drawable/border2"
             android:ems="10"
             android:hapticFeedbackEnabled="false"
@@ -120,20 +106,21 @@
             android:paddingLeft="10dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
         <TextView
             android:id="@+id/id_listitem2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="88dp"
             android:text="@string/tvStockName"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/stockNameEdt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/stockNameEdt" />
+            app:layout_constraintTop_toTopOf="@+id/stockNameEdt"
+            app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/stockWeightEdt"
@@ -143,9 +130,9 @@
             android:background="@drawable/border2"
             android:ems="10"
             android:hint="@string/edtStockHint"
+            android:inputType="numberSigned"
             android:paddingLeft="10dp"
             android:textSize="16sp"
-            android:inputType="numberSigned"
             app:layout_constraintEnd_toEndOf="@+id/stockNameEdt"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/stockNameEdt"
@@ -211,24 +198,24 @@
             android:layout_width="230dp"
             android:layout_height="45dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="20dp"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:text="등록"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.521"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stockOrderEdt" />
 
         <ImageButton
             android:id="@+id/ddPickDate"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="72dp"
             android:background="@drawable/calendar"
             android:backgroundTint="#7A121212"
             app:layout_constraintBottom_toBottomOf="@+id/stockShelfLifeEdt"
@@ -250,6 +237,15 @@
             app:layout_constraintStart_toStartOf="@+id/stockWeightEdt"
             app:layout_constraintTop_toBottomOf="@+id/stockWeightEdt" />
 
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="199dp"
+            android:layout_height="158dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/packageimg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

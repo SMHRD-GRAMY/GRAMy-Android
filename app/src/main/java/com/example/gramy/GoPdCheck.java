@@ -33,6 +33,7 @@ public class GoPdCheck extends AppCompatActivity {
 
     RequestQueue queue;
     ArrayList<ShelfStockVO> items = new ArrayList<ShelfStockVO>();
+    Button shelfRegisterBtn;
     Button[] stockbtn=new Button[4];
     TextView shelfTv;
 
@@ -45,6 +46,7 @@ public class GoPdCheck extends AppCompatActivity {
 
 
         shelfTv=findViewById(R.id.shelfTv);
+        shelfRegisterBtn=findViewById(R.id.shelfRegisterBtn);
 
         queue = Volley.newRequestQueue(GoPdCheck.this); // GoBoardActivity에 Queue 생성
 
@@ -57,7 +59,14 @@ public class GoPdCheck extends AppCompatActivity {
 
         getStockList(writerId); //  목록 불러오기
         Log.d("v",items.toString());
-
+        shelfRegisterBtn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(GoPdCheck.this, GoMgShelfActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }) ;
     }
 
     // 목록 가져오는 메서드

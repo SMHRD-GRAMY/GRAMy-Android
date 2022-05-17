@@ -4,16 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.gramy.Adapter.GomyshelfAdapter;
-import com.example.gramy.Vo_Info.GomyshelfVO;
-import com.example.gramy.Vo_Info.GoreportVO;
 
 import java.util.ArrayList;
 
@@ -33,7 +28,7 @@ public class ReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go_report);
 
-        RecyclerView recyclerView =findViewById(R.id.report_recyclerView);
+        RecyclerView recyclerView =findViewById(R.id.shelfRecyclerView);
 
         LinearLayoutManager LayoutManager =
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
