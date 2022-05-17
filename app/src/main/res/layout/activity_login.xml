@@ -5,7 +5,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".Join_Login.LoginActivity">
+
+    <TextView
+        android:id="@+id/loginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/loginTitle"
+        android:textColor="#333333"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/loginSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/loginSub"
+        android:textColor="#333333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btnFacebookLogin"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="10dp"
+        android:background="#000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginSub"
+        app:srcCompat="@drawable/facebook" />
 
     <View
         android:id="@+id/view"
@@ -21,40 +63,82 @@
         app:layout_constraintStart_toEndOf="@+id/btnFacebookLogin"
         app:layout_constraintTop_toTopOf="@+id/btnFacebookLogin" />
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/btnFacebookLogin"
+    <ImageButton
+        android:id="@+id/btnKakaoLogin"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
-        app:layout_constraintEnd_toStartOf="@+id/view"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginSub"
-        app:srcCompat="@drawable/facebook" />
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/kakao" />
 
-    <Button
-        android:id="@+id/btnGoJoin"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:fontFamily="sans-serif-black"
-        android:insetTop="1dp"
-        android:insetBottom="1dp"
-        android:stateListAnimator="@null"
-        android:text="@string/btnGoJoin"
-        android:textSize="18sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <View
+        android:id="@+id/view2"
+        android:layout_width="2dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:background="#284E4E4E"
+        app:layout_constraintBottom_toBottomOf="@+id/btnKakaoLogin"
+        app:layout_constraintEnd_toStartOf="@+id/btnNaverLogin"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnKakaoLogin"
+        app:layout_constraintTop_toTopOf="@+id/btnKakaoLogin" />
+
+    <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
+        android:id="@+id/btnNaverLogin"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:background="#00FFFFFF"
+        android:scaleType="fitCenter"
+        android:src="@drawable/naver"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvLogin"
+        android:textColor="#333333"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGoJoin"
-        app:layout_constraintVertical_bias="0.216" />
+        app:layout_constraintTop_toBottomOf="@+id/btnFacebookLogin" />
+
+    <EditText
+        android:id="@+id/edtId"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/border2"
+        android:backgroundTint="@null"
+        android:ems="10"
+        android:fontFamily="@font/secular_one"
+        android:hint="  아이디"
+        android:inputType="textImeMultiLine|textNoSuggestions"
+        android:shadowColor="@null"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
 
     <EditText
         android:id="@+id/edtPw"
@@ -73,37 +157,6 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/edtId"
         app:layout_constraintTop_toBottomOf="@+id/edtId"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <CheckBox
-        android:id="@+id/checkAutoLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/checkAutoLogin"
-        android:textColor="#333333"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnFindPw"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btnFindPw"
-        app:layout_constraintTop_toTopOf="@+id/btnFindPw"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <com.nhn.android.naverlogin.ui.view.OAuthLoginButton
-        android:id="@+id/btnNaverLogin"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="10dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        android:src="@drawable/naver"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/view2"
-        app:layout_constraintTop_toTopOf="@+id/view2"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -126,129 +179,11 @@
         app:layout_constraintTop_toBottomOf="@+id/edtPw"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageButton
-        android:id="@+id/btnKakaoLogin"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#00FFFFFF"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/kakao" />
-
-    <TextView
-        android:id="@+id/tvLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/tvLogin"
-        android:textColor="#333333"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnFacebookLogin" />
-
-    <Button
-        android:id="@+id/btnFindPw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:background="#00FFFFFF"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/btnFindPw"
-        android:textColor="#303030"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnFindId"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnFindId"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/loginSub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/loginSub"
-        android:textColor="#333333"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.26"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTitle" />
-
-    <TextView
-        android:id="@+id/loginTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:fontFamily="sans-serif-black"
-        android:text="@string/loginTitle"
-        android:textColor="#333333"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvGoJoin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/secular_one"
-        android:text="@string/tvGoJoin"
-        android:textColor="#333333"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="@+id/checkAutoLogin"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="@+id/btnFindId"
-        app:layout_constraintTop_toBottomOf="@+id/btnFindPw" />
-
-    <EditText
-        android:id="@+id/edtId"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/border2"
-        android:backgroundTint="@null"
-        android:ems="10"
-        android:fontFamily="@font/secular_one"
-        android:hint="  아이디"
-        android:inputType="textImeMultiLine|textNoSuggestions"
-        android:shadowColor="@null"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogin" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="2dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:background="#284E4E4E"
-        app:layout_constraintBottom_toBottomOf="@+id/btnKakaoLogin"
-        app:layout_constraintEnd_toStartOf="@+id/btnNaverLogin"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnKakaoLogin"
-        app:layout_constraintTop_toTopOf="@+id/btnKakaoLogin" />
-
     <Button
         android:id="@+id/btnFindId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="40dp"
         android:background="#00FFFFFF"
         android:fontFamily="@font/secular_one"
@@ -257,5 +192,55 @@
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPw" />
+
+    <Button
+        android:id="@+id/btnFindPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/btnFindPw"
+        android:textColor="#303030"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFindId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/btnFindId"
+        app:layout_constraintTop_toTopOf="@+id/btnFindId"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvGoJoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/secular_one"
+        android:text="@string/tvGoJoin"
+        android:textColor="#333333"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnFindPw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnFindId"
+        app:layout_constraintTop_toBottomOf="@+id/btnFindPw" />
+
+    <Button
+        android:id="@+id/btnGoJoin"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:fontFamily="sans-serif-black"
+        android:insetTop="1dp"
+        android:insetBottom="1dp"
+        android:stateListAnimator="@null"
+        android:text="@string/btnGoJoin"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGoJoin"
+        app:layout_constraintVertical_bias="0.216" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

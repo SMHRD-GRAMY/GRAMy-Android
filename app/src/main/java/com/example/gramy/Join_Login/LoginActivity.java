@@ -1,4 +1,4 @@
-package com.example.gramy;
+package com.example.gramy.Join_Login;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,6 +29,9 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.HomeActivity;
+import com.example.gramy.R;
+import com.example.gramy.TutorialActivity;
 import com.example.gramy.Vo_Info.GramyUserVO;
 import com.example.gramy.Vo_Info.UserInfo;
 
@@ -40,13 +44,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.login.Login;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.kakao.sdk.auth.model.OAuthToken;
@@ -87,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
     private ImageButton btnKakaoLogin;
     private EditText edtId, edtPw;
+    TextView tvGoJoin;
 
     // 페이스북
     private static LoginButton btnFacebookLogin;
@@ -109,6 +111,17 @@ public class LoginActivity extends AppCompatActivity {
         btnGoJoin = findViewById(R.id.btnGoJoin);
         btnKakaoLogin = findViewById(R.id.btnKakaoLogin);
         btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
+        btnFindId = findViewById(R.id.btnFindId);
+        btnFindPw = findViewById(R.id.btnFindPw);
+        tvGoJoin = findViewById(R.id.tvGoJoin);
+
+        tvGoJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, TutorialActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mContext = this;
         initData();
@@ -125,11 +138,29 @@ public class LoginActivity extends AppCompatActivity {
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, AgreementActivity.class);
+                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
+                startActivity(intent);
+            }
+        });
+        // 아이디 찾기 버튼
+        btnFindId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, FindIdActivity.class);
                 startActivity(intent);
             }
         });
 
+        // 비밀번호 찾기 버튼
+        btnFindPw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, FindPwActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 로그인 버튼
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

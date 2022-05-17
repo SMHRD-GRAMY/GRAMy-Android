@@ -2,16 +2,14 @@ package com.example.gramy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.example.gramy.Join_Login.JoinActivity;
 
 // 이용약관 체크박스 기능구현단입니다.
 public class AgreementActivity extends AppCompatActivity {
