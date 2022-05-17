@@ -59,11 +59,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".stock.StockActivity"
+            android:name=".StockActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".stock.StockCheckActivity"
+            android:name=".StockCheckActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

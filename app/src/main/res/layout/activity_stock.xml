@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D8D4D4"
-    tools:context=".stock.StockActivity">
+    tools:context=".StockActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavi"
@@ -107,7 +107,7 @@
             app:srcCompat="@drawable/alarm_white" />
 
         <EditText
-            android:id="@+id/tvstockName"
+            android:id="@+id/stockNameEdt"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="24dp"
@@ -115,7 +115,7 @@
             android:background="@drawable/border2"
             android:ems="10"
             android:hapticFeedbackEnabled="false"
-            android:hint="입력하세요"
+            android:hint="@string/edtStockHint"
             android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:textSize="16sp"
@@ -127,125 +127,84 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:text="재고명"
+            android:text="@string/tvStockName"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockName"
+            app:layout_constraintBottom_toBottomOf="@+id/stockNameEdt"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvstockName" />
+            app:layout_constraintTop_toTopOf="@+id/stockNameEdt" />
 
         <EditText
-            android:id="@+id/tvstockweight"
+            android:id="@+id/stockWeightEdt"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/border2"
             android:ems="10"
-            android:hint="입력하세요"
-            android:inputType="textPersonName"
+            android:hint="@string/edtStockHint"
             android:paddingLeft="10dp"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvstockName"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toEndOf="@+id/stockNameEdt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvstockName"
-            app:layout_constraintTop_toBottomOf="@+id/tvstockName" />
+            app:layout_constraintStart_toStartOf="@+id/stockNameEdt"
+            app:layout_constraintTop_toBottomOf="@+id/stockNameEdt" />
 
         <EditText
-            android:id="@+id/tvhwuid"
+            android:id="@+id/stockOrderEdt"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/border2"
             android:ems="10"
-            android:hint="입력하세요"
+            android:hint="@string/edtStockHint"
             android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvstockweight"
-            app:layout_constraintStart_toStartOf="@+id/tvstockweight"
-            app:layout_constraintTop_toBottomOf="@+id/tvstockweight" />
-
-        <EditText
-            android:id="@+id/tvstochOrder"
-            android:layout_width="190dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/border2"
-            android:ems="10"
-            android:hint="입력하세요"
-            android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvstockshelflife"
+            app:layout_constraintEnd_toEndOf="@+id/stockShelfLifeEdt"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvstockshelflife"
-            app:layout_constraintTop_toBottomOf="@+id/tvstockshelflife" />
+            app:layout_constraintStart_toStartOf="@+id/stockShelfLifeEdt"
+            app:layout_constraintTop_toBottomOf="@+id/stockShelfLifeEdt" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="현재무게"
+            android:text="무게"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockweight"
+            app:layout_constraintBottom_toBottomOf="@+id/stockWeightEdt"
             app:layout_constraintEnd_toEndOf="@+id/id_listitem2"
             app:layout_constraintStart_toStartOf="@+id/id_listitem2"
-            app:layout_constraintTop_toTopOf="@+id/tvstockweight" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기기위치"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvhwuid"
-            app:layout_constraintEnd_toEndOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/tvhwuid" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="통계기간"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockDate"
-            app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/tvstockDate" />
+            app:layout_constraintTop_toTopOf="@+id/stockWeightEdt" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="유통기한"
+            android:text="@string/tvShelfLifeName"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockshelflife"
-            app:layout_constraintEnd_toEndOf="@+id/textView6"
-            app:layout_constraintStart_toStartOf="@+id/textView6"
-            app:layout_constraintTop_toTopOf="@+id/tvstockshelflife" />
+            app:layout_constraintBottom_toBottomOf="@+id/stockShelfLifeEdt"
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/stockShelfLifeEdt" />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="주문방법"
+            android:text="@string/tvOrderName"
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstochOrder"
+            app:layout_constraintBottom_toBottomOf="@+id/stockOrderEdt"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="@+id/tvstochOrder" />
+            app:layout_constraintTop_toTopOf="@+id/stockOrderEdt" />
 
         <Button
             android:id="@+id/btnenroll1"
@@ -272,51 +231,26 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/calendar"
             android:backgroundTint="#7A121212"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockshelflife"
+            app:layout_constraintBottom_toBottomOf="@+id/stockShelfLifeEdt"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvstockshelflife" />
-
-        <ImageButton
-            android:id="@+id/dPickDate"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/calendar"
-            android:backgroundTint="#7A121212"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockDate"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tvstockDate" />
+            app:layout_constraintTop_toTopOf="@+id/stockShelfLifeEdt" />
 
         <TextView
-            android:id="@+id/tvstockDate"
+            android:id="@+id/stockShelfLifeEdt"
             android:layout_width="190dp"
             android:layout_height="30dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/border2"
             android:gravity="center_vertical"
+            android:hint="@string/edtStockHint"
             android:paddingLeft="10dp"
             android:text="입력하세요"
-            android:textColor="#787878"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvhwuid"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvhwuid"
-            app:layout_constraintTop_toBottomOf="@+id/tvhwuid" />
+            app:layout_constraintEnd_toEndOf="@+id/stockWeightEdt"
+            app:layout_constraintStart_toStartOf="@+id/stockWeightEdt"
+            app:layout_constraintTop_toBottomOf="@+id/stockWeightEdt" />
 
-        <TextView
-            android:id="@+id/tvstockshelflife"
-            android:layout_width="190dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/border2"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="입력하세요"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/tvstockDate"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/tvstockDate"
-            app:layout_constraintTop_toBottomOf="@+id/tvstockDate" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -213,5 +213,12 @@
     <string name="fb_login_protocol_scheme">fb1234</string>
     <string name="facebook_client_token">672585b0577dba8fd54b318a9b912882</string>
 
+    <!--StockActivity-->
+    <string name="tvStockName">재고명</string>
+    <string name="tvShelfLifeName">유통기한</string>
+    <string name="tvWeightName">현재무게</string>
+    <string name="tvOrderName">주문방법</string>
+    <string name="edtStockHint">입력하세요</string>
+
 
 </resources>
