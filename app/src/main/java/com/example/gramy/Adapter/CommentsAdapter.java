@@ -6,15 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.collection.CircularArray;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.Listener.OnCommentsDeleteListener;
-import com.example.gramy.Listener.OnCommentsEditListener;
 import com.example.gramy.Listener.OnCommentsItemClickListener;
 import com.example.gramy.R;
 import com.example.gramy.Vo_Info.BoardVO;
@@ -22,11 +18,10 @@ import com.example.gramy.Vo_Info.CommentVO;
 
 import java.util.ArrayList;
 
-public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHolder> implements OnCommentsItemClickListener, OnCommentsDeleteListener, OnCommentsEditListener {
+public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHolder> implements OnCommentsItemClickListener, OnCommentsDeleteListener {
     ArrayList<CommentVO> items = new ArrayList<CommentVO>();
     OnCommentsItemClickListener listener;
     OnCommentsDeleteListener deleteListener;
-    OnCommentsEditListener editListener;
     private Context context;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -39,7 +34,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         TextView tvDeleteComment;
         TextView tvCommentWriterId;
 
-        public ViewHolder(@NonNull ArrayList<CommentVO> items,  Context context, View itemView, OnCommentsItemClickListener listener, OnCommentsDeleteListener deleteListener, OnCommentsEditListener editListener) {
+        public ViewHolder(@NonNull ArrayList<CommentVO> items,  Context context, View itemView, OnCommentsItemClickListener listener, OnCommentsDeleteListener deleteListener) {
             super(itemView);
 
             tvCommentWriterId = itemView.findViewById(R.id.tvCommentWriterId);
@@ -83,7 +78,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View itemView = inflater.inflate(R.layout.comments_item, viewGroup, false);
         context = viewGroup.getContext();
-        return new CommentsAdapter.ViewHolder(items, context, itemView, this, this, this);
+        return new CommentsAdapter.ViewHolder(items, context, itemView, this, this);
     }
 
     @Override
@@ -108,10 +103,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
         this.deleteListener = deleteListener;
     }
 
-    public  void OnCommentsEditListener(OnCommentsEditListener editListener) {
-        this.editListener = editListener;
-    }
-
     @Override
     public void onItemClick(ViewHolder holder, View view, int position) {
         if(listener != null) {
@@ -123,13 +114,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<CommentsAdapter.ViewHo
     public void onItemDelete(ViewHolder holder, View view, int position) {
         if(deleteListener != null) {
             deleteListener.onItemDelete(holder, view, position);
-        }
-    }
-
-    @Override
-    public void onEditItem(ViewHolder holder, View view, int position) {
-        if(editListener != null) {
-            editListener.onEditItem(holder, view, position);
         }
     }
 

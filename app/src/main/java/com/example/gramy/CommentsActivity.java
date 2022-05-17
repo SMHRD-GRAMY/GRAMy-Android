@@ -74,18 +74,6 @@ public class CommentsActivity extends AppCompatActivity {
 
         getCommentData(tb_a_seq);
 
-//        for(int i = 0; i < items.size(); i++) {
-//            if (writerId.equals(items.get(i).getUser_id())) {
-//                System.out.println("if문 실행!");
-//                tvEditComment.setVisibility(View.INVISIBLE);
-//                tvDeleteComment.setVisibility(View.INVISIBLE);
-//            } else {
-//                System.out.println("else문 실행!");
-//                tvEditComment.setVisibility(View.VISIBLE);
-//                tvDeleteComment.setVisibility(View.VISIBLE);
-//            }
-//        }
-
         // 뒤로가기
         tvCommentsBack.setOnClickListener(new View.OnClickListener() {
             @Override
