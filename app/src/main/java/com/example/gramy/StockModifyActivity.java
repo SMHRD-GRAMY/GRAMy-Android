@@ -79,20 +79,24 @@ public class StockModifyActivity extends AppCompatActivity {
                 stock_order=updateOrderEdt.getText().toString();
 
                 updateStock(stock_seq,stock_name,stock_weight,stock_shelfLife,stock_order);
-
-
-
-
+            }
+        });
+        checkCancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GoPdCheck.class);
+                startActivity(intent);
+                finish();
             }
         });
 
 
     }
 
-    // 목록 가져오는 메서드
+    // 수정하는메서드
     private void updateStock(int stock_seq,String stock_name,int stock_weight, String stock_shelfLife,String stock_order) {
         int method = Request.Method.POST;
-        String server_url = "http://172.30.1.42:8082/product/insertweight";
+        String server_url = "http://172.30.1.42:8082/product/updatestock";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -107,7 +111,7 @@ public class StockModifyActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(StockModifyActivity.this, "실패했습니다", Toast.LENGTH_SHORT).show();
+                Toast.makeText(StockModifyActivity.this, "업데이트에 실패했습니다", Toast.LENGTH_SHORT).show();
 
             }
         }){

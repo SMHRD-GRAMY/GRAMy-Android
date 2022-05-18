@@ -21,8 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.GomyshelfAdapter;
-import com.example.gramy.Vo_Info.BoardVO;
-import com.example.gramy.Vo_Info.GomyshelfVO;
 import com.example.gramy.Vo_Info.ShelfVO;
 import com.example.gramy.home.fragHomemain;
 
@@ -34,10 +32,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import GoMgSelf.CustomAdapter;
 import GoMgSelf.Dictionary;
 
-public class GoMgShelfActivity extends AppCompatActivity {
+public class RegisterShelfActivity extends AppCompatActivity {
         RequestQueue queue;
         Button buttonInsert,buttonCancel;
         ArrayList<ShelfVO> items = new ArrayList<ShelfVO>();
@@ -56,7 +53,7 @@ public class GoMgShelfActivity extends AppCompatActivity {
             buttonInsert =findViewById(R.id.btnshelf_enroll);
             buttonCancel =findViewById(R.id.btnshelf_cancle);
             //queue 불러오기
-            queue = Volley.newRequestQueue(GoMgShelfActivity.this);
+            queue = Volley.newRequestQueue(RegisterShelfActivity.this);
 
             // 현재 로그인 한 유저 정보 가져오기
             SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
@@ -82,8 +79,8 @@ public class GoMgShelfActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     count++;
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(GoMgShelfActivity.this);
-                    View view = LayoutInflater.from(GoMgShelfActivity.this).inflate(R.layout.shelf_editbox, null, false);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterShelfActivity.this);
+                    View view = LayoutInflater.from(RegisterShelfActivity.this).inflate(R.layout.shelf_editbox, null, false);
                     builder.setView(view);
 
                     final Button ButtonSubmitcancle = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);

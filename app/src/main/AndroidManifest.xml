@@ -76,7 +76,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GoMgShelfActivity"
+            android:name=".RegisterShelfActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

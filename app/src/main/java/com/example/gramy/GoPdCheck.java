@@ -62,7 +62,7 @@ public class GoPdCheck extends AppCompatActivity {
         shelfRegisterBtn.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(GoPdCheck.this, GoMgShelfActivity.class);
+                Intent intent=new Intent(GoPdCheck.this, RegisterShelfActivity.class);
                 startActivity(intent);
                 finish();
             }
