@@ -48,7 +48,6 @@ public class fragHomemain extends Fragment {
     RequestQueue queue;
     ArrayList<ShelfStockVO> items = new ArrayList<ShelfStockVO>();
     Button[] btnStock=new Button[4];
-    TextView shelfTv;
     View view;
     // 화면 설계 후 버튼 누르면 화면이동!
     TextView tvShelfTitle;
@@ -136,7 +135,7 @@ public class fragHomemain extends Fragment {
                             }) ;
                         }
                         for(int i=items.size();i<4;i++){
-                            String buttonID = "stockbtn" + (i+1);
+                            String buttonID = "btnStock" + (i+1);
                             int resID=getResources().getIdentifier(buttonID,"id",getActivity().getPackageName());
                             btnStock[i]=(Button)getView().findViewById(resID);
                             System.out.println(items);
@@ -153,12 +152,12 @@ public class fragHomemain extends Fragment {
                                 }
                             }) ;
                         }
-                        shelfTv.setText(shelfName);
+                        tvShelfTitle.setText(shelfName);
                     } else {
-                        shelfTv.setText("선반이 존재하지 않습니다");
+                        tvShelfTitle.setText("선반이 존재하지 않습니다");
                         Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
                         for(int i=0; i<4; i++) {
-                            String buttonID = "stockbtn" + (i+1);
+                            String buttonID = "btnStock" + (i+1);
                             int resID=getResources().getIdentifier(buttonID,"id",getActivity().getPackageName());
                             btnStock[i]=(Button)getView().findViewById(resID);
                             btnStock[i].setText("물품등록");
