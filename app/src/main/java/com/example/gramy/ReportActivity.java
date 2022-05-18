@@ -55,7 +55,7 @@ public class ReportActivity extends AppCompatActivity {
         String loginName = sharedPreferences.getString("user_name", "");
         String loginId = sharedPreferences.getString("user_id","");
 
-        queue = Volley.newRequestQueue(reportActivity.this);
+        queue = Volley.newRequestQueue(ReportActivity.this);
 
         getShelfData(loginId);
 

@@ -18,7 +18,6 @@
             android:name=".reportcheckActivity"
             android:exported="false" />
         <activity
-            android:name=".reportActivity"
             android:name=".StockModifyActivity"
             android:exported="false" />
         <activity
