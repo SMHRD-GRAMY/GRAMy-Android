@@ -99,7 +99,7 @@ public class StockCheckActivity extends AppCompatActivity {
     // 목록 가져오는 메서드
     private void getDetail(int stock_seq) {
         int method = Request.Method.POST;
-        String server_url = "http://172.30.1.42:8082/product/detailItem";
+        String server_url = "http://121.147.52.210:8082/product/detailItem";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -113,7 +113,13 @@ public class StockCheckActivity extends AppCompatActivity {
                         String stock_shelfLife = jsonObject.getString("stock_shelfLife");
                         int shelf_seq = jsonObject.getInt("shelf_seq");
                         String stock_order=jsonObject.getString("stock_order");
-                        int weight_value = jsonObject.getInt("weight_value");
+                        String get_weight_value = jsonObject.getString("weight_value");
+                        int weight_value=0;
+                        if(get_weight_value.equals("null")){
+                            weight_value=0;
+                        }else{
+                            weight_value=Integer.parseInt(get_weight_value);
+                        }
                         String weight_date=jsonObject.getString("weight_date");
                         StockDetailVO item = new StockDetailVO(stock_seq,stock_name,stock_weight,stock_date,stock_shelfLife,shelf_seq,stock_order,weight_value,weight_date);
                         items.add(item);

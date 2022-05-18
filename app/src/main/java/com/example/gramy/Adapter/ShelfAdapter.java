@@ -21,14 +21,14 @@ public class ShelfAdapter extends RecyclerView.Adapter<ShelfAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView shelfListName;
-        Button shelfDelete;
+        Button shelfSelect;
         public ViewHolder(@NonNull View itemView,OnShelfButtonClickListener listener) {
             super(itemView);
 
             shelfListName=itemView.findViewById(R.id.shelfListName);
-            shelfDelete=itemView.findViewById(R.id.shelfDelete);
+            shelfSelect=itemView.findViewById(R.id.shelfSelect);
 
-            shelfDelete.setOnClickListener(new View.OnClickListener() {
+            shelfSelect.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
@@ -42,18 +42,27 @@ public class ShelfAdapter extends RecyclerView.Adapter<ShelfAdapter.ViewHolder> 
         public void setItem(ShelfVO item) { // setItem Method
             shelfListName.setText(item.getShelf_name());
         }
-    }
+    }// 뷰 홀더 end
+
+    //어댑터에서 구현되어야 할 메서드
     @NonNull
     @Override
     public ShelfAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
+        //뷰 홀더 객체가 만들어질때 자동으로 호출
+        // 아이템을 위해 정의한 XML 레이아웃을 이용해 뷰 객체를 생성해야함
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
-        View itemView = inflater.inflate(R.layout.list_item2, viewGroup, false);
+        //xml 파일을 가지고 view 객체로 생성
+        View itemView = inflater.inflate(R.layout.shelf_item, viewGroup, false);
+        //해당 뷰 홀더에 리스너를 달아주는거
         return new ShelfAdapter.ViewHolder(itemView,this);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ShelfVO item = items.get(position);
+        //뷰 홀더 객체가 재사용 될때 자동으로 호출
+        //뷰 객체는 기존 것을 그대로 사용하고 데이터만 바꿔줌
+        ShelfVO item = items.get(position);//position 인덱스랑 비슷한 개념
         holder.setItem(item); // 뷰 홀더에 셋팅
     }
 
@@ -70,8 +79,10 @@ public class ShelfAdapter extends RecyclerView.Adapter<ShelfAdapter.ViewHolder> 
         this.listener = listener;
     }
 
-    @Override
+    @Override // 얘도 오버라이드 하는 이유, ShelfAdapter는 OnShelfButtonClickListener를 implements 한다.
     public void onButtonClick(ShelfAdapter.ViewHolder holder, View view, int position) {
+        //외부에서 로직을 재정의하여 사용한다
+        // 어탭터상의 홀더 뷰 포지션을 외부에서 쓰게 해주는거
         if (listener != null) {
             listener.onButtonClick(holder, view, position);
         }

@@ -20,7 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.gramy.GoPdCheck;
+import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
 
 import java.util.ArrayList;
@@ -148,7 +148,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(viewHolder.itemView.getContext(), GoPdCheck.class);
+            Intent intent = new Intent(viewHolder.itemView.getContext(), HomeActivity.class);
                 ContextCompat.startActivity(viewHolder.itemView.getContext(), intent, null);
             }
         });
