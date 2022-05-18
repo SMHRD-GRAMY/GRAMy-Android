@@ -67,7 +67,9 @@ public class fragHomemain extends Fragment {
         String writerName = sharedPreferences.getString("user_name", "");
         String writerId = sharedPreferences.getString("user_id","");
 
-        getStockList(writerId,view);
+
+        getStockList(writerId, view);
+
 
         btnShelfRegister.setOnClickListener(new Button.OnClickListener() {
                     @Override
@@ -87,15 +89,20 @@ public class fragHomemain extends Fragment {
             public void onResponse(String response) {
                 try {
                     JSONArray jsonArray = new JSONArray(response);
-                    for(int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject listItem = jsonArray.getJSONObject(i);
-                        int shelf_seq = listItem.getInt("shelf_seq");
-                        String shelf_name = listItem.getString("shelf_name");
-                        String user_id = listItem.getString("user_id");
-                        int stock_seq = listItem.getInt("stock_seq");
-                        String stock_name = listItem.getString("stock_name");
-                        ShelfStockVO item = new ShelfStockVO(shelf_seq, shelf_name, user_id, stock_seq, stock_name);
-                        items.add(item);
+
+                    if(items.size()==0) {
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject listItem = jsonArray.getJSONObject(i);
+                            int shelf_seq = listItem.getInt("shelf_seq");
+                            String shelf_name = listItem.getString("shelf_name");
+                            String user_id = listItem.getString("user_id");
+                            int stock_seq = listItem.getInt("stock_seq");
+                            String stock_name = listItem.getString("stock_name");
+                            ShelfStockVO item = new ShelfStockVO(shelf_seq, shelf_name, user_id, stock_seq, stock_name);
+                            items.add(item);
+                        }
+                    }else{
+
                     }
                     //물품 이름 리스트 배열 만들기
                     ArrayList<String> nameList=new ArrayList<String>();
@@ -118,6 +125,7 @@ public class fragHomemain extends Fragment {
                             String buttonID = "btnStock" + (i+1);
                             int resID=getResources().getIdentifier(buttonID,"id",getActivity().getPackageName());
                             int stock_seq=items.get(i).getStock_seq();
+                            System.out.println(items);
                             btnStock[i]=(Button)getView().findViewById(resID);
                             System.out.println(btnStock[0]);
                             btnStock[i].setText(nameList.get(i));
@@ -165,9 +173,6 @@ public class fragHomemain extends Fragment {
                                 @Override
                                 public void onClick(View view) {
                                     Toast.makeText(getContext(), "선반을 먼저 등록해주세요", Toast.LENGTH_SHORT).show();
-//                                    Intent intent=new Intent(GoPdCheck.this,StockActivity.class);
-//                                    startActivity(intent);
-//                                    finish();
                                 }
                             }) ;
                         }

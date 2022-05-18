@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,7 +21,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gramy.Adapter.GomyshelfAdapter;
+import com.example.gramy.Adapter.GoreportAdapter;
+import com.example.gramy.Adapter.ShelfAdapter;
+import com.example.gramy.Listener.OnReportButtonClickListener;
+import com.example.gramy.Listener.OnShelfButtonClickListener;
 import com.example.gramy.Vo_Info.ShelfVO;
 import com.example.gramy.home.fragHomemain;
 
@@ -36,10 +40,10 @@ import GoMgSelf.Dictionary;
 
 public class RegisterShelfActivity extends AppCompatActivity {
         RequestQueue queue;
-        Button buttonInsert,buttonCancel;
+        ShelfAdapter adapter = new ShelfAdapter();
         ArrayList<ShelfVO> items = new ArrayList<ShelfVO>();
+        Button buttonInsert,buttonCancel;
         ArrayList<Dictionary> mArrayList;
-//        CustomAdapter mAdapter=new CustomAdapter();
         int count = -1;
         fragHomemain fragHomemain;
 
@@ -47,7 +51,7 @@ public class RegisterShelfActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_go_mg_shelf);
+            setContentView(R.layout.activity_shelf_register);
 
             //버튼 초기화
             buttonInsert =findViewById(R.id.btnshelf_enroll);
@@ -59,7 +63,6 @@ public class RegisterShelfActivity extends AppCompatActivity {
             SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
             String user_name = sharedPreferences.getString("user_name", "");
             String user_id = sharedPreferences.getString("user_id","");
-            System.out.println(sharedPreferences.getAll());
             //선반 목록 가져오기
             getShelfData(user_id);
 
@@ -67,9 +70,14 @@ public class RegisterShelfActivity extends AppCompatActivity {
             RecyclerView recyclerView =findViewById(R.id.rcvShelf);
             LinearLayoutManager LayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             recyclerView.setLayoutManager(LayoutManager);
-            GomyshelfAdapter adapter = new GomyshelfAdapter();
-
-//            adapter.addItem(new GomyshelfVO("1선반"));
+            adapter.setOnItemClickListener(new OnShelfButtonClickListener() {
+                @Override
+                public void onButtonClick(ShelfAdapter.ViewHolder holder, View view, int position) {
+                    Intent intent = new Intent(getApplicationContext(), reportcheckActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            });
 
             recyclerView.setAdapter(adapter);
 
@@ -128,10 +136,9 @@ public class RegisterShelfActivity extends AppCompatActivity {
             });
 
         }
-    // 선반리스트 가져오는 메서드
-    private void getShelfData(String user_id) {
-        int method = Request.Method.GET;
-        String server_url = "http://211.48.228.51:8082/product/shelfList";
+    public void getShelfData (String loginId) {
+        int method = Request.Method.POST;
+        String server_url = "http://119.200.31.80:8082/product/shelflist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -142,11 +149,11 @@ public class RegisterShelfActivity extends AppCompatActivity {
                         int shelf_seq = listItem.getInt("shelf_seq");
                         String shelf_name = listItem.getString("shelf_name");
                         String user_id = listItem.getString("user_id");
-                        ShelfVO item = new ShelfVO(shelf_seq,shelf_name, user_id);
+                        ShelfVO item = new ShelfVO(shelf_seq, shelf_name, user_id);
                         items.add(item);
                     }
-//                    adapter.setItems(items);
-//                    adapter.notifyDataSetChanged();
+                    adapter.setItems(items);
+                    adapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -160,14 +167,11 @@ public class RegisterShelfActivity extends AppCompatActivity {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-                // 보낼 데이터
-                // 1. user_id
-                Map<String, String> param = new HashMap<>();
-                param.put("user_id", user_id);
-                return param;
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("user_id", String.valueOf(loginId));
+                return params;
             }
         };
-
         queue.add(request);
     }
 }

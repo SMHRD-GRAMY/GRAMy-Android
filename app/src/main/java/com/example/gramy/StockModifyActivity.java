@@ -84,7 +84,7 @@ public class StockModifyActivity extends AppCompatActivity {
         checkCancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), GoPdCheck.class);
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -102,7 +102,7 @@ public class StockModifyActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if (response.equals("success")) {
                     Toast.makeText(getApplicationContext(), "성공적으로 업데이트 되었습니다!", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), GoPdCheck.class);
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                     startActivity(intent);
                     finish();
                 }

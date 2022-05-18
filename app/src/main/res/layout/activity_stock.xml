@@ -88,6 +88,7 @@
         android:background="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavi"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar4"
         app:layout_constraintVertical_bias="1.0">
@@ -152,7 +153,30 @@
             app:layout_constraintEnd_toEndOf="@+id/stockShelfLifeEdt"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/stockShelfLifeEdt"
-            app:layout_constraintTop_toBottomOf="@+id/stockShelfLifeEdt" />
+            app:layout_constraintTop_toBottomOf="@+id/stockShelfLifeEdt" /><![CDATA[
+
+
+
+
+
+        app:layout_constraintBottom_toBottomOf="@+id/stockWeightEdt"
+            app:layout_constraintEnd_toEndOf="@+id/id_listitem2"
+            app:layout_constraintStart_toStartOf="@+id/id_listitem2"
+            app:layout_constraintTop_toTopOf="@+id/stockWeightEdt" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ]]>
 
         <TextView
             android:id="@+id/textView4"
@@ -162,40 +186,11 @@
             android:textColor="#000000"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockweight"
-            app:layout_constraintEnd_toEndOf="@+id/tvShelfName"
-            app:layout_constraintStart_toStartOf="@+id/tvShelfName"
-            app:layout_constraintTop_toTopOf="@+id/tvstockweight" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="기기위치"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvhwuid"
-            app:layout_constraintEnd_toEndOf="@+id/textView4"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="@+id/tvhwuid" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="통계기간"
-            android:textColor="#000000"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tvstockDate"
-            app:layout_constraintEnd_toEndOf="@+id/textView5"
-            app:layout_constraintStart_toStartOf="@+id/textView5"
-            app:layout_constraintTop_toTopOf="@+id/tvstockDate" />
             app:layout_constraintBottom_toBottomOf="@+id/stockWeightEdt"
-            app:layout_constraintEnd_toEndOf="@+id/id_listitem2"
-            app:layout_constraintStart_toStartOf="@+id/id_listitem2"
-            app:layout_constraintTop_toTopOf="@+id/stockWeightEdt" />
+            app:layout_constraintEnd_toEndOf="@+id/tvShelfName"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/tvShelfName"
+            app:layout_constraintTop_toBottomOf="@+id/stockNameEdt" />
 
         <TextView
             android:id="@+id/textView7"
