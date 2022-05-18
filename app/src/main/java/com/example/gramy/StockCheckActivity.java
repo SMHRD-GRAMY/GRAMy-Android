@@ -29,8 +29,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import GoMgSelf.Dictionary;
-
 public class StockCheckActivity extends AppCompatActivity {
 
     ArrayList<StockDetailVO> items = new ArrayList<StockDetailVO>();
@@ -55,8 +53,8 @@ public class StockCheckActivity extends AppCompatActivity {
         checkShelfLifeTv= findViewById(R.id.checkSelfLifeTv);
         checkOrderTv= findViewById(R.id.checkOrderTv);
         checkPercentTv =  findViewById(R.id.checkPercentTv); //퍼센트뷰
-        updateCheckBtn = findViewById(R.id.updateCheckBtn);
-        updateCancelBtn=findViewById(R.id.updateCancelBtn);
+        updateCheckBtn = findViewById(R.id.checkModifyBtn);
+        updateCancelBtn=findViewById(R.id.checkCancelBtn);
 
 
         //큐초기화
@@ -64,16 +62,23 @@ public class StockCheckActivity extends AppCompatActivity {
         //인텐트를 통한 선반 번호 가져오기
         Intent intent=getIntent();
         stock_seq=intent.getIntExtra("stock_seq",0);
+        //선반의 디테일 내용 가져오기
         getDetail(stock_seq);
 
         updateCheckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), StockModifyActivity.class);
-                startActivity(intent);
+
                 StockDetailVO StockDetailVO=items.get(0);
                 System.out.println(StockDetailVO);
-                intent.putExtra("StockDetailVO",StockDetailVO.class);
+                //선반 번호 물품 이름 무게 유통기한 보내기
+                intent.putExtra("stock_seq",items.get(0).getStock_seq());
+                intent.putExtra("stock_name",items.get(0).getStock_name());
+                intent.putExtra("stock_weight",items.get(0).getStock_weight());
+                intent.putExtra("stock_shelfLife",items.get(0).getStock_shelfLife());
+                intent.putExtra("stock_order",items.get(0).getStock_order());
+                startActivity(intent);
 
 
             }

@@ -146,19 +146,19 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/updateCancelBtn"
+            android:id="@+id/checkCancelBtn"
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:text="@string/checkCancelBtnName"
             android:textSize="18dp"
-            app:layout_constraintBottom_toBottomOf="@+id/updateCheckBtn"
+            app:layout_constraintBottom_toBottomOf="@+id/checkModifyBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/updateCheckBtn"
-            app:layout_constraintTop_toTopOf="@+id/updateCheckBtn" />
+            app:layout_constraintStart_toEndOf="@+id/checkModifyBtn"
+            app:layout_constraintTop_toTopOf="@+id/checkModifyBtn" />
 
         <Button
-            android:id="@+id/updateCheckBtn"
+            android:id="@+id/checkModifyBtn"
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:layout_below="@+id/stockWeightEdt"
@@ -168,7 +168,7 @@
             android:layout_marginRight="24dp"
             android:text="@string/checkModifyBtnName"
             android:textSize="18dp"
-            app:layout_constraintEnd_toStartOf="@+id/updateCancelBtn"
+            app:layout_constraintEnd_toStartOf="@+id/checkCancelBtn"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"

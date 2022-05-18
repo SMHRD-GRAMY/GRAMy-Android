@@ -57,7 +57,7 @@ public class StockActivity<sPickDate> extends Activity {
         setContentView(R.layout.activity_stock);
 
         //초기화
-        btnenroll1 = findViewById(R.id.updateCheckBtn);
+        btnenroll1 = findViewById(R.id.checkModifyBtn);
         stockNameEdt=findViewById(R.id.stockNameEdt);
         stockWeightEdt=findViewById(R.id.stockWeightEdt);
         stockOrderEdt=findViewById(R.id.stockNameEdt);
