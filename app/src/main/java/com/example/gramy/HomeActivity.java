@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.gramy.Join_Login.NaverUserVO;
 import com.example.gramy.home.fragHomemain;
 import com.example.gramy.news.fragNewsmain;
 import com.example.gramy.setting.fragSettingmain;
@@ -68,6 +69,13 @@ public class HomeActivity extends AppCompatActivity {
         fragHomemain = new fragHomemain();
         fragNewsmain = new fragNewsmain();
         fragSettingmain = new fragSettingmain();
+
+        Intent intent = getIntent();
+        if(intent != null){
+            NaverUserVO model;
+            model = (NaverUserVO) intent.getSerializableExtra("Data");
+            Log.v("모델","값 : "+model);
+        }
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.gramy;
+package com.example.gramy.Join_Login;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,27 +29,36 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.gramy.HomeActivity;
+import com.example.gramy.R;
+import com.example.gramy.TutorialActivity;
 import com.example.gramy.Vo_Info.GramyUserVO;
 import com.example.gramy.Vo_Info.UserInfo;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.login.Login;
-import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.gson.JsonParser;
 import com.kakao.sdk.auth.model.OAuthToken;
 import com.kakao.sdk.user.UserApiClient;
 import com.kakao.sdk.user.model.User;
@@ -65,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
     RequestQueue queue;
     StringRequest request;
 
+    private NaverUserVO model;
     private String user_id = "";
     private String user_pw = "";
     private String user_phone = "";
@@ -87,6 +98,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnLogin, btnFindId, btnFindPw, btnGoJoin;
     private ImageButton btnKakaoLogin;
     private EditText edtId, edtPw;
+    TextView tvGoJoin;
 
     // 페이스북
     private static LoginButton btnFacebookLogin;
@@ -109,6 +121,17 @@ public class LoginActivity extends AppCompatActivity {
         btnGoJoin = findViewById(R.id.btnGoJoin);
         btnKakaoLogin = findViewById(R.id.btnKakaoLogin);
         btnFacebookLogin = findViewById(R.id.btnFacebookLogin);
+        btnFindId = findViewById(R.id.btnFindId);
+        btnFindPw = findViewById(R.id.btnFindPw);
+        tvGoJoin = findViewById(R.id.tvGoJoin);
+
+        tvGoJoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, TutorialActivity.class);
+                startActivity(intent);
+            }
+        });
 
         mContext = this;
         initData();
@@ -125,11 +148,29 @@ public class LoginActivity extends AppCompatActivity {
         btnGoJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, AgreementActivity.class);
+                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
+                startActivity(intent);
+            }
+        });
+        // 아이디 찾기 버튼
+        btnFindId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, FindIdActivity.class);
                 startActivity(intent);
             }
         });
 
+        // 비밀번호 찾기 버튼
+        btnFindPw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, FindPwActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // 로그인 버튼
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -283,14 +324,25 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
 
     public void setLoginInfo(String user_id, String user_phone, String user_addr, String user_role, String user_joindate, String user_name, String user_gender){
         SharedPreferences sf_login = getSharedPreferences("sf_login", MODE_PRIVATE);
         SharedPreferences.Editor editor = sf_login.edit();
         editor.putBoolean("check_login", true);
+        editor.putString("user_id", user_id);
+        editor.putString("user_phone", user_phone);
+        editor.putString("user_addr", user_addr);
+        editor.putString("user_role", user_role);
+        editor.putString("user_joindate", user_joindate);
+        editor.putString("user_name", user_name);
+        editor.putString("user_gender", user_gender);
+        editor.apply();
+    }
+
+    public void snsLogin(String user_id, String user_phone, String user_addr, String user_role, String user_joindate, String user_name, String user_gender){
+        SharedPreferences sf_login = getSharedPreferences("sf_login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sf_login.edit();
         editor.putString("user_id", user_id);
         editor.putString("user_phone", user_phone);
         editor.putString("user_addr", user_addr);
@@ -317,13 +369,101 @@ public class LoginActivity extends AppCompatActivity {
                 String refreshToken = mOAuthLoginInstance.getRefreshToken(mContext);
                 long expiresAt = mOAuthLoginInstance.getExpiresAt(mContext);
                 String tokenType = mOAuthLoginInstance.getTokenType(mContext);
-                Toast.makeText(mContext, "success:"+accessToken,Toast.LENGTH_SHORT).show();
-
+                getUser(accessToken);
             }else{
-
+                String errorCode = mOAuthLoginInstance.getLastErrorCode(mContext).getCode();
+                String errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext);
+                Log.d(TAG, "errorCode : " + errorCode);
+                Log.d(TAG, "errorDesc : " + errorDesc);
             }
         }
     };
+
+    private class GetUserTask extends ThreadTask<String, String>{
+        @Override
+        protected String doInBackground(String s) {
+            String header = "Bearer " + s;
+            String url = "https://openapi.naver.com/v1/nid/me";
+
+            Map<String, String> requestHeaders = new HashMap<>();
+            requestHeaders.put("Authorization", header);
+            String responseBody = get(url, requestHeaders);
+
+            return responseBody;
+        }
+
+        private String get(String url, Map<String, String> requestHeaders){
+            HttpURLConnection connection = connect(url);
+            try {
+                connection.setRequestMethod("GET");
+                for (Map.Entry<String, String> header : requestHeaders.entrySet()) {
+                    connection.setRequestProperty(header.getKey(), header.getValue());
+                }
+                int responseCode = connection.getResponseCode();
+                if (responseCode == HttpURLConnection.HTTP_OK) {
+                    return readBody(connection.getInputStream());
+                } else {
+                    return readBody(connection.getErrorStream());
+                }
+            } catch (IOException e) {
+                throw new RuntimeException("API 요청 및 응답 실패");
+            } finally {
+                connection.disconnect();
+            }
+        }
+
+        private HttpURLConnection connect(String apiurl){
+            try{
+                URL url = new URL(apiurl);
+                return (HttpURLConnection)url.openConnection();
+            } catch (MalformedURLException e) {
+                throw new RuntimeException("API URL이 잘못되었습니다. : " + apiurl, e);
+            } catch (IOException e) {
+                throw new RuntimeException("연결을 실패했습니다. : " + apiurl, e);
+            }
+        }
+
+        private String readBody(InputStream body){
+            InputStreamReader streamReader = new InputStreamReader(body);
+            try(BufferedReader lineReader = new BufferedReader(streamReader)){
+                StringBuilder responseBody = new StringBuilder();
+                String line;
+                while((line = lineReader.readLine()) != null){
+                    responseBody.append(line);
+                }
+                return responseBody.toString();
+            } catch (IOException e) {
+                throw new RuntimeException("API 응답을 읽는데 실패했습니다. ", e);
+            }
+        }
+
+        /*Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        startActivity(intent);*/
+
+        /*
+        nickname, email, gender, birthday 외에도 회원 이름(본명?), 프로필 사진, 연령대도 가져올 수 있음.
+         */
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                if(jsonObject.getString("resultcode").equals("00")) {
+                    JSONObject object = new JSONObject(jsonObject.getString("response"));
+                    String name = object.getString("name");
+                    String email = object.getString("email");
+                    model = new NaverUserVO(name, email);
+                    Log.v("네이버", "유저 정보 : " + model);
+                    snsLogin(user_id, "", "", "", "", name, "");
+                }
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                intent.putExtra("Data", model);
+                startActivity(intent);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     protected void redirectSignupActivity(){
         final Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
@@ -357,5 +497,29 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void getUser(String token){
+        new GetUserTask().execute(token);
+    }
+
+    // 네이버 로그아웃
+    private class RemoveTokenTask extends ThreadTask<String, Void> {
+
+        @Override
+        protected Void doInBackground(String arg) {
+            boolean isSuccessDeleteToken = mOAuthLoginInstance.logoutAndDeleteToken(mContext);
+
+            if(!isSuccessDeleteToken){
+                Log.d("REMOVE", "errorCode : " + mOAuthLoginInstance.getLastErrorCode(mContext));
+                Log.d("REMOVE", "errorDesc : " + mOAuthLoginInstance.getLastErrorDesc(mContext));
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void Result) {
+            Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

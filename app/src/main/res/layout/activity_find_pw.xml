@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Join_Login.FindPwActivity">
+
+    <TextView
+        android:id="@+id/tvFindPwTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/tvFindPwTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtFindPwId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:ems="10"
+        android:hint="@string/edtHintFindPwId"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFindPwId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toEndOf="@+id/tvFindPwId"
+        app:layout_constraintTop_toTopOf="@+id/tvFindPwId"
+        app:layout_constraintVertical_bias="0.384" />
+
+    <EditText
+        android:id="@+id/edtFindPwPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/edtHintFindPwPhone"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFindPwPhone"
+        app:layout_constraintEnd_toEndOf="@+id/edtFindPwName"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvFindPwPhone"
+        app:layout_constraintTop_toTopOf="@+id/tvFindPwPhone"
+        app:layout_constraintVertical_bias="0.461" />
+
+    <EditText
+        android:id="@+id/edtFindPwName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/edtHintFindPwName"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFindPwName"
+        app:layout_constraintEnd_toEndOf="@+id/edtFindPwId"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvFindPwName"
+        app:layout_constraintTop_toTopOf="@+id/tvFindPwName" />
+
+    <TextView
+        android:id="@+id/tvFindPwId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/tvFindPwId"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFindPwTitle" />
+
+    <TextView
+        android:id="@+id/tvFindPwName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/tvFindPwName"
+        app:layout_constraintEnd_toEndOf="@+id/tvFindPwId"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvFindPwId"
+        app:layout_constraintTop_toBottomOf="@+id/tvFindPwId" />
+
+    <TextView
+        android:id="@+id/tvFindPwPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/tvFindPwPhone"
+        app:layout_constraintEnd_toEndOf="@+id/tvFindPwName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvFindPwName"
+        app:layout_constraintTop_toBottomOf="@+id/tvFindPwName" />
+
+    <Button
+        android:id="@+id/btnFindPw2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/btnFindPw"
+        app:layout_constraintBottom_toTopOf="@+id/guideline31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFindPwPhone"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="365dp" />
+
+    <TextView
+        android:id="@+id/tvTitleModyPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tvTitleModifyPw"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline31" />
+
+    <TextView
+        android:id="@+id/tvPwModify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/tvModifyPw"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleModyPw" />
+
+    <TextView
+        android:id="@+id/tvRePwModify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/tvReModifyPw"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/tvPwModify"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvPwModify"
+        app:layout_constraintTop_toBottomOf="@+id/tvPwModify" />
+
+    <EditText
+        android:id="@+id/edtPwModify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPwModify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toEndOf="@+id/tvPwModify"
+        app:layout_constraintTop_toTopOf="@+id/tvPwModify"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <EditText
+        android:id="@+id/edtRePwModify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRePwModify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toEndOf="@+id/tvRePwModify"
+        app:layout_constraintTop_toTopOf="@+id/tvRePwModify"
+        app:layout_constraintVertical_bias="0.384" />
+
+    <Button
+        android:id="@+id/btnReModify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="52dp"
+        android:text="@string/btnReModifyPw"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRePwModify"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <Button
+        android:id="@+id/btnGoLoginPw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGoLogin"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btnReModify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnReModify"
+        app:layout_constraintTop_toTopOf="@+id/btnReModify" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

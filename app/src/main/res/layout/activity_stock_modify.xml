@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#C6BFBF"
-    tools:context=".StockCheckActivity">
-
+    tools:context=".StockModifyActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -18,15 +16,15 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="294dp"
-            android:layout_height="335dp"
+            android:layout_width="292dp"
+            android:layout_height="257dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3">
+            app:layout_constraintTop_toBottomOf="@+id/imageView8">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -36,7 +34,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvShelfName"
                     android:layout_width="115dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -46,19 +43,15 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/checkNameTv"
+                <EditText
+                    android:id="@+id/updateNameEdt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
-                    android:gravity="center"
                     android:inputType="textPersonName"
-                    android:text="제품명"
-                    android:textAlignment="viewStart"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:text="Name" />
 
             </LinearLayout>
 
@@ -80,19 +73,15 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/checkWeightTv"
+                <EditText
+                    android:id="@+id/updateWeightEdt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
-                    android:gravity="center"
                     android:inputType="textPersonName"
-                    android:text="제품무게"
-                    android:textAlignment="textStart"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:text="Name" />
 
             </LinearLayout>
 
@@ -104,41 +93,6 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="115dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center|center_vertical"
-                    android:text="@string/tvRegisterName"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/checkRegisterTv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:inputType="textPersonName"
-                    android:textAlignment="textStart"
-                    android:textColor="#000000"
-                    android:textSize="16sp"
-                    tools:text="등록날" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/border_bottom_left_right"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/shelfTv"
                     android:layout_width="115dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -148,20 +102,15 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/checkSelfLifeTv"
+                <EditText
+                    android:id="@+id/updateShelfLifeEdt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
-                    android:gravity="center"
-                    android:hint="오이"
                     android:inputType="textPersonName"
-                    android:text="유통기한"
-                    android:textAlignment="textStart"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:text="Name" />
 
             </LinearLayout>
 
@@ -183,20 +132,15 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/checkOrderTv"
+                <EditText
+                    android:id="@+id/updateOrderEdt"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@null"
                     android:ems="10"
-                    android:gravity="center"
-                    android:hint="오이"
                     android:inputType="textPersonName"
-                    android:text="주문방법"
-                    android:textAlignment="textStart"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:text="Name" />
 
             </LinearLayout>
         </LinearLayout>
@@ -212,19 +156,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/updateCheckBtn"
             app:layout_constraintTop_toTopOf="@+id/updateCheckBtn" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="300dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/border_layout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/alarm_white" />
 
         <Button
             android:id="@+id/updateCheckBtn"
@@ -245,31 +176,15 @@
             tools:layout_editor_abspluteX="0dp"
             tools:layout_editor_abspluteY="0dp" />
 
-        <ProgressBar
-            android:id="@+id/progressBar2"
-            style="@android:style/Widget.ProgressBar.Horizontal"
-            android:layout_width="190dp"
-            android:layout_height="46dp"
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="175dp"
+            android:layout_height="179dp"
             android:layout_marginTop="16dp"
-            android:max="100"
-            android:progressBackgroundTint="#C0C0C0"
-            android:progressTint="#5EC75E"
-            app:layout_constraintEnd_toEndOf="@+id/imageView3"
-            app:layout_constraintStart_toStartOf="@+id/imageView3"
-            app:layout_constraintTop_toTopOf="@+id/imageView3" />
-
-        <TextView
-            android:id="@+id/checkPercentTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="TextView"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/progressBar2"
-            app:layout_constraintStart_toStartOf="@+id/progressBar2"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/packageimg" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -298,11 +213,10 @@
         app:srcCompat="@drawable/alarm" />
 
     <TextView
-        android:id="@+id/tvTitleGramy5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/secular_one"
-        android:text="재고 확인"
+        android:text="재고 수정"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar5"

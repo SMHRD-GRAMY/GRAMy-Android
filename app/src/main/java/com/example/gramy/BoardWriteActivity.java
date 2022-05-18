@@ -46,6 +46,7 @@ public class BoardWriteActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
         String writerName = sharedPreferences.getString("user_name", "");
         String writerId = sharedPreferences.getString("user_id","");
+        System.out.println(sharedPreferences.getAll());
 
 
         tvWriteBoard.setOnClickListener(new View.OnClickListener() {

@@ -9,10 +9,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -39,7 +37,7 @@ import java.util.Queue;
 import GoMgSelf.CustomAdapter;
 import GoMgSelf.Dictionary;
 
-public class reportActivity extends AppCompatActivity {
+public class ReportActivity extends AppCompatActivity {
 
     RequestQueue queue;
     GoreportAdapter adapter = new GoreportAdapter();
@@ -51,7 +49,7 @@ public class reportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go_report);
 
-        RecyclerView recyclerView =findViewById(R.id.report_recyclerView);
+        RecyclerView recyclerView =findViewById(R.id.shelfRecyclerView);
 
         SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
         String loginName = sharedPreferences.getString("user_name", "");

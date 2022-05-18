@@ -33,6 +33,32 @@
     <string name="btnGoJoin">회원가입</string>
     <string name="tvGoJoin">혹시, GRAMy가 처음이신가요?</string>
 
+    <!-- FindId -->
+    <string name="tvFindIdTitle">아이디 찾기</string>
+    <string name="tvFindIdName">이름</string>
+    <string name="tvFindIdPhone">핸드폰</string>
+    <string name="edtHintFindIdName">이름을 입력하세요.</string>
+    <string name="edtHintFindIdPhone">번호를 입력하세요.</string>
+    <string name="btnSearchId">아이디 검색</string>
+    <string name="btnGoLogin">로그인 하기</string>
+
+    <!-- FindPw -->
+    <string name="tvFindPwTitle">비밀번호 찾기</string>
+    <string name="tvFindPwId">아이디</string>
+    <string name="tvFindPwName">이름</string>
+    <string name="tvFindPwPhone">핸드폰</string>
+    <string name="edtHintFindPwId">아이디을 입력하세요.</string>
+    <string name="edtHintFindPwName">이름을 입력하세요.</string>
+    <string name="edtHintFindPwPhone">번호를 입력하세요.</string>
+    <string name="btnSearchPw">비밀번호 검색</string>
+    <string name="tvTitleModifyPw">비밀번호 수정</string>
+    <string name="tvModifyPw">비밀번호 변경</string>
+    <string name="tvReModifyPw">비밀번호 확인</string>
+    <string name="edtHintModifyPw">수정할 비밀번호를 입력해주세요.</string>
+    <string name="edtHintReModifyPw">비밀번호를 다시 입력해주세요.</string>
+    <string name="btnReModifyPw">비밀번호 수정하기</string>
+    <string name="btnGoLoginPw">로그인 하기</string>
+
     <!--modify -->
     <string name="btnModify">수정하기</string>
     <string name="btnCancel">취소하기</string>
@@ -186,6 +212,18 @@
     <string name="facebook_app_id">374569864723034</string>
     <string name="fb_login_protocol_scheme">fb1234</string>
     <string name="facebook_client_token">672585b0577dba8fd54b318a9b912882</string>
+
+    <!--StockActivity-->
+    <string name="tvStockName">재고명</string>
+    <string name="tvShelfLifeName">유통기한</string>
+    <string name="tvWeightName">현재무게</string>
+    <string name="tvOrderName">주문방법</string>
+    <string name="edtStockHint">입력하세요</string>
+    <!--StockCheckActivity-->
+    <string name="tvRegisterName">등록날짜</string>
+    <string name="tvCurrentWeight">무게</string>
+    <string name="checkModifyBtnName">수정</string>
+    <string name="checkCancelBtnName">취소</string>
 
 
 </resources>
