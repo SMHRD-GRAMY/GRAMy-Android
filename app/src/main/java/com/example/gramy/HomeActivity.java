@@ -152,6 +152,13 @@ public class HomeActivity extends AppCompatActivity {
         };
         this.getOnBackPressedDispatcher().addCallback(this, callback);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        System.out.println("On Resume");
+    }
+
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = getString(R.string.channel_name);

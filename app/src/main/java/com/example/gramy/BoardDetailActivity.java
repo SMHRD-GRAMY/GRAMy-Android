@@ -81,7 +81,7 @@ public class BoardDetailActivity extends AppCompatActivity {
         tvBoardDetailBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragNewsmain).commit();
+                onBackPressed();
             }
         });
 

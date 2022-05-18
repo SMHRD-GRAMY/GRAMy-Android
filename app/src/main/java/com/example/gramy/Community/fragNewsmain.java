@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.BoardAdapter;
 import com.example.gramy.BoardDetailActivity;
+import com.example.gramy.BoardWriteActivity;
 import com.example.gramy.Listener.OnBoardItemClickListener;
 import com.example.gramy.R;
 import com.example.gramy.Vo_Info.BoardVO;
@@ -81,26 +83,22 @@ public class fragNewsmain extends Fragment {
                 intent.putExtra("tb_a_seq", BoardSeq);
                 intent.putExtra("user_id", writerId);
                 startActivity(intent);
-                getActivity().finish();
                 //
             }
         });
 
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
-//                startActivity(intent);
-//                getActivity().finish();
-//            }
-//        });
-
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
+                startActivity(intent);
+            }
+        });
         queue = Volley.newRequestQueue(view.getContext());
 
         getBoardData();
 
-
-        new NewsTask().execute();
+//        new NewsTask().execute();
 
         recyclerView.setAdapter(adapter);
 
@@ -113,23 +111,25 @@ public class fragNewsmain extends Fragment {
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                try {
-                    JSONArray jsonArray = new JSONArray(response);
-                    for(int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject listItem = jsonArray.getJSONObject(i);
-                        int tb_a_seq = listItem.getInt("tb_a_seq");
-                        String tb_a_title = listItem.getString("tb_a_title");
-                        String tb_a_content = listItem.getString("tb_a_content");
-                        String tb_a_date = listItem.getString("tb_a_date");
-                        String user_id = listItem.getString("user_id");
-                        String user_name = listItem.getString("user_name");
-                        BoardVO item = new BoardVO(tb_a_seq, tb_a_title, tb_a_content, tb_a_date, user_id, user_name);
-                        items.add(item);
+                if(items.size() == 0) {
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject listItem = jsonArray.getJSONObject(i);
+                            int tb_a_seq = listItem.getInt("tb_a_seq");
+                            String tb_a_title = listItem.getString("tb_a_title");
+                            String tb_a_content = listItem.getString("tb_a_content");
+                            String tb_a_date = listItem.getString("tb_a_date");
+                            String user_id = listItem.getString("user_id");
+                            String user_name = listItem.getString("user_name");
+                            BoardVO item = new BoardVO(tb_a_seq, tb_a_title, tb_a_content, tb_a_date, user_id, user_name);
+                            items.add(item);
+                        }
+                        adapter.setItems(items);
+                        adapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    adapter.setItems(items);
-                    adapter.notifyDataSetChanged();
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
             }
         }, new Response.ErrorListener() {
