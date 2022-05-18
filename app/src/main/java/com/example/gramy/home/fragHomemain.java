@@ -80,7 +80,7 @@ public class fragHomemain extends Fragment {
         return view;
     }
     // 목록 가져오는 메서드
-    private void getStockList(String writerId,View view) {
+    private void getStockList(String writerId, View view) {
         int method = Request.Method.POST;
         String server_url = "http://172.30.1.42:8082/product/stocklist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
@@ -136,7 +136,7 @@ public class fragHomemain extends Fragment {
                             }) ;
                         }
                         for(int i=items.size();i<4;i++){
-                            String buttonID = "stockbtn" + (i+1);
+                            String buttonID = "btnStock" + (i+1);
                             int resID=getResources().getIdentifier(buttonID,"id",getActivity().getPackageName());
                             btnStock[i]=(Button)getView().findViewById(resID);
                             System.out.println(items);
@@ -158,7 +158,7 @@ public class fragHomemain extends Fragment {
                         shelfTv.setText("선반이 존재하지 않습니다");
                         Toast.makeText(getApplicationContext(), "null", Toast.LENGTH_SHORT).show();
                         for(int i=0; i<4; i++) {
-                            String buttonID = "stockbtn" + (i+1);
+                            String buttonID = "btnStock" + (i+1);
                             int resID=getResources().getIdentifier(buttonID,"id",getActivity().getPackageName());
                             btnStock[i]=(Button)getView().findViewById(resID);
                             btnStock[i].setText("물품등록");

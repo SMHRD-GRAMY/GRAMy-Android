@@ -64,7 +64,7 @@ public class RegisterShelfActivity extends AppCompatActivity {
             getShelfData(user_id);
 
             //리사이클러뷰 가져오기
-            RecyclerView recyclerView =findViewById(R.id.shelfRecyclerView);
+            RecyclerView recyclerView =findViewById(R.id.rcvShelf);
             LinearLayoutManager LayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
             recyclerView.setLayoutManager(LayoutManager);
             GomyshelfAdapter adapter = new GomyshelfAdapter();

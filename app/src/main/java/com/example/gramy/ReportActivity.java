@@ -5,12 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -19,10 +17,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gramy.Adapter.GomyshelfAdapter;
 import com.example.gramy.Adapter.GoreportAdapter;
 import com.example.gramy.Listener.OnReportButtonClickListener;
-import com.example.gramy.Vo_Info.GomyshelfVO;
 import com.example.gramy.Vo_Info.GoreportVO;
 
 import org.json.JSONArray;
@@ -32,10 +28,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Queue;
-
-import GoMgSelf.CustomAdapter;
-import GoMgSelf.Dictionary;
 
 public class ReportActivity extends AppCompatActivity {
 
@@ -47,9 +39,9 @@ public class ReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_go_report);
+        setContentView(R.layout.fragment_report);
 
-        RecyclerView recyclerView =findViewById(R.id.shelfRecyclerView);
+        RecyclerView recyclerView =findViewById(R.id.rcvShelf);
 
         SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
         String loginName = sharedPreferences.getString("user_name", "");
@@ -76,7 +68,7 @@ public class ReportActivity extends AppCompatActivity {
 
         public void getShelfData (String loginId) {
             int method = Request.Method.POST;
-            String server_url = "http://119.200.31.80:8082/product/shelflist";
+            String server_url = "http://119.200.31.65:8082/product/shelflist";
             StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
