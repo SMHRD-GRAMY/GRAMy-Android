@@ -19,6 +19,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.BoardAdapter;
+import com.example.gramy.Community.fragNewsmain;
 import com.example.gramy.Vo_Info.BoardVO;
 
 import org.json.JSONArray;
@@ -36,6 +37,7 @@ public class BoardDetailActivity extends AppCompatActivity {
     TextView tvBoardDetailBack, tvBoardDetailTitle, tvBoardDetailWriter, tvBoardDetailDate, tvBoardDetailModify, tvBoardDetailDelete, tvBoardDetailContent;
     BoardAdapter adapter = new BoardAdapter();
     Button btnViewComment;
+    fragNewsmain fragNewsmain = new fragNewsmain();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +81,7 @@ public class BoardDetailActivity extends AppCompatActivity {
         tvBoardDetailBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
-                startActivity(intent);
-                finish();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragNewsmain).commit();
             }
         });
 
@@ -161,9 +161,7 @@ public class BoardDetailActivity extends AppCompatActivity {
                     if(response.equals("success")) {
                         Toast.makeText(getApplicationContext(), "게시글이 성공적으로 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                         adapter.notifyDataSetChanged();
-                        Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
-                        startActivity(intent);
-                        finish();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragNewsmain).commit();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

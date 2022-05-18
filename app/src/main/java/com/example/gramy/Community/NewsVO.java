@@ -1,4 +1,4 @@
-package com.example.gramy.news;
+package com.example.gramy.Community;
 
 public class NewsVO {
     private String title;

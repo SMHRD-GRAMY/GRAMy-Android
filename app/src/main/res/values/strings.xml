@@ -177,6 +177,10 @@
     <string name="swComm"></string>
     <string name="swNight"></string>
 
+    <!-- fragment_frag_newsmain.xml -->
+    <string name="tvNewsCategory">뉴스</string>
+    <string name="tvBoardCategory">게시판</string>
+
     <!-- <string name="tvNoAlarm">새로운 소식이 없어요.\n오늘의 소식이 생기면 알려드릴게요!</string> -->
 
     <!-- activity_modify -->

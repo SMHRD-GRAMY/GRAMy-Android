@@ -8,9 +8,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ReportFragment;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -21,24 +19,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.example.gramy.Join_Login.NaverUserVO;
 import com.example.gramy.Join_Login.PendingIntentActivity;
 import com.example.gramy.Report.fragReportmain;
 import com.example.gramy.home.fragHomemain;
-import com.example.gramy.news.fragNewsmain;
+import com.example.gramy.Community.fragNewsmain;
 import com.example.gramy.setting.fragSettingmain;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.kakao.auth.Session;
-import com.kakao.sdk.user.UserApiClient;
-import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
 
 
 public class HomeActivity extends AppCompatActivity {

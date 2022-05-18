@@ -1,4 +1,4 @@
-package com.example.gramy.news;
+package com.example.gramy.Community;
 
 import android.content.Context;
 import android.view.LayoutInflater;

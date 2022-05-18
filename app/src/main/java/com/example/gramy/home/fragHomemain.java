@@ -192,7 +192,6 @@ public class fragHomemain extends Fragment {
                 return param;
             }
         };
-
         queue.add(request);
     }
 }
