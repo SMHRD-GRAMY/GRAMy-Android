@@ -15,6 +15,9 @@
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".reportcheckActivity"
+            android:exported="false" />
+        <activity
             android:name=".reportActivity"
             android:exported="false" />
         <activity
@@ -112,7 +115,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.nhn.android.naverlogin.ui.OAuthCustomTabActivity"
             android:exported="true" />

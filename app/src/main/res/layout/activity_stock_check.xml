@@ -41,7 +41,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/id_listitem2"
+                    android:id="@+id/tvShelfName"
                     android:layout_width="115dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

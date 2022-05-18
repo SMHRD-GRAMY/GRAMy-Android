@@ -4,7 +4,7 @@
     android:layout_height="50dp">
 
     <TextView
-        android:id="@+id/id_listitem2"
+        android:id="@+id/tvShelfName"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -13,7 +13,7 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/list_btn2"
+        android:id="@+id/btnShelfEnroll"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"

@@ -121,7 +121,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <TextView
-            android:id="@+id/id_listitem2"
+            android:id="@+id/tvShelfName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -183,8 +183,8 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/tvstockweight"
-            app:layout_constraintEnd_toEndOf="@+id/id_listitem2"
-            app:layout_constraintStart_toStartOf="@+id/id_listitem2"
+            app:layout_constraintEnd_toEndOf="@+id/tvShelfName"
+            app:layout_constraintStart_toStartOf="@+id/tvShelfName"
             app:layout_constraintTop_toTopOf="@+id/tvstockweight" />
 
         <TextView
