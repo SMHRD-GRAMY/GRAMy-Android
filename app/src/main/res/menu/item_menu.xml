@@ -5,13 +5,17 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home"
         android:menuCategory="secondary"
-        android:title="홈"
-        />
+        android:title="재고" />
+    <item
+        android:id="@+id/report"
+        android:icon="@drawable/ic_home"
+        android:menuCategory="secondary"
+        android:title="통계" />
     <item
         android:id="@+id/news"
         android:icon="@drawable/ic_news"
         android:menuCategory="secondary"
-        android:title="뉴스" />
+        android:title="커뮤니티" />
     <item
         android:id="@+id/setting"
         android:icon="@drawable/ic_setting"

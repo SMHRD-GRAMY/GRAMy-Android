@@ -8,6 +8,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ReportFragment;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -28,6 +29,7 @@ import android.widget.Toolbar;
 
 import com.example.gramy.Join_Login.NaverUserVO;
 import com.example.gramy.Join_Login.PendingIntentActivity;
+import com.example.gramy.Report.fragReportmain;
 import com.example.gramy.home.fragHomemain;
 import com.example.gramy.news.fragNewsmain;
 import com.example.gramy.setting.fragSettingmain;
@@ -52,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
     fragHomemain fragHomemain;
     fragNewsmain fragNewsmain;
     fragSettingmain fragSettingmain;
+    fragReportmain fragReportmain;
 
     public void replace(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -80,6 +83,7 @@ public class HomeActivity extends AppCompatActivity {
         fragHomemain = new fragHomemain();
         fragNewsmain = new fragNewsmain();
         fragSettingmain = new fragSettingmain();
+        fragReportmain = new fragReportmain();
 
         Intent intent2 = new Intent(HomeActivity.this, PendingIntentActivity.class);
         intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -129,6 +133,10 @@ public class HomeActivity extends AppCompatActivity {
 
                 if (itemId == R.id.home) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragHomemain).addToBackStack(null).commit();
+                    tvTitleGramy.setText("GRAMy");
+                    btnBack.setVisibility(View.GONE);
+                } else if(itemId == R.id.report){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, fragReportmain).addToBackStack(null).commit();
                     tvTitleGramy.setText("GRAMy");
                     btnBack.setVisibility(View.GONE);
                 } else if (itemId == R.id.news) {
