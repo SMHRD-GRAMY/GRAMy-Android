@@ -8,6 +8,9 @@
     <string name="newsToolbar">News</string>
     <string name="settingToolbar">Setting</string>
 
+    <!-- fragReportmain -->
+    <string name="tvShelfTitel">선반</string>
+
     <!-- Main -->
     <string name="tvTitle">GRAMy</string>
     <string name="btnHome"></string>

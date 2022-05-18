@@ -67,7 +67,7 @@
         app:layout_constraintGuide_percent="0.9" />
 
     <TextView
-        android:id="@+id/shelfTv"
+        android:id="@+id/tvShelfTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -80,14 +80,14 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <Button
-        android:id="@+id/shelfRegisterBtn"
+        android:id="@+id/btnShelfRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="등록 및 위치 변경"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shelfTv" />
+        app:layout_constraintTop_toBottomOf="@+id/tvShelfTitle" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -98,7 +98,7 @@
         app:layout_constraintGuide_end="538dp" />
 
     <ImageView
-        android:id="@+id/shelfImg"
+        android:id="@+id/ImgShelf"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
@@ -108,7 +108,7 @@
         app:srcCompat="@drawable/shelf" />
 
     <Button
-        android:id="@+id/stockbtn1"
+        android:id="@+id/btnStock1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
@@ -118,37 +118,37 @@
         app:layout_constraintTop_toTopOf="@+id/guideline24" />
 
     <Button
-        android:id="@+id/stockbtn2"
+        android:id="@+id/btnStock2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/stockbtn1"
+        app:layout_constraintBottom_toBottomOf="@+id/btnStock1"
         app:layout_constraintEnd_toStartOf="@+id/guideline13"
-        app:layout_constraintTop_toTopOf="@+id/stockbtn1"
+        app:layout_constraintTop_toTopOf="@+id/btnStock1"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/stockbtn3"
+        android:id="@+id/btnStock3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="68dp"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/guideline14"
-        app:layout_constraintEnd_toEndOf="@+id/stockbtn1"
+        app:layout_constraintEnd_toEndOf="@+id/btnStock1"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/stockbtn1" />
+        app:layout_constraintStart_toStartOf="@+id/btnStock1" />
 
     <Button
-        android:id="@+id/stockbtn4"
+        android:id="@+id/btnStock4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="@+id/stockbtn3"
-        app:layout_constraintEnd_toEndOf="@+id/stockbtn2"
+        app:layout_constraintBottom_toBottomOf="@+id/btnStock3"
+        app:layout_constraintEnd_toEndOf="@+id/btnStock2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/stockbtn2"
-        app:layout_constraintTop_toTopOf="@+id/stockbtn3"
+        app:layout_constraintStart_toStartOf="@+id/btnStock2"
+        app:layout_constraintTop_toTopOf="@+id/btnStock3"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

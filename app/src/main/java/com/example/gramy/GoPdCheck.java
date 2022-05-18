@@ -45,8 +45,8 @@ public class GoPdCheck extends AppCompatActivity {
         setContentView(R.layout.activity_go_ck_pd);
 
 
-        shelfTv=findViewById(R.id.shelfTv);
-        shelfRegisterBtn=findViewById(R.id.shelfRegisterBtn);
+        shelfTv=findViewById(R.id.tvShelfTitle);
+        shelfRegisterBtn=findViewById(R.id.btnShelfRegister);
 
         queue = Volley.newRequestQueue(GoPdCheck.this); // GoBoardActivity에 Queue 생성
 
