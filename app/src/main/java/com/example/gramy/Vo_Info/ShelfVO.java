@@ -5,6 +5,10 @@ public class ShelfVO {
     private String shelf_name;
     private String user_id;
 
+    public ShelfVO(String shelf_name) {
+        this.shelf_name = shelf_name;
+    }
+
     public ShelfVO(int shelf_seq, String shelf_name, String user_id) {
         this.shelf_seq = shelf_seq;
         this.shelf_name = shelf_name;

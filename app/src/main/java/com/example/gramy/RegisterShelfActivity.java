@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -21,9 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.gramy.Adapter.GoreportAdapter;
 import com.example.gramy.Adapter.ShelfAdapter;
-import com.example.gramy.Listener.OnReportButtonClickListener;
 import com.example.gramy.Listener.OnShelfButtonClickListener;
 import com.example.gramy.Vo_Info.ShelfVO;
 import com.example.gramy.home.fragHomemain;
@@ -36,16 +35,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import GoMgSelf.Dictionary;
-
 public class RegisterShelfActivity extends AppCompatActivity {
         RequestQueue queue;
         ShelfAdapter adapter = new ShelfAdapter();
         ArrayList<ShelfVO> items = new ArrayList<ShelfVO>();
         Button buttonInsert,buttonCancel;
-//        ArrayList<Dictionary> mArrayList;
-//        int count = -1;
-//        fragHomemain fragHomemain;
 
 
         @Override
@@ -85,58 +79,55 @@ public class RegisterShelfActivity extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
 
 //
-//            buttonInsert.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    count++;
-//
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterShelfActivity.this);
-//                    View view = LayoutInflater.from(RegisterShelfActivity.this).inflate(R.layout.shelf_editbox, null, false);
-//                    builder.setView(view);
-//
-//                    final Button ButtonSubmitcancle = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);
-//                    final Button ButtonSubmit = (Button) view.findViewById(R.id.shelf_button_dialog_submit);
-//                    final EditText editTextName = (EditText) view.findViewById(R.id.shelf_edittext_dialog_name);
-//
-//
-//                    ButtonSubmit.setText("등록");
-//
-//                    final AlertDialog dialog = builder.create();
-//
-//
-//                    ButtonSubmit.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            // String strID =  editTextID.getText().toString();
-//                            String strName = editTextName.getText().toString();
-//
-//                            Dictionary dict = new Dictionary(strName);
-//                            mArrayList.add(0, dict);
-//
-////                            mAdapter.notifyItemInserted(0);
-//
-//                            dialog.dismiss();
-//                        }
-//                    });
-//
-//                    ButtonSubmitcancle.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View v) {
-//                            dialog.dismiss();
-//                        }
-//                    });
-//                    dialog.show();
-//
-//                }
-//
-//            });
-//
-//            buttonCancel.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    onBackPressed();
-//                }
-//            });
+            buttonInsert.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterShelfActivity.this);
+                    View view = LayoutInflater.from(RegisterShelfActivity.this).inflate(R.layout.shelf_editbox, null, false);
+                    builder.setView(view);
+
+                    Button ButtonSubmitcancle = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);
+                    Button ButtonSubmit = (Button) view.findViewById(R.id.shelf_button_dialog_submit);
+                    EditText editTextName = (EditText) view.findViewById(R.id.shelf_edittext_dialog_name);
+
+                    ButtonSubmit.setText("등록");
+
+                    AlertDialog dialog = builder.create();
+
+
+                    ButtonSubmit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String shelf_name = editTextName.getText().toString();
+                            ArrayList<ShelfVO> items = new ArrayList<ShelfVO>();
+                            System.out.println(shelf_name);
+                            System.out.println(user_id);
+                            sendShelfName(user_id,shelf_name);
+
+
+                            dialog.dismiss();
+                        }
+                    });
+
+                    ButtonSubmitcancle.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dialog.dismiss();
+                        }
+                    });
+                    dialog.show();
+
+                }
+
+            });
+
+            buttonCancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
 
         }
     public void getShelfDataFromId (String loginId) {
@@ -171,7 +162,38 @@ public class RegisterShelfActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("user_id", String.valueOf(loginId));
+                params.put("user_id", loginId);
+                return params;
+            }
+        };
+        queue.add(request);
+    }
+    public void sendShelfName (String loginId,String shelf_name) {
+        int method = Request.Method.POST;
+        String server_url = "http://121.147.52.210:8082/product/insertshelf";
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                ShelfVO item = new ShelfVO(shelf_name);
+                items.add(item);
+                adapter.setItems(items);
+                adapter.notifyDataSetChanged();
+
+                }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(RegisterShelfActivity.this, "등록실패", Toast.LENGTH_SHORT).show();
+
+            }
+        }) {
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("shelf_name",shelf_name);
+                params.put("user_id", loginId);
                 return params;
             }
         };
