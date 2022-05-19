@@ -28,7 +28,8 @@
         app:layout_constraintEnd_toEndOf="@+id/tvShelfTitle"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/tvShelfTitle"
-        app:layout_constraintTop_toBottomOf="@+id/tvShelfTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/tvShelfTitle"
+        style="?android:attr/borderlessButtonStyle" />
 
     <ImageView
         android:id="@+id/ImgShelf"
@@ -38,50 +39,73 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnShelfRegister"
+        style="?android:attr/borderlessButtonStyle"
         app:srcCompat="@drawable/shelf" />
 
     <Button
         android:id="@+id/btnStock1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="56dp"
+        android:backgroundTint="#00FFFFFF"
         android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnShelfRegister" />
+        android:textColor="#040000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnStock3"
+        app:layout_constraintStart_toStartOf="@+id/ImgShelf"
+        app:layout_constraintTop_toTopOf="@+id/ImgShelf"
+        app:layout_constraintVertical_bias="0.398"
+        style="?android:attr/borderlessButtonStyle"
+        />
 
     <Button
         android:id="@+id/btnStock2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="#00FFFFFF"
         android:text="Button"
+        android:textColor="#000000"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/btnStock1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintHorizontal_bias="0.283"
         app:layout_constraintStart_toEndOf="@+id/btnStock1"
         app:layout_constraintTop_toTopOf="@+id/btnStock1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        style="?android:attr/borderlessButtonStyle" />
 
     <Button
         android:id="@+id/btnStock3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#00FFFFFF"
         android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#000000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/ImgShelf"
         app:layout_constraintStart_toStartOf="@+id/ImgShelf"
-        app:layout_constraintTop_toBottomOf="@+id/ImgShelf"
-        app:layout_constraintVertical_bias="1.0" />
+        style="?android:attr/borderlessButtonStyle" />
 
     <Button
         android:id="@+id/btnStock4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:layout_marginStart="10dp"
+        android:backgroundTint="#00FFFFFF"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/ImgShelf"
-        app:layout_constraintHorizontal_bias="0.823"
+        android:textColor="#000000"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/btnStock3"
+        app:layout_constraintEnd_toEndOf="@+id/btnStock2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnStock3"
-        app:layout_constraintTop_toTopOf="@+id/btnStock3" />
+        app:layout_constraintTop_toTopOf="@+id/btnStock3"
+        app:layout_constraintVertical_bias="0.0"
+        style="?android:attr/borderlessButtonStyle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
