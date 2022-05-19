@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.constraintlayout.motion.widget.OnSwipe;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -47,19 +49,18 @@ import java.util.List;
 public class fragNewsmain extends Fragment {
 
 
+    FrameLayout FrameNews;
     private ListView listView;
     RequestQueue queue;
     BoardAdapter adapter = new BoardAdapter();
     ArrayList<BoardVO> items = new ArrayList<BoardVO>();
 
-    public fragNewsmain() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_frag_newsmain, container, false);
+
+        FrameNews = view.findViewById(R.id.FrameNews);
 
         listView = view.findViewById(R.id.NewsList);
         RecyclerView recyclerView = view.findViewById(R.id.boardRecyclerView);
