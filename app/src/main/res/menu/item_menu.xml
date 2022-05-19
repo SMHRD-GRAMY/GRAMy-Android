@@ -8,7 +8,7 @@
         android:title="재고" />
     <item
         android:id="@+id/report"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ic_equalizer_black_24dp"
         android:menuCategory="secondary"
         android:title="통계" />
     <item

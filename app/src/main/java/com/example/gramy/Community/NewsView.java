@@ -31,7 +31,7 @@ public class NewsView extends LinearLayout {
     public void setNews(NewsVO data) {
         //titleTV 세팅
         if(data.getTitle()!=null && data.getTitle().trim().length()>0)
-            titleTV.setText(data.getTitle().substring(0,17) + "  ...");
+            titleTV.setText(data.getTitle().substring(0,18) + " ...");
         else
             titleTV.setText("");
 
