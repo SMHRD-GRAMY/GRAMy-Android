@@ -98,7 +98,7 @@ public class fragNewsmain extends Fragment {
 
         getBoardData();
 
-//        new NewsTask().execute();
+        new NewsTask().execute();
 
         recyclerView.setAdapter(adapter);
 
