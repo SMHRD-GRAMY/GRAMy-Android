@@ -121,7 +121,7 @@ public class StockActivity<sPickDate> extends Activity {
                 Toast.makeText(StockActivity.this,
                         "요청성공!",
                         Toast.LENGTH_SHORT).show();
-                Intent intent1 = new Intent(StockActivity.this, GoPdCheck.class);
+                Intent intent1 = new Intent(StockActivity.this, HomeActivity.class);
                 startActivity(intent1);
                 finish();
 
@@ -130,7 +130,7 @@ public class StockActivity<sPickDate> extends Activity {
     //volly로 요청하기
     public void insertStock(String shelf_seq,String name,String weight,String shelfLife,String order){
         int method = Request.Method.POST;
-        String server_url = "http://172.30.1.42:8082/product/insertstock";
+        String server_url = "http://121.147.52.210:8082/product/insertstock";
         request = new StringRequest(
                 method,
                 server_url,

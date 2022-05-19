@@ -89,6 +89,15 @@ public class HomeActivity extends AppCompatActivity {
                 .setAutoCancel(true);;
 
         Intent intent = getIntent();
+        //intent 로 shelf_seq 가져오기
+        int shelf_seq=intent.getIntExtra("shelf_seq",0);
+        //번들객체 생성, text값 저장
+        Bundle bundle = new Bundle();
+        bundle.putInt("shelf_seq",shelf_seq);
+        //fragment1로 번들 전달
+        fragHomemain.setArguments(bundle);
+
+
         if(intent != null){
             NaverUserVO model;
             model = (NaverUserVO) intent.getSerializableExtra("Data");

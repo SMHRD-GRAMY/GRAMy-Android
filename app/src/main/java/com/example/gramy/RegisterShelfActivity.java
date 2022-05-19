@@ -43,9 +43,9 @@ public class RegisterShelfActivity extends AppCompatActivity {
         ShelfAdapter adapter = new ShelfAdapter();
         ArrayList<ShelfVO> items = new ArrayList<ShelfVO>();
         Button buttonInsert,buttonCancel;
-        ArrayList<Dictionary> mArrayList;
-        int count = -1;
-        fragHomemain fragHomemain;
+//        ArrayList<Dictionary> mArrayList;
+//        int count = -1;
+//        fragHomemain fragHomemain;
 
 
         @Override
@@ -63,8 +63,8 @@ public class RegisterShelfActivity extends AppCompatActivity {
             SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
             String user_name = sharedPreferences.getString("user_name", "");
             String user_id = sharedPreferences.getString("user_id","");
-            //선반 목록 가져오기
-            getShelfData(user_id);
+            //선반 목록 가져오기 아이디로부터 가져오기
+            getShelfDataFromId(user_id);
 
             //리사이클러뷰 가져오기
             RecyclerView recyclerView =findViewById(R.id.rcvShelf);
@@ -73,70 +73,73 @@ public class RegisterShelfActivity extends AppCompatActivity {
             adapter.setOnItemClickListener(new OnShelfButtonClickListener() {
                 @Override
                 public void onButtonClick(ShelfAdapter.ViewHolder holder, View view, int position) {
-                    Intent intent = new Intent(getApplicationContext(), reportcheckActivity.class);
+                    ShelfVO item = adapter.getItem(position); // 각각의 게시글
+                    int shelf_seq = item.getShelf_seq(); // 게시글 번호로 조회하기
+                    System.out.println(shelf_seq);
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    intent.putExtra("shelf_seq",shelf_seq);
                     startActivity(intent);
-                    finish();
                 }
             });
 
             recyclerView.setAdapter(adapter);
 
-
-            buttonInsert.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    count++;
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterShelfActivity.this);
-                    View view = LayoutInflater.from(RegisterShelfActivity.this).inflate(R.layout.shelf_editbox, null, false);
-                    builder.setView(view);
-
-                    final Button ButtonSubmitcancle = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);
-                    final Button ButtonSubmit = (Button) view.findViewById(R.id.shelf_button_dialog_submit);
-                    final EditText editTextName = (EditText) view.findViewById(R.id.shelf_edittext_dialog_name);
-
-
-                    ButtonSubmit.setText("등록");
-
-                    final AlertDialog dialog = builder.create();
-
-
-                    ButtonSubmit.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // String strID =  editTextID.getText().toString();
-                            String strName = editTextName.getText().toString();
-
-                            Dictionary dict = new Dictionary(strName);
-                            mArrayList.add(0, dict);
-
-//                            mAdapter.notifyItemInserted(0);
-
-                            dialog.dismiss();
-                        }
-                    });
-
-                    ButtonSubmitcancle.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
-                    dialog.show();
-
-                }
-
-            });
-
-            buttonCancel.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onBackPressed();
-                }
-            });
+//
+//            buttonInsert.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    count++;
+//
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(RegisterShelfActivity.this);
+//                    View view = LayoutInflater.from(RegisterShelfActivity.this).inflate(R.layout.shelf_editbox, null, false);
+//                    builder.setView(view);
+//
+//                    final Button ButtonSubmitcancle = (Button) view.findViewById(R.id.shelf_button_dialog_submit_cancle);
+//                    final Button ButtonSubmit = (Button) view.findViewById(R.id.shelf_button_dialog_submit);
+//                    final EditText editTextName = (EditText) view.findViewById(R.id.shelf_edittext_dialog_name);
+//
+//
+//                    ButtonSubmit.setText("등록");
+//
+//                    final AlertDialog dialog = builder.create();
+//
+//
+//                    ButtonSubmit.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            // String strID =  editTextID.getText().toString();
+//                            String strName = editTextName.getText().toString();
+//
+//                            Dictionary dict = new Dictionary(strName);
+//                            mArrayList.add(0, dict);
+//
+////                            mAdapter.notifyItemInserted(0);
+//
+//                            dialog.dismiss();
+//                        }
+//                    });
+//
+//                    ButtonSubmitcancle.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            dialog.dismiss();
+//                        }
+//                    });
+//                    dialog.show();
+//
+//                }
+//
+//            });
+//
+//            buttonCancel.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    onBackPressed();
+//                }
+//            });
 
         }
-    public void getShelfData (String loginId) {
+    public void getShelfDataFromId (String loginId) {
         int method = Request.Method.POST;
         String server_url = "http://119.200.31.80:8082/product/shelflist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {

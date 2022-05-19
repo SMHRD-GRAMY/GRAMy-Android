@@ -82,20 +82,24 @@ public class fragReportmain extends Fragment {
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                try {
-                    JSONArray jsonArray = new JSONArray(response);
-                    for(int i = 0; i < jsonArray.length(); i++) {
-                        JSONObject listItem = jsonArray.getJSONObject(i);
-                        int shelf_seq = listItem.getInt("shelf_seq");
-                        String shelf_name = listItem.getString("shelf_name");
-                        String user_id = listItem.getString("user_id");
-                        GoreportVO item = new GoreportVO(shelf_seq, shelf_name, user_id);
-                        items.add(item);
+                if(items.size()==0) {
+                    try {
+                        JSONArray jsonArray = new JSONArray(response);
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject listItem = jsonArray.getJSONObject(i);
+                            int shelf_seq = listItem.getInt("shelf_seq");
+                            String shelf_name = listItem.getString("shelf_name");
+                            String user_id = listItem.getString("user_id");
+                            GoreportVO item = new GoreportVO(shelf_seq, shelf_name, user_id);
+                            items.add(item);
+                        }
+                        adapter.setItems(items);
+                        adapter.notifyDataSetChanged();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    adapter.setItems(items);
-                    adapter.notifyDataSetChanged();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                }else{
+
                 }
             }
         }, new Response.ErrorListener() {

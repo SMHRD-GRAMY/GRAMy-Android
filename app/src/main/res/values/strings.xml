@@ -235,6 +235,8 @@
     <!-- Noti -->
     <string name="channel_name">gramy</string>
     <string name="channel_description">알람</string>
+    <!--shelf_item.xml-->
+    <string name="shelfselect_btn">선택</string>
 
 
 </resources>
