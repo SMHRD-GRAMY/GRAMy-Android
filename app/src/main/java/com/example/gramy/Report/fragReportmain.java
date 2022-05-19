@@ -24,9 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.gramy.Adapter.GoreportAdapter;
 import com.example.gramy.Listener.OnReportButtonClickListener;
 import com.example.gramy.R;
-import com.example.gramy.ReportActivity;
 import com.example.gramy.Vo_Info.GoreportVO;
-import com.example.gramy.reportcheckActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
