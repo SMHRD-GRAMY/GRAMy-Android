@@ -177,7 +177,6 @@ public class StockActivity<sPickDate> extends Activity {
 
     //텍스트뷰 갱신
     private void updateDisplay(){
-//        mText.setText(String.format("%d년 %d월 %d일", mYear, mMonth+1, mDay));
         sText.setText(String.format("%d년 %d월 %d일", mYear1, mMonth1+1, mDay1));
     }
 

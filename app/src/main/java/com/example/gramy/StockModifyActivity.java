@@ -3,13 +3,17 @@ package com.example.gramy;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -24,6 +28,7 @@ import com.example.gramy.Vo_Info.StockDetailVO;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,6 +41,10 @@ public class StockModifyActivity extends AppCompatActivity {
     int stock_weight;
     String stock_shelfLife;
     String stock_order;
+    ImageButton selfLife;
+    int Year,Month,Day;
+    //Dialog
+    static final int DATE_DIALOG_ID1 = 1;
 
 
 
@@ -50,6 +59,23 @@ public class StockModifyActivity extends AppCompatActivity {
         updateOrderEdt=findViewById(R.id.updateOrderEdt);
         checkCancelBtn=findViewById(R.id.checkCancelBtn);
         checkModifyBtn=findViewById(R.id.checkModifyBtn);
+        selfLife=findViewById(R.id.selfLife);
+        selfLife.bringToFront();
+
+        //시간설정 이벤트
+        selfLife.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog(DATE_DIALOG_ID1);
+            }
+        });
+        //현재 날짜,시간 가져오기
+        final Calendar c = Calendar.getInstance();
+        Year = c.get(Calendar.YEAR);
+        Month = c.get(Calendar.MONTH);
+        Day = c.get(Calendar.DAY_OF_MONTH);
+        //텍스트뷰 갱신
+        updateDisplay();
 
         //큐초기화
         queue = Volley.newRequestQueue(StockModifyActivity.this);
@@ -132,4 +158,30 @@ public class StockModifyActivity extends AppCompatActivity {
         queue.add(request);
     }
 
+    //텍스트뷰 갱신
+    private void updateDisplay(){
+        updateShelfLifeEdt.setText(String.format("%d년 %d월 %d일", Year, Month+1, Day));
+    }
+
+    //DatePicker 리스너
+    private DatePickerDialog.OnDateSetListener mDateSetListener1 =
+            new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    Year = year;
+                    Month = monthOfYear;
+                    Day = dayOfMonth;
+                    updateDisplay();
+                }
+            };
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DATE_DIALOG_ID1 :
+                return new DatePickerDialog(this, mDateSetListener1, Year, Month, Day);
+        }
+
+        return null;
+    }
 }

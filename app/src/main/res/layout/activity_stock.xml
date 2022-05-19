@@ -153,30 +153,7 @@
             app:layout_constraintEnd_toEndOf="@+id/stockShelfLifeEdt"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/stockShelfLifeEdt"
-            app:layout_constraintTop_toBottomOf="@+id/stockShelfLifeEdt" /><![CDATA[
-
-
-
-
-
-        app:layout_constraintBottom_toBottomOf="@+id/stockWeightEdt"
-            app:layout_constraintEnd_toEndOf="@+id/id_listitem2"
-            app:layout_constraintStart_toStartOf="@+id/id_listitem2"
-            app:layout_constraintTop_toTopOf="@+id/stockWeightEdt" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-        ]]>
+            app:layout_constraintTop_toBottomOf="@+id/stockShelfLifeEdt" />
 
         <TextView
             android:id="@+id/textView4"

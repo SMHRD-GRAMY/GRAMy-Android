@@ -161,7 +161,6 @@
             android:id="@+id/checkModifyBtn"
             android:layout_width="110dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/stockWeightEdt"
             android:layout_centerHorizontal="true"
             android:layout_gravity='center'
             android:layout_marginTop="8dp"
@@ -185,6 +184,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/packageimg" />
+
+        <ImageButton
+            android:id="@+id/selfLife"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="85dp"
+            android:background="@drawable/calendar"
+            android:backgroundTint="#7A121212"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"></ImageButton>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
