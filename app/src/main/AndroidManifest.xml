@@ -15,7 +15,7 @@
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".reportcheckActivity"
+            android:name=".LoadingActivity"
             android:exported="false" />
         <activity
             android:name=".StockModifyActivity"
@@ -80,15 +80,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GoBoardActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ReportActivity"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".GoPdCheck"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -100,7 +92,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Join_Login.LoginActivity"
+            android:name=".Report.reportcheckActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -111,7 +103,7 @@
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".LoadingActivity"
+            android:name=".Join_Login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
