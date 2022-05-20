@@ -5,6 +5,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.SymbolTable;
 import android.os.Bundle;
 
 
@@ -16,6 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +55,7 @@ public class fragHomemain extends Fragment {
     TextView tvShelfTitle;
     Button btnShelfRegister;
     int shelf_seq;
+    Switch operationSwitch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,7 +64,9 @@ public class fragHomemain extends Fragment {
 
         tvShelfTitle = view.findViewById(R.id.tvShelfTitle);
         btnShelfRegister = view.findViewById(R.id.btnShelfRegister);
+        operationSwitch=view.findViewById(R.id.operationSwitch);
         queue = Volley.newRequestQueue(getContext());
+
 
         // 현재 로그인 한 유저 정보 가져오기
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("sf_login", Context.MODE_PRIVATE);
@@ -68,16 +74,16 @@ public class fragHomemain extends Fragment {
         String writerId = sharedPreferences.getString("user_id","");
 
 
+        //액티비티에서 프래그먼트로 전달되는 데이터 가져오기
         Bundle bundle = getArguments();
         if(bundle != null){
             shelf_seq = bundle.getInt("shelf_seq");
         }
 
-
+        // default 값을 0으로 해서 0일 경우 아이디를 통해 가져오고 아닐경우 선반 번호를 통해 가져오기
         if(shelf_seq==0) {
             getStockListFromId(writerId, view);
         }else{
-            System.out.println(shelf_seq);
             getStockListFromSeq(shelf_seq,view);
         }
 
@@ -89,9 +95,22 @@ public class fragHomemain extends Fragment {
                         startActivity(intent);
                     }
                 }) ;
+        //스위치 기능을 통한 라즈베리파이 작동
+        operationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+                    System.out.println("true");
+                    operationHardware(writerId,shelf_seq);
+                }else{
+                    System.out.println("false");
+                }
+            }
+        });
         return view;
     }
-    // 목록 가져오는 메서드
+    // 목록 가져오는 메서드 아이디를 통해
     private void getStockListFromId(String writerId, View view) {
         int method = Request.Method.POST;
         String server_url = "http://121.147.52.210:8082/product/stocklist";
@@ -218,6 +237,7 @@ public class fragHomemain extends Fragment {
         };
         queue.add(request);
     }
+    //목록 가져오는 메서드 선반 번호를 통해
     private void getStockListFromSeq(int shelf_seq, View view) {
         int method = Request.Method.POST;
         String server_url = "http://121.147.52.210:8082/product/returnlist";
@@ -342,4 +362,33 @@ public class fragHomemain extends Fragment {
         };
         queue.add(request);
     }
+
+    private void operationHardware(String user_id,int Shelf_seq){
+        int method = Request.Method.POST;
+        String server_url = "";// 하드웨어 url
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getContext(), "작동", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(), "통신오류", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                // 보낼 데이터
+                // 1. title, content, user_id, user_name
+                Map<String, String> param = new HashMap<>();
+                param.put("user_id",user_id);
+                param.put("shelf_seq", String.valueOf(shelf_seq));
+                return param;
+            }
+        };
+        queue.add(request);
+    }
+
 }
