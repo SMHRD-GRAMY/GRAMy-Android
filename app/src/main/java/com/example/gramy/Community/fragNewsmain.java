@@ -1,13 +1,14 @@
 package com.example.gramy.Community;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.constraintlayout.motion.widget.OnSwipe;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -96,7 +97,6 @@ public class fragNewsmain extends Fragment {
             }
         });
         queue = Volley.newRequestQueue(view.getContext());
-
         getBoardData();
 
         new NewsTask().execute();
@@ -104,6 +104,11 @@ public class fragNewsmain extends Fragment {
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     private void getBoardData() {
