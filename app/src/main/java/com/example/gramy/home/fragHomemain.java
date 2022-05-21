@@ -56,7 +56,6 @@ public class fragHomemain extends Fragment {
     TextView tvShelfTitle;
     Button btnShelfRegister;
     int shelf_seq;
-    Switch operationSwitch;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,7 +64,6 @@ public class fragHomemain extends Fragment {
 
         tvShelfTitle = view.findViewById(R.id.tvShelfTitle);
         btnShelfRegister = view.findViewById(R.id.btnShelfRegister);
-        operationSwitch=view.findViewById(R.id.operationSwitch);
         queue = Volley.newRequestQueue(getContext());
 
 
@@ -102,18 +100,6 @@ public class fragHomemain extends Fragment {
                     }
                 }) ;
         //스위치 기능을 통한 라즈베리파이 작동
-        operationSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
-
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b){
-//                    System.out.println("true");
-//                    setStockDeivce(shelf_seq);
-                }else{
-//                    System.out.println("false");
-                }
-            }
-        });
         return view;
     }
     // 목록 가져오는 메서드 아이디를 통해
