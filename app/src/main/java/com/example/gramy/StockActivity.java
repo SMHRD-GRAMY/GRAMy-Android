@@ -33,22 +33,18 @@ public class StockActivity<sPickDate> extends Activity {
 
     int shelf_seq;
     EditText stockNameEdt,stockWeightEdt,stockOrderEdt;
-    Button btnenroll1;
+    Button btnenroll1,getWeightBtn;
     RequestQueue queue;
     StringRequest request;
     //View
     private TextView sText;
     private ImageButton ddPickDate; // dd : s
     //년,월,일,시,분
-    private int mYear;
-    private int mMonth;
-    private int mDay;
-    private int mYear1;
-    private int mMonth1;
-    private int mDay1;
+    private int mYear,mMonth,mDay,mYear1,mMonth1,mDay1;
     //Dialog
     static final int DATE_DIALOG_ID = 0;
     static final int DATE_DIALOG_ID1 = 1;
+    int id;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,6 +53,7 @@ public class StockActivity<sPickDate> extends Activity {
         setContentView(R.layout.activity_stock);
 
         //초기화
+        getWeightBtn=findViewById(R.id.getWeightBtn);
         btnenroll1 = findViewById(R.id.checkModifyBtn);
         stockNameEdt=findViewById(R.id.stockNameEdt);
         stockWeightEdt=findViewById(R.id.stockWeightEdt);
@@ -91,15 +88,18 @@ public class StockActivity<sPickDate> extends Activity {
 
         queue = Volley.newRequestQueue(StockActivity.this);
         Intent intent=getIntent();
-
+        id=intent.getIntExtra("id",0);
         shelf_seq=intent.getIntExtra("shelf_seq",0);
         System.out.println(shelf_seq);
 
-
-
-
-
-
+        //무게 가져오는 버튼
+        getWeightBtn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(id);
+                getWeight(id);
+            }
+        });
 
         //등록 및 위치 변경 버튼
         btnenroll1.setOnClickListener(new View.OnClickListener() {
@@ -109,13 +109,9 @@ public class StockActivity<sPickDate> extends Activity {
                 String shelf_seq = String.valueOf(intent.getIntExtra("shelf_seq", 0));
                 System.out.println(shelf_seq);
                 String name=stockNameEdt.getText().toString();
-//                System.out.println(name);
                 String weight=String.valueOf(stockWeightEdt.getText());
-//                System.out.println(weight);
                 String shelfLife=sText.getText().toString();
-//                System.out.println(sText);
                 String order=stockOrderEdt.getText().toString();
-//                System.out.println(order);
 
                 insertStock(shelf_seq,name,weight,shelfLife,order);
                 Toast.makeText(StockActivity.this,
@@ -171,6 +167,8 @@ public class StockActivity<sPickDate> extends Activity {
         queue.add(request);
     }
         });
+
+
     }
 
 
@@ -178,6 +176,27 @@ public class StockActivity<sPickDate> extends Activity {
     //텍스트뷰 갱신
     private void updateDisplay(){
         sText.setText(String.format("%d년 %d월 %d일", mYear1, mMonth1+1, mDay1));
+    }
+
+    // 무게 가져오는 메서드
+    private void getWeight(int id){
+        int method = Request.Method.GET;
+        String server_url = "http://172.30.1.44:8083/getweight/"+id;// 하드웨어 url
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                String setWeight=response;
+                stockWeightEdt.setText(setWeight);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        queue.add(request);
     }
 
     //DatePicker 리스너

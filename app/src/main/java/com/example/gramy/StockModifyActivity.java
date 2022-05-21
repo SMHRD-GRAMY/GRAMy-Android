@@ -34,8 +34,9 @@ import java.util.Map;
 
 public class StockModifyActivity extends AppCompatActivity {
     EditText updateNameEdt,updateWeightEdt,updateShelfLifeEdt,updateOrderEdt;
-    Button checkCancelBtn,checkModifyBtn;
+    Button checkCancelBtn,checkModifyBtn,modifyWeightBtn;
     RequestQueue queue;
+    int id;
     int stock_seq;
     String stock_name;
     int stock_weight;
@@ -52,7 +53,7 @@ public class StockModifyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stock_modify);
-
+        modifyWeightBtn=findViewById(R.id.modifyWeightBtn);
         updateNameEdt=findViewById(R.id.updateNameEdt);
         updateWeightEdt=findViewById(R.id.updateWeightEdt);
         updateShelfLifeEdt=findViewById(R.id.updateShelfLifeEdt);
@@ -81,6 +82,7 @@ public class StockModifyActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(StockModifyActivity.this);
         //인텐트를 통한 선반 번호 가져오기
         Intent intent=getIntent();
+        id=intent.getIntExtra("id",0);
         stock_seq=intent.getIntExtra("stock_seq",0);
         System.out.println(stock_seq);
         stock_name=intent.getStringExtra("stock_name");
@@ -107,6 +109,14 @@ public class StockModifyActivity extends AppCompatActivity {
                 updateStock(stock_seq,stock_name,stock_weight,stock_shelfLife,stock_order);
             }
         });
+        modifyWeightBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println(id);
+                getWeight(id);
+            }
+        });
+
         checkCancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +125,7 @@ public class StockModifyActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
 
     }
@@ -154,6 +165,27 @@ public class StockModifyActivity extends AppCompatActivity {
                 return param;
             }
         };
+
+        queue.add(request);
+    }
+
+    // 무게 가져오는 메서드
+    private void getWeight(int id){
+        int method = Request.Method.GET;
+        String server_url = "http://172.30.1.44:8083/getweight/"+id;// 하드웨어 url
+        StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                String setWeight=response;
+                updateWeightEdt.setText(setWeight);
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
 
         queue.add(request);
     }
