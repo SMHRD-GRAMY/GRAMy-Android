@@ -15,7 +15,7 @@
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".LoadingActivity"
+            android:name=".Join_Login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".StockModifyActivity"
@@ -103,7 +103,7 @@
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".Join_Login.LoginActivity"
+            android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
