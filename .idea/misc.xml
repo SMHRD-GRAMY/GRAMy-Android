@@ -78,12 +78,14 @@
         <entry key="app/src/main/res/layout/activity_go_mg_shelf.xml" value="0.26944444444444443" />
         <entry key="app/src/main/res/layout/activity_go_report.xml" value="0.26944444444444443" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.31666666666666665" />
+        <entry key="app/src/main/res/layout/activity_join.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.4118423461914063" />
         <entry key="app/src/main/res/layout/activity_stock.xml" value="0.2820256551106769" />
         <entry key="app/src/main/res/layout/activity_stock_check.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/comments_item.xml" value="0.26944444444444443" />
         <entry key="app/src/main/res/layout/fragment_add_store.xml" value="0.35555555555555557" />
         <entry key="app/src/main/res/layout/fragment_beta_service.xml" value="0.35555555555555557" />
+        <entry key="app/src/main/res/layout/fragment_frag_homemain.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/layout/fragment_frag_newsmain.xml" value="0.27171922872622556" />
         <entry key="app/src/main/res/layout/fragment_frag_settingmain.xml" value="0.1" />
         <entry key="app/src/main/res/menu/item_menu.xml" value="0.35555555555555557" />
