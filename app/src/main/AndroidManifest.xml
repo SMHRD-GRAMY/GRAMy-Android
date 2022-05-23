@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gramy">
     <!-- 인터넷 권한 설정 -->
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
+    <uses-permission android:name="android.permission.INTERNET" /><!-- 인터넷 연결 확인 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -15,7 +15,7 @@
         android:theme="@style/Theme.GRAMy"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".LoadingActivity"
+            android:name=".Join_Login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".StockModifyActivity"
@@ -38,6 +38,12 @@
         </activity>
         <activity
             android:name=".CommentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Join_Login.FindIdActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Join_Login.FindPwActivity"
             android:exported="false" />
         <activity
             android:name=".BoardUpdateActivity"
@@ -92,7 +98,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Join_Login.LoginActivity"
+            android:name=".Report.reportcheckActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -103,7 +109,7 @@
             android:name=".BetaServiceActivity"
             android:exported="false" />
         <activity
-            android:name=".Report.reportcheckActivity"
+            android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

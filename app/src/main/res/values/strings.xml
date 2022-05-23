@@ -221,6 +221,7 @@
     <string name="facebook_client_token">672585b0577dba8fd54b318a9b912882</string>
 
     <!--StockActivity-->
+    <string name="operationSwitchName">실시간측정</string>
     <string name="tvStockName">재고명</string>
     <string name="tvShelfLifeName">유통기한</string>
     <string name="tvWeightName">현재무게</string>

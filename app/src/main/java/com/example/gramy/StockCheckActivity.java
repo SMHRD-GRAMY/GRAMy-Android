@@ -39,6 +39,7 @@ public class StockCheckActivity extends AppCompatActivity {
     TextView checkPercentTv;
     int firstWeight,secondWeight;
     int stock_seq;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,8 @@ public class StockCheckActivity extends AppCompatActivity {
         queue = Volley.newRequestQueue(StockCheckActivity.this);
         //인텐트를 통한 선반 번호 가져오기
         Intent intent=getIntent();
+        id=intent.getIntExtra("id",0);
+        System.out.println(id);
         stock_seq=intent.getIntExtra("stock_seq",0);
         //선반의 디테일 내용 가져오기
         getDetail(stock_seq);
@@ -73,6 +76,7 @@ public class StockCheckActivity extends AppCompatActivity {
                 StockDetailVO StockDetailVO=items.get(0);
                 System.out.println(StockDetailVO);
                 //선반 번호 물품 이름 무게 유통기한 보내기
+                intent.putExtra("id",id);
                 intent.putExtra("stock_seq",items.get(0).getStock_seq());
                 intent.putExtra("stock_name",items.get(0).getStock_name());
                 intent.putExtra("stock_weight",items.get(0).getStock_weight());
@@ -99,7 +103,7 @@ public class StockCheckActivity extends AppCompatActivity {
     // 목록 가져오는 메서드
     private void getDetail(int stock_seq) {
         int method = Request.Method.POST;
-        String server_url = "http://121.147.52.210:8082/product/detailItem";
+        String server_url = "http://172.30.1.21:8082/product/detailItem";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

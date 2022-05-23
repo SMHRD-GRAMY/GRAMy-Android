@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<network-security-config>
-    <domain-config cleartextTrafficPermitted="true">
-        <domain includeSubdomains="true">https://fs.jtbc.joins.com//RSS/economy.xml</domain>
-        <domain includeSubdomains="true">localhost</domain>
-        <domain includeSubdomains="true">121.147.52.210:8082</domain>
-    </domain-config>
-</network-security-config>

@@ -39,6 +39,7 @@ public class fragReportmain extends Fragment {
     RequestQueue queue;
     GoreportAdapter adapter = new GoreportAdapter();
     ArrayList<GoreportVO> items = new ArrayList<GoreportVO>();
+    int shelf_seq;
     RecyclerView rcvShelf;
 
     @Override
@@ -63,6 +64,9 @@ public class fragReportmain extends Fragment {
             @Override
             public void onButtonClick(GoreportAdapter.ViewHolder holder, View view, int position) {
                 Intent intent = new Intent(getActivity().getApplicationContext(), reportcheckActivity.class);
+                System.out.println(shelf_seq);
+                intent.putExtra("shelf_seq",shelf_seq);
+                System.out.println(shelf_seq);
                 startActivity(intent);
             }
         });
@@ -76,7 +80,7 @@ public class fragReportmain extends Fragment {
 
     public void getShelfData (String loginId) {
         int method = Request.Method.POST;
-        String server_url = "http://119.200.31.65:8082/product/shelflist";
+        String server_url = "http://172.30.1.21:8082/product/shelflist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -85,7 +89,7 @@ public class fragReportmain extends Fragment {
                         JSONArray jsonArray = new JSONArray(response);
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject listItem = jsonArray.getJSONObject(i);
-                            int shelf_seq = listItem.getInt("shelf_seq");
+                            shelf_seq = listItem.getInt("shelf_seq");
                             String shelf_name = listItem.getString("shelf_name");
                             String user_id = listItem.getString("user_id");
                             GoreportVO item = new GoreportVO(shelf_seq, shelf_name, user_id);
