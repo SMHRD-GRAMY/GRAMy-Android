@@ -133,7 +133,7 @@ public class JoinActivity extends AppCompatActivity {
         System.out.println(id);
 
         int method = Request.Method.POST;
-        String server_url = "http://121.147.52.210:8082/userIdCk.do";
+        String server_url = "http://119.200.31.80:8082/userIdCk.do";
 
         request = new StringRequest(
                 method,
@@ -174,7 +174,7 @@ public class JoinActivity extends AppCompatActivity {
         System.out.println(id);
 
         int method = Request.Method.POST;
-        String server_url = "http://121.147.52.210:8082/androidjoin.do";
+        String server_url = "http://119.200.31.80:8082/androidjoin.do";
 
         request = new StringRequest(
                 method,

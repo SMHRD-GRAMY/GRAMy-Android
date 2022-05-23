@@ -181,7 +181,7 @@ public class StockActivity<sPickDate> extends Activity {
     // 무게 가져오는 메서드
     private void getWeight(int id){
         int method = Request.Method.GET;
-        String server_url = "http://172.30.1.44:8083/getweight/"+id;// 하드웨어 url
+        String server_url = "http://119.200.31.80:8083/getweight/"+id;// 하드웨어 url
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

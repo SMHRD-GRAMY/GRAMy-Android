@@ -80,7 +80,7 @@ public class fragReportmain extends Fragment {
 
     public void getShelfData (String loginId) {
         int method = Request.Method.POST;
-        String server_url = "http://172.30.1.21:8082/product/shelflist";
+        String server_url = "http://119.200.31.80:8082/product/shelflist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

@@ -164,6 +164,10 @@ public class fragHomemain extends Fragment {
                             }
                             System.out.println(items.get(i).getStock_name());
                             nameList.add(items.get(i).getStock_name());
+                            if(items.get(0).getStock_name().equals("물품등록")){
+                                System.out.println(items.get(0).getStock_name());
+                                items.clear();
+                            }
                         };
                         for(int i=0; i<items.size(); i++) {
                             String buttonID = "btnStock" + (i+1);
@@ -294,7 +298,8 @@ public class fragHomemain extends Fragment {
                             System.out.println(items.get(i).getStock_name());
                             nameList.add(items.get(i).getStock_name());
                         };
-                        if(items.get(0).getStock_name().equals("null")){
+                        if(items.get(0).getStock_name().equals("물품등록")){
+                            System.out.println(items.get(0).getStock_name());
                             items.clear();
                         }
                         for(int i=0; i<items.size(); i++) {
