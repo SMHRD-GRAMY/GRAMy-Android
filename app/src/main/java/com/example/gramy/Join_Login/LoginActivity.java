@@ -175,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int method = Request.Method.POST;
-                String server_url = "http://121.147.52.210:8082/androidlogin.do";
+                String server_url = "http://172.30.1.52:8082/androidlogin.do";
 
                 request = new StringRequest(
                         method,
