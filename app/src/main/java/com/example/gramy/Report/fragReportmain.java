@@ -63,7 +63,7 @@ public class fragReportmain extends Fragment {
         adapter.setOnItemClickListener(new OnReportButtonClickListener() {
             @Override
             public void onButtonClick(GoreportAdapter.ViewHolder holder, View view, int position) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), reportcheckActivity.class);
+                Intent intent = new Intent(getActivity().getApplicationContext(), com.example.gramy.Report.reportcheckActivity.class);
                 System.out.println(shelf_seq);
                 intent.putExtra("shelf_seq",shelf_seq);
                 System.out.println(shelf_seq);

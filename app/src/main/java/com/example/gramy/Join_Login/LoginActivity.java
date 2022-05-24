@@ -31,6 +31,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
+import com.example.gramy.StockActivity;
 import com.example.gramy.TutorialActivity;
 import com.example.gramy.Vo_Info.GramyUserVO;
 import com.example.gramy.Vo_Info.UserInfo;
@@ -175,7 +176,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.80:8082/androidlogin.do";
+                String server_url = "http://172.30.1.52:8082/androidlogin.do";
 
                 request = new StringRequest(
                         method,

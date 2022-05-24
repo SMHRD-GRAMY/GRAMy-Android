@@ -73,7 +73,7 @@ public class BoardWriteActivity extends AppCompatActivity {
 
     public void writeBoard (String writerId, String writerName, String inputTitle, String inputContent) {
         int method = Request.Method.POST;
-        String server_url = "http://211.48.228.51:8082/app/insert";
+        String server_url = "http://172.30.1.52:8082/app/insert";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

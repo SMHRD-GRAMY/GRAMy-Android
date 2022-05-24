@@ -36,7 +36,6 @@ public class JoinActivity extends AppCompatActivity {
     String chbResult = "";
     String id,pw,pwCheck,name,phone,addr,gender;
     boolean radio_group_your_choice = true;
-    boolean button = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,15 +77,11 @@ public class JoinActivity extends AppCompatActivity {
         btnJoinIdCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                id = edtJoinId.getText().toString();
-                System.out.println(id);
-                if (id.isEmpty()) {
-                    Log.d("click", "isEmpty");
-                    Toast.makeText(JoinActivity.this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                } else {
-                   idcheck(id);
 
-                }
+                edtJoinId = findViewById(R.id.edtJoinId);
+                idcheck(id);
+
+
             }
         });
 
@@ -126,14 +121,16 @@ public class JoinActivity extends AppCompatActivity {
 
 
 
+
     }
+
     //volly로 아이디중복체크
-    public void idCheck(String id){
+    private void idCheck2(String id){
         Log.v("성별", "값 : " + chbResult);
         System.out.println(id);
 
         int method = Request.Method.POST;
-        String server_url = "http://119.200.31.80:8082/userIdCk.do";
+        String server_url = "http://172.30.1.52:8082/userIdCk.do";
 
         request = new StringRequest(
                 method,
@@ -166,13 +163,11 @@ public class JoinActivity extends AppCompatActivity {
             }
         };
         queue.add(request);
-
     }
 
     //volly로 가입가능한 아이디 여부확인하기
     public void idcheck(String id){
         System.out.println(id);
-
         int method = Request.Method.POST;
         String server_url = "http://119.200.31.80:8082/androidjoin.do";
 

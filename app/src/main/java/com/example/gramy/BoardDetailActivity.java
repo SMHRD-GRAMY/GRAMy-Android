@@ -120,7 +120,7 @@ public class BoardDetailActivity extends AppCompatActivity {
 
     public void getData(int board_seq) {
         int method = Request.Method.POST;
-        String server_url = "http://211.48.228.51:8082/app/detail";
+        String server_url = "http://172.30.1.52:8082/app/detail";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

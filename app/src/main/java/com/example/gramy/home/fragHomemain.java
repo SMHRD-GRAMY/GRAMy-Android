@@ -105,7 +105,7 @@ public class fragHomemain extends Fragment {
     // 목록 가져오는 메서드 아이디를 통해
     private void getStockListFromId(String writerId, View view) {
         int method = Request.Method.POST;
-        String server_url = "http://121.147.52.210:8082/product/stocklist";
+        String server_url = "http://172.30.1.52:8082/product/stocklist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -239,7 +239,7 @@ public class fragHomemain extends Fragment {
     //목록 가져오는 메서드 선반 번호를 통해
     private void getStockListFromSeq(int shelf_seq, View view) {
         int method = Request.Method.POST;
-        String server_url = "http://121.147.52.210:8082/product/returnlist";
+        String server_url = "http://172.30.1.52:8082/product/returnlist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -374,7 +374,7 @@ public class fragHomemain extends Fragment {
 
     private void setStockDeivce(int id,int stock_seq){
         int method = Request.Method.GET;
-        String server_url = "http://172.30.1.44:8083/run/"+id+"?stock_seq="+stock_seq;// 하드웨어 url
+        String server_url = "http://172.30.1.40:8083/run/"+id+"?stock_seq="+stock_seq;// 하드웨어 url
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

@@ -103,7 +103,7 @@ public class StockCheckActivity extends AppCompatActivity {
     // 목록 가져오는 메서드
     private void getDetail(int stock_seq) {
         int method = Request.Method.POST;
-        String server_url = "http://119.200.31.80:8082/product/detailItem";
+        String server_url = "http://172.30.1.52:8082/product/detailItem";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

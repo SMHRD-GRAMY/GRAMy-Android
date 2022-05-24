@@ -133,7 +133,7 @@ public class StockModifyActivity extends AppCompatActivity {
     // 수정하는메서드
     private void updateStock(int stock_seq,String stock_name,int stock_weight, String stock_shelfLife,String stock_order) {
         int method = Request.Method.POST;
-        String server_url = "http://172.30.1.21:8082/product/updatestock";
+        String server_url = "http://172.30.1.52:8082/product/updatestock";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

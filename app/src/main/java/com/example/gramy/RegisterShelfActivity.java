@@ -170,7 +170,7 @@ public class RegisterShelfActivity extends AppCompatActivity {
     }
     public void sendShelfName (String loginId,String shelf_name) {
         int method = Request.Method.POST;
-        String server_url = "http://121.147.52.210:8082/product/insertshelf";
+        String server_url = "http://172.30.1.52:8082/product/insertshelf";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

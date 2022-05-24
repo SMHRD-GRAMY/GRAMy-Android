@@ -135,7 +135,7 @@ public class StockActivity<sPickDate> extends Activity {
                     public void onResponse(String response) {
                         try {
                             if(response.equals("success")) {
-                                Toast.makeText(getApplicationContext(), "게시글이 수정되었습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "물품이 등록되었습니다.", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -181,7 +181,7 @@ public class StockActivity<sPickDate> extends Activity {
     // 무게 가져오는 메서드
     private void getWeight(int id){
         int method = Request.Method.GET;
-        String server_url = "http://119.200.31.80:8083/getweight/"+id;// 하드웨어 url
+        String server_url = "http://172.30.1.40:8083/getweight/"+id;// 하드웨어 url
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
