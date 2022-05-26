@@ -39,7 +39,7 @@ public class CommentsActivity extends AppCompatActivity {
     RequestQueue queue;
     CommentsAdapter commentsAdapter = new CommentsAdapter();
     ArrayList<CommentVO> items = new ArrayList<CommentVO>();
-    TextView tvCommentsBack, tvCommentsTitle;
+    TextView tvCommentsBack, tvCommentsTitle, tvDeleteComment, tvEditComment;
     EditText edtComment;
     Button btnWriteComment;
 
@@ -58,6 +58,8 @@ public class CommentsActivity extends AppCompatActivity {
         tvCommentsTitle = findViewById(R.id.tvCommentsTitle);
         edtComment = findViewById(R.id.edtComment);
         btnWriteComment = findViewById(R.id.btnWriteComment);
+        tvDeleteComment = findViewById(R.id.tvDeleteComment);
+
 
         RecyclerView recyclerView = findViewById(R.id.commentsRecyclerView);
 
@@ -85,11 +87,6 @@ public class CommentsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String comment = edtComment.getText().toString();
                 writeComment(tb_a_seq, comment, writerId, writerName);
-                finish();
-                overridePendingTransition(0, 0);
-                Intent intent = getIntent();
-                startActivity(intent);
-                overridePendingTransition(0, 0);
             }
         });
 
@@ -99,10 +96,6 @@ public class CommentsActivity extends AppCompatActivity {
             public void onItemDelete(CommentsAdapter.ViewHolder holder, View view, int position) {
                 int ar_seq = items.get(position).getAr_seq();
                 deleteComment(ar_seq);
-                overridePendingTransition(0, 0);
-                Intent intent = getIntent();
-                startActivity(intent);
-                overridePendingTransition(0, 0);
             }
         });
 
@@ -111,7 +104,7 @@ public class CommentsActivity extends AppCompatActivity {
 
     public void getCommentData (int tb_a_seq) {
         int method = Request.Method.POST;
-        String server_url = "http://211.48.228.51:8082/app/replylist";
+        String server_url = "http://172.30.1.52:8082/app/replylist";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -159,6 +152,9 @@ public class CommentsActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if(response.equals("success")) {
                     Toast.makeText(CommentsActivity.this, "댓글이 작성되었습니다!", Toast.LENGTH_SHORT).show();
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
                     edtComment.setText("");
                 } else {
                     Toast.makeText(CommentsActivity.this, "댓글 작성 중 오류 발생!", Toast.LENGTH_SHORT).show();
@@ -194,6 +190,9 @@ public class CommentsActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 if(response.equals("success")) {
                     Toast.makeText(CommentsActivity.this, "댓글이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
                 } else {
                     Toast.makeText(CommentsActivity.this, "댓글 삭제중 문제가 발생했습니다.", Toast.LENGTH_SHORT).show();
                 }

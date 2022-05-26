@@ -20,25 +20,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.gramy.GoPdCheck;
+import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
+import com.example.gramy.Vo_Info.ShelfVO;
 
 import java.util.ArrayList;
 
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
-    private ArrayList<Dictionary> mList;
+    private ArrayList<ShelfVO> mList;
     private Context mContext;
 
 
     public class CustomViewHolder extends RecyclerView.ViewHolder  implements View.OnCreateContextMenuListener{
-        // protected TextView id;
+
         protected TextView name;
 
         public CustomViewHolder(View view) {
             super(view);
-            // this.id = (TextView) view.findViewById(R.id.list_listitem);
+
             this.name = (TextView) view.findViewById(R.id.name_listitem);
 
             view.setOnCreateContextMenuListener(this);
@@ -73,7 +74,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
 
                         // editTextID.setText(mList.get(getAdapterPosition()).getList());
-                        editTextName.setText(mList.get(getAdapterPosition()).getName());
+                        editTextName.setText(mList.get(getAdapterPosition()).getShelf_name());
 
 
 
@@ -84,9 +85,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                                 // String strID = editTextID.getText().toString();
                                 String strName = editTextName.getText().toString();
 
-                                Dictionary dict = new Dictionary(strName);
+                                ShelfVO vo = new ShelfVO(strName);
 
-                                mList.set(getAdapterPosition(), dict);
+                                mList.set(getAdapterPosition(), vo);
 
                                 notifyItemChanged(getAdapterPosition());
 
@@ -119,7 +120,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         };
     }
 
-    public CustomAdapter(Context context, ArrayList<Dictionary> list) {
+    public CustomAdapter(Context context, ArrayList<ShelfVO> list) {
         this.mList = list;
         mContext = context;
     }
@@ -136,19 +137,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder viewHolder, int position) {
-        // viewHolder.id.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+
         viewHolder.name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
 
-        // viewHolder.id.setGravity(Gravity.CENTER);
         viewHolder.name.setGravity(Gravity.CENTER);
 
-        // viewHolder.id.setText(mList.get(position).getId());
-        viewHolder.name.setText(mList.get(position).getName());
+        viewHolder.name.setText(mList.get(position).getShelf_name());
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent = new Intent(viewHolder.itemView.getContext(), GoPdCheck.class);
+            Intent intent = new Intent(viewHolder.itemView.getContext(), HomeActivity.class);
                 ContextCompat.startActivity(viewHolder.itemView.getContext(), intent, null);
             }
         });

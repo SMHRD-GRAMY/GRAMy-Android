@@ -1,34 +1,29 @@
 package com.example.gramy.setting;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.gramy.HomeActivity;
-import com.example.gramy.LoginActivity;
+import com.example.gramy.Join_Login.LoginActivity;
 import com.example.gramy.R;
 import com.kakao.auth.Session;
-import com.kakao.sdk.user.UserApiClient;
-import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.nhn.android.naverlogin.OAuthLogin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import kotlin.Unit;
 
 public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemViewHolder> implements OnListClickListener{
 
@@ -36,6 +31,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
     private TextView tvSettingItem, tvVersion;
     private ImageView imgSettingItem;
     private ArrayList<SettingData> Setting_Data;
+    private static OAuthLogin mOAuthLoginInstance;
 
     fragModify fragModify;
 
@@ -135,7 +131,8 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
                     // if (카카오||일반 로그인 상태 아닐 때){
                         Toast.makeText(context,"로그인 후 로그아웃이 가능합니다.", Toast.LENGTH_SHORT).show();
                 }*/
-
+                    Logout();
+                    NaverLogout();
                     btnBackVis();
                 }
                 else if(pos == 8){
@@ -216,6 +213,18 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.ItemView
         public void KakaoLogout(){
             // 자동으로 로그인 호출되는 코드
             Session.getCurrentSession().checkAndImplicitOpen();
+        }
+
+        // 네이버 로그아웃
+        public void NaverLogout(){
+            mOAuthLoginInstance.logout((LoginActivity)context);
+        }
+
+        public void Logout(){
+            SharedPreferences sp = context.getSharedPreferences("sf_login", Activity.MODE_PRIVATE);
+            SharedPreferences.Editor spEdit = sp.edit();
+            spEdit.clear();
+            spEdit.commit();
         }
     }
 }

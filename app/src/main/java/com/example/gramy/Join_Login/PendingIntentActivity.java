@@ -1,14 +1,16 @@
-package com.example.gramy;
+package com.example.gramy.Join_Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class GoReportActivity extends AppCompatActivity {
+import com.example.gramy.R;
+
+public class PendingIntentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_go_report);
+        setContentView(R.layout.activity_pending_intent);
     }
 }

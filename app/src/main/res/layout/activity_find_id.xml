@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Join_Login.FindIdActivity">
+
+    <EditText
+        android:id="@+id/edtFindidName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/edtHintFindIdName"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFindIdName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.175"
+        app:layout_constraintStart_toEndOf="@+id/tvFindIdName"
+        app:layout_constraintTop_toTopOf="@+id/tvFindIdName"
+        app:layout_constraintVertical_bias="0.423" />
+
+    <EditText
+        android:id="@+id/edtFindIdPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/edtHintFindIdPhone"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFindIdPhone"
+        app:layout_constraintEnd_toEndOf="@+id/edtFindidName"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tvFindIdPhone"
+        app:layout_constraintTop_toTopOf="@+id/tvFindIdPhone" />
+
+    <TextView
+        android:id="@+id/tvFindIdTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="@string/tvFindIdTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFindIdName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="@string/tvFindIdName"
+        app:layout_constraintEnd_toEndOf="@+id/tvFindIdTitle"
+        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvFindIdTitle" />
+
+    <TextView
+        android:id="@+id/tvFindIdPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="@string/tvFindIdPhone"
+        app:layout_constraintEnd_toEndOf="@+id/tvFindIdName"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvFindIdName"
+        app:layout_constraintTop_toBottomOf="@+id/tvFindIdName" />
+
+    <Button
+        android:id="@+id/btnSearchId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/btnSearchId"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtFindIdPhone"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <TextView
+        android:id="@+id/tvFindId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnSearchId"
+        app:layout_constraintStart_toStartOf="@+id/btnSearchId"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearchId" />
+
+    <Button
+        android:id="@+id/btnGoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGoLogin"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSearchId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnSearchId"
+        app:layout_constraintTop_toTopOf="@+id/btnSearchId" />
+</androidx.constraintlayout.widget.ConstraintLayout>

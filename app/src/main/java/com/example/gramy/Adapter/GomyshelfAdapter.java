@@ -1,6 +1,5 @@
 package com.example.gramy.Adapter;
 
-import android.app.Person;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.gramy.R;
 import com.example.gramy.Vo_Info.GomyshelfVO;
+import com.example.gramy.Vo_Info.GoreportVO;
 
 import java.util.ArrayList;
 
@@ -56,9 +56,7 @@ public class GomyshelfAdapter extends RecyclerView.Adapter<GomyshelfAdapter.View
         return items.size();
     }
 
-    public void addItem(GomyshelfVO item) {
-        items.add(item);
-    }
+    public void addItem(GomyshelfVO item) { items.add(item); }
     public void setItems(ArrayList<GomyshelfVO> items) {
         this.items = items;
     }

@@ -70,17 +70,11 @@ public class BoardUpdateActivity extends AppCompatActivity {
 
     public void UpdateBoard (int board_seq, String title, String content) {
         int method = Request.Method.POST;
-        String server_url = "http://211.48.228.51:8082/app/update";
+        String server_url = "http://172.30.1.52:8082/app/update";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                try {
-                    if(response.equals("success")) {
-                        Toast.makeText(getApplicationContext(), "게시글이 수정되었습니다.", Toast.LENGTH_SHORT).show();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+
             }
         }, new Response.ErrorListener() {
             @Override

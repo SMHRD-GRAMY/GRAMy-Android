@@ -46,6 +46,7 @@ public class BoardWriteActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("sf_login", MODE_PRIVATE);
         String writerName = sharedPreferences.getString("user_name", "");
         String writerId = sharedPreferences.getString("user_id","");
+        System.out.println(sharedPreferences.getAll());
 
 
         tvWriteBoard.setOnClickListener(new View.OnClickListener() {
@@ -55,10 +56,8 @@ public class BoardWriteActivity extends AppCompatActivity {
                 String inputTitle = edtWriteTitle.getText().toString();
                 String inputContent = edtWriteContent.getText().toString();
                 writeBoard(writerId, writerName, inputTitle, inputContent);
-                adapter.notifyDataSetChanged();
-                Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
-                startActivity(intent);
                 finish();
+
             }
         });
         boardWriteBack = findViewById(R.id.tvCommentsBack);
@@ -66,9 +65,7 @@ public class BoardWriteActivity extends AppCompatActivity {
         boardWriteBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GoBoardActivity.class);
-                startActivity(intent);
-                finish();
+                onBackPressed();
             }
         });
 
@@ -76,12 +73,13 @@ public class BoardWriteActivity extends AppCompatActivity {
 
     public void writeBoard (String writerId, String writerName, String inputTitle, String inputContent) {
         int method = Request.Method.POST;
-        String server_url = "http://211.48.228.51:8082/app/insert";
+        String server_url = "http://172.30.1.52:8082/app/insert";
         StringRequest request = new StringRequest(method, server_url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 if (response.equals("success")) {
                     Toast.makeText(getApplicationContext(), "게시물이 성공적으로 작성되었습니다!", Toast.LENGTH_SHORT).show();
+                    adapter.notifyDataSetChanged();
                 }
             }
         }, new Response.ErrorListener() {

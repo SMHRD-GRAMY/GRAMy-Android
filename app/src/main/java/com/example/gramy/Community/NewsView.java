@@ -1,4 +1,4 @@
-package com.example.gramy.news;
+package com.example.gramy.Community;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -31,7 +31,7 @@ public class NewsView extends LinearLayout {
     public void setNews(NewsVO data) {
         //titleTV 세팅
         if(data.getTitle()!=null && data.getTitle().trim().length()>0)
-            titleTV.setText(data.getTitle().substring(0,25) + "  ...");
+            titleTV.setText(data.getTitle().substring(0,18) + " ...");
         else
             titleTV.setText("");
 

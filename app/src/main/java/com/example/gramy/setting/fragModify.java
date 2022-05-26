@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,6 +19,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,6 +28,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.gramy.HomeActivity;
 import com.example.gramy.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class fragModify extends Fragment {
 
@@ -65,13 +70,26 @@ public class fragModify extends Fragment {
 
         queue = Volley.newRequestQueue(getActivity());
 
+        rgModifyGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if(i==R.id.ModifyradioMan){
+                    chbModifyResult = "man";
+                } else if(i==R.id.ModifyradioWoman){
+                    chbModifyResult = "woman";
+                } else if(i==R.id.ModifyradioNotting){
+                    chbModifyResult = "notting";
+                }
+            }
+        });
+
         btnModify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.v("성별", "값 : "+chbModifyResult);
 
                 int method = Request.Method.POST;
-                String server_url = "http://119.200.31.65:8082/androidmodify.do";
+                String server_url = "http://119.200.31.65:8082/androidupdate.do";
 
                 request = new StringRequest(
                         method,
@@ -85,14 +103,20 @@ public class fragModify extends Fragment {
 
                                 AlertDialog.Builder alter = new AlertDialog.Builder(getActivity());
                                 alter.setTitle("개인정보수정");
-                                alter.setMessage("수정이 완료되었습니다.");
-                                alter.setPositiveButton("수정완료", new DialogInterface.OnClickListener() {
+                                alter.setMessage("수정하시겠습니까?");
+                                alter.setPositiveButton("예", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                                         fragSettingmain fragSettingmain = new fragSettingmain();
                                         transaction.replace(R.id.container, fragSettingmain);
                                         transaction.commit();
+                                    }
+                                });
+                                alter.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+
                                     }
                                 });
                             }
@@ -105,7 +129,23 @@ public class fragModify extends Fragment {
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
-                );
+                ){
+                    @Nullable
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> param = new HashMap<>();
+
+                        param.put("user_id", edtModifyId.getText().toString());
+                        param.put("user_pw", edtModifyPw.getText().toString());
+                        param.put("user_name", edtModifyName.getText().toString());
+                        param.put("user_phone", edtModifyPhone.getText().toString());
+                        param.put("user_addr", edtModifyAddr.getText().toString());
+                        param.put("user_gender", chbModifyResult);
+
+                        return param;
+                    }
+                };
+                queue.add(request);
             }
         });
 
